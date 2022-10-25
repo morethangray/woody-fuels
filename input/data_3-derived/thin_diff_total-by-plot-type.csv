@@ -1,0 +1,11 @@
+plot_id,data_type,total,lab_type,subset
+FOR05,dl,-0.2624671916,Duff & litter,survey_plot
+FOR05,wd,139.60178787926665,Coarse woody debris,survey_plot
+FOR06,dl,-0.5249343832,Duff & litter,survey_plot
+FOR06,wd,41.54198536692913,Coarse woody debris,survey_plot
+FOR07,dl,-0.8858267716499998,Duff & litter,survey_plot
+FOR07,wd,149.52460099955204,Coarse woody debris,survey_plot
+FOR08,dl,0.2624671915999999,Duff & litter,survey_plot
+FOR08,wd,-34.75479411723104,Coarse woody debris,survey_plot
+FOR10,dl,-0.9186351706,Duff & litter,survey_plot
+FOR10,wd,19.964842116556813,Coarse woody debris,survey_plot

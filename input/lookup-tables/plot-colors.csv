@@ -1,0 +1,21 @@
+﻿palette,palette_subset,variable_1,hex_code,levels,label,file_label
+fuel_class,all,hr0001,gray25,1,1-hr,wd-hr0001
+fuel_class,all,hr0010,#5c5c5c,2,10-hr,wd-hr0010
+fuel_class,all,hr0100,#858585,3,100-hr,wd-hr0100
+fuel_class,all,hr1000r,#adadab,4,1000-hr rotten,wd-hr1000s
+fuel_class,all,hr1000s,gray85,5,1000-hr sound,wd-hr1000r
+fuel_class,all,duff,gray70,6,Duff,dl-duff
+fuel_class,all,litter,gray70,7,Litter,dl-litter
+fuel_class,wd,hr0001,gray25,1,1-hr,wd-hr0001
+fuel_class,wd,hr0010,#5c5c5c,2,10-hr,wd-hr0010
+fuel_class,wd,hr0100,#858585,3,100-hr,wd-hr0100
+fuel_class,wd,hr1000r,gray85,4,1000-hr rotten,wd-hr1000r
+fuel_class,wd,hr1000s,#adadab,5,1000-hr sound,wd-hr1000s
+year,1pre_3post,2016,gray70,1,1 Year pre-fire (2016),
+year,1pre_3post,2017,#C47E61,2,0 Years post-fire (2017),
+year,1pre_3post,2019,#dbae84,3,2 Years post-fire (2019),
+year,1pre_3post,2021,#e9d097,4,4 Years post-fire (2021),
+year_muted,1pre_3post,2016,gray70,1,1 Year pre-fire (2016),
+year_muted,1pre_3post,2017,#c38368,2,0 Years post-fire (2017),
+year_muted,1pre_3post,2019,#dab494,3,2 Years post-fire (2019),
+year_muted,1pre_3post,2021,#F4D6A5,4,4 Years post-fire (2021),

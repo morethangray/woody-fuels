@@ -1,0 +1,46 @@
+method,data_type,subset,fuel_class,year,plot_id,is_extreme_outlier,is_normal,p_value
+outlier test,ld,yr_plot,,2017,RxF03,TRUE,,
+outlier test,ld,yr_plot_class,duff,2021,RxF03,TRUE,,
+outlier test,ld,yr_plot_class,duff,2021,RxF04,TRUE,,
+Shapiro-Wilk normality test,ld,yr_plot_class,,2016,,,FALSE,0.748417283
+Shapiro-Wilk normality test,ld,yr_plot_class,,2017,,,TRUE,0.009499903
+Shapiro-Wilk normality test,ld,yr_plot_class,,2019,,,FALSE,0.348814673
+Shapiro-Wilk normality test,ld,yr_plot_class,,2021,,,FALSE,0.200940168
+Shapiro-Wilk normality test,ld,yr_plot_class_plot,duff,2016,,,FALSE,0.445317906
+Shapiro-Wilk normality test,ld,yr_plot_class_plot,litter,2016,,,FALSE,0.260471154
+Shapiro-Wilk normality test,ld,yr_plot_class_plot,duff,2017,,,FALSE,0.690509897
+Shapiro-Wilk normality test,ld,yr_plot_class_plot,litter,2017,,,TRUE,0.006611888
+Shapiro-Wilk normality test,ld,yr_plot_class_plot,duff,2019,,,FALSE,0.217930268
+Shapiro-Wilk normality test,ld,yr_plot_class_plot,litter,2019,,,FALSE,0.250931802
+Shapiro-Wilk normality test,ld,yr_plot_class_plot,duff,2021,,,TRUE,5.01E-07
+Shapiro-Wilk normality test,ld,yr_plot_class_plot,litter,2021,,,FALSE,0.231359643
+outlier test,dw,yr_plot_class,hr1000s,2016,RxF04,TRUE,,
+outlier test,dw,yr_plot_class,hr0100,2017,RxF03,TRUE,,
+outlier test,dw,yr_plot_class,hr0100,2017,RxF08,TRUE,,
+outlier test,dw,yr_plot_class,hr0001,2021,RxF03,TRUE,,
+outlier test,dw,yr_plot_class,hr0001,2021,RxF04,TRUE,,
+outlier test,dw,yr_plot_class,hr0001,2021,RxF05,TRUE,,
+outlier test,dw,yr_plot_class,hr0001,2021,RxF08,TRUE,,
+outlier test,dw,yr_plot_class,hr0100,2021,RxF04,TRUE,,
+outlier test,dw,yr_plot_class,hr0100,2021,RxF05,TRUE,,
+Shapiro-Wilk normality test,dw,yr_plot_class,,2016,,,TRUE,0.013319659
+Shapiro-Wilk normality test,dw,yr_plot_class,,2017,,,TRUE,0.009048328
+Shapiro-Wilk normality test,dw,yr_plot_class,,2019,,,TRUE,0.001602302
+Shapiro-Wilk normality test,dw,yr_plot_class,,2021,,,FALSE,0.053346243
+Shapiro-Wilk normality test,dw,yr_plot_class_plot,hr0001,2016,,,FALSE,0.142559333
+Shapiro-Wilk normality test,dw,yr_plot_class_plot,hr0010,2016,,,FALSE,0.395720996
+Shapiro-Wilk normality test,dw,yr_plot_class_plot,hr0100,2016,,,FALSE,0.477918657
+Shapiro-Wilk normality test,dw,yr_plot_class_plot,hr1000r,2016,,,TRUE,0.003618992
+Shapiro-Wilk normality test,dw,yr_plot_class_plot,hr1000s,2016,,,TRUE,4.23E-05
+Shapiro-Wilk normality test,dw,yr_plot_class_plot,hr0001,2017,,,FALSE,0.195102082
+Shapiro-Wilk normality test,dw,yr_plot_class_plot,hr0010,2017,,,TRUE,0.005943002
+Shapiro-Wilk normality test,dw,yr_plot_class_plot,hr0100,2017,,,TRUE,2.58E-05
+Shapiro-Wilk normality test,dw,yr_plot_class_plot,hr1000r,2017,,,TRUE,0.006614263
+Shapiro-Wilk normality test,dw,yr_plot_class_plot,hr0001,2019,,,FALSE,0.740571631
+Shapiro-Wilk normality test,dw,yr_plot_class_plot,hr0010,2019,,,FALSE,0.121892501
+Shapiro-Wilk normality test,dw,yr_plot_class_plot,hr0100,2019,,,TRUE,1.66E-04
+Shapiro-Wilk normality test,dw,yr_plot_class_plot,hr1000r,2019,,,TRUE,8.52E-04
+Shapiro-Wilk normality test,dw,yr_plot_class_plot,hr0001,2021,,,FALSE,0.163661078
+Shapiro-Wilk normality test,dw,yr_plot_class_plot,hr0010,2021,,,FALSE,0.8528101
+Shapiro-Wilk normality test,dw,yr_plot_class_plot,hr0100,2021,,,TRUE,2.16E-05
+Shapiro-Wilk normality test,dw,yr_plot_class_plot,hr1000r,2021,,,TRUE,0.031971408

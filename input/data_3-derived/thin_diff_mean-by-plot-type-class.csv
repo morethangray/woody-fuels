@@ -1,0 +1,36 @@
+plot_id,data_type,fuel_class,mean,lab_fuel,lab_type,subset
+FOR05,dl,duff,0.06561679789999998,Duff,Duff & litter,survey_plot_class
+FOR05,dl,litter,-0.32808398949999995,Litter,Duff & litter,survey_plot_class
+FOR05,wd,hr0001,0.15266511056143256,1-hr,Coarse woody debris,survey_plot_class
+FOR05,wd,hr0010,0.4141336676524534,10-hr,Coarse woody debris,survey_plot_class
+FOR05,wd,hr0100,5.980390316054174,100-hr,Coarse woody debris,survey_plot_class
+FOR05,wd,hr1000r,0,1000-hr rotten,Coarse woody debris,survey_plot_class
+FOR05,wd,hr1000s,133.0545987849986,1000-hr sound,Coarse woody debris,survey_plot_class
+FOR06,dl,duff,0.1312335958,Duff,Duff & litter,survey_plot_class
+FOR06,dl,litter,-0.6561679789999999,Litter,Duff & litter,survey_plot_class
+FOR06,wd,hr0001,1.632506637380489,1-hr,Coarse woody debris,survey_plot_class
+FOR06,wd,hr0010,1.7162014128357121,10-hr,Coarse woody debris,survey_plot_class
+FOR06,wd,hr0100,3.8882921608357646,100-hr,Coarse woody debris,survey_plot_class
+FOR06,wd,hr1000r,0,1000-hr rotten,Coarse woody debris,survey_plot_class
+FOR06,wd,hr1000s,34.30498515587717,1000-hr sound,Coarse woody debris,survey_plot_class
+FOR07,dl,duff,-0.09842519684999998,Duff,Duff & litter,survey_plot_class
+FOR07,dl,litter,-0.7874015747999998,Litter,Duff & litter,survey_plot_class
+FOR07,wd,hr0001,-0.4044792957458131,1-hr,Coarse woody debris,survey_plot_class
+FOR07,wd,hr0010,1.0915777025498534,10-hr,Coarse woody debris,survey_plot_class
+FOR07,wd,hr0100,2.5234497107683946,100-hr,Coarse woody debris,survey_plot_class
+FOR07,wd,hr1000r,0,1000-hr rotten,Coarse woody debris,survey_plot_class
+FOR07,wd,hr1000s,146.3140528819796,1000-hr sound,Coarse woody debris,survey_plot_class
+FOR08,dl,duff,0.3937007874,Duff,Duff & litter,survey_plot_class
+FOR08,dl,litter,-0.13123359580000005,Litter,Duff & litter,survey_plot_class
+FOR08,wd,hr0001,0.29435873928275075,1-hr,Coarse woody debris,survey_plot_class
+FOR08,wd,hr0010,0.24124044950616721,10-hr,Coarse woody debris,survey_plot_class
+FOR08,wd,hr0100,-47.14265656039077,100-hr,Coarse woody debris,survey_plot_class
+FOR08,wd,hr1000r,-15.52698242930673,1000-hr rotten,Coarse woody debris,survey_plot_class
+FOR08,wd,hr1000s,27.37924568367754,1000-hr sound,Coarse woody debris,survey_plot_class
+FOR10,dl,duff,0.0656167979,Duff,Duff & litter,survey_plot_class
+FOR10,dl,litter,-0.9842519685,Litter,Duff & litter,survey_plot_class
+FOR10,wd,hr0001,0.69870344385972,1-hr,Coarse woody debris,survey_plot_class
+FOR10,wd,hr0010,0.2740779054919718,10-hr,Coarse woody debris,survey_plot_class
+FOR10,wd,hr0100,0.4697327498766571,100-hr,Coarse woody debris,survey_plot_class
+FOR10,wd,hr1000r,0,1000-hr rotten,Coarse woody debris,survey_plot_class
+FOR10,wd,hr1000s,18.522328017328466,1000-hr sound,Coarse woody debris,survey_plot_class

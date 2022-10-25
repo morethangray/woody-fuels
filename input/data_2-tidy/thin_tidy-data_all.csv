@@ -1,0 +1,271 @@
+year,plot_id,survey,timing,date,plot_tran,transect_id,transect_rep,data_type,fuel_class,value,units,lab_fuel,lab_timing
+2021,FOR05,cont,pre,2021-07-07,FOR05_H1,H1,1,dw,hr0001,0.21884841474637637,tons_per_acre,1-hr,Pre-thinning
+2021,FOR05,trmt,post,2021-10-19,FOR05_H1,H1,1,dw,hr0001,0.7160234039550121,tons_per_acre,1-hr,Post-thinning
+2021,FOR05,cont,pre,2021-07-07,FOR05_H2,H2,1,dw,hr0001,1.0072360225595152,tons_per_acre,1-hr,Pre-thinning
+2021,FOR05,trmt,post,2021-10-19,FOR05_H2,H2,1,dw,hr0001,0.6529196224287968,tons_per_acre,1-hr,Post-thinning
+2021,FOR05,cont,pre,2021-07-07,FOR05_H3,H3,1,dw,hr0001,0.4796423299578135,tons_per_acre,1-hr,Pre-thinning
+2021,FOR05,trmt,post,2021-10-19,FOR05_H3,H3,1,dw,hr0001,0.7947790725641939,tons_per_acre,1-hr,Post-thinning
+2021,FOR06,cont,pre,2021-06-16,FOR06_H1,H1,1,dw,hr0001,0.39319220766317337,tons_per_acre,1-hr,Pre-thinning
+2021,FOR06,trmt,post,2021-10-19,FOR06_H1,H1,1,dw,hr0001,1.1009512229905374,tons_per_acre,1-hr,Post-thinning
+2021,FOR06,cont,pre,2021-06-16,FOR06_H2,H2,1,dw,hr0001,0,tons_per_acre,1-hr,Pre-thinning
+2021,FOR06,trmt,post,2021-10-19,FOR06_H2,H2,1,dw,hr0001,3.8932188175317557,tons_per_acre,1-hr,Post-thinning
+2021,FOR06,cont,pre,2021-06-16,FOR06_H3,H3,1,dw,hr0001,0.11180912406222471,tons_per_acre,1-hr,Pre-thinning
+2021,FOR06,trmt,post,2021-10-19,FOR06_H3,H3,1,dw,hr0001,0.40835120334457203,tons_per_acre,1-hr,Post-thinning
+2021,FOR07,cont,pre,2021-06-10,FOR07_H1,H1,1,dw,hr0001,2.629935572349867,tons_per_acre,1-hr,Pre-thinning
+2021,FOR07,trmt,post,2021-10-18,FOR07_H1,H1,1,dw,hr0001,1.246977358479395,tons_per_acre,1-hr,Post-thinning
+2021,FOR07,cont,pre,2021-06-10,FOR07_H2,H2,1,dw,hr0001,0.4479364195573532,tons_per_acre,1-hr,Pre-thinning
+2021,FOR07,trmt,post,2021-10-18,FOR07_H2,H2,1,dw,hr0001,0.7377863718052876,tons_per_acre,1-hr,Post-thinning
+2021,FOR07,cont,pre,2021-06-10,FOR07_H3,H3,1,dw,hr0001,0.7255257226858923,tons_per_acre,1-hr,Pre-thinning
+2021,FOR07,trmt,post,2021-10-18,FOR07_H3,H3,1,dw,hr0001,0.6051960970709908,tons_per_acre,1-hr,Post-thinning
+2021,FOR08,cont,pre,2021-06-15,FOR08_H1,H1,1,dw,hr0001,0.052843306361523006,tons_per_acre,1-hr,Pre-thinning
+2021,FOR08,trmt,post,2021-10-19,FOR08_H1,H1,1,dw,hr0001,0.17691229520743465,tons_per_acre,1-hr,Post-thinning
+2021,FOR08,cont,pre,2021-06-15,FOR08_H2,H2,1,dw,hr0001,0.07842326666678454,tons_per_acre,1-hr,Pre-thinning
+2021,FOR08,trmt,post,2021-10-19,FOR08_H2,H2,1,dw,hr0001,0.19094586768411614,tons_per_acre,1-hr,Post-thinning
+2021,FOR08,cont,pre,2021-06-15,FOR08_H3,H3,1,dw,hr0001,0.21317436887013932,tons_per_acre,1-hr,Pre-thinning
+2021,FOR08,trmt,post,2021-10-19,FOR08_H3,H3,1,dw,hr0001,0.8596589968551483,tons_per_acre,1-hr,Post-thinning
+2021,FOR10,cont,pre,2021-06-09,FOR10_H1,H1,1,dw,hr0001,0.1788495606436711,tons_per_acre,1-hr,Pre-thinning
+2021,FOR10,trmt,post,2021-12-09,FOR10_H1,H1,1,dw,hr0001,0.6531974373204649,tons_per_acre,1-hr,Post-thinning
+2021,FOR10,cont,pre,2021-06-09,FOR10_H2,H2,1,dw,hr0001,0.07842326666678454,tons_per_acre,1-hr,Pre-thinning
+2021,FOR10,trmt,post,2021-12-09,FOR10_H2,H2,1,dw,hr0001,1.3047967625081272,tons_per_acre,1-hr,Post-thinning
+2021,FOR10,cont,pre,2021-06-09,FOR10_H3,H3,1,dw,hr0001,0,tons_per_acre,1-hr,Pre-thinning
+2021,FOR10,trmt,post,2021-12-09,FOR10_H3,H3,1,dw,hr0001,0.39538895906102384,tons_per_acre,1-hr,Post-thinning
+2021,FOR05,cont,pre,2021-07-07,FOR05_H1,H1,1,dw,hr0010,1.3396117738265667,tons_per_acre,10-hr,Pre-thinning
+2021,FOR05,trmt,post,2021-10-19,FOR05_H1,H1,1,dw,hr0010,3.0626019258866943,tons_per_acre,10-hr,Post-thinning
+2021,FOR05,cont,pre,2021-07-07,FOR05_H2,H2,1,dw,hr0010,2.8825614598656983,tons_per_acre,10-hr,Pre-thinning
+2021,FOR05,trmt,post,2021-10-19,FOR05_H2,H2,1,dw,hr0010,3.2218130642364335,tons_per_acre,10-hr,Post-thinning
+2021,FOR05,cont,pre,2021-07-07,FOR05_H3,H3,1,dw,hr0010,2.609759771369005,tons_per_acre,10-hr,Pre-thinning
+2021,FOR05,trmt,post,2021-10-19,FOR05_H3,H3,1,dw,hr0010,1.7899190178955025,tons_per_acre,10-hr,Post-thinning
+2021,FOR06,cont,pre,2021-06-16,FOR06_H1,H1,1,dw,hr0010,0.32090699940892536,tons_per_acre,10-hr,Pre-thinning
+2021,FOR06,trmt,post,2021-10-19,FOR06_H1,H1,1,dw,hr0010,2.3476900722971044,tons_per_acre,10-hr,Post-thinning
+2021,FOR06,cont,pre,2021-06-16,FOR06_H2,H2,1,dw,hr0010,1.925441996453552,tons_per_acre,10-hr,Pre-thinning
+2021,FOR06,trmt,post,2021-10-19,FOR06_H2,H2,1,dw,hr0010,4.108457626519932,tons_per_acre,10-hr,Post-thinning
+2021,FOR06,cont,pre,2021-06-16,FOR06_H3,H3,1,dw,hr0010,0,tons_per_acre,10-hr,Pre-thinning
+2021,FOR06,trmt,post,2021-10-19,FOR06_H3,H3,1,dw,hr0010,0.9388055355525765,tons_per_acre,10-hr,Post-thinning
+2021,FOR07,cont,pre,2021-06-10,FOR07_H1,H1,1,dw,hr0010,5.761505381948633,tons_per_acre,10-hr,Pre-thinning
+2021,FOR07,trmt,post,2021-10-18,FOR07_H1,H1,1,dw,hr0010,7.438234723089612,tons_per_acre,10-hr,Post-thinning
+2021,FOR07,cont,pre,2021-06-10,FOR07_H2,H2,1,dw,hr0010,0.9677301103492247,tons_per_acre,10-hr,Pre-thinning
+2021,FOR07,trmt,post,2021-10-18,FOR07_H2,H2,1,dw,hr0010,1.4749408037962821,tons_per_acre,10-hr,Post-thinning
+2021,FOR07,cont,pre,2021-06-10,FOR07_H3,H3,1,dw,hr0010,1.3158748550026178,tons_per_acre,10-hr,Pre-thinning
+2021,FOR07,trmt,post,2021-10-18,FOR07_H3,H3,1,dw,hr0010,2.406667928064142,tons_per_acre,10-hr,Post-thinning
+2021,FOR08,cont,pre,2021-06-15,FOR08_H1,H1,1,dw,hr0010,0.32346368810511406,tons_per_acre,10-hr,Pre-thinning
+2021,FOR08,trmt,post,2021-10-19,FOR08_H1,H1,1,dw,hr0010,0.2957992855841797,tons_per_acre,10-hr,Post-thinning
+2021,FOR08,cont,pre,2021-06-15,FOR08_H2,H2,1,dw,hr0010,0.9600867476286309,tons_per_acre,10-hr,Pre-thinning
+2021,FOR08,trmt,post,2021-10-19,FOR08_H2,H2,1,dw,hr0010,1.1706330962466496,tons_per_acre,10-hr,Post-thinning
+2021,FOR08,cont,pre,2021-06-15,FOR08_H3,H3,1,dw,hr0010,0.6524399428422513,tons_per_acre,10-hr,Pre-thinning
+2021,FOR08,trmt,post,2021-10-19,FOR08_H3,H3,1,dw,hr0010,1.1932793452636685,tons_per_acre,10-hr,Post-thinning
+2021,FOR10,cont,pre,2021-06-09,FOR10_H1,H1,1,dw,hr0010,2.694821815262182,tons_per_acre,10-hr,Pre-thinning
+2021,FOR10,trmt,post,2021-12-09,FOR10_H1,H1,1,dw,hr0010,1.5402160989091038,tons_per_acre,10-hr,Post-thinning
+2021,FOR10,cont,pre,2021-06-09,FOR10_H2,H2,1,dw,hr0010,0.9600867476286309,tons_per_acre,10-hr,Pre-thinning
+2021,FOR10,trmt,post,2021-12-09,FOR10_H2,H2,1,dw,hr0010,2.6339244665549617,tons_per_acre,10-hr,Post-thinning
+2021,FOR10,cont,pre,2021-06-09,FOR10_H3,H3,1,dw,hr0010,0,tons_per_acre,10-hr,Pre-thinning
+2021,FOR10,trmt,post,2021-12-09,FOR10_H3,H3,1,dw,hr0010,0.3030017139026628,tons_per_acre,10-hr,Post-thinning
+2021,FOR05,cont,pre,2021-07-07,FOR05_H1,H1,1,dw,hr0100,1.483514664202236,tons_per_acre,100-hr,Pre-thinning
+2021,FOR05,trmt,post,2021-10-19,FOR05_H1,H1,1,dw,hr0100,9.104759772749357,tons_per_acre,100-hr,Post-thinning
+2021,FOR05,cont,pre,2021-07-07,FOR05_H2,H2,1,dw,hr0100,0,tons_per_acre,100-hr,Pre-thinning
+2021,FOR05,trmt,post,2021-10-19,FOR05_H2,H2,1,dw,hr0100,1.4512236353093284,tons_per_acre,100-hr,Post-thinning
+2021,FOR05,cont,pre,2021-07-07,FOR05_H3,H3,1,dw,hr0100,0,tons_per_acre,100-hr,Pre-thinning
+2021,FOR05,trmt,post,2021-10-19,FOR05_H3,H3,1,dw,hr0100,8.868702204306071,tons_per_acre,100-hr,Post-thinning
+2021,FOR06,cont,pre,2021-06-16,FOR06_H1,H1,1,dw,hr0100,1.4215170358152247,tons_per_acre,100-hr,Pre-thinning
+2021,FOR06,trmt,post,2021-10-19,FOR06_H1,H1,1,dw,hr0100,5.81617489703223,tons_per_acre,100-hr,Post-thinning
+2021,FOR06,cont,pre,2021-06-16,FOR06_H2,H2,1,dw,hr0100,0,tons_per_acre,100-hr,Pre-thinning
+2021,FOR06,trmt,post,2021-10-19,FOR06_H2,H2,1,dw,hr0100,7.2702186212902875,tons_per_acre,100-hr,Post-thinning
+2021,FOR06,cont,pre,2021-06-16,FOR06_H3,H3,1,dw,hr0100,0,tons_per_acre,100-hr,Pre-thinning
+2021,FOR06,trmt,post,2021-10-19,FOR06_H3,H3,1,dw,hr0100,0,tons_per_acre,100-hr,Post-thinning
+2021,FOR07,cont,pre,2021-06-10,FOR07_H1,H1,1,dw,hr0100,3.0025477667128,tons_per_acre,100-hr,Pre-thinning
+2021,FOR07,trmt,post,2021-10-18,FOR07_H1,H1,1,dw,hr0100,4.606876625790876,tons_per_acre,100-hr,Post-thinning
+2021,FOR07,cont,pre,2021-06-10,FOR07_H2,H2,1,dw,hr0100,1.428913299353139,tons_per_acre,100-hr,Pre-thinning
+2021,FOR07,trmt,post,2021-10-18,FOR07_H2,H2,1,dw,hr0100,2.9232184533641794,tons_per_acre,100-hr,Post-thinning
+2021,FOR07,cont,pre,2021-06-10,FOR07_H3,H3,1,dw,hr0100,0,tons_per_acre,100-hr,Pre-thinning
+2021,FOR07,trmt,post,2021-10-18,FOR07_H3,H3,1,dw,hr0100,4.471715119216068,tons_per_acre,100-hr,Post-thinning
+2021,FOR08,cont,pre,2021-06-15,FOR08_H1,H1,1,dw,hr0100,0,tons_per_acre,100-hr,Pre-thinning
+2021,FOR08,trmt,post,2021-10-19,FOR08_H1,H1,1,dw,hr0100,0,tons_per_acre,100-hr,Post-thinning
+2021,FOR08,cont,pre,2021-06-15,FOR08_H2,H2,1,dw,hr0100,2.8352548040985956,tons_per_acre,100-hr,Pre-thinning
+2021,FOR08,trmt,post,2021-10-19,FOR08_H2,H2,1,dw,hr0100,0,tons_per_acre,100-hr,Post-thinning
+2021,FOR08,cont,pre,2021-06-15,FOR08_H3,H3,1,dw,hr0100,144.50518301327776,tons_per_acre,100-hr,Pre-thinning
+2021,FOR08,trmt,post,2021-10-19,FOR08_H3,H3,1,dw,hr0100,5.912468136204048,tons_per_acre,100-hr,Post-thinning
+2021,FOR10,cont,pre,2021-06-09,FOR10_H1,H1,1,dw,hr0100,5.9686063656097925,tons_per_acre,100-hr,Pre-thinning
+2021,FOR10,trmt,post,2021-12-09,FOR10_H1,H1,1,dw,hr0100,1.5262945166718527,tons_per_acre,100-hr,Post-thinning
+2021,FOR10,cont,pre,2021-06-09,FOR10_H2,H2,1,dw,hr0100,0,tons_per_acre,100-hr,Pre-thinning
+2021,FOR10,trmt,post,2021-12-09,FOR10_H2,H2,1,dw,hr0100,4.3501952674888065,tons_per_acre,100-hr,Post-thinning
+2021,FOR10,cont,pre,2021-06-09,FOR10_H3,H3,1,dw,hr0100,0,tons_per_acre,100-hr,Pre-thinning
+2021,FOR10,trmt,post,2021-12-09,FOR10_H3,H3,1,dw,hr0100,1.5013148310791045,tons_per_acre,100-hr,Post-thinning
+2021,FOR05,cont,pre,2021-07-07,FOR05_H1,H1,1,dw,hr1000s,0,tons_per_acre,1000-hr sound,Pre-thinning
+2021,FOR05,trmt,post,2021-10-19,FOR05_H1,H1,1,dw,hr1000s,122.67717242907744,tons_per_acre,1000-hr sound,Post-thinning
+2021,FOR05,cont,pre,2021-07-07,FOR05_H2,H2,1,dw,hr1000s,9.94520824968487,tons_per_acre,1000-hr sound,Pre-thinning
+2021,FOR05,trmt,post,2021-10-19,FOR05_H2,H2,1,dw,hr1000s,68.5287005954848,tons_per_acre,1000-hr sound,Post-thinning
+2021,FOR05,cont,pre,2021-07-07,FOR05_H3,H3,1,dw,hr1000s,28.84535734917493,tons_per_acre,1000-hr sound,Pre-thinning
+2021,FOR05,trmt,post,2021-10-19,FOR05_H3,H3,1,dw,hr1000s,246.74848892929333,tons_per_acre,1000-hr sound,Post-thinning
+2021,FOR06,cont,pre,2021-06-16,FOR06_H1,H1,1,dw,hr1000s,0,tons_per_acre,1000-hr sound,Pre-thinning
+2021,FOR06,trmt,post,2021-10-19,FOR06_H1,H1,1,dw,hr1000s,0,tons_per_acre,1000-hr sound,Post-thinning
+2021,FOR06,cont,pre,2021-06-16,FOR06_H2,H2,1,dw,hr1000s,0,tons_per_acre,1000-hr sound,Pre-thinning
+2021,FOR06,trmt,post,2021-10-19,FOR06_H2,H2,1,dw,hr1000s,102.9149554676315,tons_per_acre,1000-hr sound,Post-thinning
+2021,FOR06,cont,pre,2021-06-16,FOR06_H3,H3,1,dw,hr1000s,0,tons_per_acre,1000-hr sound,Pre-thinning
+2021,FOR06,trmt,post,2021-10-19,FOR06_H3,H3,1,dw,hr1000s,0,tons_per_acre,1000-hr sound,Post-thinning
+2021,FOR07,cont,pre,2021-06-10,FOR07_H1,H1,1,dw,hr1000s,10.523612926671143,tons_per_acre,1000-hr sound,Pre-thinning
+2021,FOR07,trmt,post,2021-10-18,FOR07_H1,H1,1,dw,hr1000s,129.24312125568,tons_per_acre,1000-hr sound,Post-thinning
+2021,FOR07,cont,pre,2021-06-10,FOR07_H2,H2,1,dw,hr1000s,50.081902559132075,tons_per_acre,1000-hr sound,Pre-thinning
+2021,FOR07,trmt,post,2021-10-18,FOR07_H2,H2,1,dw,hr1000s,87.79983542397841,tons_per_acre,1000-hr sound,Post-thinning
+2021,FOR07,cont,pre,2021-06-10,FOR07_H3,H3,1,dw,hr1000s,0,tons_per_acre,1000-hr sound,Pre-thinning
+2021,FOR07,trmt,post,2021-10-18,FOR07_H3,H3,1,dw,hr1000s,282.5047174520836,tons_per_acre,1000-hr sound,Post-thinning
+2021,FOR08,cont,pre,2021-06-15,FOR08_H1,H1,1,dw,hr1000s,0,tons_per_acre,1000-hr sound,Pre-thinning
+2021,FOR08,trmt,post,2021-10-19,FOR08_H1,H1,1,dw,hr1000s,0,tons_per_acre,1000-hr sound,Post-thinning
+2021,FOR08,cont,pre,2021-06-15,FOR08_H2,H2,1,dw,hr1000s,0,tons_per_acre,1000-hr sound,Pre-thinning
+2021,FOR08,trmt,post,2021-10-19,FOR08_H2,H2,1,dw,hr1000s,82.13773705103262,tons_per_acre,1000-hr sound,Post-thinning
+2021,FOR08,cont,pre,2021-06-15,FOR08_H3,H3,1,dw,hr1000s,0,tons_per_acre,1000-hr sound,Pre-thinning
+2021,FOR08,trmt,post,2021-10-19,FOR08_H3,H3,1,dw,hr1000s,0,tons_per_acre,1000-hr sound,Post-thinning
+2021,FOR10,cont,pre,2021-06-09,FOR10_H1,H1,1,dw,hr1000s,0,tons_per_acre,1000-hr sound,Pre-thinning
+2021,FOR10,trmt,post,2021-12-09,FOR10_H1,H1,1,dw,hr1000s,55.5669840519854,tons_per_acre,1000-hr sound,Post-thinning
+2021,FOR10,cont,pre,2021-06-09,FOR10_H2,H2,1,dw,hr1000s,0,tons_per_acre,1000-hr sound,Pre-thinning
+2021,FOR10,trmt,post,2021-12-09,FOR10_H2,H2,1,dw,hr1000s,0,tons_per_acre,1000-hr sound,Post-thinning
+2021,FOR10,cont,pre,2021-06-09,FOR10_H3,H3,1,dw,hr1000s,0,tons_per_acre,1000-hr sound,Pre-thinning
+2021,FOR10,trmt,post,2021-12-09,FOR10_H3,H3,1,dw,hr1000s,0,tons_per_acre,1000-hr sound,Post-thinning
+2021,FOR05,cont,pre,2021-07-07,FOR05_H1,H1,1,dw,hr1000r,0,tons_per_acre,1000-hr rotten,Pre-thinning
+2021,FOR05,trmt,post,2021-10-19,FOR05_H1,H1,1,dw,hr1000r,0,tons_per_acre,1000-hr rotten,Post-thinning
+2021,FOR05,cont,pre,2021-07-07,FOR05_H2,H2,1,dw,hr1000r,0,tons_per_acre,1000-hr rotten,Pre-thinning
+2021,FOR05,trmt,post,2021-10-19,FOR05_H2,H2,1,dw,hr1000r,0,tons_per_acre,1000-hr rotten,Post-thinning
+2021,FOR05,cont,pre,2021-07-07,FOR05_H3,H3,1,dw,hr1000r,0,tons_per_acre,1000-hr rotten,Pre-thinning
+2021,FOR05,trmt,post,2021-10-19,FOR05_H3,H3,1,dw,hr1000r,0,tons_per_acre,1000-hr rotten,Post-thinning
+2021,FOR06,cont,pre,2021-06-16,FOR06_H1,H1,1,dw,hr1000r,0,tons_per_acre,1000-hr rotten,Pre-thinning
+2021,FOR06,trmt,post,2021-10-19,FOR06_H1,H1,1,dw,hr1000r,0,tons_per_acre,1000-hr rotten,Post-thinning
+2021,FOR06,cont,pre,2021-06-16,FOR06_H2,H2,1,dw,hr1000r,0,tons_per_acre,1000-hr rotten,Pre-thinning
+2021,FOR06,trmt,post,2021-10-19,FOR06_H2,H2,1,dw,hr1000r,0,tons_per_acre,1000-hr rotten,Post-thinning
+2021,FOR06,cont,pre,2021-06-16,FOR06_H3,H3,1,dw,hr1000r,0,tons_per_acre,1000-hr rotten,Pre-thinning
+2021,FOR06,trmt,post,2021-10-19,FOR06_H3,H3,1,dw,hr1000r,0,tons_per_acre,1000-hr rotten,Post-thinning
+2021,FOR07,cont,pre,2021-06-10,FOR07_H1,H1,1,dw,hr1000r,0,tons_per_acre,1000-hr rotten,Pre-thinning
+2021,FOR07,trmt,post,2021-10-18,FOR07_H1,H1,1,dw,hr1000r,0,tons_per_acre,1000-hr rotten,Post-thinning
+2021,FOR07,cont,pre,2021-06-10,FOR07_H2,H2,1,dw,hr1000r,0,tons_per_acre,1000-hr rotten,Pre-thinning
+2021,FOR07,trmt,post,2021-10-18,FOR07_H2,H2,1,dw,hr1000r,0,tons_per_acre,1000-hr rotten,Post-thinning
+2021,FOR07,cont,pre,2021-06-10,FOR07_H3,H3,1,dw,hr1000r,0,tons_per_acre,1000-hr rotten,Pre-thinning
+2021,FOR07,trmt,post,2021-10-18,FOR07_H3,H3,1,dw,hr1000r,0,tons_per_acre,1000-hr rotten,Post-thinning
+2021,FOR08,cont,pre,2021-06-15,FOR08_H1,H1,1,dw,hr1000r,0,tons_per_acre,1000-hr rotten,Pre-thinning
+2021,FOR08,trmt,post,2021-10-19,FOR08_H1,H1,1,dw,hr1000r,0,tons_per_acre,1000-hr rotten,Post-thinning
+2021,FOR08,cont,pre,2021-06-15,FOR08_H2,H2,1,dw,hr1000r,46.58094728792019,tons_per_acre,1000-hr rotten,Pre-thinning
+2021,FOR08,trmt,post,2021-10-19,FOR08_H2,H2,1,dw,hr1000r,0,tons_per_acre,1000-hr rotten,Post-thinning
+2021,FOR08,cont,pre,2021-06-15,FOR08_H3,H3,1,dw,hr1000r,0,tons_per_acre,1000-hr rotten,Pre-thinning
+2021,FOR08,trmt,post,2021-10-19,FOR08_H3,H3,1,dw,hr1000r,0,tons_per_acre,1000-hr rotten,Post-thinning
+2021,FOR10,cont,pre,2021-06-09,FOR10_H1,H1,1,dw,hr1000r,0,tons_per_acre,1000-hr rotten,Pre-thinning
+2021,FOR10,trmt,post,2021-12-09,FOR10_H1,H1,1,dw,hr1000r,0,tons_per_acre,1000-hr rotten,Post-thinning
+2021,FOR10,cont,pre,2021-06-09,FOR10_H2,H2,1,dw,hr1000r,0,tons_per_acre,1000-hr rotten,Pre-thinning
+2021,FOR10,trmt,post,2021-12-09,FOR10_H2,H2,1,dw,hr1000r,0,tons_per_acre,1000-hr rotten,Post-thinning
+2021,FOR10,cont,pre,2021-06-09,FOR10_H3,H3,1,dw,hr1000r,0,tons_per_acre,1000-hr rotten,Pre-thinning
+2021,FOR10,trmt,post,2021-12-09,FOR10_H3,H3,1,dw,hr1000r,0,tons_per_acre,1000-hr rotten,Post-thinning
+2021,FOR05,cont,pre,2021-07-07,FOR05_H1,H1,1,gf,litter,1.968503937,depth_in_inches,Litter,Pre-thinning
+2021,FOR05,trmt,post,2021-10-19,FOR05_H1,H1,1,gf,litter,2.7559055118,depth_in_inches,Litter,Post-thinning
+2021,FOR05,cont,pre,2021-07-07,FOR05_H2,H2,1,gf,litter,1.5748031496,depth_in_inches,Litter,Pre-thinning
+2021,FOR05,trmt,post,2021-10-19,FOR05_H2,H2,1,gf,litter,1.968503937,depth_in_inches,Litter,Post-thinning
+2021,FOR05,cont,pre,2021-07-07,FOR05_H3,H3,1,gf,litter,2.7559055118,depth_in_inches,Litter,Pre-thinning
+2021,FOR05,trmt,post,2021-10-19,FOR05_H3,H3,1,gf,litter,1.5748031496,depth_in_inches,Litter,Post-thinning
+2021,FOR06,cont,pre,2021-06-16,FOR06_H1,H1,1,gf,litter,2.3622047243999997,depth_in_inches,Litter,Pre-thinning
+2021,FOR06,trmt,post,2021-10-19,FOR06_H1,H1,1,gf,litter,0.7874015748,depth_in_inches,Litter,Post-thinning
+2021,FOR06,cont,pre,2021-06-16,FOR06_H2,H2,1,gf,litter,0.7874015748,depth_in_inches,Litter,Pre-thinning
+2021,FOR06,trmt,post,2021-10-19,FOR06_H2,H2,1,gf,litter,1.5748031496,depth_in_inches,Litter,Post-thinning
+2021,FOR06,cont,pre,2021-06-16,FOR06_H3,H3,1,gf,litter,2.7559055118,depth_in_inches,Litter,Pre-thinning
+2021,FOR06,trmt,post,2021-10-19,FOR06_H3,H3,1,gf,litter,0.7874015748,depth_in_inches,Litter,Post-thinning
+2021,FOR07,cont,pre,2021-06-10,FOR07_H1,H1,1,gf,litter,0.7874015748,depth_in_inches,Litter,Pre-thinning
+2021,FOR07,trmt,post,2021-10-18,FOR07_H1,H1,1,gf,litter,1.7716535432999998,depth_in_inches,Litter,Post-thinning
+2021,FOR07,cont,pre,2021-06-10,FOR07_H2,H2,1,gf,litter,0.7874015748,depth_in_inches,Litter,Pre-thinning
+2021,FOR07,trmt,post,2021-10-18,FOR07_H2,H2,1,gf,litter,0.7874015748,depth_in_inches,Litter,Post-thinning
+2021,FOR07,cont,pre,2021-06-10,FOR07_H3,H3,1,gf,litter,1.968503937,depth_in_inches,Litter,Pre-thinning
+2021,FOR07,trmt,post,2021-10-18,FOR07_H3,H3,1,gf,litter,0.7874015748,depth_in_inches,Litter,Post-thinning
+2021,FOR08,cont,pre,2021-06-15,FOR08_H1,H1,1,gf,litter,0.3937007874,depth_in_inches,Litter,Pre-thinning
+2021,FOR08,trmt,post,2021-10-19,FOR08_H1,H1,1,gf,litter,1.1811023621999999,depth_in_inches,Litter,Post-thinning
+2021,FOR08,cont,pre,2021-06-15,FOR08_H2,H2,1,gf,litter,0.3937007874,depth_in_inches,Litter,Pre-thinning
+2021,FOR08,trmt,post,2021-10-19,FOR08_H2,H2,1,gf,litter,1.1811023621999999,depth_in_inches,Litter,Post-thinning
+2021,FOR08,cont,pre,2021-06-15,FOR08_H3,H3,1,gf,litter,1.968503937,depth_in_inches,Litter,Pre-thinning
+2021,FOR08,trmt,post,2021-10-19,FOR08_H3,H3,1,gf,litter,1.1811023621999999,depth_in_inches,Litter,Post-thinning
+2021,FOR10,cont,pre,2021-06-09,FOR10_H1,H1,1,gf,litter,2.7559055118,depth_in_inches,Litter,Pre-thinning
+2021,FOR10,trmt,post,2021-12-09,FOR10_H1,H1,1,gf,litter,0.3937007874,depth_in_inches,Litter,Post-thinning
+2021,FOR10,cont,pre,2021-06-09,FOR10_H2,H2,1,gf,litter,0.7874015748,depth_in_inches,Litter,Pre-thinning
+2021,FOR10,trmt,post,2021-12-09,FOR10_H2,H2,1,gf,litter,0.7874015748,depth_in_inches,Litter,Post-thinning
+2021,FOR10,cont,pre,2021-06-09,FOR10_H3,H3,1,gf,litter,1.5748031496,depth_in_inches,Litter,Pre-thinning
+2021,FOR10,trmt,post,2021-12-09,FOR10_H3,H3,1,gf,litter,0.3937007874,depth_in_inches,Litter,Post-thinning
+2021,FOR05,cont,pre,2021-07-07,FOR05_H1,H1,2,gf,litter,2.3622047243999997,depth_in_inches,Litter,Pre-thinning
+2021,FOR05,trmt,post,2021-10-19,FOR05_H1,H1,2,gf,litter,1.1811023621999999,depth_in_inches,Litter,Post-thinning
+2021,FOR05,cont,pre,2021-07-07,FOR05_H2,H2,2,gf,litter,2.3622047243999997,depth_in_inches,Litter,Pre-thinning
+2021,FOR05,trmt,post,2021-10-19,FOR05_H2,H2,2,gf,litter,1.5748031496,depth_in_inches,Litter,Post-thinning
+2021,FOR05,cont,pre,2021-07-07,FOR05_H3,H3,2,gf,litter,0.7874015748,depth_in_inches,Litter,Pre-thinning
+2021,FOR05,trmt,post,2021-10-19,FOR05_H3,H3,2,gf,litter,0.7874015748,depth_in_inches,Litter,Post-thinning
+2021,FOR06,cont,pre,2021-06-16,FOR06_H1,H1,2,gf,litter,1.1811023621999999,depth_in_inches,Litter,Pre-thinning
+2021,FOR06,trmt,post,2021-10-19,FOR06_H1,H1,2,gf,litter,1.1811023621999999,depth_in_inches,Litter,Post-thinning
+2021,FOR06,cont,pre,2021-06-16,FOR06_H2,H2,2,gf,litter,0.3937007874,depth_in_inches,Litter,Pre-thinning
+2021,FOR06,trmt,post,2021-10-19,FOR06_H2,H2,2,gf,litter,0.7874015748,depth_in_inches,Litter,Post-thinning
+2021,FOR06,cont,pre,2021-06-16,FOR06_H3,H3,2,gf,litter,2.3622047243999997,depth_in_inches,Litter,Pre-thinning
+2021,FOR06,trmt,post,2021-10-19,FOR06_H3,H3,2,gf,litter,0.7874015748,depth_in_inches,Litter,Post-thinning
+2021,FOR07,cont,pre,2021-06-10,FOR07_H1,H1,2,gf,litter,1.5748031496,depth_in_inches,Litter,Pre-thinning
+2021,FOR07,trmt,post,2021-10-18,FOR07_H1,H1,2,gf,litter,0.5905511810999999,depth_in_inches,Litter,Post-thinning
+2021,FOR07,cont,pre,2021-06-10,FOR07_H2,H2,2,gf,litter,4.7244094487999995,depth_in_inches,Litter,Pre-thinning
+2021,FOR07,trmt,post,2021-10-18,FOR07_H2,H2,2,gf,litter,1.5748031496,depth_in_inches,Litter,Post-thinning
+2021,FOR07,cont,pre,2021-06-10,FOR07_H3,H3,2,gf,litter,1.5748031496,depth_in_inches,Litter,Pre-thinning
+2021,FOR07,trmt,post,2021-10-18,FOR07_H3,H3,2,gf,litter,1.1811023621999999,depth_in_inches,Litter,Post-thinning
+2021,FOR08,cont,pre,2021-06-15,FOR08_H1,H1,2,gf,litter,0.3937007874,depth_in_inches,Litter,Pre-thinning
+2021,FOR08,trmt,post,2021-10-19,FOR08_H1,H1,2,gf,litter,0.3937007874,depth_in_inches,Litter,Post-thinning
+2021,FOR08,cont,pre,2021-06-15,FOR08_H2,H2,2,gf,litter,0.3937007874,depth_in_inches,Litter,Pre-thinning
+2021,FOR08,trmt,post,2021-10-19,FOR08_H2,H2,2,gf,litter,1.1811023621999999,depth_in_inches,Litter,Post-thinning
+2021,FOR08,cont,pre,2021-06-15,FOR08_H3,H3,2,gf,litter,3.937007874,depth_in_inches,Litter,Pre-thinning
+2021,FOR08,trmt,post,2021-10-19,FOR08_H3,H3,2,gf,litter,1.5748031496,depth_in_inches,Litter,Post-thinning
+2021,FOR10,cont,pre,2021-06-09,FOR10_H1,H1,2,gf,litter,1.1811023621999999,depth_in_inches,Litter,Pre-thinning
+2021,FOR10,trmt,post,2021-12-09,FOR10_H1,H1,2,gf,litter,0.3937007874,depth_in_inches,Litter,Post-thinning
+2021,FOR10,cont,pre,2021-06-09,FOR10_H2,H2,2,gf,litter,1.1811023621999999,depth_in_inches,Litter,Pre-thinning
+2021,FOR10,trmt,post,2021-12-09,FOR10_H2,H2,2,gf,litter,0.3937007874,depth_in_inches,Litter,Post-thinning
+2021,FOR10,cont,pre,2021-06-09,FOR10_H3,H3,2,gf,litter,1.5748031496,depth_in_inches,Litter,Pre-thinning
+2021,FOR10,trmt,post,2021-12-09,FOR10_H3,H3,2,gf,litter,0.7874015748,depth_in_inches,Litter,Post-thinning
+2021,FOR05,cont,pre,2021-07-07,FOR05_H1,H1,1,gf,duff,0.7874015748,depth_in_inches,Duff,Pre-thinning
+2021,FOR05,trmt,post,2021-10-19,FOR05_H1,H1,1,gf,duff,0.7874015748,depth_in_inches,Duff,Post-thinning
+2021,FOR05,cont,pre,2021-07-07,FOR05_H2,H2,1,gf,duff,0.3937007874,depth_in_inches,Duff,Pre-thinning
+2021,FOR05,trmt,post,2021-10-19,FOR05_H2,H2,1,gf,duff,1.1811023621999999,depth_in_inches,Duff,Post-thinning
+2021,FOR05,cont,pre,2021-07-07,FOR05_H3,H3,1,gf,duff,0,depth_in_inches,Duff,Pre-thinning
+2021,FOR05,trmt,post,2021-10-19,FOR05_H3,H3,1,gf,duff,0.3937007874,depth_in_inches,Duff,Post-thinning
+2021,FOR06,cont,pre,2021-06-16,FOR06_H1,H1,1,gf,duff,0,depth_in_inches,Duff,Pre-thinning
+2021,FOR06,trmt,post,2021-10-19,FOR06_H1,H1,1,gf,duff,0,depth_in_inches,Duff,Post-thinning
+2021,FOR06,cont,pre,2021-06-16,FOR06_H2,H2,1,gf,duff,0,depth_in_inches,Duff,Pre-thinning
+2021,FOR06,trmt,post,2021-10-19,FOR06_H2,H2,1,gf,duff,0.3937007874,depth_in_inches,Duff,Post-thinning
+2021,FOR06,cont,pre,2021-06-16,FOR06_H3,H3,1,gf,duff,0,depth_in_inches,Duff,Pre-thinning
+2021,FOR06,trmt,post,2021-10-19,FOR06_H3,H3,1,gf,duff,0,depth_in_inches,Duff,Post-thinning
+2021,FOR07,cont,pre,2021-06-10,FOR07_H1,H1,1,gf,duff,0,depth_in_inches,Duff,Pre-thinning
+2021,FOR07,trmt,post,2021-10-18,FOR07_H1,H1,1,gf,duff,0.3937007874,depth_in_inches,Duff,Post-thinning
+2021,FOR07,cont,pre,2021-06-10,FOR07_H2,H2,1,gf,duff,0,depth_in_inches,Duff,Pre-thinning
+2021,FOR07,trmt,post,2021-10-18,FOR07_H2,H2,1,gf,duff,0.1968503937,depth_in_inches,Duff,Post-thinning
+2021,FOR07,cont,pre,2021-06-10,FOR07_H3,H3,1,gf,duff,0,depth_in_inches,Duff,Pre-thinning
+2021,FOR07,trmt,post,2021-10-18,FOR07_H3,H3,1,gf,duff,0.3937007874,depth_in_inches,Duff,Post-thinning
+2021,FOR08,cont,pre,2021-06-15,FOR08_H1,H1,1,gf,duff,0.3937007874,depth_in_inches,Duff,Pre-thinning
+2021,FOR08,trmt,post,2021-10-19,FOR08_H1,H1,1,gf,duff,0.3937007874,depth_in_inches,Duff,Post-thinning
+2021,FOR08,cont,pre,2021-06-15,FOR08_H2,H2,1,gf,duff,1.1811023621999999,depth_in_inches,Duff,Pre-thinning
+2021,FOR08,trmt,post,2021-10-19,FOR08_H2,H2,1,gf,duff,0.7874015748,depth_in_inches,Duff,Post-thinning
+2021,FOR08,cont,pre,2021-06-15,FOR08_H3,H3,1,gf,duff,0.3937007874,depth_in_inches,Duff,Pre-thinning
+2021,FOR08,trmt,post,2021-10-19,FOR08_H3,H3,1,gf,duff,0.7874015748,depth_in_inches,Duff,Post-thinning
+2021,FOR10,cont,pre,2021-06-09,FOR10_H1,H1,1,gf,duff,0,depth_in_inches,Duff,Pre-thinning
+2021,FOR10,trmt,post,2021-12-09,FOR10_H1,H1,1,gf,duff,0,depth_in_inches,Duff,Post-thinning
+2021,FOR10,cont,pre,2021-06-09,FOR10_H2,H2,1,gf,duff,0,depth_in_inches,Duff,Pre-thinning
+2021,FOR10,trmt,post,2021-12-09,FOR10_H2,H2,1,gf,duff,0,depth_in_inches,Duff,Post-thinning
+2021,FOR10,cont,pre,2021-06-09,FOR10_H3,H3,1,gf,duff,0,depth_in_inches,Duff,Pre-thinning
+2021,FOR10,trmt,post,2021-12-09,FOR10_H3,H3,1,gf,duff,0,depth_in_inches,Duff,Post-thinning
+2021,FOR05,cont,pre,2021-07-07,FOR05_H1,H1,2,gf,duff,0.3937007874,depth_in_inches,Duff,Pre-thinning
+2021,FOR05,trmt,post,2021-10-19,FOR05_H1,H1,2,gf,duff,0.3937007874,depth_in_inches,Duff,Post-thinning
+2021,FOR05,cont,pre,2021-07-07,FOR05_H2,H2,2,gf,duff,0.7874015748,depth_in_inches,Duff,Pre-thinning
+2021,FOR05,trmt,post,2021-10-19,FOR05_H2,H2,2,gf,duff,0,depth_in_inches,Duff,Post-thinning
+2021,FOR05,cont,pre,2021-07-07,FOR05_H3,H3,2,gf,duff,0,depth_in_inches,Duff,Pre-thinning
+2021,FOR05,trmt,post,2021-10-19,FOR05_H3,H3,2,gf,duff,0,depth_in_inches,Duff,Post-thinning
+2021,FOR06,cont,pre,2021-06-16,FOR06_H1,H1,2,gf,duff,0,depth_in_inches,Duff,Pre-thinning
+2021,FOR06,trmt,post,2021-10-19,FOR06_H1,H1,2,gf,duff,0.3937007874,depth_in_inches,Duff,Post-thinning
+2021,FOR06,cont,pre,2021-06-16,FOR06_H2,H2,2,gf,duff,0,depth_in_inches,Duff,Pre-thinning
+2021,FOR06,trmt,post,2021-10-19,FOR06_H2,H2,2,gf,duff,0,depth_in_inches,Duff,Post-thinning
+2021,FOR06,cont,pre,2021-06-16,FOR06_H3,H3,2,gf,duff,0,depth_in_inches,Duff,Pre-thinning
+2021,FOR06,trmt,post,2021-10-19,FOR06_H3,H3,2,gf,duff,0,depth_in_inches,Duff,Post-thinning
+2021,FOR07,cont,pre,2021-06-10,FOR07_H1,H1,2,gf,duff,0.3937007874,depth_in_inches,Duff,Pre-thinning
+2021,FOR07,trmt,post,2021-10-18,FOR07_H1,H1,2,gf,duff,0,depth_in_inches,Duff,Post-thinning
+2021,FOR07,cont,pre,2021-06-10,FOR07_H2,H2,2,gf,duff,1.5748031496,depth_in_inches,Duff,Pre-thinning
+2021,FOR07,trmt,post,2021-10-18,FOR07_H2,H2,2,gf,duff,0.3937007874,depth_in_inches,Duff,Post-thinning
+2021,FOR07,cont,pre,2021-06-10,FOR07_H3,H3,2,gf,duff,0.3937007874,depth_in_inches,Duff,Pre-thinning
+2021,FOR07,trmt,post,2021-10-18,FOR07_H3,H3,2,gf,duff,0.3937007874,depth_in_inches,Duff,Post-thinning
+2021,FOR08,cont,pre,2021-06-15,FOR08_H1,H1,2,gf,duff,0,depth_in_inches,Duff,Pre-thinning
+2021,FOR08,trmt,post,2021-10-19,FOR08_H1,H1,2,gf,duff,0.7874015748,depth_in_inches,Duff,Post-thinning
+2021,FOR08,cont,pre,2021-06-15,FOR08_H2,H2,2,gf,duff,0.3937007874,depth_in_inches,Duff,Pre-thinning
+2021,FOR08,trmt,post,2021-10-19,FOR08_H2,H2,2,gf,duff,1.968503937,depth_in_inches,Duff,Post-thinning
+2021,FOR08,cont,pre,2021-06-15,FOR08_H3,H3,2,gf,duff,0.7874015748,depth_in_inches,Duff,Pre-thinning
+2021,FOR08,trmt,post,2021-10-19,FOR08_H3,H3,2,gf,duff,0.7874015748,depth_in_inches,Duff,Post-thinning
+2021,FOR10,cont,pre,2021-06-09,FOR10_H1,H1,2,gf,duff,0.3937007874,depth_in_inches,Duff,Pre-thinning
+2021,FOR10,trmt,post,2021-12-09,FOR10_H1,H1,2,gf,duff,0.3937007874,depth_in_inches,Duff,Post-thinning
+2021,FOR10,cont,pre,2021-06-09,FOR10_H2,H2,2,gf,duff,0,depth_in_inches,Duff,Pre-thinning
+2021,FOR10,trmt,post,2021-12-09,FOR10_H2,H2,2,gf,duff,0.3937007874,depth_in_inches,Duff,Post-thinning
+2021,FOR10,cont,pre,2021-06-09,FOR10_H3,H3,2,gf,duff,0,depth_in_inches,Duff,Pre-thinning
+2021,FOR10,trmt,post,2021-12-09,FOR10_H3,H3,2,gf,duff,0,depth_in_inches,Duff,Post-thinning

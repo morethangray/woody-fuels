@@ -1,0 +1,32 @@
+﻿metric,data_type,subset,name_orig,name,label,order,transect_rep,units
+fuel,all,fuel_class,,duff,Duff,1,,
+fuel,all,fuel_class,,hr0001,1-hr,2,,
+fuel,all,fuel_class,,hr0010,10-hr,3,,
+fuel,all,fuel_class,,hr0100,100-hr,4,,
+fuel,all,fuel_class,,hr1000s,1000-hr rotten,5,,
+fuel,all,fuel_class,,hr1000r,1000-hr sound,6,,
+fuel,all,fuel_class,,litter,Litter,7,,
+fuel,all,fuel_type,wd,wd,Coarse woody debris,1,,
+fuel,all,fuel_type,dl,dl,Duff & litter,2,,
+fuel,all,year_timing,2016,2016,1 Year pre-fire (2016),1,,
+fuel,all,year_timing,2017,2017,0 Years post-fire (2017),2,,
+fuel,all,year_timing,2019,2019,2 Years post-fire (2019),3,,
+fuel,all,year_timing,2021,2021,4 Years post-fire (2021),4,,
+fuel,all,year_timing_abbr,2016,2016,1-y pre-fire (2016),1,,
+fuel,all,year_timing_abbr,2017,2017,0-y post-fire (2017),2,,
+fuel,all,year_timing_abbr,2019,2019,2-y post-fire (2019),3,,
+fuel,all,year_timing_abbr,2021,2021,4-y post-fire (2021),4,,
+fuel,wd,fuel_class,1,hr0001,1-hr,1,,
+fuel,wd,fuel_class,10,hr0010,10-hr,2,,
+fuel,wd,fuel_class,100,hr0100,100-hr,3,,
+fuel,wd,fuel_class,1000rotten,hr1000s,1000-hr rotten,4,,
+fuel,wd,fuel_class,1000sound,hr1000r,1000-hr sound,5,,
+fuel,wd,thin,x1hr_load,hr0001,1-hr,1,1,tons_per_acre
+fuel,wd,thin,x10hr_load,hr0010,10-hr,2,1,tons_per_acre
+fuel,wd,thin,x100hr_load,hr0100,100-hr,3,1,tons_per_acre
+fuel,wd,thin,x1000hr_load_rotten,hr1000r,1000-hr rotten,4,1,tons_per_acre
+fuel,wd,thin,x1000hr_load_sound,hr1000s,1000-hr sound,5,1,tons_per_acre
+fuel,dl,thin,duff1,duff,Duff,1,1,depth_in_inches
+fuel,dl,thin,duff2,duff,Duff,2,2,depth_in_inches
+fuel,dl,thin,litter1,litter,Litter,3,1,depth_in_inches
+fuel,dl,thin,litter2,litter,Litter,4,2,depth_in_inches

@@ -1,0 +1,361 @@
+year,plot_id,timing,date,plot_tran,transect_n,transect_rep,data_type,fuel_class,value,units,lab_fuel,lab_year,lab_year_abbr,lab_type
+2016,RxF01,0Pre-burn,2016-08-17,RxF01_1,1,a,wd,hr0001,0.6020325425112533,tons_per_acre,1-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF01,0Pre-burn,2016-08-17,RxF01_1,1,a,wd,hr0010,3.2950898976755414,tons_per_acre,10-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF01,0Pre-burn,2016-08-17,RxF01_1,1,a,wd,hr0100,1.4842302283323352,tons_per_acre,100-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF01,0Pre-burn,2016-08-17,RxF01_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF01,0Pre-burn,2016-08-17,RxF01_1,1,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF01,0Pre-burn,2016-08-17,RxF01_2,2,a,wd,hr0001,0.37140779865589324,tons_per_acre,1-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF01,0Pre-burn,2016-08-17,RxF01_2,2,a,wd,hr0010,3.267027583840117,tons_per_acre,10-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF01,0Pre-burn,2016-08-17,RxF01_2,2,a,wd,hr0100,2.943179850814816,tons_per_acre,100-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF01,0Pre-burn,2016-08-17,RxF01_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF01,0Pre-burn,2016-08-17,RxF01_2,2,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2017,RxF01,1Post-burn,2017-11-21,RxF01_1,1,a,wd,hr0001,0.13378500944694519,tons_per_acre,1-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF01,1Post-burn,2017-11-21,RxF01_1,1,a,wd,hr0010,0.8986608811842386,tons_per_acre,10-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF01,1Post-burn,2017-11-21,RxF01_1,1,a,wd,hr0100,0,tons_per_acre,100-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF01,1Post-burn,2017-11-21,RxF01_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF01,1Post-burn,2017-11-21,RxF01_1,1,a,wd,hr1000r,1.9468698777404614,tons_per_acre,1000-hr sound,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF01,1Post-burn,2017-11-21,RxF01_2,2,a,wd,hr0001,0.11938107813939426,tons_per_acre,1-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF01,1Post-burn,2017-11-21,RxF01_2,2,a,wd,hr0010,0.2970025076218288,tons_per_acre,10-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF01,1Post-burn,2017-11-21,RxF01_2,2,a,wd,hr0100,0,tons_per_acre,100-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF01,1Post-burn,2017-11-21,RxF01_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF01,1Post-burn,2017-11-21,RxF01_2,2,a,wd,hr1000r,98.48416066677929,tons_per_acre,1000-hr sound,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2019,RxF01,2Post-burn,2019-10-16,RxF01_1,1,a,wd,hr0001,0.2140560151151123,tons_per_acre,1-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF01,2Post-burn,2019-10-16,RxF01_1,1,a,wd,hr0010,0.5991072541228257,tons_per_acre,10-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF01,2Post-burn,2019-10-16,RxF01_1,1,a,wd,hr0100,0,tons_per_acre,100-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF01,2Post-burn,2019-10-16,RxF01_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF01,2Post-burn,2019-10-16,RxF01_1,1,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF01,2Post-burn,2019-10-16,RxF01_2,2,a,wd,hr0001,0.42446605560673517,tons_per_acre,1-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF01,2Post-burn,2019-10-16,RxF01_2,2,a,wd,hr0010,0,tons_per_acre,10-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF01,2Post-burn,2019-10-16,RxF01_2,2,a,wd,hr0100,0,tons_per_acre,100-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF01,2Post-burn,2019-10-16,RxF01_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF01,2Post-burn,2019-10-16,RxF01_2,2,a,wd,hr1000r,98.48416066677929,tons_per_acre,1000-hr sound,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2021,RxF01,3Post-burn,2021-09-22,RxF01_1,1,a,wd,hr0001,0.04013550283408355,tons_per_acre,1-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF01,3Post-burn,2021-09-22,RxF01_1,1,a,wd,hr0010,1.1982145082456515,tons_per_acre,10-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF01,3Post-burn,2021-09-22,RxF01_1,1,a,wd,hr0100,0,tons_per_acre,100-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF01,3Post-burn,2021-09-22,RxF01_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF01,3Post-burn,2021-09-22,RxF01_1,1,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF01,3Post-burn,2021-09-22,RxF01_2,2,a,wd,hr0001,0.10702800755755615,tons_per_acre,1-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF01,3Post-burn,2021-09-22,RxF01_2,2,a,wd,hr0010,0,tons_per_acre,10-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF01,3Post-burn,2021-09-22,RxF01_2,2,a,wd,hr0100,0,tons_per_acre,100-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF01,3Post-burn,2021-09-22,RxF01_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF01,3Post-burn,2021-09-22,RxF01_2,2,a,wd,hr1000r,17.521828899664154,tons_per_acre,1000-hr sound,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2016,RxF02,0Pre-burn,2016-08-17,RxF02_1,1,a,wd,hr0001,0.35293861668577303,tons_per_acre,1-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF02,0Pre-burn,2016-08-17,RxF02_1,1,a,wd,hr0010,3.039435698861881,tons_per_acre,10-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF02,0Pre-burn,2016-08-17,RxF02_1,1,a,wd,hr0100,0,tons_per_acre,100-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF02,0Pre-burn,2016-08-17,RxF02_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF02,0Pre-burn,2016-08-17,RxF02_1,1,a,wd,hr1000r,7.901604618167516,tons_per_acre,1000-hr sound,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF02,0Pre-burn,2016-08-17,RxF02_2,2,a,wd,hr0001,0.34023463291247963,tons_per_acre,1-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF02,0Pre-burn,2016-08-17,RxF02_2,2,a,wd,hr0010,2.9300315702887594,tons_per_acre,10-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF02,0Pre-burn,2016-08-17,RxF02_2,2,a,wd,hr0100,0,tons_per_acre,100-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF02,0Pre-burn,2016-08-17,RxF02_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF02,0Pre-burn,2016-08-17,RxF02_2,2,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2017,RxF02,1Post-burn,2017-11-21,RxF02_1,1,a,wd,hr0001,0.2579166814242187,tons_per_acre,1-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF02,1Post-burn,2017-11-21,RxF02_1,1,a,wd,hr0010,0.9118307096585644,tons_per_acre,10-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF02,1Post-burn,2017-11-21,RxF02_1,1,a,wd,hr0100,0,tons_per_acre,100-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF02,1Post-burn,2017-11-21,RxF02_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF02,1Post-burn,2017-11-21,RxF02_1,1,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF02,1Post-burn,2017-11-21,RxF02_2,2,a,wd,hr0001,0.03925784225913226,tons_per_acre,1-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF02,1Post-burn,2017-11-21,RxF02_2,2,a,wd,hr0010,0.29300315702887597,tons_per_acre,10-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF02,1Post-burn,2017-11-21,RxF02_2,2,a,wd,hr0100,0,tons_per_acre,100-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF02,1Post-burn,2017-11-21,RxF02_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF02,1Post-burn,2017-11-21,RxF02_2,2,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2019,RxF02,2Post-burn,2019-10-16,RxF02_1,1,a,wd,hr0001,0.24434211924399665,tons_per_acre,1-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF02,2Post-burn,2019-10-16,RxF02_1,1,a,wd,hr0010,1.5197178494309405,tons_per_acre,10-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF02,2Post-burn,2019-10-16,RxF02_1,1,a,wd,hr0100,0,tons_per_acre,100-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF02,2Post-burn,2019-10-16,RxF02_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF02,2Post-burn,2019-10-16,RxF02_1,1,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF02,2Post-burn,2019-10-16,RxF02_2,2,a,wd,hr0001,0.05234378967884301,tons_per_acre,1-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF02,2Post-burn,2019-10-16,RxF02_2,2,a,wd,hr0010,0.5860063140577519,tons_per_acre,10-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF02,2Post-burn,2019-10-16,RxF02_2,2,a,wd,hr0100,0,tons_per_acre,100-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF02,2Post-burn,2019-10-16,RxF02_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF02,2Post-burn,2019-10-16,RxF02_2,2,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2021,RxF02,3Post-burn,2021-10-04,RxF02_1,1,a,wd,hr0001,0.03925784225913226,tons_per_acre,1-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF02,3Post-burn,2021-10-04,RxF02_1,1,a,wd,hr0010,0.5860063140577519,tons_per_acre,10-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF02,3Post-burn,2021-10-04,RxF02_1,1,a,wd,hr0100,0,tons_per_acre,100-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF02,3Post-burn,2021-10-04,RxF02_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF02,3Post-burn,2021-10-04,RxF02_1,1,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF02,3Post-burn,2021-10-04,RxF02_2,2,a,wd,hr0001,0.10468757935768602,tons_per_acre,1-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF02,3Post-burn,2021-10-04,RxF02_2,2,a,wd,hr0010,0.5860063140577519,tons_per_acre,10-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF02,3Post-burn,2021-10-04,RxF02_2,2,a,wd,hr0100,0,tons_per_acre,100-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF02,3Post-burn,2021-10-04,RxF02_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF02,3Post-burn,2021-10-04,RxF02_2,2,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2016,RxF03,0Pre-burn,2016-08-17,RxF03_1,1,a,wd,hr0001,0.2387377932370365,tons_per_acre,1-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF03,0Pre-burn,2016-08-17,RxF03_1,1,a,wd,hr0010,0.593944403590568,tons_per_acre,10-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF03,0Pre-burn,2016-08-17,RxF03_1,1,a,wd,hr0100,0,tons_per_acre,100-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF03,0Pre-burn,2016-08-17,RxF03_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF03,0Pre-burn,2016-08-17,RxF03_1,1,a,wd,hr1000r,1.9300925843337151,tons_per_acre,1000-hr sound,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF03,0Pre-burn,2016-08-17,RxF03_2,2,a,wd,hr0001,0.30071811513817426,tons_per_acre,1-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF03,0Pre-burn,2016-08-17,RxF03_2,2,a,wd,hr0010,2.0492593413596056,tons_per_acre,10-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF03,0Pre-burn,2016-08-17,RxF03_2,2,a,wd,hr0100,0,tons_per_acre,100-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF03,0Pre-burn,2016-08-17,RxF03_2,2,a,wd,hr1000s,1.6381321610344053,tons_per_acre,1000-hr rotten,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF03,0Pre-burn,2016-08-17,RxF03_2,2,a,wd,hr1000r,3.5432191927558985,tons_per_acre,1000-hr sound,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2017,RxF03,1Post-burn,2017-11-21,RxF03_1,1,a,wd,hr0001,0.05305284294156367,tons_per_acre,1-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF03,1Post-burn,2017-11-21,RxF03_1,1,a,wd,hr0010,0,tons_per_acre,10-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF03,1Post-burn,2017-11-21,RxF03_1,1,a,wd,hr0100,1.4714397659041045,tons_per_acre,100-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF03,1Post-burn,2017-11-21,RxF03_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF03,1Post-burn,2017-11-21,RxF03_1,1,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF03,1Post-burn,2017-11-21,RxF03_2,2,a,wd,hr0001,0.06537350329090745,tons_per_acre,1-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF03,1Post-burn,2017-11-21,RxF03_2,2,a,wd,hr0010,0.8782540034398311,tons_per_acre,10-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF03,1Post-burn,2017-11-21,RxF03_2,2,a,wd,hr0100,0,tons_per_acre,100-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF03,1Post-burn,2017-11-21,RxF03_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF03,1Post-burn,2017-11-21,RxF03_2,2,a,wd,hr1000r,10.829242747043205,tons_per_acre,1000-hr sound,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2019,RxF03,2Post-burn,2019-10-16,RxF03_1,1,a,wd,hr0001,0.11936889661851825,tons_per_acre,1-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF03,2Post-burn,2019-10-16,RxF03_1,1,a,wd,hr0010,0.593944403590568,tons_per_acre,10-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF03,2Post-burn,2019-10-16,RxF03_1,1,a,wd,hr0100,1.4714397659041045,tons_per_acre,100-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF03,2Post-burn,2019-10-16,RxF03_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF03,2Post-burn,2019-10-16,RxF03_1,1,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF03,2Post-burn,2019-10-16,RxF03_2,2,a,wd,hr0001,0.15689640789817785,tons_per_acre,1-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF03,2Post-burn,2019-10-16,RxF03_2,2,a,wd,hr0010,1.7565080068796621,tons_per_acre,10-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF03,2Post-burn,2019-10-16,RxF03_2,2,a,wd,hr0100,0,tons_per_acre,100-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF03,2Post-burn,2019-10-16,RxF03_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF03,2Post-burn,2019-10-16,RxF03_2,2,a,wd,hr1000r,9.328859299283335,tons_per_acre,1000-hr sound,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2021,RxF03,3Post-burn,2021-09-23,RxF03_1,1,a,wd,hr0001,0,tons_per_acre,1-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF03,3Post-burn,2021-09-23,RxF03_1,1,a,wd,hr0010,0.296972201795284,tons_per_acre,10-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF03,3Post-burn,2021-09-23,RxF03_1,1,a,wd,hr0100,0,tons_per_acre,100-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF03,3Post-burn,2021-09-23,RxF03_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF03,3Post-burn,2021-09-23,RxF03_1,1,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF03,3Post-burn,2021-09-23,RxF03_2,2,a,wd,hr0001,0.013263210735390918,tons_per_acre,1-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF03,3Post-burn,2021-09-23,RxF03_2,2,a,wd,hr0010,1.187888807181136,tons_per_acre,10-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF03,3Post-burn,2021-09-23,RxF03_2,2,a,wd,hr0100,0,tons_per_acre,100-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF03,3Post-burn,2021-09-23,RxF03_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF03,3Post-burn,2021-09-23,RxF03_2,2,a,wd,hr1000r,32.84308564933575,tons_per_acre,1000-hr sound,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2016,RxF04,0Pre-burn,2016-08-17,RxF04_1,1,a,wd,hr0001,0.24998888174137868,tons_per_acre,1-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF04,0Pre-burn,2016-08-17,RxF04_1,1,a,wd,hr0010,1.178404013711009,tons_per_acre,10-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF04,0Pre-burn,2016-08-17,RxF04_1,1,a,wd,hr0100,2.919381874116744,tons_per_acre,100-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF04,0Pre-burn,2016-08-17,RxF04_1,1,a,wd,hr1000s,25.84820167110933,tons_per_acre,1000-hr rotten,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF04,0Pre-burn,2016-08-17,RxF04_1,1,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF04,0Pre-burn,2016-08-17,RxF04_2,2,a,wd,hr0001,0.2239510695750815,tons_per_acre,1-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF04,0Pre-burn,2016-08-17,RxF04_2,2,a,wd,hr0010,1.7697935125517417,tons_per_acre,10-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF04,0Pre-burn,2016-08-17,RxF04_2,2,a,wd,hr0100,2.9229947405457706,tons_per_acre,100-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF04,0Pre-burn,2016-08-17,RxF04_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF04,0Pre-burn,2016-08-17,RxF04_2,2,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2017,RxF04,1Post-burn,2017-11-21,RxF04_1,1,a,wd,hr0001,0.039471928696007165,tons_per_acre,1-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF04,1Post-burn,2017-11-21,RxF04_1,1,a,wd,hr0010,0,tons_per_acre,10-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF04,1Post-burn,2017-11-21,RxF04_1,1,a,wd,hr0100,0,tons_per_acre,100-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF04,1Post-burn,2017-11-21,RxF04_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF04,1Post-burn,2017-11-21,RxF04_1,1,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF04,1Post-burn,2017-11-21,RxF04_2,2,a,wd,hr0001,0.10538873862356778,tons_per_acre,1-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF04,1Post-burn,2017-11-21,RxF04_2,2,a,wd,hr0010,0.5899311708505806,tons_per_acre,10-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF04,1Post-burn,2017-11-21,RxF04_2,2,a,wd,hr0100,0,tons_per_acre,100-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF04,1Post-burn,2017-11-21,RxF04_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF04,1Post-burn,2017-11-21,RxF04_2,2,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2019,RxF04,2Post-burn,2019-10-16,RxF04_1,1,a,wd,hr0001,0.19735964348003585,tons_per_acre,1-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF04,2Post-burn,2019-10-16,RxF04_1,1,a,wd,hr0010,1.178404013711009,tons_per_acre,10-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF04,2Post-burn,2019-10-16,RxF04_1,1,a,wd,hr0100,0,tons_per_acre,100-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF04,2Post-burn,2019-10-16,RxF04_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF04,2Post-burn,2019-10-16,RxF04_1,1,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF04,2Post-burn,2019-10-16,RxF04_2,2,a,wd,hr0001,0.2239510695750815,tons_per_acre,1-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF04,2Post-burn,2019-10-16,RxF04_2,2,a,wd,hr0010,0,tons_per_acre,10-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF04,2Post-burn,2019-10-16,RxF04_2,2,a,wd,hr0100,1.4614973702728853,tons_per_acre,100-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF04,2Post-burn,2019-10-16,RxF04_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF04,2Post-burn,2019-10-16,RxF04_2,2,a,wd,hr1000r,3.912349203890675,tons_per_acre,1000-hr sound,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2021,RxF04,3Post-burn,2021-09-22,RxF04_1,1,a,wd,hr0001,0.039471928696007165,tons_per_acre,1-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF04,3Post-burn,2021-09-22,RxF04_1,1,a,wd,hr0010,0,tons_per_acre,10-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF04,3Post-burn,2021-09-22,RxF04_1,1,a,wd,hr0100,1.459690937058372,tons_per_acre,100-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF04,3Post-burn,2021-09-22,RxF04_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF04,3Post-burn,2021-09-22,RxF04_1,1,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF04,3Post-burn,2021-09-22,RxF04_2,2,a,wd,hr0001,0.25029825423097346,tons_per_acre,1-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF04,3Post-burn,2021-09-22,RxF04_2,2,a,wd,hr0010,0.8848967562758708,tons_per_acre,10-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF04,3Post-burn,2021-09-22,RxF04_2,2,a,wd,hr0100,0,tons_per_acre,100-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF04,3Post-burn,2021-09-22,RxF04_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF04,3Post-burn,2021-09-22,RxF04_2,2,a,wd,hr1000r,11.758956767213814,tons_per_acre,1000-hr sound,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2016,RxF05,0Pre-burn,2016-08-17,RxF05_1,1,a,wd,hr0001,0.2803194348947216,tons_per_acre,1-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF05,0Pre-burn,2016-08-17,RxF05_1,1,a,wd,hr0010,4.079751346856441,tons_per_acre,10-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF05,0Pre-burn,2016-08-17,RxF05_1,1,a,wd,hr0100,1.5549521601102072,tons_per_acre,100-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF05,0Pre-burn,2016-08-17,RxF05_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF05,0Pre-burn,2016-08-17,RxF05_1,1,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF05,0Pre-burn,2016-08-17,RxF05_2,2,a,wd,hr0001,0.1879615853972443,tons_per_acre,1-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF05,0Pre-burn,2016-08-17,RxF05_2,2,a,wd,hr0010,1.6186870057908556,tons_per_acre,10-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF05,0Pre-burn,2016-08-17,RxF05_2,2,a,wd,hr0100,0,tons_per_acre,100-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF05,0Pre-burn,2016-08-17,RxF05_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF05,0Pre-burn,2016-08-17,RxF05_2,2,a,wd,hr1000r,1.8142028819660538,tons_per_acre,1000-hr sound,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2017,RxF05,1Post-burn,2017-11-21,RxF05_1,1,a,wd,hr0001,0.08409583046841647,tons_per_acre,1-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF05,1Post-burn,2017-11-21,RxF05_1,1,a,wd,hr0010,0,tons_per_acre,10-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF05,1Post-burn,2017-11-21,RxF05_1,1,a,wd,hr0100,0,tons_per_acre,100-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF05,1Post-burn,2017-11-21,RxF05_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF05,1Post-burn,2017-11-21,RxF05_1,1,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF05,1Post-burn,2017-11-21,RxF05_2,2,a,wd,hr0001,0,tons_per_acre,1-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF05,1Post-burn,2017-11-21,RxF05_2,2,a,wd,hr0010,0,tons_per_acre,10-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF05,1Post-burn,2017-11-21,RxF05_2,2,a,wd,hr0100,0,tons_per_acre,100-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF05,1Post-burn,2017-11-21,RxF05_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF05,1Post-burn,2017-11-21,RxF05_2,2,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2019,RxF05,2Post-burn,2019-10-16,RxF05_1,1,a,wd,hr0001,0.1261437457026247,tons_per_acre,1-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF05,2Post-burn,2019-10-16,RxF05_1,1,a,wd,hr0010,0,tons_per_acre,10-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF05,2Post-burn,2019-10-16,RxF05_1,1,a,wd,hr0100,0,tons_per_acre,100-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF05,2Post-burn,2019-10-16,RxF05_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF05,2Post-burn,2019-10-16,RxF05_1,1,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF05,2Post-burn,2019-10-16,RxF05_2,2,a,wd,hr0001,0.17350300190514856,tons_per_acre,1-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF05,2Post-burn,2019-10-16,RxF05_2,2,a,wd,hr0010,0,tons_per_acre,10-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF05,2Post-burn,2019-10-16,RxF05_2,2,a,wd,hr0100,0,tons_per_acre,100-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF05,2Post-burn,2019-10-16,RxF05_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF05,2Post-burn,2019-10-16,RxF05_2,2,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2021,RxF05,3Post-burn,2021-09-23,RxF05_1,1,a,wd,hr0001,0.23827151966051333,tons_per_acre,1-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF05,3Post-burn,2021-09-23,RxF05_1,1,a,wd,hr0010,2.1967891867688527,tons_per_acre,10-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF05,3Post-burn,2021-09-23,RxF05_1,1,a,wd,hr0100,1.5549521601102072,tons_per_acre,100-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF05,3Post-burn,2021-09-23,RxF05_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF05,3Post-burn,2021-09-23,RxF05_1,1,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF05,3Post-burn,2021-09-23,RxF05_2,2,a,wd,hr0001,0.05783433396838286,tons_per_acre,1-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF05,3Post-burn,2021-09-23,RxF05_2,2,a,wd,hr0010,0.3237374011581711,tons_per_acre,10-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF05,3Post-burn,2021-09-23,RxF05_2,2,a,wd,hr0100,0,tons_per_acre,100-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF05,3Post-burn,2021-09-23,RxF05_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF05,3Post-burn,2021-09-23,RxF05_2,2,a,wd,hr1000r,5.1957052950980485,tons_per_acre,1000-hr sound,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2016,RxF06,0Pre-burn,2016-08-17,RxF06_1,1,a,wd,hr0001,0.15801167063926727,tons_per_acre,1-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF06,0Pre-burn,2016-08-17,RxF06_1,1,a,wd,hr0010,2.358658330690211,tons_per_acre,10-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF06,0Pre-burn,2016-08-17,RxF06_1,1,a,wd,hr0100,4.382510771602904,tons_per_acre,100-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF06,0Pre-burn,2016-08-17,RxF06_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF06,0Pre-burn,2016-08-17,RxF06_1,1,a,wd,hr1000r,13.638152021069837,tons_per_acre,1000-hr sound,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF06,0Pre-burn,2016-08-17,RxF06_2,2,a,wd,hr0001,0.27741922402719793,tons_per_acre,1-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF06,0Pre-burn,2016-08-17,RxF06_2,2,a,wd,hr0010,4.14106857549265,tons_per_acre,10-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF06,0Pre-burn,2016-08-17,RxF06_2,2,a,wd,hr0100,2.93117043975341,tons_per_acre,100-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF06,0Pre-burn,2016-08-17,RxF06_2,2,a,wd,hr1000s,5.59804749451875,tons_per_acre,1000-hr rotten,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF06,0Pre-burn,2016-08-17,RxF06_2,2,a,wd,hr1000r,8.739133276594318,tons_per_acre,1000-hr sound,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2017,RxF06,1Post-burn,2017-11-21,RxF06_1,1,a,wd,hr0001,0.03950291765981682,tons_per_acre,1-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF06,1Post-burn,2017-11-21,RxF06_1,1,a,wd,hr0010,0,tons_per_acre,10-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF06,1Post-burn,2017-11-21,RxF06_1,1,a,wd,hr0100,0,tons_per_acre,100-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF06,1Post-burn,2017-11-21,RxF06_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF06,1Post-burn,2017-11-21,RxF06_1,1,a,wd,hr1000r,7.664739200371866,tons_per_acre,1000-hr sound,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF06,1Post-burn,2017-11-21,RxF06_2,2,a,wd,hr0001,0.026420878478780756,tons_per_acre,1-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF06,1Post-burn,2017-11-21,RxF06_2,2,a,wd,hr0010,0,tons_per_acre,10-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF06,1Post-burn,2017-11-21,RxF06_2,2,a,wd,hr0100,0,tons_per_acre,100-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF06,1Post-burn,2017-11-21,RxF06_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF06,1Post-burn,2017-11-21,RxF06_2,2,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2019,RxF06,2Post-burn,2019-10-16,RxF06_1,1,a,wd,hr0001,0.1316763921993894,tons_per_acre,1-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF06,2Post-burn,2019-10-16,RxF06_1,1,a,wd,hr0010,2.0638260393539345,tons_per_acre,10-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF06,2Post-burn,2019-10-16,RxF06_1,1,a,wd,hr0100,0,tons_per_acre,100-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF06,2Post-burn,2019-10-16,RxF06_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF06,2Post-burn,2019-10-16,RxF06_1,1,a,wd,hr1000r,8.798807755528928,tons_per_acre,1000-hr sound,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF06,2Post-burn,2019-10-16,RxF06_2,2,a,wd,hr0001,0.13210439239390379,tons_per_acre,1-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF06,2Post-burn,2019-10-16,RxF06_2,2,a,wd,hr0010,0,tons_per_acre,10-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF06,2Post-burn,2019-10-16,RxF06_2,2,a,wd,hr0100,0,tons_per_acre,100-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF06,2Post-burn,2019-10-16,RxF06_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF06,2Post-burn,2019-10-16,RxF06_2,2,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2021,RxF06,3Post-burn,2021-09-30,RxF06_1,1,a,wd,hr0001,0.09217347453957257,tons_per_acre,1-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF06,3Post-burn,2021-09-30,RxF06_1,1,a,wd,hr0010,0,tons_per_acre,10-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF06,3Post-burn,2021-09-30,RxF06_1,1,a,wd,hr0100,0,tons_per_acre,100-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF06,3Post-burn,2021-09-30,RxF06_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF06,3Post-burn,2021-09-30,RxF06_1,1,a,wd,hr1000r,3.4848597102360115,tons_per_acre,1000-hr sound,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF06,3Post-burn,2021-09-30,RxF06_2,2,a,wd,hr0001,0.03963131771817113,tons_per_acre,1-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF06,3Post-burn,2021-09-30,RxF06_2,2,a,wd,hr0010,0,tons_per_acre,10-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF06,3Post-burn,2021-09-30,RxF06_2,2,a,wd,hr0100,0,tons_per_acre,100-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF06,3Post-burn,2021-09-30,RxF06_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF06,3Post-burn,2021-09-30,RxF06_2,2,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2016,RxF07,0Pre-burn,2016-08-17,RxF07_1,1,a,wd,hr0001,0.2266559291042701,tons_per_acre,1-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF07,0Pre-burn,2016-08-17,RxF07_1,1,a,wd,hr0010,2.3882252117019758,tons_per_acre,10-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF07,0Pre-burn,2016-08-17,RxF07_1,1,a,wd,hr0100,5.916596781094479,tons_per_acre,100-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF07,0Pre-burn,2016-08-17,RxF07_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF07,0Pre-burn,2016-08-17,RxF07_1,1,a,wd,hr1000r,4.5337444985815525,tons_per_acre,1000-hr sound,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF07,0Pre-burn,2016-08-17,RxF07_2,2,a,wd,hr0001,0.14371147417037097,tons_per_acre,1-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF07,0Pre-burn,2016-08-17,RxF07_2,2,a,wd,hr0010,2.9252695334265955,tons_per_acre,10-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF07,0Pre-burn,2016-08-17,RxF07_2,2,a,wd,hr0100,2.898828840848088,tons_per_acre,100-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF07,0Pre-burn,2016-08-17,RxF07_2,2,a,wd,hr1000s,3.8484787715036517,tons_per_acre,1000-hr rotten,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF07,0Pre-burn,2016-08-17,RxF07_2,2,a,wd,hr1000r,17.11081676857578,tons_per_acre,1000-hr sound,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2017,RxF07,1Post-burn,2017-11-21,RxF07_1,1,a,wd,hr0001,0.17332512225620655,tons_per_acre,1-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF07,1Post-burn,2017-11-21,RxF07_1,1,a,wd,hr0010,0,tons_per_acre,10-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF07,1Post-burn,2017-11-21,RxF07_1,1,a,wd,hr0100,0,tons_per_acre,100-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF07,1Post-burn,2017-11-21,RxF07_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF07,1Post-burn,2017-11-21,RxF07_1,1,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF07,1Post-burn,2017-11-21,RxF07_2,2,a,wd,hr0001,0.23516423046060708,tons_per_acre,1-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF07,1Post-burn,2017-11-21,RxF07_2,2,a,wd,hr0010,0,tons_per_acre,10-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF07,1Post-burn,2017-11-21,RxF07_2,2,a,wd,hr0100,0,tons_per_acre,100-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF07,1Post-burn,2017-11-21,RxF07_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF07,1Post-burn,2017-11-21,RxF07_2,2,a,wd,hr1000r,50.28484927907984,tons_per_acre,1000-hr sound,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2019,RxF07,2Post-burn,2019-10-16,RxF07_1,1,a,wd,hr0001,0.2133232273922542,tons_per_acre,1-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF07,2Post-burn,2019-10-16,RxF07_1,1,a,wd,hr0010,0.29852815146274697,tons_per_acre,10-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF07,2Post-burn,2019-10-16,RxF07_1,1,a,wd,hr0100,0,tons_per_acre,100-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF07,2Post-burn,2019-10-16,RxF07_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF07,2Post-burn,2019-10-16,RxF07_1,1,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF07,2Post-burn,2019-10-16,RxF07_2,2,a,wd,hr0001,0.3135523072808094,tons_per_acre,1-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF07,2Post-burn,2019-10-16,RxF07_2,2,a,wd,hr0010,1.170107813370638,tons_per_acre,10-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF07,2Post-burn,2019-10-16,RxF07_2,2,a,wd,hr0100,1.449414420424044,tons_per_acre,100-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF07,2Post-burn,2019-10-16,RxF07_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF07,2Post-burn,2019-10-16,RxF07_2,2,a,wd,hr1000r,26.626526093957214,tons_per_acre,1000-hr sound,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2021,RxF07,3Post-burn,2021-09-30,RxF07_1,1,a,wd,hr0001,0.026665403424031776,tons_per_acre,1-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF07,3Post-burn,2021-09-30,RxF07_1,1,a,wd,hr0010,0,tons_per_acre,10-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF07,3Post-burn,2021-09-30,RxF07_1,1,a,wd,hr0100,0,tons_per_acre,100-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF07,3Post-burn,2021-09-30,RxF07_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF07,3Post-burn,2021-09-30,RxF07_1,1,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF07,3Post-burn,2021-09-30,RxF07_2,2,a,wd,hr0001,0.1045174357602698,tons_per_acre,1-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF07,3Post-burn,2021-09-30,RxF07_2,2,a,wd,hr0010,0.2925269533426595,tons_per_acre,10-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF07,3Post-burn,2021-09-30,RxF07_2,2,a,wd,hr0100,0,tons_per_acre,100-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF07,3Post-burn,2021-09-30,RxF07_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF07,3Post-burn,2021-09-30,RxF07_2,2,a,wd,hr1000r,43.8713116338222,tons_per_acre,1000-hr sound,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2016,RxF08,0Pre-burn,2016-08-17,RxF08_1,1,a,wd,hr0001,0.5775267372801162,tons_per_acre,1-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF08,0Pre-burn,2016-08-17,RxF08_1,1,a,wd,hr0010,3.526694119013701,tons_per_acre,10-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF08,0Pre-burn,2016-08-17,RxF08_1,1,a,wd,hr0100,1.4561738824728248,tons_per_acre,100-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF08,0Pre-burn,2016-08-17,RxF08_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF08,0Pre-burn,2016-08-17,RxF08_1,1,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF08,0Pre-burn,2016-08-17,RxF08_2,2,a,wd,hr0001,0.49121206455857624,tons_per_acre,1-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF08,0Pre-burn,2016-08-17,RxF08_2,2,a,wd,hr0010,1.9997396800777267,tons_per_acre,10-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF08,0Pre-burn,2016-08-17,RxF08_2,2,a,wd,hr0100,8.256935803346984,tons_per_acre,100-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF08,0Pre-burn,2016-08-17,RxF08_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF08,0Pre-burn,2016-08-17,RxF08_2,2,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2017,RxF08,1Post-burn,2017-11-21,RxF08_1,1,a,wd,hr0001,0.013125607665457185,tons_per_acre,1-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF08,1Post-burn,2017-11-21,RxF08_1,1,a,wd,hr0010,0,tons_per_acre,10-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF08,1Post-burn,2017-11-21,RxF08_1,1,a,wd,hr0100,0,tons_per_acre,100-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF08,1Post-burn,2017-11-21,RxF08_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF08,1Post-burn,2017-11-21,RxF08_1,1,a,wd,hr1000r,56.28854256728857,tons_per_acre,1000-hr sound,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF08,1Post-burn,2017-11-21,RxF08_2,2,a,wd,hr0001,0.014885214077532613,tons_per_acre,1-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF08,1Post-burn,2017-11-21,RxF08_2,2,a,wd,hr0010,0,tons_per_acre,10-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF08,1Post-burn,2017-11-21,RxF08_2,2,a,wd,hr0100,1.6513871606693968,tons_per_acre,100-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF08,1Post-burn,2017-11-21,RxF08_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF08,1Post-burn,2017-11-21,RxF08_2,2,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2019,RxF08,2Post-burn,2019-10-16,RxF08_1,1,a,wd,hr0001,0.02625121533091437,tons_per_acre,1-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF08,2Post-burn,2019-10-16,RxF08_1,1,a,wd,hr0010,0,tons_per_acre,10-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF08,2Post-burn,2019-10-16,RxF08_1,1,a,wd,hr0100,0,tons_per_acre,100-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF08,2Post-burn,2019-10-16,RxF08_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF08,2Post-burn,2019-10-16,RxF08_1,1,a,wd,hr1000r,31.440503388554202,tons_per_acre,1000-hr sound,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF08,2Post-burn,2019-10-16,RxF08_2,2,a,wd,hr0001,0.04465564223259783,tons_per_acre,1-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF08,2Post-burn,2019-10-16,RxF08_2,2,a,wd,hr0010,0,tons_per_acre,10-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF08,2Post-burn,2019-10-16,RxF08_2,2,a,wd,hr0100,0,tons_per_acre,100-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF08,2Post-burn,2019-10-16,RxF08_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF08,2Post-burn,2019-10-16,RxF08_2,2,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2021,RxF08,3Post-burn,2021-09-29,RxF08_1,1,a,wd,hr0001,0.02625121533091437,tons_per_acre,1-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF08,3Post-burn,2021-09-29,RxF08_1,1,a,wd,hr0010,0.5877823531689502,tons_per_acre,10-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF08,3Post-burn,2021-09-29,RxF08_1,1,a,wd,hr0100,0,tons_per_acre,100-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF08,3Post-burn,2021-09-29,RxF08_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF08,3Post-burn,2021-09-29,RxF08_1,1,a,wd,hr1000r,3.4737359189226638,tons_per_acre,1000-hr sound,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF08,3Post-burn,2021-09-29,RxF08_2,2,a,wd,hr0001,0.014885214077532613,tons_per_acre,1-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF08,3Post-burn,2021-09-29,RxF08_2,2,a,wd,hr0010,0,tons_per_acre,10-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF08,3Post-burn,2021-09-29,RxF08_2,2,a,wd,hr0100,0,tons_per_acre,100-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF08,3Post-burn,2021-09-29,RxF08_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF08,3Post-burn,2021-09-29,RxF08_2,2,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2016,RxF09,0Pre-burn,2016-08-17,RxF09_1,1,a,wd,hr0001,0.38385115624704463,tons_per_acre,1-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF09,0Pre-burn,2016-08-17,RxF09_1,1,a,wd,hr0010,3.8527899855279215,tons_per_acre,10-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF09,0Pre-burn,2016-08-17,RxF09_1,1,a,wd,hr0100,2.9368966886002843,tons_per_acre,100-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF09,0Pre-burn,2016-08-17,RxF09_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF09,0Pre-burn,2016-08-17,RxF09_1,1,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF09,0Pre-burn,2016-08-17,RxF09_2,2,a,wd,hr0001,0.5292836056866012,tons_per_acre,1-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF09,0Pre-burn,2016-08-17,RxF09_2,2,a,wd,hr0010,4.861955131054308,tons_per_acre,10-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF09,0Pre-burn,2016-08-17,RxF09_2,2,a,wd,hr0100,1.5056278998140094,tons_per_acre,100-hr,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF09,0Pre-burn,2016-08-17,RxF09_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2016,RxF09,0Pre-burn,2016-08-17,RxF09_2,2,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,1 Year pre-fire (2016),1-y pre-fire (2016),Downed woody debris
+2017,RxF09,1Post-burn,2017-11-21,RxF09_1,1,a,wd,hr0001,0.026472493534278944,tons_per_acre,1-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF09,1Post-burn,2017-11-21,RxF09_1,1,a,wd,hr0010,0,tons_per_acre,10-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF09,1Post-burn,2017-11-21,RxF09_1,1,a,wd,hr0100,0,tons_per_acre,100-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF09,1Post-burn,2017-11-21,RxF09_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF09,1Post-burn,2017-11-21,RxF09_1,1,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF09,1Post-burn,2017-11-21,RxF09_2,2,a,wd,hr0001,0.027142749009569287,tons_per_acre,1-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF09,1Post-burn,2017-11-21,RxF09_2,2,a,wd,hr0010,0,tons_per_acre,10-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF09,1Post-burn,2017-11-21,RxF09_2,2,a,wd,hr0100,0,tons_per_acre,100-hr,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF09,1Post-burn,2017-11-21,RxF09_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2017,RxF09,1Post-burn,2017-11-21,RxF09_2,2,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,0 Years post-fire (2017),0-y post-fire (2017),Downed woody debris
+2019,RxF09,2Post-burn,2019-10-16,RxF09_1,1,a,wd,hr0001,0.13236246767139473,tons_per_acre,1-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF09,2Post-burn,2019-10-16,RxF09_1,1,a,wd,hr0010,0,tons_per_acre,10-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF09,2Post-burn,2019-10-16,RxF09_1,1,a,wd,hr0100,0,tons_per_acre,100-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF09,2Post-burn,2019-10-16,RxF09_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF09,2Post-burn,2019-10-16,RxF09_1,1,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF09,2Post-burn,2019-10-16,RxF09_2,2,a,wd,hr0001,0.054285498019138574,tons_per_acre,1-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF09,2Post-burn,2019-10-16,RxF09_2,2,a,wd,hr0010,0,tons_per_acre,10-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF09,2Post-burn,2019-10-16,RxF09_2,2,a,wd,hr0100,0,tons_per_acre,100-hr,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF09,2Post-burn,2019-10-16,RxF09_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2019,RxF09,2Post-burn,2019-10-16,RxF09_2,2,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,2 Years post-fire (2019),2-y post-fire (2019),Downed woody debris
+2021,RxF09,3Post-burn,2021-09-30,RxF09_1,1,a,wd,hr0001,0.026472493534278944,tons_per_acre,1-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF09,3Post-burn,2021-09-30,RxF09_1,1,a,wd,hr0010,0,tons_per_acre,10-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF09,3Post-burn,2021-09-30,RxF09_1,1,a,wd,hr0100,0,tons_per_acre,100-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF09,3Post-burn,2021-09-30,RxF09_1,1,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF09,3Post-burn,2021-09-30,RxF09_1,1,a,wd,hr1000r,1.9704470213294583,tons_per_acre,1000-hr sound,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF09,3Post-burn,2021-09-30,RxF09_2,2,a,wd,hr0001,0.0949996215334925,tons_per_acre,1-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF09,3Post-burn,2021-09-30,RxF09_2,2,a,wd,hr0010,1.5193609784544713,tons_per_acre,10-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF09,3Post-burn,2021-09-30,RxF09_2,2,a,wd,hr0100,0,tons_per_acre,100-hr,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF09,3Post-burn,2021-09-30,RxF09_2,2,a,wd,hr1000s,0,tons_per_acre,1000-hr rotten,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
+2021,RxF09,3Post-burn,2021-09-30,RxF09_2,2,a,wd,hr1000r,0,tons_per_acre,1000-hr sound,4 Years post-fire (2021),4-y post-fire (2021),Downed woody debris
