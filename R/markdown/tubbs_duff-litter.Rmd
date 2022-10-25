@@ -3,17 +3,13 @@ title: 'Fuel analysis for Oak Symposium: Duff and litter'
 author: "Morgan Gray"
 date: "`r Sys.Date()`"
 output:
-  pdf_document: default
   html_document:
     df_print: paged
-    
-    
+  pdf_document: default
 ---
 
-```{r setup, include=FALSE, message = FALSE}
+```{r setup, include=FALSE, message = FALSE, warning=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-
-# CONFIGURE SETTINGS -----
 
 # Load libraries -----
 rm(list = ls())
@@ -26,15 +22,15 @@ library(lemon)  ## To manipulate faceted ggplots
 library(kableExtra)  ## For tables in rmarkdown
 library(ggpubr)  ## For qq plots
 
-## Define file paths ----
-path_in <- here("input")
-path_cache <- here(path_in, "cache")
-path_lookup <- here(path_in, "lookup-tables")
-path_out <- here("analysis/tubbs")
-path_out_plot <- here(path_out, "plots")
+# Define file paths ----
+path_r <- here("R")
+path_fxn <- here(path_r, "functions")
+path_lookup <- here("input/lookup-tables")
+path_raw <- here("input/data_1-raw")
+path_tidy <- here("input/data_2-tidy")
+path_derived <- here("input/data_3-derived")
 
 # Define helpers ----
-date_today <- Sys.Date()
 index_type <- "Duff & litter"
 
 # Define plot colors ----
@@ -43,212 +39,41 @@ plot_colors <-
                 "plot-colors.csv")) %>%
   arrange(palette, palette_subset, levels)
 
-colors_fuel <- 
-  plot_colors %>%
-  filter(palette %in% "fuel_class", 
-         palette_subset %in% "all")
-
-colors_dl <- c("#7da8b0", "#c4c4c4")
-
 colors_year <- 
   plot_colors %>%
   filter(palette %in% "year", 
          palette_subset %in% "1pre_3post") %>%
   pull(hex_code) 
 
-# ========================================================== -----
-# WRITE FUNCTIONS ----
-#   fxn_digit ----
-fxn_digit <- function(x){
-  as.numeric(format(round(x, 3), nsmall = 3))
-}
-#   fxn_signif ----
-fxn_signif <- function(df){
-  df %>%
-    mutate(p_adj_sig = case_when(
-      p_adj < 0.001 ~ "***", 
-      p_adj > 0.001 & p_adj < 0.01 ~ "**", 
-      p_adj > 0.01 & p_adj < 0.05 ~ "*", 
-      p_adj > 0.05 ~ "n.s.")) %>%
-    arrange(p_adj)
-    
-}
+colors_dl <- c("#7da8b0", "#c4c4c4")
 
-#   fxn_kable ----
-fxn_kable <- function(df){
-  df  %>%
-    knitr::kable() %>%
-    kable_styling(bootstrap_options = c("striped", "hover"), 
-                  full_width = F,  
-                  position = "left", 
-                  fixed_thead = T)
-}
-  
-#   fxn_aov_me ----
-fxn_aov_me <- function(df){
-  df %>%
-    anova_test(dv = value, 
-               wid = plot_id, 
-               within = year) %>%
-    get_anova_table() %>%
-    adjust_pvalue(method = "bonferroni") %>%
-    as_tibble() %>%
-    clean_names() %>%
-    mutate(method = "me", 
-           data_type = index_type) %>%
-    rename(statistic = f) %>% 
-    relocate(data_type, 
-           method, 
-           effect, 
-           starts_with("p_adj"), 
-           statistic,
-           starts_with("d"), 
-           ges)
-}
+# Source functions ----
+source(file = here(path_fxn, "basic-functions.R"))
+source(file = here(path_fxn, "statistical-tests.R"))
+source(file = here(path_fxn, "data-transformation.R"))
 
-#   fxn_pwc ----
-fxn_pwc <- function(df){
-  df %>%
-    pairwise_t_test(
-      value ~ year, 
-      paired = TRUE,
-      p.adjust.method = "bonferroni") %>%
-    clean_names() %>%
-    mutate(method = "pwc", 
-           data_type = index_type) %>%
-    rename(p_adj_sig = p_adj_signif) %>%
-    select(data_type, 
-             method, 
-             starts_with("group"),
-             starts_with("p_adj"), 
-             statistic,
-             starts_with("d"),  
-             starts_with("p"))
-}
-
-#   fxn_aov2_me ----
-fxn_aov2_me <- function(df){
-  df %>%
-    anova_test(dv = value, 
-               wid = plot_id, 
-               within = c(fuel_class, year)) %>%
-    get_anova_table() %>%
-    adjust_pvalue(method = "bonferroni") %>%
-    as_tibble() %>%
-    clean_names() %>%
-    mutate(method = "aov2", 
-           data_type = index_type)  %>%
-    rename(statistic = f) %>%
-    select(data_type, 
-             method, 
-             effect, 
-             starts_with("p_adj"), 
-             statistic,
-             starts_with("d"), 
-             ges)
-}
-
-#   fxn_pwc2 ----
-fxn_pwc2 <- function(df){
-  df %>%
-    pairwise_t_test(
-      value ~ year, 
-      paired = TRUE,
-      p.adjust.method = "bonferroni") %>%
-    clean_names() %>%
-    mutate(method = "pwc", 
-           data_type = index_type, 
-           statistic = fxn_digit(statistic)) %>%
-    rename(p_adj_sig = p_adj_signif) %>%
-    select(data_type, 
-             method, 
-             fuel_class,
-             starts_with("group"),
-             starts_with("p_adj"), 
-             statistic,
-             starts_with("d"))
-
- 
-}
-#   fxn_posthoc_plot ----
-fxn_posthoc_plot <- function(index_subset, index_input){
-  
-# Create annotations for boxplot ----
-annotation <- 
-  index_input %>%
-  filter(fuel_class %in% index_subset) %>%
-  pairwise_t_test(value ~ year, paired = TRUE, p.adjust.method = "bonferroni")  %>%
-  add_xy_position(x = "year") 
-
-title <- 
-  index_input %>%
-  filter(fuel_class %in% index_subset) %>%
-  distinct(lab_fuel) %>%
-  pull()
-  
-# Create boxplot comparing years  ----
-index_input %>%
-  filter(fuel_class %in% index_subset) %>%
-   ggboxplot(x = "year", 
-            y = "value", 
-            fill = "lab_year_abbr", 
-            palette = colors_year, 
-            width = 0.6) +
-  ylab("Mean tons per acre") + 
-  labs(title = title, 
-       fill = "Year") +
-   theme(axis.title.x = element_blank(), 
-        legend.position = "top")  + 
-  # Add p-values
-  stat_pvalue_manual(annotation, tip.length = 0, hide.ns = TRUE) 
-
-}
-
-#   fxn_posthoc_table ----
-fxn_posthoc_table <- function(index_subset, index_input){
-  
-title <- 
-  index_input %>%
-  filter(fuel_class %in% index_subset) %>%
-  distinct(lab_fuel) %>%
-  pull()
-  
-index_input %>%
- filter(fuel_class %in% index_subset) %>%
-  fxn_pwc() %>%
-    mutate(fuel_class = title) %>%
-  select(-p) %>%
-    relocate(data_type, 
-             fuel_class, 
-             starts_with("group"), 
-             starts_with("p_adj"), 
-             statistic, 
-             starts_with("d")) %>%
-  arrange(p_adj) %>%
-  fxn_kable()
-}
 ```
 
 ------------------------------------------------------------------------
 
 ## Overview
 
-The aim of this research was to understand the impact of of the 2017 Tubbs fire on fuel loads. The objective of this research was to evaluate the impact of the 2017 Tubbs fire on duff and litter fuel loads over time. To meet this objective, we compared the pre- and post-fire levels of duff and litter at nine long-term vegetation monitoring plots. Surveys were conducted at four time points: 2016 (1y pre-fire), 2017 (0y post-fire), 2019 (2y post-fire), and 2021 (4y post-fire). We conducted surveys along two transects per plot; each transect had two quadrats. As a result, each time point had 36 data points: 9 plots x 2 transects x 2 quadrats. 
+The aim of this research was to understand the impact of of the 2017 Tubbs fire on fuel loads. The objective of this research was to evaluate the impact of the 2017 Tubbs fire on duff and litter fuel loads over time. To meet this objective, we compared the pre- and post-fire levels of duff and litter at nine long-term vegetation monitoring plots. Surveys were conducted at four time points: 2016 (1y pre-fire), 2017 (0y post-fire), 2019 (2y post-fire), and 2021 (4y post-fire). We conducted surveys along two transects per plot; each transect had two quadrats. As a result, each time point had 36 data points: 9 plots x 2 transects x 2 quadrats.
 
 Using the duff and litter data set as input, we asked the following questions:
 
-1.  Did the total fuel load (all duff and litter combined) differ between years?\
+1.  Did the total fuel load (all duff and litter combined) differ between years?
 2.  Did fuel load differ between years for duff and/or litter? If so, which years were different?
 
-#### Duff and litter data  
+#### Duff and litter data
 
-We answered these questions using a time series of plot-level data for (1) the total amount of duff and litter and (2) the mean amount of each fuel class (duff, litter). We defined "total (or all) duff and litter" as the combined total of the duff and litter within a plot. 
+We answered these questions using a time series of plot-level data for (1) the total amount of duff and litter and (2) the mean amount of each fuel class (duff, litter). We defined "total (or all) duff and litter" as the combined total of the duff and litter within a plot.
 
-First, we caclulated the plot-level mean (n = 4 quadrats) for each fuel class (duff, litter) at each time point. A subset of the data frame with the plot-level mean for each fuel class by year is shown below.  
+First, we calculated the plot-level mean (n = 4 quadrats) for each fuel class (duff, litter) at each time point. A subset of the data frame with the plot-level mean for each fuel class by year is shown below.
 
-```{r, echo=FALSE, message=FALSE}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 input_class <- 
-  read_csv(here(path_cache, "tubbs_mean-by-plot-type-class-yr.csv")) %>%
+  read_csv(here(path_derived, "tubbs_mean-by-plot-type-class-yr.csv")) %>%
   arrange(year) %>%
   mutate(year = as_factor(year), 
          lab_year = as_factor(lab_year), 
@@ -267,11 +92,11 @@ head(input_class) %>%
 
 ```
 
-Next, we summed the means for the duff and litter fuel classes to find the plot-level total at each time point. Below is a subset of the data frame for the plot-level values of duff and litter by year.  
+Next, we summed the means for the duff and litter fuel classes to find the plot-level total at each time point. Below is a subset of the data frame for the plot-level values of duff and litter by year.
 
-```{r, echo=FALSE, message=FALSE}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 input_total <-
-   read_csv(here(path_cache, "tubbs_total-by-plot-type-yr.csv")) %>%
+   read_csv(here(path_derived, "tubbs_total-by-plot-type-yr.csv")) %>%
   arrange(year) %>%
   mutate(year = as_factor(year), 
          lab_year = as_factor(lab_year), 
@@ -330,7 +155,7 @@ input_total %>%
 
 ### Visualization of the plot-level total amount of duff and litter by year
 
-A boxplot of total duff and litter by year showed lower values in post-fire years. Specifically, we observed a decrease in the depth of all duff and litter immediately following the fire (2017; 0-y post-fire). The mean depth of duff and litter did not return to pre-fire levels in subsequent years.
+A box plot of total duff and litter by year showed lower values in post-fire years. Specifically, we observed a decrease in the depth of all duff and litter immediately following the fire (2017; 0-y post-fire). The mean depth of duff and litter did not return to pre-fire levels in subsequent years.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 p_total <- 
@@ -499,9 +324,9 @@ input_class %>%
 
 ```
 
-### Visualization of duff and litter by year 
+### Visualization of duff and litter by year
 
-A boxplot of duff and litter by year showed differing post-fire trends. Although duff and litter both showed a decrease in depth immediately following the fire (2017; 0-y post-fire), the subsequent annual trends differed. The temporal trend for total duff and litter was more similar to that of the litter fuel class, and showed less similarity to that of the duff fuel class. These results suggest that litter was an influential driver of the post-fire patterns observed for duff and litter as a group.
+A box plot of duff and litter by year showed differing post-fire trends. Although duff and litter both showed a decrease in depth immediately following the fire (2017; 0-y post-fire), the subsequent annual trends differed. The temporal trend for total duff and litter was more similar to that of the litter fuel class, and showed less similarity to that of the duff fuel class. These results suggest that litter was an influential driver of the post-fire patterns observed for duff and litter as a group.
 
 **Duff**\
 -- Duff depth remained low in all post-fire years.\
@@ -597,14 +422,14 @@ There was a statistically significant two-way interaction between duff and litte
 input_class %>%
   fxn_aov2_me() %>%
   fxn_signif() %>%
-    # mutate(data_type = index_type) %>%
-   relocate(data_type, 
-             effect, 
-             starts_with("p_adj"), 
-             statistic, 
-             starts_with("d_"), 
-             ges) %>%
-     fxn_kable()
+  # mutate(data_type = index_type) %>%
+  relocate(data_type, 
+           effect, 
+           starts_with("p_adj"), 
+           statistic, 
+           starts_with("d_"), 
+           ges) %>%
+  fxn_kable()
 
 ```
 
@@ -622,16 +447,16 @@ pwc_yr <-
 
 # Create boxplot comparing both fuel classes by year  ----
 input_class %>%
-   ggboxplot(x = "lab_fuel", 
+  ggboxplot(x = "lab_fuel", 
             y = "value", 
             fill = "lab_year_abbr", 
             palette = colors_year, 
             width = 0.6) +
-   ylab("Mean depth (in.)") + 
+  ylab("Mean depth (in.)") + 
   labs(title = "Duff and litter", 
        fill = "Year") +
-   theme(axis.title.x = element_blank(), 
-         # axis.text.x = element_blank(),
+  theme(axis.title.x = element_blank(), 
+        # axis.text.x = element_blank(),
         legend.position = "top")  + 
   stat_pvalue_manual(pwc_yr, tip.length = 0, hide.ns = TRUE) 
 
@@ -733,7 +558,7 @@ fxn_posthoc_table(index_subset = "litter", input_class)
 
 ##### *Duff vs. Litter*
 
-We found a significant difference in mean depth betwen duff and litter in 2019 and in 2021.
+We found a significant difference in mean depth between duff and litter in 2019 and in 2021.
 
 ```{r, echo=FALSE}
 
