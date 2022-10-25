@@ -204,8 +204,8 @@ input_total %>%
   clean_names() %>%
   select(data_type, fuel_class, year, plot_id, value, 
          starts_with("is")) %>%
-    filter(is_extreme == TRUE) %>%
-     fxn_kable()
+  filter(is_extreme == TRUE) %>%
+  fxn_kable()
 
 ```
 
@@ -233,7 +233,7 @@ input_total %>%
          statistic) %>%
   arrange(is_normal, year) %>%
       filter(is_normal == FALSE) %>%
-     fxn_kable()
+  fxn_kable()
 
 ```
 
@@ -245,7 +245,6 @@ ggqqplot(input_total, "value",
          color = "year",
          palette = colors_year)
 
-
 ```
 
 ### Repeated measures ANOVA test
@@ -253,24 +252,22 @@ ggqqplot(input_total, "value",
 Total duff and litter load differed between years. We found a significant main effect of year on duff and litter load (p-adjusted \< 0.001). The mean fuel load for all duff and litter (duff and litter combined) was significantly different between the four years; F(3, 24) = 14.029, p-adjusted (p-adj.) = 1.73e-05, ges = 0.59. The generalized effect size (ges) is the amount of variability due to the within-subjects factor.
 
 ```{r, echo=FALSE, warning=FALSE}
-  # Effect of year (all fuel classes)
+# Effect of year (all fuel classes)
 input_total %>%
-    fxn_aov_me() %>%
-    mutate(data_type = index_type,
+  fxn_aov_me() %>%
+  mutate(data_type = index_type,
          fuel_class = "All") %>%
   clean_names() %>%
   select(-p, 
          -p_05) %>%
-   relocate(data_type, 
-            fuel_class,
-             effect, 
-             starts_with("p_adj"), 
-             statistic, 
-             starts_with("d_"), 
-             ges) %>%
-    fxn_kable()
-
-
+  relocate(data_type, 
+           fuel_class,
+           effect, 
+           starts_with("p_adj"), 
+           statistic, 
+           starts_with("d_"), 
+           ges) %>%
+  fxn_kable()
 ```
 
 ### Post hoc tests
@@ -280,11 +277,13 @@ We conducted post hoc pairwise comparisons between the levels of the within-subj
 The results from the pairwise comparisons are shown below as (1) a boxplot of total duff and litter by year updated with p-values, and (2) a table of test results.
 
 ```{r, echo=FALSE}
-pwc <- input_total %>%
+pwc <- 
+  input_total %>%
   pairwise_t_test(value ~ year, paired = TRUE, p.adjust.method = "bonferroni")  %>% 
   add_xy_position(x = "year")
 
-aov_me <- input_total %>%
+aov_me <- 
+  input_total %>%
     anova_test(dv = value, wid = plot_id, within = year)
   
 p_total + 
@@ -295,21 +294,21 @@ p_total +
 ```
 
 ```{r, echo=FALSE, warning=FALSE}
-  # Effect of year (all fuel classes)
+# Effect of year (all fuel classes)
 input_total %>%
-    fxn_pwc() %>%
-    mutate(statistic = fxn_digit(statistic),
-           data_type = index_type,
+  fxn_pwc() %>%
+  mutate(statistic = fxn_digit(statistic),
+         data_type = index_type,
          fuel_class = "All") %>%
   select(-p) %>%
   relocate(data_type, 
            fuel_class,
-             starts_with("group"), 
-             starts_with("p_adj"), 
-             statistic, 
-             starts_with("d")) %>%
+           starts_with("group"), 
+           starts_with("p_adj"), 
+           statistic, 
+           starts_with("d")) %>%
   arrange(p_adj) %>%
-    fxn_kable()
+  fxn_kable()
 
 ```
 
@@ -327,14 +326,21 @@ The following table summarizes duff and litter by class for each time point.
 
 ```{r, echo=FALSE}
 input_class %>%
-  group_by(year, fuel_class) %>%
+  group_by(year, fuel_class, units) %>%
   get_summary_stats(value, type = "mean_sd")  %>%
   arrange(fuel_class, year) %>%
-  mutate(data_type = index_type) %>%
-  select(data_type, fuel_class, year, mean, sd) %>%
-  gather(statistic, value, mean:sd) %>%
+  mutate(fuel_type = index_type) %>%
+  select(fuel_type, 
+         fuel_class, 
+         year,
+         n,
+         mean, 
+         sd,
+         units) %>%
+  gather(statistic, value, n:sd) %>%
   spread(year, value) %>%
-     fxn_kable()
+  relocate(units, .after = last_col()) %>%
+  fxn_kable()
 
 ```
 
