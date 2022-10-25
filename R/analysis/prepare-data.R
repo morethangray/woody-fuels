@@ -133,7 +133,7 @@ fuels_wd_raw <-
          data_type = "wd",
          units = "tons_per_acre", 
          units_si = "tons_per_hectare",
-         lab_type = "Downed woody debris") %>%
+         lab_type = "Coarse woody debris") %>%
   unite(plot_tran,
         c(plot_id, transect_n), 
         remove = FALSE) %>%
@@ -186,7 +186,7 @@ fuels_dl_raw <-
                              "litter",
                              "duff"),
          # transect_n = str_remove(transect, "Fuels"),
-         data_type = "wd",
+         data_type = "dl",
          units = "depth_in_inches", 
          units_si = "depth_in_cm",
          lab_type = "Duff & litter") %>%

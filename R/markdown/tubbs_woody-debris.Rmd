@@ -32,6 +32,7 @@ path_derived <- here("input/data_3-derived")
 
 # Define helpers ----
 index_type <- "Coarse woody debris"
+index_units_si <- "Metric tons per hectare"
 
 # Define plot colors ----
 plot_colors <- 
@@ -83,7 +84,9 @@ input_class <-
   mutate(year = as_factor(year), 
          lab_year = as_factor(lab_year), 
          lab_year_abbr = as_factor(lab_year_abbr), 
-         value = fxn_digit(value_si)) %>%
+         value = fxn_digit(value_si), 
+         statistic = "mean",
+         units = index_units_si) %>%
   relocate(c(statistic, subset), .after = value)  %>%
   filter(lab_type %in% index_type)  
 
@@ -103,13 +106,15 @@ Next, we summed the means for all fuel classes to find the plot-level total for 
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 input_total <-
-   read_csv(here(path_derived, "tubbs_total-by-plot-type-yr.csv")) %>%
+  read_csv(here(path_derived, "tubbs_total-by-plot-type-yr.csv")) %>%
   arrange(year) %>%
   mutate(year = as_factor(year), 
          lab_year = as_factor(lab_year), 
          lab_year_abbr = as_factor(lab_year_abbr), 
          lab_fuel = "All", 
-         value = fxn_digit(value_si)) %>%
+         value = fxn_digit(value_si), 
+         statistic = "total",
+         units = index_units_si) %>%
   relocate(c(statistic, subset), .after = value)  %>%
   filter(lab_type %in% index_type)
 
