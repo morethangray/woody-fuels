@@ -83,9 +83,9 @@ input_class <-
   mutate(year = as_factor(year), 
          lab_year = as_factor(lab_year), 
          lab_year_abbr = as_factor(lab_year_abbr), 
-         value = fxn_digit(value)) %>%
+         value = fxn_digit(value_si)) %>%
   relocate(c(statistic, subset), .after = value)  %>%
-  filter(lab_type %in% index_type)
+  filter(lab_type %in% index_type)  
 
 head(input_class) %>%
   select(fuel_type = lab_type, 
@@ -109,7 +109,7 @@ input_total <-
          lab_year = as_factor(lab_year), 
          lab_year_abbr = as_factor(lab_year_abbr), 
          lab_fuel = "All", 
-         value = fxn_digit(value)) %>%
+         value = fxn_digit(value_si)) %>%
   relocate(c(statistic, subset), .after = value)  %>%
   filter(lab_type %in% index_type)
 
@@ -172,7 +172,7 @@ p_total <-
             fill = "year", 
             outlier.size = 0.3,
             palette = colors_year) + 
-  ylab("Mean tons per acre") + 
+  ylab("Mean metric tons per hectare") + 
   theme(legend.position = "none", 
         axis.title.x = element_blank()) + 
   scale_x_discrete(labels = function(lab_year) str_wrap(lab_year, width = 20)) + 
@@ -425,7 +425,7 @@ p_class <-
         panel.border = element_rect(fill = NA, color = "gray91", size = 2)) + 
   labs(title = "coarse woody debris, by fuel class", 
        caption = "Note: y-axis scale differs by fuel class", 
-       y = "Mean tons per acre",  
+       y = "Mean metric tons per hectare",  
        x = "Year",
        # Rename legend title
        fill = "Year") + 
@@ -571,7 +571,7 @@ input_class_transform %>%
         panel.border = element_rect(fill = NA, color = "gray91", size = 2)) + 
   labs(title = "Distribution of values, by fuel class and transformation",
        caption = "Note: axis scales differ between plots",
-       x = "Mean tons per acre",
+       x = "Mean metric tons per hectare",
        y = "Density", 
        color = "Fuel class") + 
   xlim(-5, 10)
@@ -717,13 +717,11 @@ pwc_yr_type <-
 #             palette = colors_year, 
 #             outlier.size = 0.3,
 #             width = 0.6) +
-#   # ylab("Mean tons per acre") + 
-#   # xlab()
 #   labs(title = "coarse woody debris, by class and year", 
 #        fill = "Year", 
 #        caption = "Note: y-axis scale differs by fuel class", 
 #        x = "Year", 
-#        y = "Mean tons per acre") +
+#        y = "Mean metric tons per hectare") +
 #   theme(legend.position = "top", 
 #         # axis.title.x = element_blank(),
 #         # axis.text.x = element_blank(),

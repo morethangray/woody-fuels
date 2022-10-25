@@ -78,7 +78,7 @@ input_class <-
   mutate(year = as_factor(year), 
          lab_year = as_factor(lab_year), 
          lab_year_abbr = as_factor(lab_year_abbr), 
-         value = fxn_digit(value)) %>%
+          value = fxn_digit(value_si)) %>%
   relocate(c(statistic, subset), .after = value)  %>%
   filter(lab_type %in% index_type)
 
@@ -102,7 +102,7 @@ input_total <-
          lab_year = as_factor(lab_year), 
          lab_year_abbr = as_factor(lab_year_abbr), 
          lab_fuel = "All", 
-         value = fxn_digit(value)) %>%
+         value = fxn_digit(value_si)) %>%
   relocate(c(statistic, subset), .after = value)  %>%
   filter(lab_type %in% index_type)
 
