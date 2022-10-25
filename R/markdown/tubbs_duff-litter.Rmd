@@ -151,7 +151,7 @@ The first question we asked was whether there was a significant main effect of y
 
 The following table summarizes the plot-level total amount of duff and litter for each time point.
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 input_total %>%
   group_by(year, units) %>%
   get_summary_stats(value, type = "mean_sd")  %>%
@@ -359,22 +359,22 @@ A box plot of duff and litter by year showed differing post-fire trends. Althoug
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 p_class <- 
   input_class %>%
-   bind_rows(input_total) %>%
+  bind_rows(input_total) %>%
   ggboxplot(x = "year", 
             y = "value", 
             fill = "year", 
             palette = colors_year) + 
-  ylab("Mean depth (in.)") + 
   theme(legend.position = "none", 
         axis.title.x = element_blank(), 
         panel.spacing = unit(2, "lines"),
-          strip.background = element_rect(fill = "gray91",
-                                          color = "gray91"),
-          panel.border = element_rect(fill = NA,
-                                      color = "gray91",
-                                      size = 1.5)) + 
+        strip.background = element_rect(fill = "gray91",
+                                        color = "gray91"),
+        panel.border = element_rect(fill = NA,
+                                    color = "gray91",
+                                    size = 1.5)) + 
   # scale_x_discrete(labels = function(lab_year) str_wrap(lab_year, width = 20)) + 
-  labs(title = "Litter and duff") + 
+  labs(title = paste0(index_type), 
+       y = paste0(index_units_si, " (mean)")) + 
   facet_wrap(~lab_fuel)
 
 p_class
@@ -395,8 +395,8 @@ input_class %>%
   clean_names() %>%
   select(data_type, fuel_class, year, plot_id, value, 
          starts_with("is")) %>%
-    filter(is_extreme == TRUE) %>%
-     fxn_kable()
+  filter(is_extreme == TRUE) %>%
+  fxn_kable()
 
 ```
 
@@ -441,7 +441,7 @@ There was a statistically significant two-way interaction between duff and litte
 # Two-way ANOVA: Interaction between year x fuel class  
 input_class %>%
   fxn_aov2_me() %>%
-  fxn_signif() %>%
+  fxn_signif_adj() %>%
   # mutate(data_type = index_type) %>%
   relocate(data_type, 
            effect, 
@@ -472,11 +472,10 @@ input_class %>%
             fill = "lab_year_abbr", 
             palette = colors_year, 
             width = 0.6) +
-  ylab("Mean depth (in.)") + 
-  labs(title = "Duff and litter", 
-       fill = "Year") +
+   labs(title = paste0(index_type), 
+        y = paste0(index_units_si, " (mean)"),
+        fill = "Year") +
   theme(axis.title.x = element_blank(), 
-        # axis.text.x = element_blank(),
         legend.position = "top")  + 
   stat_pvalue_manual(pwc_yr, tip.length = 0, hide.ns = TRUE) 
 
@@ -487,17 +486,17 @@ input_class %>%
 input_class %>%
   group_by(fuel_class) %>%
   fxn_aov_me() %>%
-  fxn_signif() %>%
+  fxn_signif_adj() %>%
   select(-p, 
          -p_05) %>%
-    relocate(data_type, 
-             fuel_class, 
-             effect, 
-             starts_with("p_adj"), 
-             statistic, 
-             starts_with("d_"), 
-             ges) %>%
-    fxn_kable()
+  relocate(data_type, 
+           fuel_class, 
+           effect, 
+           starts_with("p_adj"), 
+           statistic, 
+           starts_with("d_"), 
+           ges) %>%
+  fxn_kable()
 
 ```
 
@@ -508,61 +507,11 @@ The following sections present the results from post hoc tests by fuel class for
 There was a statistically significant main effect of year on duff; F(3, 24) = 62.909, p-adj. = 1.07e-05, ges = 0.853. Pairwise comparisons showed that the mean duff depth was significantly different between all years except 2019/2021. This result indicated that duff depth differed between 2016 (pre-fire) and all post-fire years, as well as between 2017 (0y post-fire) and subsequent years.
 
 ```{r, echo=FALSE}
-fxn_posthoc_plot(index_subset = "duff", input_class)
+fxn_posthoc_plot(index_subset = "duff", input_class) +
+  theme(legend.position = "right")
 fxn_posthoc_table(index_subset = "duff", input_class)
 
-# # Summarize pairwise comparison results ----
-# pwc_yr_kable <- 
-#   input_class %>%
-#   group_by(fuel_class) %>%
-#   fxn_pwc2() %>%
-#   select(data_type, 
-#              fuel_class,
-#              group1, 
-#            group2,
-#              starts_with("p_adj"), 
-#              statistic, 
-#              starts_with("d")) %>%
-#   arrange(fuel_class, p_adj) 
-# 
-# pwc_yr_kable %>%
-#   filter(fuel_class %in% "duff") %>%
-#     fxn_kable()
-# 
-# [NOT RUN] Boxplot of fuel load by year for duff only  ----
-  # input_class %>%
-  # filter(fuel_class %in% "duff") %>%
-  # ggboxplot(x = "lab_fuel",
-  #           y = "value",
-  #           fill = "lab_year",
-  #           palette = colors_year) +
-  # ylab("Mean depth (in.)") +
-  # theme(legend.position = "right",
-  #       axis.title.x = element_blank(),
-  #       axis.text.x = element_blank(),
-  #       panel.spacing = unit(2, "lines"),
-  #         strip.background = element_rect(fill = "gray91", color = "gray91"),
-  #         panel.border = element_rect(fill = NA, color = "gray91", size = 1.5)) +
-  #  # scale_x_discrete(labels = function(lab_year) str_wrap(lab_year, width = 20)) +
-  # labs(title = "Duff") + 
-  # stat_pvalue_manual(pwc_duff, tip.length = 0, hide.ns = TRUE) 
-
-# input_class %>%
-#    ggboxplot(x = "year", 
-#             y = "value", 
-#             fill = "lab_year", 
-#             palette = colors_year, 
-#             width = 0.6, 
-#             facet.by = "lab_fuel") +
-#    ylab("Mean depth (in.)") + 
-#   labs(title = "Duff and litter", 
-#        fill = "Year") +
-#    theme(axis.title.x = element_blank(), 
-#          # axis.text.x = element_blank(),
-#         legend.position = "right")  + 
-#   stat_pvalue_manual(pwc_yr, tip.length = 0, hide.ns = TRUE) 
-
-
+ 
 ```
 
 ##### *Litter vs. Year*
@@ -571,7 +520,9 @@ There was a statistically significant main effect of year on litter; F(1, 10) = 
 
 ```{r, echo=FALSE, warning=FALSE}
 
-fxn_posthoc_plot(index_subset = "litter", input_class)
+fxn_posthoc_plot(index_subset = "litter", input_class) +
+  theme(legend.position = "right")
+
 fxn_posthoc_table(index_subset = "litter", input_class)
 
 ```

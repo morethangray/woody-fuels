@@ -326,7 +326,7 @@ We found no significant main effect of year on the plot-level total for coarse w
 # Effect of year (all fuel classes)
 input_total_transform %>%
   fxn_aov_me() %>%
-  fxn_signif() %>%
+  fxn_signif_adj() %>%
   mutate(fuel_class = "All") %>%
   clean_names() %>%
   select(-p, 
@@ -397,16 +397,24 @@ Here, the effect of year on fuel load was our focal variable of primary concern.
 
 The following table summarizes coarse woody debris by class for each time point.
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 input_class %>%
-  group_by(year, fuel_class) %>%
+  group_by(year, fuel_class, units) %>%
   get_summary_stats(value, type = "mean_sd")  %>%
   arrange(fuel_class, year) %>%
-  mutate(data_type = index_type) %>%
-  select(data_type, fuel_class, year, mean, sd) %>%
-  gather(statistic, value, mean:sd) %>%
+  mutate(fuel_type = index_type) %>%
+  select(fuel_type, 
+         fuel_class, 
+         year,
+         n,
+         mean, 
+         sd,
+         units) %>%
+  gather(statistic, value, n:sd) %>%
   spread(year, value) %>%
+  relocate(units, .after = last_col()) %>%
   fxn_kable()
+
 
 ```
 
@@ -415,7 +423,7 @@ input_class %>%
 A box plot of coarse woody debris by year and fuel class showed the post-fire trends differed among the five coarse woody debris fuel classes. [Note: The y-axis scale in the figure below differs by fuel class]
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
-p_class <-
+p_class <- 
   input_class %>%
   bind_rows(input_total) %>%
   # Configure factors so total ("all") appears first in facet
@@ -438,14 +446,12 @@ p_class <-
         strip.text = element_text(size = 8),
         strip.background = element_rect(fill = "gray91", color = "gray91"),
         panel.border = element_rect(fill = NA, color = "gray91", size = 2)) + 
-  labs(title = "coarse woody debris, by fuel class", 
+  labs(title = paste0(index_type), 
        caption = "Note: y-axis scale differs by fuel class", 
-       y = "Mean metric tons per hectare",  
        x = "Year",
-       # Rename legend title
+       y = paste0(index_units_si, " (mean)"), 
+        # Rename legend title
        fill = "Year") + 
-  # Reduce font size for y-axis labels 
-  # font("y.text", size = 9) +
   facet_wrap(~lab_fuel,  scales = "free", nrow = 1)
 
 p_class
@@ -661,7 +667,7 @@ There was a statistically significant two-way interaction between coarse woody d
 # Two-way ANOVA: Interaction between year x fuel class  
 input_class_transform  %>%
   fxn_aov2_me() %>%
-  fxn_signif() %>%
+  fxn_signif_adj() %>%
   relocate(data_type, 
              effect, 
              starts_with("p_adj"), 
@@ -682,7 +688,7 @@ We found a significant main effect of year on fuel load for 1-hr, 10-hr (p \< 0.
 input_class_transform %>%
   group_by(fuel_class) %>%
   fxn_aov_me() %>%
-  fxn_signif() %>%
+  fxn_signif_adj() %>%
   select(-p, 
          -p_05) %>%
   relocate(data_type, 
