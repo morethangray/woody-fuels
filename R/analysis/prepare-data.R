@@ -14,16 +14,16 @@ library(lubridate)   ## To work with dates and times
 library(janitor)   ## To tidy data frames
 
 # Set file paths
-path_raw <- here("input/raw-data")
+path_r <- here("R")
+path_fxn <- here(path_r, "functions")
 path_lookup <- here("input/lookup-tables")
-path_tidy <- here("input/tidy-data")
-path_cache <- here("input/cache")
+path_raw <- here("input/data_1-raw")
+path_tidy <- here("input/data_2-tidy")
+path_derived <- here("input/data_3-derived")
 
-# Write functions
-"%nin%" <- Negate("%in%")
-substrRight <- function(x, n){
-  substr(x, nchar(x)-n+1, nchar(x))
-}
+# Source functions 
+source(file = here(path_fxn, "basic-functions.R"))
+
 # ========================================================== -----
 # TWO TRANSECTS PER PLOT (TUBBS FIRE) ----
 # About this data set ----
@@ -79,7 +79,8 @@ fxn_yr_plot_class_mean <- function(df){
              year, 
              plot_id, 
              fuel_class) %>%
-    summarize(value = mean(value)) %>%
+    summarize(value = mean(value), 
+              value_si = mean(value_si)) %>%
     ungroup() %>%
     left_join(lab_year, "year") %>%
     left_join(lab_fuel, "fuel_class") %>%
@@ -87,7 +88,6 @@ fxn_yr_plot_class_mean <- function(df){
     mutate(subset = "yr_plot_class", 
            statistic = "mean") %>%
     arrange(year) 
-
 }
 
 #   fxn_yr_plot_total ----
@@ -97,7 +97,8 @@ fxn_yr_plot_total <- function(df){
     group_by(data_type, 
              year, 
              plot_id) %>%
-    summarize(value = sum(value)) %>%
+    summarize(value = mean(value), 
+              value_si = mean(value_si)) %>%
     ungroup()  %>%
     left_join(lab_year, "year") %>%
     left_join(lab_type, "data_type") %>%
@@ -123,11 +124,15 @@ fuels_wd_raw <-
   select(-fuel_class_orig) %>%
   # Convert datetime values to date values
   mutate(date = as_date(date), 
+         # Convert measurements to metric units
+         # 1 US ton per acre = 2.242 metric tons per ha
+         value_si = value * 2.242, 
          # Standardize transect number
          transect_n = str_remove(transect, "Fuels"),
          transect_rep = "a",
          data_type = "wd",
          units = "tons_per_acre", 
+         units_si = "tons_per_hectare",
          lab_type = "Downed woody debris") %>%
   unite(plot_tran,
         c(plot_id, transect_n), 
@@ -141,8 +146,8 @@ fuels_wd_raw <-
          transect_rep,
          data_type,
          fuel_class, 
-         value,
-         units, 
+         starts_with("value"),
+         starts_with("units"), 
          lab_fuel,
          starts_with("lab_year"), 
          lab_type)
@@ -153,6 +158,7 @@ fuels_wd_raw %>%
 # Calculate plot-level mean and total values ----
 # Calculate plot-level mean by class  
 wd_yr_plot_class_mean <- fxn_yr_plot_class_mean(fuels_wd_raw)  
+
 # Calculate plot-level total by summing the mean for each class  
 wd_yr_plot_total <- fxn_yr_plot_total(wd_yr_plot_class_mean)  
 
@@ -169,14 +175,20 @@ fuels_dl_raw <-
   gather(fuel_class, value, litter1a:duff2b) %>%
   # Convert datetime values to date values
   mutate(date = as_date(date), 
-         data_type = "dl",
-         units = "depth_in_inches", 
+         # Convert measurements to metric units
+         # 1 in =  2.54 cm
+         value_si = value * 2.54, 
+         # Standardize transect number
          transect_n = substrRight(fuel_class, 2),
          transect_rep = substrRight(transect_n, 1),
          transect_n = str_sub(transect_n, 1, 1),
-         fuel_class = ifelse(str_detect(fuel_class, "litter"), 
+         fuel_class = ifelse(str_detect(fuel_class, "litter"),
                              "litter",
-                             "duff"), 
+                             "duff"),
+         # transect_n = str_remove(transect, "Fuels"),
+         data_type = "wd",
+         units = "depth_in_inches", 
+         units_si = "depth_in_cm",
          lab_type = "Duff & litter") %>%
   left_join(lab_year, "year") %>%
   left_join(lab_fuel, "fuel_class") %>%
@@ -192,14 +204,14 @@ fuels_dl_raw <-
          transect_rep,
          data_type,
          fuel_class, 
-         value,
-         units, 
+         starts_with("value"),
+         starts_with("units"), 
          lab_fuel,
          starts_with("lab_year"), 
          lab_type)
 
 fuels_dl_raw %>%
-  write_csv(here(path_tidy, "tubbs_raw-data_dl.csv"))
+  write_csv(here(path_tidy, "tubbs_tidy-data_dl.csv"))
 
 # Calculate plot-level mean and total values ----
 # Calculate plot-level mean by class 
@@ -224,12 +236,12 @@ all_fuel_raw <-
 all_fuel_class_mean <- 
   bind_rows(dl_yr_plot_class_mean, 
             wd_yr_plot_class_mean) %>%
-  write_csv(here(path_cache, "tubbs_mean-by-plot-type-class-yr.csv"))
+  write_csv(here(path_derived, "tubbs_mean-by-plot-type-class-yr.csv"))
 
 all_fuel_total <- 
   bind_rows(dl_yr_plot_total, 
             wd_yr_plot_total)  %>%
-  write_csv(here(path_cache, "tubbs_total-by-plot-type-yr.csv"))
+  write_csv(here(path_derived, "tubbs_total-by-plot-type-yr.csv"))
 
 # ========================================================== -----
 # THREE TRANSECTS PER PLOT (thin) ----
@@ -285,6 +297,13 @@ fuels_thin_raw <-
          timing = str_to_lower(str_sub(lab_timing, 1, 4)), 
          timing = str_remove_all(timing, "-"), 
          survey = ifelse(timing %in% "pre", "cont", "trmt")) %>%  
+  # Convert measurements to metric units
+  mutate(value_si = 
+           case_when(data_type == "wd" ~ value *  2.242, 
+                     data_type == "dl" ~ value * 2.54), 
+         units_si = 
+           case_when(data_type == "wd" ~ "tons_per_hectare", 
+                     data_type == "dl" ~ "depth_in_cm")) %>%
   unite(plot_tran,
         c(plot_id, transect_id), 
         remove = FALSE) %>%
@@ -298,13 +317,13 @@ fuels_thin_raw <-
          transect_rep,
          data_type,
          fuel_class, 
-         value,
-         units, 
+         starts_with("value"),
+         starts_with("units"), 
          lab_fuel,
          starts_with("lab"))  %>%
   write_csv(here(path_tidy, "thin_tidy-data.csv"))
 
-# Calculate plot-level mean and total values: Raw data ----
+# Calculate plot-level mean and total values ----
 # Calculate plot-level mean by fuel_class x plot x survey  
 thin_plot_class_mean <-  
   fuels_thin_raw %>%
@@ -313,13 +332,15 @@ thin_plot_class_mean <-
            data_type, 
            fuel_class,
            lab_fuel) %>%
-  summarize(mean = mean(value)) %>%
+  summarize(value = mean(value), 
+            value_si = mean(value_si)) %>%
   ungroup() %>%
   left_join(lab_type, "data_type") %>%
-  mutate(subset = "survey_plot_class") %>%
+  mutate(subset = "survey_plot_class", 
+         statistic = "mean") %>%
   arrange(survey) %>%
-  relocate(mean, .after = fuel_class) %>%
-  write_csv(here(path_cache, "thin_mean-by-plot-type-class-trmt.csv"))
+  relocate(starts_with("value"), .after = fuel_class) %>%
+  write_csv(here(path_derived, "thin_mean-by-plot-type-class-trmt.csv"))
 
 # Calculate plot-level total by summing the mean for each class 
 thin_plot_total <- 
@@ -327,52 +348,57 @@ thin_plot_total <-
   group_by(survey, 
            plot_id, 
            data_type) %>%
-  summarize(total = sum(mean)) %>%
+  summarize(value = sum(value), 
+            value_si = sum(value_si)) %>%
   ungroup()  %>%
-  mutate(subset = "survey_plot") %>%
-  relocate(total, .after = data_type) %>%
-  write_csv(here(path_cache, "thin_total-by-plot-type-trmt.csv"))
+  mutate(subset = "survey_plot", 
+         statistic = "total") %>%
+  relocate(starts_with("value"), .after = data_type) %>%
+  write_csv(here(path_derived, "thin_total-by-plot-type-trmt.csv"))
 
-# Calculate plot-level mean and total values: Difference between treatment and control ----
-# By plot x transect x quadrat 
-fuels_thin_diff <- 
-  fuels_thin_raw %>%
-  select(survey, 
-         plot_id, 
-         data_type, 
-         fuel_class, 
-         plot_tran, 
-         transect_id, 
-         transect_rep, 
-         value, 
-         lab_fuel) %>%
-  spread(survey, value) %>%
-  mutate(diff = trmt - cont) %>%
-  write_csv(here(path_tidy, "thin_tidy-data_all_diff.csv"))
-
-# Calculate plot-level mean by fuel_class x plot x survey  
-thin_diff_plot_class_mean <-  
-  fuels_thin_diff %>%
-  group_by(plot_id, 
-           data_type, 
-           fuel_class,
-           lab_fuel) %>%
-  summarize(mean = mean(diff)) %>%
-  ungroup() %>%
-  left_join(lab_type, "data_type") %>%
-  mutate(subset = "survey_plot_class") %>%
-  relocate(mean, .after = fuel_class) %>%
-  write_csv(here(path_cache, "thin_diff_mean-by-plot-type-class.csv"))
-
-# Calculate plot-level total by summing the mean for each class 
-thin_diff_plot_total <- 
-  thin_diff_plot_class_mean  %>%
-  group_by(plot_id, 
-           data_type, 
-           lab_type) %>%
-  summarize(total = sum(mean)) %>%
-  ungroup()  %>%
-  mutate(subset = "survey_plot") %>%
-  relocate(total, .after = data_type) %>%
-  write_csv(here(path_cache, "thin_diff_total-by-plot-type.csv"))
+# ---------------------------------------------------------- -----
+# [NOT RUN] CALCULATE DIFFERENCE (TRMT - CONTROL) ----
+# # Calculate plot-level mean and total values: Difference between treatment and control  
+# # By plot x transect x quadrat 
+# fuels_thin_diff <- 
+#   fuels_thin_raw %>%
+#   select(survey, 
+#          plot_id, 
+#          data_type, 
+#          fuel_class, 
+#          plot_tran, 
+#          transect_id, 
+#          transect_rep, 
+#          starts_with("value"), 
+#          starts_with("units"), 
+#          lab_fuel) %>%
+#   spread(survey, value) %>%
+#   mutate(diff = trmt - cont) %>%
+#   write_csv(here(path_tidy, "thin_tidy-data_all_diff.csv"))
+# 
+# # Calculate plot-level mean by fuel_class x plot x survey  
+# thin_diff_plot_class_mean <-  
+#   fuels_thin_diff %>%
+#   group_by(plot_id, 
+#            data_type, 
+#            fuel_class,
+#            lab_fuel) %>%
+#   summarize(mean = mean(diff)) %>%
+#   ungroup() %>%
+#   left_join(lab_type, "data_type") %>%
+#   mutate(subset = "survey_plot_class") %>%
+#   relocate(mean, .after = fuel_class) %>%
+#   write_csv(here(path_derived, "thin_diff_mean-by-plot-type-class.csv"))
+# 
+# # Calculate plot-level total by summing the mean for each class 
+# thin_diff_plot_total <- 
+#   thin_diff_plot_class_mean  %>%
+#   group_by(plot_id, 
+#            data_type, 
+#            lab_type) %>%
+#   summarize(total = sum(mean)) %>%
+#   ungroup()  %>%
+#   mutate(subset = "survey_plot") %>%
+#   relocate(total, .after = data_type) %>%
+#   write_csv(here(path_derived, "thin_diff_total-by-plot-type.csv"))
 
