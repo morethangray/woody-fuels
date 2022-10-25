@@ -95,7 +95,9 @@ head(input_class) %>%
          fuel_class = lab_fuel, 
          plot_id, 
          year,
-         value) %>%
+         value, 
+         units,
+         statistic) %>%
   fxn_kable()  
 
 list_classes <- unique(input_class$fuel_class)
@@ -123,7 +125,9 @@ head(input_total) %>%
          fuel_class = lab_fuel, 
          plot_id, 
          year,
-         value) %>%
+         value, 
+         units,
+         statistic) %>%
     fxn_kable()
 
 ```
@@ -152,16 +156,23 @@ The first question we asked was whether there was a significant main effect of y
 
 ### Summary statistics for the plot-level total amount of coarse woody debris by year
 
-The following table summarizes the plot-level total amount of coarse woody debris for each time point.
+The following table summarizes the plot-level total amount of total coarse woody debris for each time point.
 
 ```{r, echo=FALSE}
 input_total %>%
-  group_by(year) %>%
+  group_by(year, units) %>%
   get_summary_stats(value, type = "mean_sd")  %>%
-  mutate(data_type = index_type,
-         fuel_class = "All") %>%
-  select(data_type, fuel_class, year, mean, sd, n) %>%
+  mutate(fuel_type = index_type,
+         fuel_class = "All",) %>%
+  select(fuel_type, 
+         fuel_class, 
+         year,
+         n,
+         mean, 
+         sd,
+         units) %>%
      fxn_kable()
+
 
 ```
 
@@ -175,13 +186,12 @@ p_total <-
   ggboxplot(x = "lab_year", 
             y = "value", 
             fill = "year", 
-            outlier.size = 0.3,
             palette = colors_year) + 
-  ylab("Mean metric tons per hectare") + 
   theme(legend.position = "none", 
         axis.title.x = element_blank()) + 
   scale_x_discrete(labels = function(lab_year) str_wrap(lab_year, width = 20)) + 
-  labs(title = paste0(index_type, " (all)")) 
+  labs(title = paste0(index_type, " (all)"), 
+       y = paste0(index_units_si, " (mean)"))
 
 p_total
 
