@@ -472,12 +472,13 @@ input_class %>%
             fill = "lab_year_abbr", 
             palette = colors_year, 
             width = 0.6) +
-   labs(title = paste0(index_type), 
-        y = paste0(index_units_si, " (mean)"),
-        fill = "Year") +
+  labs(title = paste0(index_type), 
+       y = paste0(index_units_si, " (mean)"),
+       fill = "Year") +
   theme(axis.title.x = element_blank(), 
-        legend.position = "top")  + 
+        legend.position = "right")  + 
   stat_pvalue_manual(pwc_yr, tip.length = 0, hide.ns = TRUE) 
+
 
 ```
 
@@ -541,19 +542,19 @@ pwc_class <-
   add_xy_position(x = "year")
 
 # Create boxplot comparing fuel class by year  ----
-   input_class %>%
-   ggboxplot(x = "lab_year", 
+input_class %>%
+  ggboxplot(x = "lab_year", 
             y = "value", 
             fill = "lab_fuel", 
             palette = colors_dl, 
             width = 0.6) +
-   ylab("Mean depth (in.)") + 
-   scale_x_discrete(labels = function(lab_year) str_wrap(lab_year, width = 20)) + 
-   labs(title = "Duff and litter", 
+  scale_x_discrete(labels = function(lab_year) str_wrap(lab_year, width = 20)) + 
+  labs(title = paste0(index_type), 
+       y = paste0(index_units_si, " (mean)"),
        fill = "Fuel class") +
-   theme(axis.title.x = element_blank(), 
+  theme(axis.title.x = element_blank(), 
         legend.position = "right")  + 
-   font("x.text", size = 10)  +
+  font("x.text", size = 10)  +
   stat_pvalue_manual(pwc_class, tip.length = 0, hide.ns = TRUE) 
 
 # Create summary table  ----
@@ -562,13 +563,13 @@ pwc_class %>%
          statistic = fxn_digit(statistic), 
          method = "pwc") %>%
   clean_names() %>%
-    select(data_type, 
-             year,
-             group1, group2,
-             starts_with("p_adj"), 
-             statistic, 
-             starts_with("d")) %>%
-    fxn_kable()
+  select(data_type, 
+         year,
+         group1, group2,
+         starts_with("p_adj"), 
+         statistic, 
+         starts_with("d")) %>%
+  fxn_kable()
 
 ```
 
