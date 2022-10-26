@@ -47,3 +47,11 @@ colors_dl <- c("#7da8b0", "#c4c4c4")
 
 # ========================================================== -----
 # CREATE DATA FRAMES -----
+# ========================================================== -----
+
+# Duff and litter ----
+# Boxplot by year for all, duff, litter
+# Include significant comparisons 
+# Coarse woody debris ---
+# Boxplot by year for all and each fuel class
+# Include significant comparisons 

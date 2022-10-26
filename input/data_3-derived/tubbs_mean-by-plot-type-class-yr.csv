@@ -74,180 +74,180 @@ dl,2021,RxF09,litter,0.4625,1.17475,4 Years post-fire (2021),4-y post-fire (2021
 wd,2016,RxF01,hr0001,0.48672017058357325,1.0912266224483713,1 Year pre-fire (2016),1-y pre-fire (2016),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2016,RxF01,hr0010,3.281058740757829,7.356133696779053,1 Year pre-fire (2016),1-y pre-fire (2016),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2016,RxF01,hr0100,2.2137050395735756,4.963126698723956,1 Year pre-fire (2016),1-y pre-fire (2016),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2016,RxF01,hr1000r,0,0,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2016,RxF01,hr1000s,0,0,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2016,RxF01,hr1000r,0,0,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2016,RxF01,hr1000s,0,0,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2016,RxF02,hr0001,0.34658662479912633,0.7770472127996413,1 Year pre-fire (2016),1-y pre-fire (2016),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2016,RxF02,hr0010,2.98473363457532,6.691772808717868,1 Year pre-fire (2016),1-y pre-fire (2016),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2016,RxF02,hr0100,0,0,1 Year pre-fire (2016),1-y pre-fire (2016),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2016,RxF02,hr1000r,3.950802309083758,8.857698776965785,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2016,RxF02,hr1000s,0,0,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2016,RxF02,hr1000r,3.950802309083758,8.857698776965785,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2016,RxF02,hr1000s,0,0,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2016,RxF03,hr0001,0.26972795418760537,0.6047300732886112,1 Year pre-fire (2016),1-y pre-fire (2016),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2016,RxF03,hr0010,1.3216018724750869,2.9630313980891447,1 Year pre-fire (2016),1-y pre-fire (2016),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2016,RxF03,hr0100,0,0,1 Year pre-fire (2016),1-y pre-fire (2016),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2016,RxF03,hr1000r,2.736655888544807,6.135582502117456,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2016,RxF03,hr1000s,0.8190660805172026,1.8363461525195683,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2016,RxF03,hr1000r,2.736655888544807,6.135582502117456,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2016,RxF03,hr1000s,0.8190660805172026,1.8363461525195683,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2016,RxF04,hr0001,0.23696997565823008,0.5312866854257519,1 Year pre-fire (2016),1-y pre-fire (2016),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2016,RxF04,hr0010,1.4740987631313753,3.3049294269405434,1 Year pre-fire (2016),1-y pre-fire (2016),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2016,RxF04,hr0100,2.9211883073312572,6.549304185036679,1 Year pre-fire (2016),1-y pre-fire (2016),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2016,RxF04,hr1000r,0,0,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2016,RxF04,hr1000s,12.924100835554665,28.975834073313557,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2016,RxF04,hr1000r,0,0,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2016,RxF04,hr1000s,12.924100835554665,28.975834073313557,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2016,RxF05,hr0001,0.23414051014598297,0.5249430237472938,1 Year pre-fire (2016),1-y pre-fire (2016),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2016,RxF05,hr0010,2.8492191763236483,6.387949393317619,1 Year pre-fire (2016),1-y pre-fire (2016),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2016,RxF05,hr0100,0.7774760800551036,1.7431013714835422,1 Year pre-fire (2016),1-y pre-fire (2016),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2016,RxF05,hr1000r,0.9071014409830269,2.033721430683946,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2016,RxF05,hr1000s,0,0,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2016,RxF05,hr1000r,0.9071014409830269,2.033721430683946,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2016,RxF05,hr1000s,0,0,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2016,RxF06,hr0001,0.21771544733323261,0.4881180329211075,1 Year pre-fire (2016),1-y pre-fire (2016),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2016,RxF06,hr0010,3.2498634530914305,7.286193861830986,1 Year pre-fire (2016),1-y pre-fire (2016),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2016,RxF06,hr0100,3.6568406056781573,8.198636637930427,1 Year pre-fire (2016),1-y pre-fire (2016),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2016,RxF06,hr1000r,11.188642648832078,25.084936818681516,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2016,RxF06,hr1000s,2.799023747259375,6.275411241355519,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2016,RxF06,hr1000r,11.188642648832078,25.084936818681516,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2016,RxF06,hr1000s,2.799023747259375,6.275411241355519,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2016,RxF07,hr0001,0.18518370163732054,0.4151818590708727,1 Year pre-fire (2016),1-y pre-fire (2016),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2016,RxF07,hr0010,2.6567473725642854,5.956427609289128,1 Year pre-fire (2016),1-y pre-fire (2016),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2016,RxF07,hr0100,4.407712810971283,9.882092122197617,1 Year pre-fire (2016),1-y pre-fire (2016),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2016,RxF07,hr1000r,10.822280633578666,24.26355318048337,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2016,RxF07,hr1000s,1.9242393857518258,4.314144702855594,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2016,RxF07,hr1000r,10.822280633578666,24.26355318048337,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2016,RxF07,hr1000s,1.9242393857518258,4.314144702855594,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2016,RxF08,hr0001,0.5343694009193463,1.1980561968611743,1 Year pre-fire (2016),1-y pre-fire (2016),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2016,RxF08,hr0010,2.763216899545714,6.19513228878149,1 Year pre-fire (2016),1-y pre-fire (2016),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2016,RxF08,hr0100,4.856554842909905,10.888395957804006,1 Year pre-fire (2016),1-y pre-fire (2016),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2016,RxF08,hr1000r,0,0,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2016,RxF08,hr1000s,0,0,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2016,RxF08,hr1000r,0,0,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2016,RxF08,hr1000s,0,0,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2016,RxF09,hr0001,0.4565673809668229,1.0236240681276167,1 Year pre-fire (2016),1-y pre-fire (2016),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2016,RxF09,hr0010,4.3573725582911145,9.76922927568868,1 Year pre-fire (2016),1-y pre-fire (2016),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2016,RxF09,hr0100,2.221262294207147,4.980070063612423,1 Year pre-fire (2016),1-y pre-fire (2016),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2016,RxF09,hr1000r,0,0,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2016,RxF09,hr1000s,0,0,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2016,RxF09,hr1000r,0,0,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2016,RxF09,hr1000s,0,0,1 Year pre-fire (2016),1-y pre-fire (2016),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2017,RxF01,hr0001,0.12658304379316973,0.2837991841842865,0 Years post-fire (2017),0-y post-fire (2017),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2017,RxF01,hr0010,0.5978316944030337,1.3403386588516015,0 Years post-fire (2017),0-y post-fire (2017),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2017,RxF01,hr0100,0,0,0 Years post-fire (2017),0-y post-fire (2017),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2017,RxF01,hr1000r,50.21551527225988,112.58318524040665,0 Years post-fire (2017),0-y post-fire (2017),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2017,RxF01,hr1000s,0,0,0 Years post-fire (2017),0-y post-fire (2017),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2017,RxF01,hr1000r,50.21551527225988,112.58318524040665,0 Years post-fire (2017),0-y post-fire (2017),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2017,RxF01,hr1000s,0,0,0 Years post-fire (2017),0-y post-fire (2017),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2017,RxF02,hr0001,0.14858726184167548,0.3331326410490364,0 Years post-fire (2017),0-y post-fire (2017),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2017,RxF02,hr0010,0.6024169333437202,1.3506187645566206,0 Years post-fire (2017),0-y post-fire (2017),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2017,RxF02,hr0100,0,0,0 Years post-fire (2017),0-y post-fire (2017),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2017,RxF02,hr1000r,0,0,0 Years post-fire (2017),0-y post-fire (2017),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2017,RxF02,hr1000s,0,0,0 Years post-fire (2017),0-y post-fire (2017),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2017,RxF02,hr1000r,0,0,0 Years post-fire (2017),0-y post-fire (2017),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2017,RxF02,hr1000s,0,0,0 Years post-fire (2017),0-y post-fire (2017),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2017,RxF03,hr0001,0.05921317311623556,0.13275593412660014,0 Years post-fire (2017),0-y post-fire (2017),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2017,RxF03,hr0010,0.43912700171991553,0.9845227378560506,0 Years post-fire (2017),0-y post-fire (2017),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2017,RxF03,hr0100,0.7357198829520523,1.649483977578501,0 Years post-fire (2017),0-y post-fire (2017),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2017,RxF03,hr1000r,5.4146213735216024,12.139581119435432,0 Years post-fire (2017),0-y post-fire (2017),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2017,RxF03,hr1000s,0,0,0 Years post-fire (2017),0-y post-fire (2017),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2017,RxF03,hr1000r,5.4146213735216024,12.139581119435432,0 Years post-fire (2017),0-y post-fire (2017),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2017,RxF03,hr1000s,0,0,0 Years post-fire (2017),0-y post-fire (2017),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2017,RxF04,hr0001,0.07243033365978747,0.1623888080652435,0 Years post-fire (2017),0-y post-fire (2017),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2017,RxF04,hr0010,0.2949655854252903,0.6613128425235008,0 Years post-fire (2017),0-y post-fire (2017),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2017,RxF04,hr0100,0,0,0 Years post-fire (2017),0-y post-fire (2017),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2017,RxF04,hr1000r,0,0,0 Years post-fire (2017),0-y post-fire (2017),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2017,RxF04,hr1000s,0,0,0 Years post-fire (2017),0-y post-fire (2017),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2017,RxF04,hr1000r,0,0,0 Years post-fire (2017),0-y post-fire (2017),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2017,RxF04,hr1000s,0,0,0 Years post-fire (2017),0-y post-fire (2017),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2017,RxF05,hr0001,0.042047915234208234,0.09427142595509486,0 Years post-fire (2017),0-y post-fire (2017),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2017,RxF05,hr0010,0,0,0 Years post-fire (2017),0-y post-fire (2017),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2017,RxF05,hr0100,0,0,0 Years post-fire (2017),0-y post-fire (2017),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2017,RxF05,hr1000r,0,0,0 Years post-fire (2017),0-y post-fire (2017),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2017,RxF05,hr1000s,0,0,0 Years post-fire (2017),0-y post-fire (2017),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2017,RxF05,hr1000r,0,0,0 Years post-fire (2017),0-y post-fire (2017),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2017,RxF05,hr1000s,0,0,0 Years post-fire (2017),0-y post-fire (2017),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2017,RxF06,hr0001,0.032961898069298785,0.07390057547136789,0 Years post-fire (2017),0-y post-fire (2017),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2017,RxF06,hr0010,0,0,0 Years post-fire (2017),0-y post-fire (2017),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2017,RxF06,hr0100,0,0,0 Years post-fire (2017),0-y post-fire (2017),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2017,RxF06,hr1000r,3.832369600185933,8.59217264361686,0 Years post-fire (2017),0-y post-fire (2017),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2017,RxF06,hr1000s,0,0,0 Years post-fire (2017),0-y post-fire (2017),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2017,RxF06,hr1000r,3.832369600185933,8.59217264361686,0 Years post-fire (2017),0-y post-fire (2017),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2017,RxF06,hr1000s,0,0,0 Years post-fire (2017),0-y post-fire (2017),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2017,RxF07,hr0001,0.20424467635840682,0.4579165643955481,0 Years post-fire (2017),0-y post-fire (2017),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2017,RxF07,hr0010,0,0,0 Years post-fire (2017),0-y post-fire (2017),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2017,RxF07,hr0100,0,0,0 Years post-fire (2017),0-y post-fire (2017),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2017,RxF07,hr1000r,25.14242463953992,56.369316041848506,0 Years post-fire (2017),0-y post-fire (2017),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2017,RxF07,hr1000s,0,0,0 Years post-fire (2017),0-y post-fire (2017),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2017,RxF07,hr1000r,25.14242463953992,56.369316041848506,0 Years post-fire (2017),0-y post-fire (2017),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2017,RxF07,hr1000s,0,0,0 Years post-fire (2017),0-y post-fire (2017),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2017,RxF08,hr0001,0.0140054108714949,0.031400131173891566,0 Years post-fire (2017),0-y post-fire (2017),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2017,RxF08,hr0010,0,0,0 Years post-fire (2017),0-y post-fire (2017),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2017,RxF08,hr0100,0.8256935803346984,1.8512050071103938,0 Years post-fire (2017),0-y post-fire (2017),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2017,RxF08,hr1000r,28.144271283644287,63.09945621793049,0 Years post-fire (2017),0-y post-fire (2017),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2017,RxF08,hr1000s,0,0,0 Years post-fire (2017),0-y post-fire (2017),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2017,RxF08,hr1000r,28.144271283644287,63.09945621793049,0 Years post-fire (2017),0-y post-fire (2017),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2017,RxF08,hr1000s,0,0,0 Years post-fire (2017),0-y post-fire (2017),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2017,RxF09,hr0001,0.026807621271924115,0.060102686891653864,0 Years post-fire (2017),0-y post-fire (2017),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2017,RxF09,hr0010,0,0,0 Years post-fire (2017),0-y post-fire (2017),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2017,RxF09,hr0100,0,0,0 Years post-fire (2017),0-y post-fire (2017),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2017,RxF09,hr1000r,0,0,0 Years post-fire (2017),0-y post-fire (2017),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2017,RxF09,hr1000s,0,0,0 Years post-fire (2017),0-y post-fire (2017),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2017,RxF09,hr1000r,0,0,0 Years post-fire (2017),0-y post-fire (2017),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2017,RxF09,hr1000s,0,0,0 Years post-fire (2017),0-y post-fire (2017),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2019,RxF01,hr0001,0.31926103536092376,0.715783241279191,2 Years post-fire (2019),2-y post-fire (2019),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2019,RxF01,hr0010,0.29955362706141286,0.6715992318716877,2 Years post-fire (2019),2-y post-fire (2019),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2019,RxF01,hr0100,0,0,2 Years post-fire (2019),2-y post-fire (2019),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2019,RxF01,hr1000r,49.242080333389644,110.40074410745959,2 Years post-fire (2019),2-y post-fire (2019),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2019,RxF01,hr1000s,0,0,2 Years post-fire (2019),2-y post-fire (2019),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2019,RxF01,hr1000r,49.242080333389644,110.40074410745959,2 Years post-fire (2019),2-y post-fire (2019),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2019,RxF01,hr1000s,0,0,2 Years post-fire (2019),2-y post-fire (2019),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2019,RxF02,hr0001,0.14834295446141982,0.3325849039025033,2 Years post-fire (2019),2-y post-fire (2019),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2019,RxF02,hr0010,1.0528620817443461,2.360516787270824,2 Years post-fire (2019),2-y post-fire (2019),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2019,RxF02,hr0100,0,0,2 Years post-fire (2019),2-y post-fire (2019),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2019,RxF02,hr1000r,0,0,2 Years post-fire (2019),2-y post-fire (2019),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2019,RxF02,hr1000s,0,0,2 Years post-fire (2019),2-y post-fire (2019),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2019,RxF02,hr1000r,0,0,2 Years post-fire (2019),2-y post-fire (2019),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2019,RxF02,hr1000s,0,0,2 Years post-fire (2019),2-y post-fire (2019),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2019,RxF03,hr0001,0.13813265225834806,0.3096934063632163,2 Years post-fire (2019),2-y post-fire (2019),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2019,RxF03,hr0010,1.175226205235115,2.634857152137128,2 Years post-fire (2019),2-y post-fire (2019),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2019,RxF03,hr0100,0.7357198829520523,1.649483977578501,2 Years post-fire (2019),2-y post-fire (2019),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2019,RxF03,hr1000r,4.664429649641668,10.45765127449662,2 Years post-fire (2019),2-y post-fire (2019),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2019,RxF03,hr1000s,0,0,2 Years post-fire (2019),2-y post-fire (2019),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2019,RxF03,hr1000r,4.664429649641668,10.45765127449662,2 Years post-fire (2019),2-y post-fire (2019),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2019,RxF03,hr1000s,0,0,2 Years post-fire (2019),2-y post-fire (2019),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2019,RxF04,hr0001,0.21065535652755868,0.4722893093347865,2 Years post-fire (2019),2-y post-fire (2019),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2019,RxF04,hr0010,0.5892020068555045,1.320990899370041,2 Years post-fire (2019),2-y post-fire (2019),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2019,RxF04,hr0100,0.7307486851364426,1.6383385520759044,2 Years post-fire (2019),2-y post-fire (2019),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2019,RxF04,hr1000r,1.9561746019453374,4.385743457561446,2 Years post-fire (2019),2-y post-fire (2019),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2019,RxF04,hr1000s,0,0,2 Years post-fire (2019),2-y post-fire (2019),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2019,RxF04,hr1000r,1.9561746019453374,4.385743457561446,2 Years post-fire (2019),2-y post-fire (2019),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2019,RxF04,hr1000s,0,0,2 Years post-fire (2019),2-y post-fire (2019),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2019,RxF05,hr0001,0.14982337380388663,0.33590400406831383,2 Years post-fire (2019),2-y post-fire (2019),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2019,RxF05,hr0010,0,0,2 Years post-fire (2019),2-y post-fire (2019),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2019,RxF05,hr0100,0,0,2 Years post-fire (2019),2-y post-fire (2019),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2019,RxF05,hr1000r,0,0,2 Years post-fire (2019),2-y post-fire (2019),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2019,RxF05,hr1000s,0,0,2 Years post-fire (2019),2-y post-fire (2019),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2019,RxF05,hr1000r,0,0,2 Years post-fire (2019),2-y post-fire (2019),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2019,RxF05,hr1000s,0,0,2 Years post-fire (2019),2-y post-fire (2019),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2019,RxF06,hr0001,0.1318903922966466,0.2956982595290817,2 Years post-fire (2019),2-y post-fire (2019),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2019,RxF06,hr0010,1.0319130196769672,2.3135489901157604,2 Years post-fire (2019),2-y post-fire (2019),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2019,RxF06,hr0100,0,0,2 Years post-fire (2019),2-y post-fire (2019),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2019,RxF06,hr1000r,4.399403877764464,9.863463493947929,2 Years post-fire (2019),2-y post-fire (2019),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2019,RxF06,hr1000s,0,0,2 Years post-fire (2019),2-y post-fire (2019),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2019,RxF06,hr1000r,4.399403877764464,9.863463493947929,2 Years post-fire (2019),2-y post-fire (2019),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2019,RxF06,hr1000s,0,0,2 Years post-fire (2019),2-y post-fire (2019),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2019,RxF07,hr0001,0.2634377673365318,0.5906274743685043,2 Years post-fire (2019),2-y post-fire (2019),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2019,RxF07,hr0010,0.7343179824166924,1.6463409165782246,2 Years post-fire (2019),2-y post-fire (2019),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2019,RxF07,hr0100,0.724707210212022,1.6247935652953533,2 Years post-fire (2019),2-y post-fire (2019),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2019,RxF07,hr1000r,13.313263046978607,29.848335751326037,2 Years post-fire (2019),2-y post-fire (2019),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2019,RxF07,hr1000s,0,0,2 Years post-fire (2019),2-y post-fire (2019),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2019,RxF07,hr1000r,13.313263046978607,29.848335751326037,2 Years post-fire (2019),2-y post-fire (2019),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2019,RxF07,hr1000s,0,0,2 Years post-fire (2019),2-y post-fire (2019),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2019,RxF08,hr0001,0.0354534287817561,0.07948658732869718,2 Years post-fire (2019),2-y post-fire (2019),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2019,RxF08,hr0010,0,0,2 Years post-fire (2019),2-y post-fire (2019),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2019,RxF08,hr0100,0,0,2 Years post-fire (2019),2-y post-fire (2019),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2019,RxF08,hr1000r,15.720251694277101,35.24480429856926,2 Years post-fire (2019),2-y post-fire (2019),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2019,RxF08,hr1000s,0,0,2 Years post-fire (2019),2-y post-fire (2019),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2019,RxF08,hr1000r,15.720251694277101,35.24480429856926,2 Years post-fire (2019),2-y post-fire (2019),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2019,RxF08,hr1000s,0,0,2 Years post-fire (2019),2-y post-fire (2019),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2019,RxF09,hr0001,0.09332398284526665,0.20923236953908783,2 Years post-fire (2019),2-y post-fire (2019),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2019,RxF09,hr0010,0,0,2 Years post-fire (2019),2-y post-fire (2019),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2019,RxF09,hr0100,0,0,2 Years post-fire (2019),2-y post-fire (2019),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2019,RxF09,hr1000r,0,0,2 Years post-fire (2019),2-y post-fire (2019),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2019,RxF09,hr1000s,0,0,2 Years post-fire (2019),2-y post-fire (2019),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2019,RxF09,hr1000r,0,0,2 Years post-fire (2019),2-y post-fire (2019),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2019,RxF09,hr1000s,0,0,2 Years post-fire (2019),2-y post-fire (2019),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2021,RxF01,hr0001,0.07358175519581985,0.1649702951490281,4 Years post-fire (2021),4-y post-fire (2021),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2021,RxF01,hr0010,0.5991072541228257,1.3431984637433754,4 Years post-fire (2021),4-y post-fire (2021),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2021,RxF01,hr0100,0,0,4 Years post-fire (2021),4-y post-fire (2021),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2021,RxF01,hr1000r,8.760914449832077,19.641970196523516,4 Years post-fire (2021),4-y post-fire (2021),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2021,RxF01,hr1000s,0,0,4 Years post-fire (2021),4-y post-fire (2021),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2021,RxF01,hr1000r,8.760914449832077,19.641970196523516,4 Years post-fire (2021),4-y post-fire (2021),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2021,RxF01,hr1000s,0,0,4 Years post-fire (2021),4-y post-fire (2021),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2021,RxF02,hr0001,0.07197271080840914,0.1613628176324533,4 Years post-fire (2021),4-y post-fire (2021),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2021,RxF02,hr0010,0.5860063140577519,1.3138261561174798,4 Years post-fire (2021),4-y post-fire (2021),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2021,RxF02,hr0100,0,0,4 Years post-fire (2021),4-y post-fire (2021),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2021,RxF02,hr1000r,0,0,4 Years post-fire (2021),4-y post-fire (2021),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2021,RxF02,hr1000s,0,0,4 Years post-fire (2021),4-y post-fire (2021),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2021,RxF02,hr1000r,0,0,4 Years post-fire (2021),4-y post-fire (2021),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2021,RxF02,hr1000s,0,0,4 Years post-fire (2021),4-y post-fire (2021),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2021,RxF03,hr0001,0.006631605367695459,0.014868059234373218,4 Years post-fire (2021),4-y post-fire (2021),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2021,RxF03,hr0010,0.74243050448821,1.6645291910625668,4 Years post-fire (2021),4-y post-fire (2021),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2021,RxF03,hr0100,0,0,4 Years post-fire (2021),4-y post-fire (2021),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2021,RxF03,hr1000r,16.421542824667874,36.81709901290537,4 Years post-fire (2021),4-y post-fire (2021),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2021,RxF03,hr1000s,0,0,4 Years post-fire (2021),4-y post-fire (2021),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2021,RxF03,hr1000r,16.421542824667874,36.81709901290537,4 Years post-fire (2021),4-y post-fire (2021),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2021,RxF03,hr1000s,0,0,4 Years post-fire (2021),4-y post-fire (2021),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2021,RxF04,hr0001,0.14488509146349032,0.32483237506114526,4 Years post-fire (2021),4-y post-fire (2021),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2021,RxF04,hr0010,0.4424483781379354,0.9919692637852512,4 Years post-fire (2021),4-y post-fire (2021),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2021,RxF04,hr0100,0.729845468529186,1.636313540442435,4 Years post-fire (2021),4-y post-fire (2021),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2021,RxF04,hr1000r,5.879478383606907,13.181790536046686,4 Years post-fire (2021),4-y post-fire (2021),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2021,RxF04,hr1000s,0,0,4 Years post-fire (2021),4-y post-fire (2021),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2021,RxF04,hr1000r,5.879478383606907,13.181790536046686,4 Years post-fire (2021),4-y post-fire (2021),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2021,RxF04,hr1000s,0,0,4 Years post-fire (2021),4-y post-fire (2021),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2021,RxF05,hr0001,0.1480529268144481,0.33193466191799265,4 Years post-fire (2021),4-y post-fire (2021),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2021,RxF05,hr0010,1.2602632939635119,2.8255103050661936,4 Years post-fire (2021),4-y post-fire (2021),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2021,RxF05,hr0100,0.7774760800551036,1.7431013714835422,4 Years post-fire (2021),4-y post-fire (2021),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2021,RxF05,hr1000r,2.5978526475490242,5.824385635804912,4 Years post-fire (2021),4-y post-fire (2021),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2021,RxF05,hr1000s,0,0,4 Years post-fire (2021),4-y post-fire (2021),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2021,RxF05,hr1000r,2.5978526475490242,5.824385635804912,4 Years post-fire (2021),4-y post-fire (2021),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2021,RxF05,hr1000s,0,0,4 Years post-fire (2021),4-y post-fire (2021),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2021,RxF06,hr0001,0.06590239612887186,0.1477531721209307,4 Years post-fire (2021),4-y post-fire (2021),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2021,RxF06,hr0010,0,0,4 Years post-fire (2021),4-y post-fire (2021),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2021,RxF06,hr0100,0,0,4 Years post-fire (2021),4-y post-fire (2021),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2021,RxF06,hr1000r,1.7424298551180057,3.906527735174569,4 Years post-fire (2021),4-y post-fire (2021),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2021,RxF06,hr1000s,0,0,4 Years post-fire (2021),4-y post-fire (2021),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2021,RxF06,hr1000r,1.7424298551180057,3.906527735174569,4 Years post-fire (2021),4-y post-fire (2021),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2021,RxF06,hr1000s,0,0,4 Years post-fire (2021),4-y post-fire (2021),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2021,RxF07,hr0001,0.06559141959215078,0.14705596272560206,4 Years post-fire (2021),4-y post-fire (2021),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2021,RxF07,hr0010,0.14626347667132975,0.3279227146971213,4 Years post-fire (2021),4-y post-fire (2021),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2021,RxF07,hr0100,0,0,4 Years post-fire (2021),4-y post-fire (2021),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2021,RxF07,hr1000r,21.9356558169111,49.17974034151469,4 Years post-fire (2021),4-y post-fire (2021),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2021,RxF07,hr1000s,0,0,4 Years post-fire (2021),4-y post-fire (2021),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2021,RxF07,hr1000r,21.9356558169111,49.17974034151469,4 Years post-fire (2021),4-y post-fire (2021),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2021,RxF07,hr1000s,0,0,4 Years post-fire (2021),4-y post-fire (2021),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2021,RxF08,hr0001,0.020568214704223493,0.04611393736686907,4 Years post-fire (2021),4-y post-fire (2021),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2021,RxF08,hr0010,0.2938911765844751,0.6589040179023932,4 Years post-fire (2021),4-y post-fire (2021),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2021,RxF08,hr0100,0,0,4 Years post-fire (2021),4-y post-fire (2021),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2021,RxF08,hr1000r,1.7368679594613319,3.894057965112306,4 Years post-fire (2021),4-y post-fire (2021),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2021,RxF08,hr1000s,0,0,4 Years post-fire (2021),4-y post-fire (2021),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2021,RxF08,hr1000r,1.7368679594613319,3.894057965112306,4 Years post-fire (2021),4-y post-fire (2021),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2021,RxF08,hr1000s,0,0,4 Years post-fire (2021),4-y post-fire (2021),1000-hr sound,Coarse woody debris,yr_plot_class,mean
 wd,2021,RxF09,hr0001,0.06073605753388572,0.1361702409909718,4 Years post-fire (2021),4-y post-fire (2021),1-hr,Coarse woody debris,yr_plot_class,mean
 wd,2021,RxF09,hr0010,0.7596804892272356,1.7032036568474622,4 Years post-fire (2021),4-y post-fire (2021),10-hr,Coarse woody debris,yr_plot_class,mean
 wd,2021,RxF09,hr0100,0,0,4 Years post-fire (2021),4-y post-fire (2021),100-hr,Coarse woody debris,yr_plot_class,mean
-wd,2021,RxF09,hr1000r,0.9852235106647291,2.2088711109103225,4 Years post-fire (2021),4-y post-fire (2021),1000-hr sound,Coarse woody debris,yr_plot_class,mean
-wd,2021,RxF09,hr1000s,0,0,4 Years post-fire (2021),4-y post-fire (2021),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2021,RxF09,hr1000r,0.9852235106647291,2.2088711109103225,4 Years post-fire (2021),4-y post-fire (2021),1000-hr rotten,Coarse woody debris,yr_plot_class,mean
+wd,2021,RxF09,hr1000s,0,0,4 Years post-fire (2021),4-y post-fire (2021),1000-hr sound,Coarse woody debris,yr_plot_class,mean
