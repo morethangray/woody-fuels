@@ -3,9 +3,9 @@ title: 'Fuel analysis for Oak Symposium: Duff and litter'
 author: "Morgan Gray"
 date: "`r Sys.Date()`"
 output:
-  pdf_document: default
   html_document:
     df_print: paged
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE, message = FALSE, warning=FALSE}
@@ -64,7 +64,7 @@ The aim of this research was to understand the impact of of the 2017 Tubbs fire 
 Using the duff and litter data set as input, we asked the following questions:
 
 1.  Did the total fuel load (all duff and litter combined) differ between years?
-2.  Did fuel load differ between years for duff and/or litter? If so, which years were different?
+2.  Did fuel load differ between years for duff and/or litter? If so, which years were different?
 
 #### Duff and litter data
 
