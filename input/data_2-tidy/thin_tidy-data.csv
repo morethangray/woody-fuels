@@ -1,271 +1,271 @@
-year,plot_id,survey,timing,date,plot_tran,transect_id,transect_rep,data_type,fuel_class,value,value_si,units,units_si,lab_fuel,lab_timing
-2021,FOR05,cont,pre,2021-07-07,FOR05_H1,H1,1,wd,hr0001,0.21884841474637637,0.4906581458613758,tons_per_acre,tons_per_hectare,1-hr,Pre-thinning
-2021,FOR05,trmt,post,2021-10-19,FOR05_H1,H1,1,wd,hr0001,0.7160234039550121,1.605324471667137,tons_per_acre,tons_per_hectare,1-hr,Post-thinning
-2021,FOR05,cont,pre,2021-07-07,FOR05_H2,H2,1,wd,hr0001,1.0072360225595152,2.258223162578433,tons_per_acre,tons_per_hectare,1-hr,Pre-thinning
-2021,FOR05,trmt,post,2021-10-19,FOR05_H2,H2,1,wd,hr0001,0.6529196224287968,1.4638457934853624,tons_per_acre,tons_per_hectare,1-hr,Post-thinning
-2021,FOR05,cont,pre,2021-07-07,FOR05_H3,H3,1,wd,hr0001,0.4796423299578135,1.0753581037654178,tons_per_acre,tons_per_hectare,1-hr,Pre-thinning
-2021,FOR05,trmt,post,2021-10-19,FOR05_H3,H3,1,wd,hr0001,0.7947790725641939,1.7818946806889226,tons_per_acre,tons_per_hectare,1-hr,Post-thinning
-2021,FOR06,cont,pre,2021-06-16,FOR06_H1,H1,1,wd,hr0001,0.39319220766317337,0.8815369295808346,tons_per_acre,tons_per_hectare,1-hr,Pre-thinning
-2021,FOR06,trmt,post,2021-10-19,FOR06_H1,H1,1,wd,hr0001,1.1009512229905374,2.4683326419447846,tons_per_acre,tons_per_hectare,1-hr,Post-thinning
-2021,FOR06,cont,pre,2021-06-16,FOR06_H2,H2,1,wd,hr0001,0,0,tons_per_acre,tons_per_hectare,1-hr,Pre-thinning
-2021,FOR06,trmt,post,2021-10-19,FOR06_H2,H2,1,wd,hr0001,3.8932188175317557,8.728596588906196,tons_per_acre,tons_per_hectare,1-hr,Post-thinning
-2021,FOR06,cont,pre,2021-06-16,FOR06_H3,H3,1,wd,hr0001,0.11180912406222471,0.2506760561475078,tons_per_acre,tons_per_hectare,1-hr,Pre-thinning
-2021,FOR06,trmt,post,2021-10-19,FOR06_H3,H3,1,wd,hr0001,0.40835120334457203,0.9155233978985305,tons_per_acre,tons_per_hectare,1-hr,Post-thinning
-2021,FOR07,cont,pre,2021-06-10,FOR07_H1,H1,1,wd,hr0001,2.629935572349867,5.896315553208402,tons_per_acre,tons_per_hectare,1-hr,Pre-thinning
-2021,FOR07,trmt,post,2021-10-18,FOR07_H1,H1,1,wd,hr0001,1.246977358479395,2.7957232377108037,tons_per_acre,tons_per_hectare,1-hr,Post-thinning
-2021,FOR07,cont,pre,2021-06-10,FOR07_H2,H2,1,wd,hr0001,0.4479364195573532,1.0042734526475858,tons_per_acre,tons_per_hectare,1-hr,Pre-thinning
-2021,FOR07,trmt,post,2021-10-18,FOR07_H2,H2,1,wd,hr0001,0.7377863718052876,1.6541170455874548,tons_per_acre,tons_per_hectare,1-hr,Post-thinning
-2021,FOR07,cont,pre,2021-06-10,FOR07_H3,H3,1,wd,hr0001,0.7255257226858923,1.6266286702617705,tons_per_acre,tons_per_hectare,1-hr,Pre-thinning
-2021,FOR07,trmt,post,2021-10-18,FOR07_H3,H3,1,wd,hr0001,0.6051960970709908,1.3568496496331612,tons_per_acre,tons_per_hectare,1-hr,Post-thinning
-2021,FOR08,cont,pre,2021-06-15,FOR08_H1,H1,1,wd,hr0001,0.052843306361523006,0.11847469286253458,tons_per_acre,tons_per_hectare,1-hr,Pre-thinning
-2021,FOR08,trmt,post,2021-10-19,FOR08_H1,H1,1,wd,hr0001,0.17691229520743465,0.3966373658550685,tons_per_acre,tons_per_hectare,1-hr,Post-thinning
-2021,FOR08,cont,pre,2021-06-15,FOR08_H2,H2,1,wd,hr0001,0.07842326666678454,0.17582496386693092,tons_per_acre,tons_per_hectare,1-hr,Pre-thinning
-2021,FOR08,trmt,post,2021-10-19,FOR08_H2,H2,1,wd,hr0001,0.19094586768411614,0.4281006353477884,tons_per_acre,tons_per_hectare,1-hr,Post-thinning
-2021,FOR08,cont,pre,2021-06-15,FOR08_H3,H3,1,wd,hr0001,0.21317436887013932,0.47793693500685236,tons_per_acre,tons_per_hectare,1-hr,Pre-thinning
-2021,FOR08,trmt,post,2021-10-19,FOR08_H3,H3,1,wd,hr0001,0.8596589968551483,1.9273554709492426,tons_per_acre,tons_per_hectare,1-hr,Post-thinning
-2021,FOR10,cont,pre,2021-06-09,FOR10_H1,H1,1,wd,hr0001,0.1788495606436711,0.4009807149631106,tons_per_acre,tons_per_hectare,1-hr,Pre-thinning
-2021,FOR10,trmt,post,2021-12-09,FOR10_H1,H1,1,wd,hr0001,0.6531974373204649,1.4644686544724823,tons_per_acre,tons_per_hectare,1-hr,Post-thinning
-2021,FOR10,cont,pre,2021-06-09,FOR10_H2,H2,1,wd,hr0001,0.07842326666678454,0.17582496386693092,tons_per_acre,tons_per_hectare,1-hr,Pre-thinning
-2021,FOR10,trmt,post,2021-12-09,FOR10_H2,H2,1,wd,hr0001,1.3047967625081272,2.9253543415432213,tons_per_acre,tons_per_hectare,1-hr,Post-thinning
-2021,FOR10,cont,pre,2021-06-09,FOR10_H3,H3,1,wd,hr0001,0,0,tons_per_acre,tons_per_hectare,1-hr,Pre-thinning
-2021,FOR10,trmt,post,2021-12-09,FOR10_H3,H3,1,wd,hr0001,0.39538895906102384,0.8864620462148154,tons_per_acre,tons_per_hectare,1-hr,Post-thinning
-2021,FOR05,cont,pre,2021-07-07,FOR05_H1,H1,1,wd,hr0010,1.3396117738265667,3.0034095969191625,tons_per_acre,tons_per_hectare,10-hr,Pre-thinning
-2021,FOR05,trmt,post,2021-10-19,FOR05_H1,H1,1,wd,hr0010,3.0626019258866943,6.866353517837969,tons_per_acre,tons_per_hectare,10-hr,Post-thinning
-2021,FOR05,cont,pre,2021-07-07,FOR05_H2,H2,1,wd,hr0010,2.8825614598656983,6.462702793018896,tons_per_acre,tons_per_hectare,10-hr,Pre-thinning
-2021,FOR05,trmt,post,2021-10-19,FOR05_H2,H2,1,wd,hr0010,3.2218130642364335,7.223304890018084,tons_per_acre,tons_per_hectare,10-hr,Post-thinning
-2021,FOR05,cont,pre,2021-07-07,FOR05_H3,H3,1,wd,hr0010,2.609759771369005,5.85108140740931,tons_per_acre,tons_per_hectare,10-hr,Pre-thinning
-2021,FOR05,trmt,post,2021-10-19,FOR05_H3,H3,1,wd,hr0010,1.7899190178955025,4.012998438121716,tons_per_acre,tons_per_hectare,10-hr,Post-thinning
-2021,FOR06,cont,pre,2021-06-16,FOR06_H1,H1,1,wd,hr0010,0.32090699940892536,0.7194734926748106,tons_per_acre,tons_per_hectare,10-hr,Pre-thinning
-2021,FOR06,trmt,post,2021-10-19,FOR06_H1,H1,1,wd,hr0010,2.3476900722971044,5.263521142090108,tons_per_acre,tons_per_hectare,10-hr,Post-thinning
-2021,FOR06,cont,pre,2021-06-16,FOR06_H2,H2,1,wd,hr0010,1.925441996453552,4.316840956048864,tons_per_acre,tons_per_hectare,10-hr,Pre-thinning
-2021,FOR06,trmt,post,2021-10-19,FOR06_H2,H2,1,wd,hr0010,4.108457626519932,9.211161998657689,tons_per_acre,tons_per_hectare,10-hr,Post-thinning
-2021,FOR06,cont,pre,2021-06-16,FOR06_H3,H3,1,wd,hr0010,0,0,tons_per_acre,tons_per_hectare,10-hr,Pre-thinning
-2021,FOR06,trmt,post,2021-10-19,FOR06_H3,H3,1,wd,hr0010,0.9388055355525765,2.1048020107088767,tons_per_acre,tons_per_hectare,10-hr,Post-thinning
-2021,FOR07,cont,pre,2021-06-10,FOR07_H1,H1,1,wd,hr0010,5.761505381948633,12.917295066328835,tons_per_acre,tons_per_hectare,10-hr,Pre-thinning
-2021,FOR07,trmt,post,2021-10-18,FOR07_H1,H1,1,wd,hr0010,7.438234723089612,16.676522249166908,tons_per_acre,tons_per_hectare,10-hr,Post-thinning
-2021,FOR07,cont,pre,2021-06-10,FOR07_H2,H2,1,wd,hr0010,0.9677301103492247,2.169650907402962,tons_per_acre,tons_per_hectare,10-hr,Pre-thinning
-2021,FOR07,trmt,post,2021-10-18,FOR07_H2,H2,1,wd,hr0010,1.4749408037962821,3.3068172821112647,tons_per_acre,tons_per_hectare,10-hr,Post-thinning
-2021,FOR07,cont,pre,2021-06-10,FOR07_H3,H3,1,wd,hr0010,1.3158748550026178,2.950191424915869,tons_per_acre,tons_per_hectare,10-hr,Pre-thinning
-2021,FOR07,trmt,post,2021-10-18,FOR07_H3,H3,1,wd,hr0010,2.406667928064142,5.395749494719807,tons_per_acre,tons_per_hectare,10-hr,Post-thinning
-2021,FOR08,cont,pre,2021-06-15,FOR08_H1,H1,1,wd,hr0010,0.32346368810511406,0.7252055887316657,tons_per_acre,tons_per_hectare,10-hr,Pre-thinning
-2021,FOR08,trmt,post,2021-10-19,FOR08_H1,H1,1,wd,hr0010,0.2957992855841797,0.6631819982797309,tons_per_acre,tons_per_hectare,10-hr,Post-thinning
-2021,FOR08,cont,pre,2021-06-15,FOR08_H2,H2,1,wd,hr0010,0.9600867476286309,2.1525144881833906,tons_per_acre,tons_per_hectare,10-hr,Pre-thinning
-2021,FOR08,trmt,post,2021-10-19,FOR08_H2,H2,1,wd,hr0010,1.1706330962466496,2.6245594017849885,tons_per_acre,tons_per_hectare,10-hr,Post-thinning
-2021,FOR08,cont,pre,2021-06-15,FOR08_H3,H3,1,wd,hr0010,0.6524399428422513,1.4627703518523274,tons_per_acre,tons_per_hectare,10-hr,Pre-thinning
-2021,FOR08,trmt,post,2021-10-19,FOR08_H3,H3,1,wd,hr0010,1.1932793452636685,2.6753322920811446,tons_per_acre,tons_per_hectare,10-hr,Post-thinning
-2021,FOR10,cont,pre,2021-06-09,FOR10_H1,H1,1,wd,hr0010,2.694821815262182,6.041790509817812,tons_per_acre,tons_per_hectare,10-hr,Pre-thinning
-2021,FOR10,trmt,post,2021-12-09,FOR10_H1,H1,1,wd,hr0010,1.5402160989091038,3.453164493754211,tons_per_acre,tons_per_hectare,10-hr,Post-thinning
-2021,FOR10,cont,pre,2021-06-09,FOR10_H2,H2,1,wd,hr0010,0.9600867476286309,2.1525144881833906,tons_per_acre,tons_per_hectare,10-hr,Pre-thinning
-2021,FOR10,trmt,post,2021-12-09,FOR10_H2,H2,1,wd,hr0010,2.6339244665549617,5.905258654016224,tons_per_acre,tons_per_hectare,10-hr,Post-thinning
-2021,FOR10,cont,pre,2021-06-09,FOR10_H3,H3,1,wd,hr0010,0,0,tons_per_acre,tons_per_hectare,10-hr,Pre-thinning
-2021,FOR10,trmt,post,2021-12-09,FOR10_H3,H3,1,wd,hr0010,0.3030017139026628,0.6793298425697699,tons_per_acre,tons_per_hectare,10-hr,Post-thinning
-2021,FOR05,cont,pre,2021-07-07,FOR05_H1,H1,1,wd,hr0100,1.483514664202236,3.3260398771414135,tons_per_acre,tons_per_hectare,100-hr,Pre-thinning
-2021,FOR05,trmt,post,2021-10-19,FOR05_H1,H1,1,wd,hr0100,9.104759772749357,20.41287141050406,tons_per_acre,tons_per_hectare,100-hr,Post-thinning
-2021,FOR05,cont,pre,2021-07-07,FOR05_H2,H2,1,wd,hr0100,0,0,tons_per_acre,tons_per_hectare,100-hr,Pre-thinning
-2021,FOR05,trmt,post,2021-10-19,FOR05_H2,H2,1,wd,hr0100,1.4512236353093284,3.2536433903635142,tons_per_acre,tons_per_hectare,100-hr,Post-thinning
-2021,FOR05,cont,pre,2021-07-07,FOR05_H3,H3,1,wd,hr0100,0,0,tons_per_acre,tons_per_hectare,100-hr,Pre-thinning
-2021,FOR05,trmt,post,2021-10-19,FOR05_H3,H3,1,wd,hr0100,8.868702204306071,19.88363034205421,tons_per_acre,tons_per_hectare,100-hr,Post-thinning
-2021,FOR06,cont,pre,2021-06-16,FOR06_H1,H1,1,wd,hr0100,1.4215170358152247,3.1870411942977337,tons_per_acre,tons_per_hectare,100-hr,Pre-thinning
-2021,FOR06,trmt,post,2021-10-19,FOR06_H1,H1,1,wd,hr0100,5.81617489703223,13.039864119146259,tons_per_acre,tons_per_hectare,100-hr,Post-thinning
-2021,FOR06,cont,pre,2021-06-16,FOR06_H2,H2,1,wd,hr0100,0,0,tons_per_acre,tons_per_hectare,100-hr,Pre-thinning
-2021,FOR06,trmt,post,2021-10-19,FOR06_H2,H2,1,wd,hr0100,7.2702186212902875,16.299830148932823,tons_per_acre,tons_per_hectare,100-hr,Post-thinning
-2021,FOR06,cont,pre,2021-06-16,FOR06_H3,H3,1,wd,hr0100,0,0,tons_per_acre,tons_per_hectare,100-hr,Pre-thinning
-2021,FOR06,trmt,post,2021-10-19,FOR06_H3,H3,1,wd,hr0100,0,0,tons_per_acre,tons_per_hectare,100-hr,Post-thinning
-2021,FOR07,cont,pre,2021-06-10,FOR07_H1,H1,1,wd,hr0100,3.0025477667128,6.731712092970098,tons_per_acre,tons_per_hectare,100-hr,Pre-thinning
-2021,FOR07,trmt,post,2021-10-18,FOR07_H1,H1,1,wd,hr0100,4.606876625790876,10.328617395023143,tons_per_acre,tons_per_hectare,100-hr,Post-thinning
-2021,FOR07,cont,pre,2021-06-10,FOR07_H2,H2,1,wd,hr0100,1.428913299353139,3.203623617149738,tons_per_acre,tons_per_hectare,100-hr,Pre-thinning
-2021,FOR07,trmt,post,2021-10-18,FOR07_H2,H2,1,wd,hr0100,2.9232184533641794,6.55385577244249,tons_per_acre,tons_per_hectare,100-hr,Post-thinning
-2021,FOR07,cont,pre,2021-06-10,FOR07_H3,H3,1,wd,hr0100,0,0,tons_per_acre,tons_per_hectare,100-hr,Pre-thinning
-2021,FOR07,trmt,post,2021-10-18,FOR07_H3,H3,1,wd,hr0100,4.471715119216068,10.025585297282424,tons_per_acre,tons_per_hectare,100-hr,Post-thinning
-2021,FOR08,cont,pre,2021-06-15,FOR08_H1,H1,1,wd,hr0100,0,0,tons_per_acre,tons_per_hectare,100-hr,Pre-thinning
-2021,FOR08,trmt,post,2021-10-19,FOR08_H1,H1,1,wd,hr0100,0,0,tons_per_acre,tons_per_hectare,100-hr,Post-thinning
-2021,FOR08,cont,pre,2021-06-15,FOR08_H2,H2,1,wd,hr0100,2.8352548040985956,6.356641270789051,tons_per_acre,tons_per_hectare,100-hr,Pre-thinning
-2021,FOR08,trmt,post,2021-10-19,FOR08_H2,H2,1,wd,hr0100,0,0,tons_per_acre,tons_per_hectare,100-hr,Post-thinning
-2021,FOR08,cont,pre,2021-06-15,FOR08_H3,H3,1,wd,hr0100,144.50518301327776,323.98062031576876,tons_per_acre,tons_per_hectare,100-hr,Pre-thinning
-2021,FOR08,trmt,post,2021-10-19,FOR08_H3,H3,1,wd,hr0100,5.912468136204048,13.255753561369474,tons_per_acre,tons_per_hectare,100-hr,Post-thinning
-2021,FOR10,cont,pre,2021-06-09,FOR10_H1,H1,1,wd,hr0100,5.9686063656097925,13.381615471697154,tons_per_acre,tons_per_hectare,100-hr,Pre-thinning
-2021,FOR10,trmt,post,2021-12-09,FOR10_H1,H1,1,wd,hr0100,1.5262945166718527,3.4219523063782935,tons_per_acre,tons_per_hectare,100-hr,Post-thinning
-2021,FOR10,cont,pre,2021-06-09,FOR10_H2,H2,1,wd,hr0100,0,0,tons_per_acre,tons_per_hectare,100-hr,Pre-thinning
-2021,FOR10,trmt,post,2021-12-09,FOR10_H2,H2,1,wd,hr0100,4.3501952674888065,9.753137789709903,tons_per_acre,tons_per_hectare,100-hr,Post-thinning
-2021,FOR10,cont,pre,2021-06-09,FOR10_H3,H3,1,wd,hr0100,0,0,tons_per_acre,tons_per_hectare,100-hr,Pre-thinning
-2021,FOR10,trmt,post,2021-12-09,FOR10_H3,H3,1,wd,hr0100,1.5013148310791045,3.365947851279352,tons_per_acre,tons_per_hectare,100-hr,Post-thinning
-2021,FOR05,cont,pre,2021-07-07,FOR05_H1,H1,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Pre-thinning
-2021,FOR05,trmt,post,2021-10-19,FOR05_H1,H1,1,wd,hr1000s,122.67717242907744,275.04222058599163,tons_per_acre,tons_per_hectare,1000-hr sound,Post-thinning
-2021,FOR05,cont,pre,2021-07-07,FOR05_H2,H2,1,wd,hr1000s,9.94520824968487,22.297156895793478,tons_per_acre,tons_per_hectare,1000-hr sound,Pre-thinning
-2021,FOR05,trmt,post,2021-10-19,FOR05_H2,H2,1,wd,hr1000s,68.5287005954848,153.64134673507695,tons_per_acre,tons_per_hectare,1000-hr sound,Post-thinning
-2021,FOR05,cont,pre,2021-07-07,FOR05_H3,H3,1,wd,hr1000s,28.84535734917493,64.67129117685019,tons_per_acre,tons_per_hectare,1000-hr sound,Pre-thinning
-2021,FOR05,trmt,post,2021-10-19,FOR05_H3,H3,1,wd,hr1000s,246.74848892929333,553.2101121794757,tons_per_acre,tons_per_hectare,1000-hr sound,Post-thinning
-2021,FOR06,cont,pre,2021-06-16,FOR06_H1,H1,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Pre-thinning
-2021,FOR06,trmt,post,2021-10-19,FOR06_H1,H1,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Post-thinning
-2021,FOR06,cont,pre,2021-06-16,FOR06_H2,H2,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Pre-thinning
-2021,FOR06,trmt,post,2021-10-19,FOR06_H2,H2,1,wd,hr1000s,102.9149554676315,230.73533015842983,tons_per_acre,tons_per_hectare,1000-hr sound,Post-thinning
-2021,FOR06,cont,pre,2021-06-16,FOR06_H3,H3,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Pre-thinning
-2021,FOR06,trmt,post,2021-10-19,FOR06_H3,H3,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Post-thinning
-2021,FOR07,cont,pre,2021-06-10,FOR07_H1,H1,1,wd,hr1000s,10.523612926671143,23.593940181596704,tons_per_acre,tons_per_hectare,1000-hr sound,Pre-thinning
-2021,FOR07,trmt,post,2021-10-18,FOR07_H1,H1,1,wd,hr1000s,129.24312125568,289.76307785523454,tons_per_acre,tons_per_hectare,1000-hr sound,Post-thinning
-2021,FOR07,cont,pre,2021-06-10,FOR07_H2,H2,1,wd,hr1000s,50.081902559132075,112.28362553757411,tons_per_acre,tons_per_hectare,1000-hr sound,Pre-thinning
-2021,FOR07,trmt,post,2021-10-18,FOR07_H2,H2,1,wd,hr1000s,87.79983542397841,196.84723102055958,tons_per_acre,tons_per_hectare,1000-hr sound,Post-thinning
-2021,FOR07,cont,pre,2021-06-10,FOR07_H3,H3,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Pre-thinning
-2021,FOR07,trmt,post,2021-10-18,FOR07_H3,H3,1,wd,hr1000s,282.5047174520836,633.3755765275714,tons_per_acre,tons_per_hectare,1000-hr sound,Post-thinning
-2021,FOR08,cont,pre,2021-06-15,FOR08_H1,H1,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Pre-thinning
-2021,FOR08,trmt,post,2021-10-19,FOR08_H1,H1,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Post-thinning
-2021,FOR08,cont,pre,2021-06-15,FOR08_H2,H2,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Pre-thinning
-2021,FOR08,trmt,post,2021-10-19,FOR08_H2,H2,1,wd,hr1000s,82.13773705103262,184.15280646841512,tons_per_acre,tons_per_hectare,1000-hr sound,Post-thinning
-2021,FOR08,cont,pre,2021-06-15,FOR08_H3,H3,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Pre-thinning
-2021,FOR08,trmt,post,2021-10-19,FOR08_H3,H3,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Post-thinning
-2021,FOR10,cont,pre,2021-06-09,FOR10_H1,H1,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Pre-thinning
-2021,FOR10,trmt,post,2021-12-09,FOR10_H1,H1,1,wd,hr1000s,55.5669840519854,124.58117824455127,tons_per_acre,tons_per_hectare,1000-hr sound,Post-thinning
-2021,FOR10,cont,pre,2021-06-09,FOR10_H2,H2,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Pre-thinning
-2021,FOR10,trmt,post,2021-12-09,FOR10_H2,H2,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Post-thinning
-2021,FOR10,cont,pre,2021-06-09,FOR10_H3,H3,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Pre-thinning
-2021,FOR10,trmt,post,2021-12-09,FOR10_H3,H3,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Post-thinning
-2021,FOR05,cont,pre,2021-07-07,FOR05_H1,H1,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Pre-thinning
-2021,FOR05,trmt,post,2021-10-19,FOR05_H1,H1,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Post-thinning
-2021,FOR05,cont,pre,2021-07-07,FOR05_H2,H2,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Pre-thinning
-2021,FOR05,trmt,post,2021-10-19,FOR05_H2,H2,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Post-thinning
-2021,FOR05,cont,pre,2021-07-07,FOR05_H3,H3,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Pre-thinning
-2021,FOR05,trmt,post,2021-10-19,FOR05_H3,H3,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Post-thinning
-2021,FOR06,cont,pre,2021-06-16,FOR06_H1,H1,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Pre-thinning
-2021,FOR06,trmt,post,2021-10-19,FOR06_H1,H1,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Post-thinning
-2021,FOR06,cont,pre,2021-06-16,FOR06_H2,H2,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Pre-thinning
-2021,FOR06,trmt,post,2021-10-19,FOR06_H2,H2,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Post-thinning
-2021,FOR06,cont,pre,2021-06-16,FOR06_H3,H3,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Pre-thinning
-2021,FOR06,trmt,post,2021-10-19,FOR06_H3,H3,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Post-thinning
-2021,FOR07,cont,pre,2021-06-10,FOR07_H1,H1,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Pre-thinning
-2021,FOR07,trmt,post,2021-10-18,FOR07_H1,H1,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Post-thinning
-2021,FOR07,cont,pre,2021-06-10,FOR07_H2,H2,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Pre-thinning
-2021,FOR07,trmt,post,2021-10-18,FOR07_H2,H2,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Post-thinning
-2021,FOR07,cont,pre,2021-06-10,FOR07_H3,H3,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Pre-thinning
-2021,FOR07,trmt,post,2021-10-18,FOR07_H3,H3,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Post-thinning
-2021,FOR08,cont,pre,2021-06-15,FOR08_H1,H1,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Pre-thinning
-2021,FOR08,trmt,post,2021-10-19,FOR08_H1,H1,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Post-thinning
-2021,FOR08,cont,pre,2021-06-15,FOR08_H2,H2,1,wd,hr1000r,46.58094728792019,104.43448381951707,tons_per_acre,tons_per_hectare,1000-hr rotten,Pre-thinning
-2021,FOR08,trmt,post,2021-10-19,FOR08_H2,H2,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Post-thinning
-2021,FOR08,cont,pre,2021-06-15,FOR08_H3,H3,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Pre-thinning
-2021,FOR08,trmt,post,2021-10-19,FOR08_H3,H3,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Post-thinning
-2021,FOR10,cont,pre,2021-06-09,FOR10_H1,H1,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Pre-thinning
-2021,FOR10,trmt,post,2021-12-09,FOR10_H1,H1,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Post-thinning
-2021,FOR10,cont,pre,2021-06-09,FOR10_H2,H2,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Pre-thinning
-2021,FOR10,trmt,post,2021-12-09,FOR10_H2,H2,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Post-thinning
-2021,FOR10,cont,pre,2021-06-09,FOR10_H3,H3,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Pre-thinning
-2021,FOR10,trmt,post,2021-12-09,FOR10_H3,H3,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Post-thinning
-2021,FOR05,cont,pre,2021-07-07,FOR05_H1,H1,1,dl,litter,1.968503937,4.99999999998,depth_in_inches,depth_in_cm,Litter,Pre-thinning
-2021,FOR05,trmt,post,2021-10-19,FOR05_H1,H1,1,dl,litter,2.7559055118,6.999999999972,depth_in_inches,depth_in_cm,Litter,Post-thinning
-2021,FOR05,cont,pre,2021-07-07,FOR05_H2,H2,1,dl,litter,1.5748031496,3.999999999984,depth_in_inches,depth_in_cm,Litter,Pre-thinning
-2021,FOR05,trmt,post,2021-10-19,FOR05_H2,H2,1,dl,litter,1.968503937,4.99999999998,depth_in_inches,depth_in_cm,Litter,Post-thinning
-2021,FOR05,cont,pre,2021-07-07,FOR05_H3,H3,1,dl,litter,2.7559055118,6.999999999972,depth_in_inches,depth_in_cm,Litter,Pre-thinning
-2021,FOR05,trmt,post,2021-10-19,FOR05_H3,H3,1,dl,litter,1.5748031496,3.999999999984,depth_in_inches,depth_in_cm,Litter,Post-thinning
-2021,FOR06,cont,pre,2021-06-16,FOR06_H1,H1,1,dl,litter,2.3622047243999997,5.999999999976,depth_in_inches,depth_in_cm,Litter,Pre-thinning
-2021,FOR06,trmt,post,2021-10-19,FOR06_H1,H1,1,dl,litter,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Litter,Post-thinning
-2021,FOR06,cont,pre,2021-06-16,FOR06_H2,H2,1,dl,litter,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Litter,Pre-thinning
-2021,FOR06,trmt,post,2021-10-19,FOR06_H2,H2,1,dl,litter,1.5748031496,3.999999999984,depth_in_inches,depth_in_cm,Litter,Post-thinning
-2021,FOR06,cont,pre,2021-06-16,FOR06_H3,H3,1,dl,litter,2.7559055118,6.999999999972,depth_in_inches,depth_in_cm,Litter,Pre-thinning
-2021,FOR06,trmt,post,2021-10-19,FOR06_H3,H3,1,dl,litter,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Litter,Post-thinning
-2021,FOR07,cont,pre,2021-06-10,FOR07_H1,H1,1,dl,litter,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Litter,Pre-thinning
-2021,FOR07,trmt,post,2021-10-18,FOR07_H1,H1,1,dl,litter,1.7716535432999998,4.499999999981999,depth_in_inches,depth_in_cm,Litter,Post-thinning
-2021,FOR07,cont,pre,2021-06-10,FOR07_H2,H2,1,dl,litter,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Litter,Pre-thinning
-2021,FOR07,trmt,post,2021-10-18,FOR07_H2,H2,1,dl,litter,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Litter,Post-thinning
-2021,FOR07,cont,pre,2021-06-10,FOR07_H3,H3,1,dl,litter,1.968503937,4.99999999998,depth_in_inches,depth_in_cm,Litter,Pre-thinning
-2021,FOR07,trmt,post,2021-10-18,FOR07_H3,H3,1,dl,litter,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Litter,Post-thinning
-2021,FOR08,cont,pre,2021-06-15,FOR08_H1,H1,1,dl,litter,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Litter,Pre-thinning
-2021,FOR08,trmt,post,2021-10-19,FOR08_H1,H1,1,dl,litter,1.1811023621999999,2.999999999988,depth_in_inches,depth_in_cm,Litter,Post-thinning
-2021,FOR08,cont,pre,2021-06-15,FOR08_H2,H2,1,dl,litter,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Litter,Pre-thinning
-2021,FOR08,trmt,post,2021-10-19,FOR08_H2,H2,1,dl,litter,1.1811023621999999,2.999999999988,depth_in_inches,depth_in_cm,Litter,Post-thinning
-2021,FOR08,cont,pre,2021-06-15,FOR08_H3,H3,1,dl,litter,1.968503937,4.99999999998,depth_in_inches,depth_in_cm,Litter,Pre-thinning
-2021,FOR08,trmt,post,2021-10-19,FOR08_H3,H3,1,dl,litter,1.1811023621999999,2.999999999988,depth_in_inches,depth_in_cm,Litter,Post-thinning
-2021,FOR10,cont,pre,2021-06-09,FOR10_H1,H1,1,dl,litter,2.7559055118,6.999999999972,depth_in_inches,depth_in_cm,Litter,Pre-thinning
-2021,FOR10,trmt,post,2021-12-09,FOR10_H1,H1,1,dl,litter,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Litter,Post-thinning
-2021,FOR10,cont,pre,2021-06-09,FOR10_H2,H2,1,dl,litter,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Litter,Pre-thinning
-2021,FOR10,trmt,post,2021-12-09,FOR10_H2,H2,1,dl,litter,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Litter,Post-thinning
-2021,FOR10,cont,pre,2021-06-09,FOR10_H3,H3,1,dl,litter,1.5748031496,3.999999999984,depth_in_inches,depth_in_cm,Litter,Pre-thinning
-2021,FOR10,trmt,post,2021-12-09,FOR10_H3,H3,1,dl,litter,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Litter,Post-thinning
-2021,FOR05,cont,pre,2021-07-07,FOR05_H1,H1,2,dl,litter,2.3622047243999997,5.999999999976,depth_in_inches,depth_in_cm,Litter,Pre-thinning
-2021,FOR05,trmt,post,2021-10-19,FOR05_H1,H1,2,dl,litter,1.1811023621999999,2.999999999988,depth_in_inches,depth_in_cm,Litter,Post-thinning
-2021,FOR05,cont,pre,2021-07-07,FOR05_H2,H2,2,dl,litter,2.3622047243999997,5.999999999976,depth_in_inches,depth_in_cm,Litter,Pre-thinning
-2021,FOR05,trmt,post,2021-10-19,FOR05_H2,H2,2,dl,litter,1.5748031496,3.999999999984,depth_in_inches,depth_in_cm,Litter,Post-thinning
-2021,FOR05,cont,pre,2021-07-07,FOR05_H3,H3,2,dl,litter,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Litter,Pre-thinning
-2021,FOR05,trmt,post,2021-10-19,FOR05_H3,H3,2,dl,litter,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Litter,Post-thinning
-2021,FOR06,cont,pre,2021-06-16,FOR06_H1,H1,2,dl,litter,1.1811023621999999,2.999999999988,depth_in_inches,depth_in_cm,Litter,Pre-thinning
-2021,FOR06,trmt,post,2021-10-19,FOR06_H1,H1,2,dl,litter,1.1811023621999999,2.999999999988,depth_in_inches,depth_in_cm,Litter,Post-thinning
-2021,FOR06,cont,pre,2021-06-16,FOR06_H2,H2,2,dl,litter,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Litter,Pre-thinning
-2021,FOR06,trmt,post,2021-10-19,FOR06_H2,H2,2,dl,litter,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Litter,Post-thinning
-2021,FOR06,cont,pre,2021-06-16,FOR06_H3,H3,2,dl,litter,2.3622047243999997,5.999999999976,depth_in_inches,depth_in_cm,Litter,Pre-thinning
-2021,FOR06,trmt,post,2021-10-19,FOR06_H3,H3,2,dl,litter,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Litter,Post-thinning
-2021,FOR07,cont,pre,2021-06-10,FOR07_H1,H1,2,dl,litter,1.5748031496,3.999999999984,depth_in_inches,depth_in_cm,Litter,Pre-thinning
-2021,FOR07,trmt,post,2021-10-18,FOR07_H1,H1,2,dl,litter,0.5905511810999999,1.499999999994,depth_in_inches,depth_in_cm,Litter,Post-thinning
-2021,FOR07,cont,pre,2021-06-10,FOR07_H2,H2,2,dl,litter,4.7244094487999995,11.999999999952,depth_in_inches,depth_in_cm,Litter,Pre-thinning
-2021,FOR07,trmt,post,2021-10-18,FOR07_H2,H2,2,dl,litter,1.5748031496,3.999999999984,depth_in_inches,depth_in_cm,Litter,Post-thinning
-2021,FOR07,cont,pre,2021-06-10,FOR07_H3,H3,2,dl,litter,1.5748031496,3.999999999984,depth_in_inches,depth_in_cm,Litter,Pre-thinning
-2021,FOR07,trmt,post,2021-10-18,FOR07_H3,H3,2,dl,litter,1.1811023621999999,2.999999999988,depth_in_inches,depth_in_cm,Litter,Post-thinning
-2021,FOR08,cont,pre,2021-06-15,FOR08_H1,H1,2,dl,litter,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Litter,Pre-thinning
-2021,FOR08,trmt,post,2021-10-19,FOR08_H1,H1,2,dl,litter,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Litter,Post-thinning
-2021,FOR08,cont,pre,2021-06-15,FOR08_H2,H2,2,dl,litter,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Litter,Pre-thinning
-2021,FOR08,trmt,post,2021-10-19,FOR08_H2,H2,2,dl,litter,1.1811023621999999,2.999999999988,depth_in_inches,depth_in_cm,Litter,Post-thinning
-2021,FOR08,cont,pre,2021-06-15,FOR08_H3,H3,2,dl,litter,3.937007874,9.99999999996,depth_in_inches,depth_in_cm,Litter,Pre-thinning
-2021,FOR08,trmt,post,2021-10-19,FOR08_H3,H3,2,dl,litter,1.5748031496,3.999999999984,depth_in_inches,depth_in_cm,Litter,Post-thinning
-2021,FOR10,cont,pre,2021-06-09,FOR10_H1,H1,2,dl,litter,1.1811023621999999,2.999999999988,depth_in_inches,depth_in_cm,Litter,Pre-thinning
-2021,FOR10,trmt,post,2021-12-09,FOR10_H1,H1,2,dl,litter,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Litter,Post-thinning
-2021,FOR10,cont,pre,2021-06-09,FOR10_H2,H2,2,dl,litter,1.1811023621999999,2.999999999988,depth_in_inches,depth_in_cm,Litter,Pre-thinning
-2021,FOR10,trmt,post,2021-12-09,FOR10_H2,H2,2,dl,litter,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Litter,Post-thinning
-2021,FOR10,cont,pre,2021-06-09,FOR10_H3,H3,2,dl,litter,1.5748031496,3.999999999984,depth_in_inches,depth_in_cm,Litter,Pre-thinning
-2021,FOR10,trmt,post,2021-12-09,FOR10_H3,H3,2,dl,litter,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Litter,Post-thinning
-2021,FOR05,cont,pre,2021-07-07,FOR05_H1,H1,1,dl,duff,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Duff,Pre-thinning
-2021,FOR05,trmt,post,2021-10-19,FOR05_H1,H1,1,dl,duff,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Duff,Post-thinning
-2021,FOR05,cont,pre,2021-07-07,FOR05_H2,H2,1,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Pre-thinning
-2021,FOR05,trmt,post,2021-10-19,FOR05_H2,H2,1,dl,duff,1.1811023621999999,2.999999999988,depth_in_inches,depth_in_cm,Duff,Post-thinning
-2021,FOR05,cont,pre,2021-07-07,FOR05_H3,H3,1,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning
-2021,FOR05,trmt,post,2021-10-19,FOR05_H3,H3,1,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Post-thinning
-2021,FOR06,cont,pre,2021-06-16,FOR06_H1,H1,1,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning
-2021,FOR06,trmt,post,2021-10-19,FOR06_H1,H1,1,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Post-thinning
-2021,FOR06,cont,pre,2021-06-16,FOR06_H2,H2,1,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning
-2021,FOR06,trmt,post,2021-10-19,FOR06_H2,H2,1,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Post-thinning
-2021,FOR06,cont,pre,2021-06-16,FOR06_H3,H3,1,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning
-2021,FOR06,trmt,post,2021-10-19,FOR06_H3,H3,1,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Post-thinning
-2021,FOR07,cont,pre,2021-06-10,FOR07_H1,H1,1,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning
-2021,FOR07,trmt,post,2021-10-18,FOR07_H1,H1,1,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Post-thinning
-2021,FOR07,cont,pre,2021-06-10,FOR07_H2,H2,1,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning
-2021,FOR07,trmt,post,2021-10-18,FOR07_H2,H2,1,dl,duff,0.1968503937,0.499999999998,depth_in_inches,depth_in_cm,Duff,Post-thinning
-2021,FOR07,cont,pre,2021-06-10,FOR07_H3,H3,1,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning
-2021,FOR07,trmt,post,2021-10-18,FOR07_H3,H3,1,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Post-thinning
-2021,FOR08,cont,pre,2021-06-15,FOR08_H1,H1,1,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Pre-thinning
-2021,FOR08,trmt,post,2021-10-19,FOR08_H1,H1,1,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Post-thinning
-2021,FOR08,cont,pre,2021-06-15,FOR08_H2,H2,1,dl,duff,1.1811023621999999,2.999999999988,depth_in_inches,depth_in_cm,Duff,Pre-thinning
-2021,FOR08,trmt,post,2021-10-19,FOR08_H2,H2,1,dl,duff,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Duff,Post-thinning
-2021,FOR08,cont,pre,2021-06-15,FOR08_H3,H3,1,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Pre-thinning
-2021,FOR08,trmt,post,2021-10-19,FOR08_H3,H3,1,dl,duff,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Duff,Post-thinning
-2021,FOR10,cont,pre,2021-06-09,FOR10_H1,H1,1,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning
-2021,FOR10,trmt,post,2021-12-09,FOR10_H1,H1,1,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Post-thinning
-2021,FOR10,cont,pre,2021-06-09,FOR10_H2,H2,1,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning
-2021,FOR10,trmt,post,2021-12-09,FOR10_H2,H2,1,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Post-thinning
-2021,FOR10,cont,pre,2021-06-09,FOR10_H3,H3,1,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning
-2021,FOR10,trmt,post,2021-12-09,FOR10_H3,H3,1,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Post-thinning
-2021,FOR05,cont,pre,2021-07-07,FOR05_H1,H1,2,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Pre-thinning
-2021,FOR05,trmt,post,2021-10-19,FOR05_H1,H1,2,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Post-thinning
-2021,FOR05,cont,pre,2021-07-07,FOR05_H2,H2,2,dl,duff,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Duff,Pre-thinning
-2021,FOR05,trmt,post,2021-10-19,FOR05_H2,H2,2,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Post-thinning
-2021,FOR05,cont,pre,2021-07-07,FOR05_H3,H3,2,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning
-2021,FOR05,trmt,post,2021-10-19,FOR05_H3,H3,2,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Post-thinning
-2021,FOR06,cont,pre,2021-06-16,FOR06_H1,H1,2,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning
-2021,FOR06,trmt,post,2021-10-19,FOR06_H1,H1,2,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Post-thinning
-2021,FOR06,cont,pre,2021-06-16,FOR06_H2,H2,2,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning
-2021,FOR06,trmt,post,2021-10-19,FOR06_H2,H2,2,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Post-thinning
-2021,FOR06,cont,pre,2021-06-16,FOR06_H3,H3,2,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning
-2021,FOR06,trmt,post,2021-10-19,FOR06_H3,H3,2,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Post-thinning
-2021,FOR07,cont,pre,2021-06-10,FOR07_H1,H1,2,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Pre-thinning
-2021,FOR07,trmt,post,2021-10-18,FOR07_H1,H1,2,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Post-thinning
-2021,FOR07,cont,pre,2021-06-10,FOR07_H2,H2,2,dl,duff,1.5748031496,3.999999999984,depth_in_inches,depth_in_cm,Duff,Pre-thinning
-2021,FOR07,trmt,post,2021-10-18,FOR07_H2,H2,2,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Post-thinning
-2021,FOR07,cont,pre,2021-06-10,FOR07_H3,H3,2,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Pre-thinning
-2021,FOR07,trmt,post,2021-10-18,FOR07_H3,H3,2,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Post-thinning
-2021,FOR08,cont,pre,2021-06-15,FOR08_H1,H1,2,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning
-2021,FOR08,trmt,post,2021-10-19,FOR08_H1,H1,2,dl,duff,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Duff,Post-thinning
-2021,FOR08,cont,pre,2021-06-15,FOR08_H2,H2,2,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Pre-thinning
-2021,FOR08,trmt,post,2021-10-19,FOR08_H2,H2,2,dl,duff,1.968503937,4.99999999998,depth_in_inches,depth_in_cm,Duff,Post-thinning
-2021,FOR08,cont,pre,2021-06-15,FOR08_H3,H3,2,dl,duff,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Duff,Pre-thinning
-2021,FOR08,trmt,post,2021-10-19,FOR08_H3,H3,2,dl,duff,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Duff,Post-thinning
-2021,FOR10,cont,pre,2021-06-09,FOR10_H1,H1,2,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Pre-thinning
-2021,FOR10,trmt,post,2021-12-09,FOR10_H1,H1,2,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Post-thinning
-2021,FOR10,cont,pre,2021-06-09,FOR10_H2,H2,2,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning
-2021,FOR10,trmt,post,2021-12-09,FOR10_H2,H2,2,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Post-thinning
-2021,FOR10,cont,pre,2021-06-09,FOR10_H3,H3,2,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning
-2021,FOR10,trmt,post,2021-12-09,FOR10_H3,H3,2,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Post-thinning
+year,plot_id,survey,date,plot_tran,transect_id,transect_rep,data_type,fuel_class,value,value_si,units,units_si,lab_fuel,lab_thin,lab_type
+2021,FOR05,cont,2021-07-07,FOR05_H1,H1,1,wd,hr0001,0.21884841474637637,0.4906581458613758,tons_per_acre,tons_per_hectare,1-hr,Pre-thinning,Coarse woody debris
+2021,FOR05,trmt,2021-10-19,FOR05_H1,H1,1,wd,hr0001,0.7160234039550121,1.605324471667137,tons_per_acre,tons_per_hectare,1-hr,Post-thinning,Coarse woody debris
+2021,FOR05,cont,2021-07-07,FOR05_H2,H2,1,wd,hr0001,1.0072360225595152,2.258223162578433,tons_per_acre,tons_per_hectare,1-hr,Pre-thinning,Coarse woody debris
+2021,FOR05,trmt,2021-10-19,FOR05_H2,H2,1,wd,hr0001,0.6529196224287968,1.4638457934853624,tons_per_acre,tons_per_hectare,1-hr,Post-thinning,Coarse woody debris
+2021,FOR05,cont,2021-07-07,FOR05_H3,H3,1,wd,hr0001,0.4796423299578135,1.0753581037654178,tons_per_acre,tons_per_hectare,1-hr,Pre-thinning,Coarse woody debris
+2021,FOR05,trmt,2021-10-19,FOR05_H3,H3,1,wd,hr0001,0.7947790725641939,1.7818946806889226,tons_per_acre,tons_per_hectare,1-hr,Post-thinning,Coarse woody debris
+2021,FOR06,cont,2021-06-16,FOR06_H1,H1,1,wd,hr0001,0.39319220766317337,0.8815369295808346,tons_per_acre,tons_per_hectare,1-hr,Pre-thinning,Coarse woody debris
+2021,FOR06,trmt,2021-10-19,FOR06_H1,H1,1,wd,hr0001,1.1009512229905374,2.4683326419447846,tons_per_acre,tons_per_hectare,1-hr,Post-thinning,Coarse woody debris
+2021,FOR06,cont,2021-06-16,FOR06_H2,H2,1,wd,hr0001,0,0,tons_per_acre,tons_per_hectare,1-hr,Pre-thinning,Coarse woody debris
+2021,FOR06,trmt,2021-10-19,FOR06_H2,H2,1,wd,hr0001,3.8932188175317557,8.728596588906196,tons_per_acre,tons_per_hectare,1-hr,Post-thinning,Coarse woody debris
+2021,FOR06,cont,2021-06-16,FOR06_H3,H3,1,wd,hr0001,0.11180912406222471,0.2506760561475078,tons_per_acre,tons_per_hectare,1-hr,Pre-thinning,Coarse woody debris
+2021,FOR06,trmt,2021-10-19,FOR06_H3,H3,1,wd,hr0001,0.40835120334457203,0.9155233978985305,tons_per_acre,tons_per_hectare,1-hr,Post-thinning,Coarse woody debris
+2021,FOR07,cont,2021-06-10,FOR07_H1,H1,1,wd,hr0001,2.629935572349867,5.896315553208402,tons_per_acre,tons_per_hectare,1-hr,Pre-thinning,Coarse woody debris
+2021,FOR07,trmt,2021-10-18,FOR07_H1,H1,1,wd,hr0001,1.246977358479395,2.7957232377108037,tons_per_acre,tons_per_hectare,1-hr,Post-thinning,Coarse woody debris
+2021,FOR07,cont,2021-06-10,FOR07_H2,H2,1,wd,hr0001,0.4479364195573532,1.0042734526475858,tons_per_acre,tons_per_hectare,1-hr,Pre-thinning,Coarse woody debris
+2021,FOR07,trmt,2021-10-18,FOR07_H2,H2,1,wd,hr0001,0.7377863718052876,1.6541170455874548,tons_per_acre,tons_per_hectare,1-hr,Post-thinning,Coarse woody debris
+2021,FOR07,cont,2021-06-10,FOR07_H3,H3,1,wd,hr0001,0.7255257226858923,1.6266286702617705,tons_per_acre,tons_per_hectare,1-hr,Pre-thinning,Coarse woody debris
+2021,FOR07,trmt,2021-10-18,FOR07_H3,H3,1,wd,hr0001,0.6051960970709908,1.3568496496331612,tons_per_acre,tons_per_hectare,1-hr,Post-thinning,Coarse woody debris
+2021,FOR08,cont,2021-06-15,FOR08_H1,H1,1,wd,hr0001,0.052843306361523006,0.11847469286253458,tons_per_acre,tons_per_hectare,1-hr,Pre-thinning,Coarse woody debris
+2021,FOR08,trmt,2021-10-19,FOR08_H1,H1,1,wd,hr0001,0.17691229520743465,0.3966373658550685,tons_per_acre,tons_per_hectare,1-hr,Post-thinning,Coarse woody debris
+2021,FOR08,cont,2021-06-15,FOR08_H2,H2,1,wd,hr0001,0.07842326666678454,0.17582496386693092,tons_per_acre,tons_per_hectare,1-hr,Pre-thinning,Coarse woody debris
+2021,FOR08,trmt,2021-10-19,FOR08_H2,H2,1,wd,hr0001,0.19094586768411614,0.4281006353477884,tons_per_acre,tons_per_hectare,1-hr,Post-thinning,Coarse woody debris
+2021,FOR08,cont,2021-06-15,FOR08_H3,H3,1,wd,hr0001,0.21317436887013932,0.47793693500685236,tons_per_acre,tons_per_hectare,1-hr,Pre-thinning,Coarse woody debris
+2021,FOR08,trmt,2021-10-19,FOR08_H3,H3,1,wd,hr0001,0.8596589968551483,1.9273554709492426,tons_per_acre,tons_per_hectare,1-hr,Post-thinning,Coarse woody debris
+2021,FOR10,cont,2021-06-09,FOR10_H1,H1,1,wd,hr0001,0.1788495606436711,0.4009807149631106,tons_per_acre,tons_per_hectare,1-hr,Pre-thinning,Coarse woody debris
+2021,FOR10,trmt,2021-12-09,FOR10_H1,H1,1,wd,hr0001,0.6531974373204649,1.4644686544724823,tons_per_acre,tons_per_hectare,1-hr,Post-thinning,Coarse woody debris
+2021,FOR10,cont,2021-06-09,FOR10_H2,H2,1,wd,hr0001,0.07842326666678454,0.17582496386693092,tons_per_acre,tons_per_hectare,1-hr,Pre-thinning,Coarse woody debris
+2021,FOR10,trmt,2021-12-09,FOR10_H2,H2,1,wd,hr0001,1.3047967625081272,2.9253543415432213,tons_per_acre,tons_per_hectare,1-hr,Post-thinning,Coarse woody debris
+2021,FOR10,cont,2021-06-09,FOR10_H3,H3,1,wd,hr0001,0,0,tons_per_acre,tons_per_hectare,1-hr,Pre-thinning,Coarse woody debris
+2021,FOR10,trmt,2021-12-09,FOR10_H3,H3,1,wd,hr0001,0.39538895906102384,0.8864620462148154,tons_per_acre,tons_per_hectare,1-hr,Post-thinning,Coarse woody debris
+2021,FOR05,cont,2021-07-07,FOR05_H1,H1,1,wd,hr0010,1.3396117738265667,3.0034095969191625,tons_per_acre,tons_per_hectare,10-hr,Pre-thinning,Coarse woody debris
+2021,FOR05,trmt,2021-10-19,FOR05_H1,H1,1,wd,hr0010,3.0626019258866943,6.866353517837969,tons_per_acre,tons_per_hectare,10-hr,Post-thinning,Coarse woody debris
+2021,FOR05,cont,2021-07-07,FOR05_H2,H2,1,wd,hr0010,2.8825614598656983,6.462702793018896,tons_per_acre,tons_per_hectare,10-hr,Pre-thinning,Coarse woody debris
+2021,FOR05,trmt,2021-10-19,FOR05_H2,H2,1,wd,hr0010,3.2218130642364335,7.223304890018084,tons_per_acre,tons_per_hectare,10-hr,Post-thinning,Coarse woody debris
+2021,FOR05,cont,2021-07-07,FOR05_H3,H3,1,wd,hr0010,2.609759771369005,5.85108140740931,tons_per_acre,tons_per_hectare,10-hr,Pre-thinning,Coarse woody debris
+2021,FOR05,trmt,2021-10-19,FOR05_H3,H3,1,wd,hr0010,1.7899190178955025,4.012998438121716,tons_per_acre,tons_per_hectare,10-hr,Post-thinning,Coarse woody debris
+2021,FOR06,cont,2021-06-16,FOR06_H1,H1,1,wd,hr0010,0.32090699940892536,0.7194734926748106,tons_per_acre,tons_per_hectare,10-hr,Pre-thinning,Coarse woody debris
+2021,FOR06,trmt,2021-10-19,FOR06_H1,H1,1,wd,hr0010,2.3476900722971044,5.263521142090108,tons_per_acre,tons_per_hectare,10-hr,Post-thinning,Coarse woody debris
+2021,FOR06,cont,2021-06-16,FOR06_H2,H2,1,wd,hr0010,1.925441996453552,4.316840956048864,tons_per_acre,tons_per_hectare,10-hr,Pre-thinning,Coarse woody debris
+2021,FOR06,trmt,2021-10-19,FOR06_H2,H2,1,wd,hr0010,4.108457626519932,9.211161998657689,tons_per_acre,tons_per_hectare,10-hr,Post-thinning,Coarse woody debris
+2021,FOR06,cont,2021-06-16,FOR06_H3,H3,1,wd,hr0010,0,0,tons_per_acre,tons_per_hectare,10-hr,Pre-thinning,Coarse woody debris
+2021,FOR06,trmt,2021-10-19,FOR06_H3,H3,1,wd,hr0010,0.9388055355525765,2.1048020107088767,tons_per_acre,tons_per_hectare,10-hr,Post-thinning,Coarse woody debris
+2021,FOR07,cont,2021-06-10,FOR07_H1,H1,1,wd,hr0010,5.761505381948633,12.917295066328835,tons_per_acre,tons_per_hectare,10-hr,Pre-thinning,Coarse woody debris
+2021,FOR07,trmt,2021-10-18,FOR07_H1,H1,1,wd,hr0010,7.438234723089612,16.676522249166908,tons_per_acre,tons_per_hectare,10-hr,Post-thinning,Coarse woody debris
+2021,FOR07,cont,2021-06-10,FOR07_H2,H2,1,wd,hr0010,0.9677301103492247,2.169650907402962,tons_per_acre,tons_per_hectare,10-hr,Pre-thinning,Coarse woody debris
+2021,FOR07,trmt,2021-10-18,FOR07_H2,H2,1,wd,hr0010,1.4749408037962821,3.3068172821112647,tons_per_acre,tons_per_hectare,10-hr,Post-thinning,Coarse woody debris
+2021,FOR07,cont,2021-06-10,FOR07_H3,H3,1,wd,hr0010,1.3158748550026178,2.950191424915869,tons_per_acre,tons_per_hectare,10-hr,Pre-thinning,Coarse woody debris
+2021,FOR07,trmt,2021-10-18,FOR07_H3,H3,1,wd,hr0010,2.406667928064142,5.395749494719807,tons_per_acre,tons_per_hectare,10-hr,Post-thinning,Coarse woody debris
+2021,FOR08,cont,2021-06-15,FOR08_H1,H1,1,wd,hr0010,0.32346368810511406,0.7252055887316657,tons_per_acre,tons_per_hectare,10-hr,Pre-thinning,Coarse woody debris
+2021,FOR08,trmt,2021-10-19,FOR08_H1,H1,1,wd,hr0010,0.2957992855841797,0.6631819982797309,tons_per_acre,tons_per_hectare,10-hr,Post-thinning,Coarse woody debris
+2021,FOR08,cont,2021-06-15,FOR08_H2,H2,1,wd,hr0010,0.9600867476286309,2.1525144881833906,tons_per_acre,tons_per_hectare,10-hr,Pre-thinning,Coarse woody debris
+2021,FOR08,trmt,2021-10-19,FOR08_H2,H2,1,wd,hr0010,1.1706330962466496,2.6245594017849885,tons_per_acre,tons_per_hectare,10-hr,Post-thinning,Coarse woody debris
+2021,FOR08,cont,2021-06-15,FOR08_H3,H3,1,wd,hr0010,0.6524399428422513,1.4627703518523274,tons_per_acre,tons_per_hectare,10-hr,Pre-thinning,Coarse woody debris
+2021,FOR08,trmt,2021-10-19,FOR08_H3,H3,1,wd,hr0010,1.1932793452636685,2.6753322920811446,tons_per_acre,tons_per_hectare,10-hr,Post-thinning,Coarse woody debris
+2021,FOR10,cont,2021-06-09,FOR10_H1,H1,1,wd,hr0010,2.694821815262182,6.041790509817812,tons_per_acre,tons_per_hectare,10-hr,Pre-thinning,Coarse woody debris
+2021,FOR10,trmt,2021-12-09,FOR10_H1,H1,1,wd,hr0010,1.5402160989091038,3.453164493754211,tons_per_acre,tons_per_hectare,10-hr,Post-thinning,Coarse woody debris
+2021,FOR10,cont,2021-06-09,FOR10_H2,H2,1,wd,hr0010,0.9600867476286309,2.1525144881833906,tons_per_acre,tons_per_hectare,10-hr,Pre-thinning,Coarse woody debris
+2021,FOR10,trmt,2021-12-09,FOR10_H2,H2,1,wd,hr0010,2.6339244665549617,5.905258654016224,tons_per_acre,tons_per_hectare,10-hr,Post-thinning,Coarse woody debris
+2021,FOR10,cont,2021-06-09,FOR10_H3,H3,1,wd,hr0010,0,0,tons_per_acre,tons_per_hectare,10-hr,Pre-thinning,Coarse woody debris
+2021,FOR10,trmt,2021-12-09,FOR10_H3,H3,1,wd,hr0010,0.3030017139026628,0.6793298425697699,tons_per_acre,tons_per_hectare,10-hr,Post-thinning,Coarse woody debris
+2021,FOR05,cont,2021-07-07,FOR05_H1,H1,1,wd,hr0100,1.483514664202236,3.3260398771414135,tons_per_acre,tons_per_hectare,100-hr,Pre-thinning,Coarse woody debris
+2021,FOR05,trmt,2021-10-19,FOR05_H1,H1,1,wd,hr0100,9.104759772749357,20.41287141050406,tons_per_acre,tons_per_hectare,100-hr,Post-thinning,Coarse woody debris
+2021,FOR05,cont,2021-07-07,FOR05_H2,H2,1,wd,hr0100,0,0,tons_per_acre,tons_per_hectare,100-hr,Pre-thinning,Coarse woody debris
+2021,FOR05,trmt,2021-10-19,FOR05_H2,H2,1,wd,hr0100,1.4512236353093284,3.2536433903635142,tons_per_acre,tons_per_hectare,100-hr,Post-thinning,Coarse woody debris
+2021,FOR05,cont,2021-07-07,FOR05_H3,H3,1,wd,hr0100,0,0,tons_per_acre,tons_per_hectare,100-hr,Pre-thinning,Coarse woody debris
+2021,FOR05,trmt,2021-10-19,FOR05_H3,H3,1,wd,hr0100,8.868702204306071,19.88363034205421,tons_per_acre,tons_per_hectare,100-hr,Post-thinning,Coarse woody debris
+2021,FOR06,cont,2021-06-16,FOR06_H1,H1,1,wd,hr0100,1.4215170358152247,3.1870411942977337,tons_per_acre,tons_per_hectare,100-hr,Pre-thinning,Coarse woody debris
+2021,FOR06,trmt,2021-10-19,FOR06_H1,H1,1,wd,hr0100,5.81617489703223,13.039864119146259,tons_per_acre,tons_per_hectare,100-hr,Post-thinning,Coarse woody debris
+2021,FOR06,cont,2021-06-16,FOR06_H2,H2,1,wd,hr0100,0,0,tons_per_acre,tons_per_hectare,100-hr,Pre-thinning,Coarse woody debris
+2021,FOR06,trmt,2021-10-19,FOR06_H2,H2,1,wd,hr0100,7.2702186212902875,16.299830148932823,tons_per_acre,tons_per_hectare,100-hr,Post-thinning,Coarse woody debris
+2021,FOR06,cont,2021-06-16,FOR06_H3,H3,1,wd,hr0100,0,0,tons_per_acre,tons_per_hectare,100-hr,Pre-thinning,Coarse woody debris
+2021,FOR06,trmt,2021-10-19,FOR06_H3,H3,1,wd,hr0100,0,0,tons_per_acre,tons_per_hectare,100-hr,Post-thinning,Coarse woody debris
+2021,FOR07,cont,2021-06-10,FOR07_H1,H1,1,wd,hr0100,3.0025477667128,6.731712092970098,tons_per_acre,tons_per_hectare,100-hr,Pre-thinning,Coarse woody debris
+2021,FOR07,trmt,2021-10-18,FOR07_H1,H1,1,wd,hr0100,4.606876625790876,10.328617395023143,tons_per_acre,tons_per_hectare,100-hr,Post-thinning,Coarse woody debris
+2021,FOR07,cont,2021-06-10,FOR07_H2,H2,1,wd,hr0100,1.428913299353139,3.203623617149738,tons_per_acre,tons_per_hectare,100-hr,Pre-thinning,Coarse woody debris
+2021,FOR07,trmt,2021-10-18,FOR07_H2,H2,1,wd,hr0100,2.9232184533641794,6.55385577244249,tons_per_acre,tons_per_hectare,100-hr,Post-thinning,Coarse woody debris
+2021,FOR07,cont,2021-06-10,FOR07_H3,H3,1,wd,hr0100,0,0,tons_per_acre,tons_per_hectare,100-hr,Pre-thinning,Coarse woody debris
+2021,FOR07,trmt,2021-10-18,FOR07_H3,H3,1,wd,hr0100,4.471715119216068,10.025585297282424,tons_per_acre,tons_per_hectare,100-hr,Post-thinning,Coarse woody debris
+2021,FOR08,cont,2021-06-15,FOR08_H1,H1,1,wd,hr0100,0,0,tons_per_acre,tons_per_hectare,100-hr,Pre-thinning,Coarse woody debris
+2021,FOR08,trmt,2021-10-19,FOR08_H1,H1,1,wd,hr0100,0,0,tons_per_acre,tons_per_hectare,100-hr,Post-thinning,Coarse woody debris
+2021,FOR08,cont,2021-06-15,FOR08_H2,H2,1,wd,hr0100,2.8352548040985956,6.356641270789051,tons_per_acre,tons_per_hectare,100-hr,Pre-thinning,Coarse woody debris
+2021,FOR08,trmt,2021-10-19,FOR08_H2,H2,1,wd,hr0100,0,0,tons_per_acre,tons_per_hectare,100-hr,Post-thinning,Coarse woody debris
+2021,FOR08,cont,2021-06-15,FOR08_H3,H3,1,wd,hr0100,144.50518301327776,323.98062031576876,tons_per_acre,tons_per_hectare,100-hr,Pre-thinning,Coarse woody debris
+2021,FOR08,trmt,2021-10-19,FOR08_H3,H3,1,wd,hr0100,5.912468136204048,13.255753561369474,tons_per_acre,tons_per_hectare,100-hr,Post-thinning,Coarse woody debris
+2021,FOR10,cont,2021-06-09,FOR10_H1,H1,1,wd,hr0100,5.9686063656097925,13.381615471697154,tons_per_acre,tons_per_hectare,100-hr,Pre-thinning,Coarse woody debris
+2021,FOR10,trmt,2021-12-09,FOR10_H1,H1,1,wd,hr0100,1.5262945166718527,3.4219523063782935,tons_per_acre,tons_per_hectare,100-hr,Post-thinning,Coarse woody debris
+2021,FOR10,cont,2021-06-09,FOR10_H2,H2,1,wd,hr0100,0,0,tons_per_acre,tons_per_hectare,100-hr,Pre-thinning,Coarse woody debris
+2021,FOR10,trmt,2021-12-09,FOR10_H2,H2,1,wd,hr0100,4.3501952674888065,9.753137789709903,tons_per_acre,tons_per_hectare,100-hr,Post-thinning,Coarse woody debris
+2021,FOR10,cont,2021-06-09,FOR10_H3,H3,1,wd,hr0100,0,0,tons_per_acre,tons_per_hectare,100-hr,Pre-thinning,Coarse woody debris
+2021,FOR10,trmt,2021-12-09,FOR10_H3,H3,1,wd,hr0100,1.5013148310791045,3.365947851279352,tons_per_acre,tons_per_hectare,100-hr,Post-thinning,Coarse woody debris
+2021,FOR05,cont,2021-07-07,FOR05_H1,H1,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Pre-thinning,Coarse woody debris
+2021,FOR05,trmt,2021-10-19,FOR05_H1,H1,1,wd,hr1000s,122.67717242907744,275.04222058599163,tons_per_acre,tons_per_hectare,1000-hr sound,Post-thinning,Coarse woody debris
+2021,FOR05,cont,2021-07-07,FOR05_H2,H2,1,wd,hr1000s,9.94520824968487,22.297156895793478,tons_per_acre,tons_per_hectare,1000-hr sound,Pre-thinning,Coarse woody debris
+2021,FOR05,trmt,2021-10-19,FOR05_H2,H2,1,wd,hr1000s,68.5287005954848,153.64134673507695,tons_per_acre,tons_per_hectare,1000-hr sound,Post-thinning,Coarse woody debris
+2021,FOR05,cont,2021-07-07,FOR05_H3,H3,1,wd,hr1000s,28.84535734917493,64.67129117685019,tons_per_acre,tons_per_hectare,1000-hr sound,Pre-thinning,Coarse woody debris
+2021,FOR05,trmt,2021-10-19,FOR05_H3,H3,1,wd,hr1000s,246.74848892929333,553.2101121794757,tons_per_acre,tons_per_hectare,1000-hr sound,Post-thinning,Coarse woody debris
+2021,FOR06,cont,2021-06-16,FOR06_H1,H1,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Pre-thinning,Coarse woody debris
+2021,FOR06,trmt,2021-10-19,FOR06_H1,H1,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Post-thinning,Coarse woody debris
+2021,FOR06,cont,2021-06-16,FOR06_H2,H2,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Pre-thinning,Coarse woody debris
+2021,FOR06,trmt,2021-10-19,FOR06_H2,H2,1,wd,hr1000s,102.9149554676315,230.73533015842983,tons_per_acre,tons_per_hectare,1000-hr sound,Post-thinning,Coarse woody debris
+2021,FOR06,cont,2021-06-16,FOR06_H3,H3,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Pre-thinning,Coarse woody debris
+2021,FOR06,trmt,2021-10-19,FOR06_H3,H3,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Post-thinning,Coarse woody debris
+2021,FOR07,cont,2021-06-10,FOR07_H1,H1,1,wd,hr1000s,10.523612926671143,23.593940181596704,tons_per_acre,tons_per_hectare,1000-hr sound,Pre-thinning,Coarse woody debris
+2021,FOR07,trmt,2021-10-18,FOR07_H1,H1,1,wd,hr1000s,129.24312125568,289.76307785523454,tons_per_acre,tons_per_hectare,1000-hr sound,Post-thinning,Coarse woody debris
+2021,FOR07,cont,2021-06-10,FOR07_H2,H2,1,wd,hr1000s,50.081902559132075,112.28362553757411,tons_per_acre,tons_per_hectare,1000-hr sound,Pre-thinning,Coarse woody debris
+2021,FOR07,trmt,2021-10-18,FOR07_H2,H2,1,wd,hr1000s,87.79983542397841,196.84723102055958,tons_per_acre,tons_per_hectare,1000-hr sound,Post-thinning,Coarse woody debris
+2021,FOR07,cont,2021-06-10,FOR07_H3,H3,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Pre-thinning,Coarse woody debris
+2021,FOR07,trmt,2021-10-18,FOR07_H3,H3,1,wd,hr1000s,282.5047174520836,633.3755765275714,tons_per_acre,tons_per_hectare,1000-hr sound,Post-thinning,Coarse woody debris
+2021,FOR08,cont,2021-06-15,FOR08_H1,H1,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Pre-thinning,Coarse woody debris
+2021,FOR08,trmt,2021-10-19,FOR08_H1,H1,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Post-thinning,Coarse woody debris
+2021,FOR08,cont,2021-06-15,FOR08_H2,H2,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Pre-thinning,Coarse woody debris
+2021,FOR08,trmt,2021-10-19,FOR08_H2,H2,1,wd,hr1000s,82.13773705103262,184.15280646841512,tons_per_acre,tons_per_hectare,1000-hr sound,Post-thinning,Coarse woody debris
+2021,FOR08,cont,2021-06-15,FOR08_H3,H3,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Pre-thinning,Coarse woody debris
+2021,FOR08,trmt,2021-10-19,FOR08_H3,H3,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Post-thinning,Coarse woody debris
+2021,FOR10,cont,2021-06-09,FOR10_H1,H1,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Pre-thinning,Coarse woody debris
+2021,FOR10,trmt,2021-12-09,FOR10_H1,H1,1,wd,hr1000s,55.5669840519854,124.58117824455127,tons_per_acre,tons_per_hectare,1000-hr sound,Post-thinning,Coarse woody debris
+2021,FOR10,cont,2021-06-09,FOR10_H2,H2,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Pre-thinning,Coarse woody debris
+2021,FOR10,trmt,2021-12-09,FOR10_H2,H2,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Post-thinning,Coarse woody debris
+2021,FOR10,cont,2021-06-09,FOR10_H3,H3,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Pre-thinning,Coarse woody debris
+2021,FOR10,trmt,2021-12-09,FOR10_H3,H3,1,wd,hr1000s,0,0,tons_per_acre,tons_per_hectare,1000-hr sound,Post-thinning,Coarse woody debris
+2021,FOR05,cont,2021-07-07,FOR05_H1,H1,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Pre-thinning,Coarse woody debris
+2021,FOR05,trmt,2021-10-19,FOR05_H1,H1,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Post-thinning,Coarse woody debris
+2021,FOR05,cont,2021-07-07,FOR05_H2,H2,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Pre-thinning,Coarse woody debris
+2021,FOR05,trmt,2021-10-19,FOR05_H2,H2,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Post-thinning,Coarse woody debris
+2021,FOR05,cont,2021-07-07,FOR05_H3,H3,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Pre-thinning,Coarse woody debris
+2021,FOR05,trmt,2021-10-19,FOR05_H3,H3,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Post-thinning,Coarse woody debris
+2021,FOR06,cont,2021-06-16,FOR06_H1,H1,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Pre-thinning,Coarse woody debris
+2021,FOR06,trmt,2021-10-19,FOR06_H1,H1,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Post-thinning,Coarse woody debris
+2021,FOR06,cont,2021-06-16,FOR06_H2,H2,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Pre-thinning,Coarse woody debris
+2021,FOR06,trmt,2021-10-19,FOR06_H2,H2,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Post-thinning,Coarse woody debris
+2021,FOR06,cont,2021-06-16,FOR06_H3,H3,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Pre-thinning,Coarse woody debris
+2021,FOR06,trmt,2021-10-19,FOR06_H3,H3,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Post-thinning,Coarse woody debris
+2021,FOR07,cont,2021-06-10,FOR07_H1,H1,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Pre-thinning,Coarse woody debris
+2021,FOR07,trmt,2021-10-18,FOR07_H1,H1,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Post-thinning,Coarse woody debris
+2021,FOR07,cont,2021-06-10,FOR07_H2,H2,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Pre-thinning,Coarse woody debris
+2021,FOR07,trmt,2021-10-18,FOR07_H2,H2,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Post-thinning,Coarse woody debris
+2021,FOR07,cont,2021-06-10,FOR07_H3,H3,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Pre-thinning,Coarse woody debris
+2021,FOR07,trmt,2021-10-18,FOR07_H3,H3,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Post-thinning,Coarse woody debris
+2021,FOR08,cont,2021-06-15,FOR08_H1,H1,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Pre-thinning,Coarse woody debris
+2021,FOR08,trmt,2021-10-19,FOR08_H1,H1,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Post-thinning,Coarse woody debris
+2021,FOR08,cont,2021-06-15,FOR08_H2,H2,1,wd,hr1000r,46.58094728792019,104.43448381951707,tons_per_acre,tons_per_hectare,1000-hr rotten,Pre-thinning,Coarse woody debris
+2021,FOR08,trmt,2021-10-19,FOR08_H2,H2,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Post-thinning,Coarse woody debris
+2021,FOR08,cont,2021-06-15,FOR08_H3,H3,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Pre-thinning,Coarse woody debris
+2021,FOR08,trmt,2021-10-19,FOR08_H3,H3,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Post-thinning,Coarse woody debris
+2021,FOR10,cont,2021-06-09,FOR10_H1,H1,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Pre-thinning,Coarse woody debris
+2021,FOR10,trmt,2021-12-09,FOR10_H1,H1,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Post-thinning,Coarse woody debris
+2021,FOR10,cont,2021-06-09,FOR10_H2,H2,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Pre-thinning,Coarse woody debris
+2021,FOR10,trmt,2021-12-09,FOR10_H2,H2,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Post-thinning,Coarse woody debris
+2021,FOR10,cont,2021-06-09,FOR10_H3,H3,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Pre-thinning,Coarse woody debris
+2021,FOR10,trmt,2021-12-09,FOR10_H3,H3,1,wd,hr1000r,0,0,tons_per_acre,tons_per_hectare,1000-hr rotten,Post-thinning,Coarse woody debris
+2021,FOR05,cont,2021-07-07,FOR05_H1,H1,1,dl,litter,1.968503937,4.99999999998,depth_in_inches,depth_in_cm,Litter,Pre-thinning,Duff & litter
+2021,FOR05,trmt,2021-10-19,FOR05_H1,H1,1,dl,litter,2.7559055118,6.999999999972,depth_in_inches,depth_in_cm,Litter,Post-thinning,Duff & litter
+2021,FOR05,cont,2021-07-07,FOR05_H2,H2,1,dl,litter,1.5748031496,3.999999999984,depth_in_inches,depth_in_cm,Litter,Pre-thinning,Duff & litter
+2021,FOR05,trmt,2021-10-19,FOR05_H2,H2,1,dl,litter,1.968503937,4.99999999998,depth_in_inches,depth_in_cm,Litter,Post-thinning,Duff & litter
+2021,FOR05,cont,2021-07-07,FOR05_H3,H3,1,dl,litter,2.7559055118,6.999999999972,depth_in_inches,depth_in_cm,Litter,Pre-thinning,Duff & litter
+2021,FOR05,trmt,2021-10-19,FOR05_H3,H3,1,dl,litter,1.5748031496,3.999999999984,depth_in_inches,depth_in_cm,Litter,Post-thinning,Duff & litter
+2021,FOR06,cont,2021-06-16,FOR06_H1,H1,1,dl,litter,2.3622047243999997,5.999999999976,depth_in_inches,depth_in_cm,Litter,Pre-thinning,Duff & litter
+2021,FOR06,trmt,2021-10-19,FOR06_H1,H1,1,dl,litter,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Litter,Post-thinning,Duff & litter
+2021,FOR06,cont,2021-06-16,FOR06_H2,H2,1,dl,litter,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Litter,Pre-thinning,Duff & litter
+2021,FOR06,trmt,2021-10-19,FOR06_H2,H2,1,dl,litter,1.5748031496,3.999999999984,depth_in_inches,depth_in_cm,Litter,Post-thinning,Duff & litter
+2021,FOR06,cont,2021-06-16,FOR06_H3,H3,1,dl,litter,2.7559055118,6.999999999972,depth_in_inches,depth_in_cm,Litter,Pre-thinning,Duff & litter
+2021,FOR06,trmt,2021-10-19,FOR06_H3,H3,1,dl,litter,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Litter,Post-thinning,Duff & litter
+2021,FOR07,cont,2021-06-10,FOR07_H1,H1,1,dl,litter,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Litter,Pre-thinning,Duff & litter
+2021,FOR07,trmt,2021-10-18,FOR07_H1,H1,1,dl,litter,1.7716535432999998,4.499999999981999,depth_in_inches,depth_in_cm,Litter,Post-thinning,Duff & litter
+2021,FOR07,cont,2021-06-10,FOR07_H2,H2,1,dl,litter,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Litter,Pre-thinning,Duff & litter
+2021,FOR07,trmt,2021-10-18,FOR07_H2,H2,1,dl,litter,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Litter,Post-thinning,Duff & litter
+2021,FOR07,cont,2021-06-10,FOR07_H3,H3,1,dl,litter,1.968503937,4.99999999998,depth_in_inches,depth_in_cm,Litter,Pre-thinning,Duff & litter
+2021,FOR07,trmt,2021-10-18,FOR07_H3,H3,1,dl,litter,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Litter,Post-thinning,Duff & litter
+2021,FOR08,cont,2021-06-15,FOR08_H1,H1,1,dl,litter,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Litter,Pre-thinning,Duff & litter
+2021,FOR08,trmt,2021-10-19,FOR08_H1,H1,1,dl,litter,1.1811023621999999,2.999999999988,depth_in_inches,depth_in_cm,Litter,Post-thinning,Duff & litter
+2021,FOR08,cont,2021-06-15,FOR08_H2,H2,1,dl,litter,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Litter,Pre-thinning,Duff & litter
+2021,FOR08,trmt,2021-10-19,FOR08_H2,H2,1,dl,litter,1.1811023621999999,2.999999999988,depth_in_inches,depth_in_cm,Litter,Post-thinning,Duff & litter
+2021,FOR08,cont,2021-06-15,FOR08_H3,H3,1,dl,litter,1.968503937,4.99999999998,depth_in_inches,depth_in_cm,Litter,Pre-thinning,Duff & litter
+2021,FOR08,trmt,2021-10-19,FOR08_H3,H3,1,dl,litter,1.1811023621999999,2.999999999988,depth_in_inches,depth_in_cm,Litter,Post-thinning,Duff & litter
+2021,FOR10,cont,2021-06-09,FOR10_H1,H1,1,dl,litter,2.7559055118,6.999999999972,depth_in_inches,depth_in_cm,Litter,Pre-thinning,Duff & litter
+2021,FOR10,trmt,2021-12-09,FOR10_H1,H1,1,dl,litter,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Litter,Post-thinning,Duff & litter
+2021,FOR10,cont,2021-06-09,FOR10_H2,H2,1,dl,litter,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Litter,Pre-thinning,Duff & litter
+2021,FOR10,trmt,2021-12-09,FOR10_H2,H2,1,dl,litter,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Litter,Post-thinning,Duff & litter
+2021,FOR10,cont,2021-06-09,FOR10_H3,H3,1,dl,litter,1.5748031496,3.999999999984,depth_in_inches,depth_in_cm,Litter,Pre-thinning,Duff & litter
+2021,FOR10,trmt,2021-12-09,FOR10_H3,H3,1,dl,litter,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Litter,Post-thinning,Duff & litter
+2021,FOR05,cont,2021-07-07,FOR05_H1,H1,2,dl,litter,2.3622047243999997,5.999999999976,depth_in_inches,depth_in_cm,Litter,Pre-thinning,Duff & litter
+2021,FOR05,trmt,2021-10-19,FOR05_H1,H1,2,dl,litter,1.1811023621999999,2.999999999988,depth_in_inches,depth_in_cm,Litter,Post-thinning,Duff & litter
+2021,FOR05,cont,2021-07-07,FOR05_H2,H2,2,dl,litter,2.3622047243999997,5.999999999976,depth_in_inches,depth_in_cm,Litter,Pre-thinning,Duff & litter
+2021,FOR05,trmt,2021-10-19,FOR05_H2,H2,2,dl,litter,1.5748031496,3.999999999984,depth_in_inches,depth_in_cm,Litter,Post-thinning,Duff & litter
+2021,FOR05,cont,2021-07-07,FOR05_H3,H3,2,dl,litter,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Litter,Pre-thinning,Duff & litter
+2021,FOR05,trmt,2021-10-19,FOR05_H3,H3,2,dl,litter,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Litter,Post-thinning,Duff & litter
+2021,FOR06,cont,2021-06-16,FOR06_H1,H1,2,dl,litter,1.1811023621999999,2.999999999988,depth_in_inches,depth_in_cm,Litter,Pre-thinning,Duff & litter
+2021,FOR06,trmt,2021-10-19,FOR06_H1,H1,2,dl,litter,1.1811023621999999,2.999999999988,depth_in_inches,depth_in_cm,Litter,Post-thinning,Duff & litter
+2021,FOR06,cont,2021-06-16,FOR06_H2,H2,2,dl,litter,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Litter,Pre-thinning,Duff & litter
+2021,FOR06,trmt,2021-10-19,FOR06_H2,H2,2,dl,litter,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Litter,Post-thinning,Duff & litter
+2021,FOR06,cont,2021-06-16,FOR06_H3,H3,2,dl,litter,2.3622047243999997,5.999999999976,depth_in_inches,depth_in_cm,Litter,Pre-thinning,Duff & litter
+2021,FOR06,trmt,2021-10-19,FOR06_H3,H3,2,dl,litter,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Litter,Post-thinning,Duff & litter
+2021,FOR07,cont,2021-06-10,FOR07_H1,H1,2,dl,litter,1.5748031496,3.999999999984,depth_in_inches,depth_in_cm,Litter,Pre-thinning,Duff & litter
+2021,FOR07,trmt,2021-10-18,FOR07_H1,H1,2,dl,litter,0.5905511810999999,1.499999999994,depth_in_inches,depth_in_cm,Litter,Post-thinning,Duff & litter
+2021,FOR07,cont,2021-06-10,FOR07_H2,H2,2,dl,litter,4.7244094487999995,11.999999999952,depth_in_inches,depth_in_cm,Litter,Pre-thinning,Duff & litter
+2021,FOR07,trmt,2021-10-18,FOR07_H2,H2,2,dl,litter,1.5748031496,3.999999999984,depth_in_inches,depth_in_cm,Litter,Post-thinning,Duff & litter
+2021,FOR07,cont,2021-06-10,FOR07_H3,H3,2,dl,litter,1.5748031496,3.999999999984,depth_in_inches,depth_in_cm,Litter,Pre-thinning,Duff & litter
+2021,FOR07,trmt,2021-10-18,FOR07_H3,H3,2,dl,litter,1.1811023621999999,2.999999999988,depth_in_inches,depth_in_cm,Litter,Post-thinning,Duff & litter
+2021,FOR08,cont,2021-06-15,FOR08_H1,H1,2,dl,litter,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Litter,Pre-thinning,Duff & litter
+2021,FOR08,trmt,2021-10-19,FOR08_H1,H1,2,dl,litter,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Litter,Post-thinning,Duff & litter
+2021,FOR08,cont,2021-06-15,FOR08_H2,H2,2,dl,litter,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Litter,Pre-thinning,Duff & litter
+2021,FOR08,trmt,2021-10-19,FOR08_H2,H2,2,dl,litter,1.1811023621999999,2.999999999988,depth_in_inches,depth_in_cm,Litter,Post-thinning,Duff & litter
+2021,FOR08,cont,2021-06-15,FOR08_H3,H3,2,dl,litter,3.937007874,9.99999999996,depth_in_inches,depth_in_cm,Litter,Pre-thinning,Duff & litter
+2021,FOR08,trmt,2021-10-19,FOR08_H3,H3,2,dl,litter,1.5748031496,3.999999999984,depth_in_inches,depth_in_cm,Litter,Post-thinning,Duff & litter
+2021,FOR10,cont,2021-06-09,FOR10_H1,H1,2,dl,litter,1.1811023621999999,2.999999999988,depth_in_inches,depth_in_cm,Litter,Pre-thinning,Duff & litter
+2021,FOR10,trmt,2021-12-09,FOR10_H1,H1,2,dl,litter,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Litter,Post-thinning,Duff & litter
+2021,FOR10,cont,2021-06-09,FOR10_H2,H2,2,dl,litter,1.1811023621999999,2.999999999988,depth_in_inches,depth_in_cm,Litter,Pre-thinning,Duff & litter
+2021,FOR10,trmt,2021-12-09,FOR10_H2,H2,2,dl,litter,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Litter,Post-thinning,Duff & litter
+2021,FOR10,cont,2021-06-09,FOR10_H3,H3,2,dl,litter,1.5748031496,3.999999999984,depth_in_inches,depth_in_cm,Litter,Pre-thinning,Duff & litter
+2021,FOR10,trmt,2021-12-09,FOR10_H3,H3,2,dl,litter,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Litter,Post-thinning,Duff & litter
+2021,FOR05,cont,2021-07-07,FOR05_H1,H1,1,dl,duff,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Duff,Pre-thinning,Duff & litter
+2021,FOR05,trmt,2021-10-19,FOR05_H1,H1,1,dl,duff,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Duff,Post-thinning,Duff & litter
+2021,FOR05,cont,2021-07-07,FOR05_H2,H2,1,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Pre-thinning,Duff & litter
+2021,FOR05,trmt,2021-10-19,FOR05_H2,H2,1,dl,duff,1.1811023621999999,2.999999999988,depth_in_inches,depth_in_cm,Duff,Post-thinning,Duff & litter
+2021,FOR05,cont,2021-07-07,FOR05_H3,H3,1,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning,Duff & litter
+2021,FOR05,trmt,2021-10-19,FOR05_H3,H3,1,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Post-thinning,Duff & litter
+2021,FOR06,cont,2021-06-16,FOR06_H1,H1,1,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning,Duff & litter
+2021,FOR06,trmt,2021-10-19,FOR06_H1,H1,1,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Post-thinning,Duff & litter
+2021,FOR06,cont,2021-06-16,FOR06_H2,H2,1,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning,Duff & litter
+2021,FOR06,trmt,2021-10-19,FOR06_H2,H2,1,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Post-thinning,Duff & litter
+2021,FOR06,cont,2021-06-16,FOR06_H3,H3,1,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning,Duff & litter
+2021,FOR06,trmt,2021-10-19,FOR06_H3,H3,1,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Post-thinning,Duff & litter
+2021,FOR07,cont,2021-06-10,FOR07_H1,H1,1,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning,Duff & litter
+2021,FOR07,trmt,2021-10-18,FOR07_H1,H1,1,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Post-thinning,Duff & litter
+2021,FOR07,cont,2021-06-10,FOR07_H2,H2,1,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning,Duff & litter
+2021,FOR07,trmt,2021-10-18,FOR07_H2,H2,1,dl,duff,0.1968503937,0.499999999998,depth_in_inches,depth_in_cm,Duff,Post-thinning,Duff & litter
+2021,FOR07,cont,2021-06-10,FOR07_H3,H3,1,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning,Duff & litter
+2021,FOR07,trmt,2021-10-18,FOR07_H3,H3,1,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Post-thinning,Duff & litter
+2021,FOR08,cont,2021-06-15,FOR08_H1,H1,1,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Pre-thinning,Duff & litter
+2021,FOR08,trmt,2021-10-19,FOR08_H1,H1,1,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Post-thinning,Duff & litter
+2021,FOR08,cont,2021-06-15,FOR08_H2,H2,1,dl,duff,1.1811023621999999,2.999999999988,depth_in_inches,depth_in_cm,Duff,Pre-thinning,Duff & litter
+2021,FOR08,trmt,2021-10-19,FOR08_H2,H2,1,dl,duff,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Duff,Post-thinning,Duff & litter
+2021,FOR08,cont,2021-06-15,FOR08_H3,H3,1,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Pre-thinning,Duff & litter
+2021,FOR08,trmt,2021-10-19,FOR08_H3,H3,1,dl,duff,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Duff,Post-thinning,Duff & litter
+2021,FOR10,cont,2021-06-09,FOR10_H1,H1,1,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning,Duff & litter
+2021,FOR10,trmt,2021-12-09,FOR10_H1,H1,1,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Post-thinning,Duff & litter
+2021,FOR10,cont,2021-06-09,FOR10_H2,H2,1,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning,Duff & litter
+2021,FOR10,trmt,2021-12-09,FOR10_H2,H2,1,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Post-thinning,Duff & litter
+2021,FOR10,cont,2021-06-09,FOR10_H3,H3,1,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning,Duff & litter
+2021,FOR10,trmt,2021-12-09,FOR10_H3,H3,1,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Post-thinning,Duff & litter
+2021,FOR05,cont,2021-07-07,FOR05_H1,H1,2,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Pre-thinning,Duff & litter
+2021,FOR05,trmt,2021-10-19,FOR05_H1,H1,2,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Post-thinning,Duff & litter
+2021,FOR05,cont,2021-07-07,FOR05_H2,H2,2,dl,duff,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Duff,Pre-thinning,Duff & litter
+2021,FOR05,trmt,2021-10-19,FOR05_H2,H2,2,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Post-thinning,Duff & litter
+2021,FOR05,cont,2021-07-07,FOR05_H3,H3,2,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning,Duff & litter
+2021,FOR05,trmt,2021-10-19,FOR05_H3,H3,2,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Post-thinning,Duff & litter
+2021,FOR06,cont,2021-06-16,FOR06_H1,H1,2,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning,Duff & litter
+2021,FOR06,trmt,2021-10-19,FOR06_H1,H1,2,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Post-thinning,Duff & litter
+2021,FOR06,cont,2021-06-16,FOR06_H2,H2,2,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning,Duff & litter
+2021,FOR06,trmt,2021-10-19,FOR06_H2,H2,2,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Post-thinning,Duff & litter
+2021,FOR06,cont,2021-06-16,FOR06_H3,H3,2,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning,Duff & litter
+2021,FOR06,trmt,2021-10-19,FOR06_H3,H3,2,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Post-thinning,Duff & litter
+2021,FOR07,cont,2021-06-10,FOR07_H1,H1,2,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Pre-thinning,Duff & litter
+2021,FOR07,trmt,2021-10-18,FOR07_H1,H1,2,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Post-thinning,Duff & litter
+2021,FOR07,cont,2021-06-10,FOR07_H2,H2,2,dl,duff,1.5748031496,3.999999999984,depth_in_inches,depth_in_cm,Duff,Pre-thinning,Duff & litter
+2021,FOR07,trmt,2021-10-18,FOR07_H2,H2,2,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Post-thinning,Duff & litter
+2021,FOR07,cont,2021-06-10,FOR07_H3,H3,2,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Pre-thinning,Duff & litter
+2021,FOR07,trmt,2021-10-18,FOR07_H3,H3,2,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Post-thinning,Duff & litter
+2021,FOR08,cont,2021-06-15,FOR08_H1,H1,2,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning,Duff & litter
+2021,FOR08,trmt,2021-10-19,FOR08_H1,H1,2,dl,duff,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Duff,Post-thinning,Duff & litter
+2021,FOR08,cont,2021-06-15,FOR08_H2,H2,2,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Pre-thinning,Duff & litter
+2021,FOR08,trmt,2021-10-19,FOR08_H2,H2,2,dl,duff,1.968503937,4.99999999998,depth_in_inches,depth_in_cm,Duff,Post-thinning,Duff & litter
+2021,FOR08,cont,2021-06-15,FOR08_H3,H3,2,dl,duff,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Duff,Pre-thinning,Duff & litter
+2021,FOR08,trmt,2021-10-19,FOR08_H3,H3,2,dl,duff,0.7874015748,1.999999999992,depth_in_inches,depth_in_cm,Duff,Post-thinning,Duff & litter
+2021,FOR10,cont,2021-06-09,FOR10_H1,H1,2,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Pre-thinning,Duff & litter
+2021,FOR10,trmt,2021-12-09,FOR10_H1,H1,2,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Post-thinning,Duff & litter
+2021,FOR10,cont,2021-06-09,FOR10_H2,H2,2,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning,Duff & litter
+2021,FOR10,trmt,2021-12-09,FOR10_H2,H2,2,dl,duff,0.3937007874,0.999999999996,depth_in_inches,depth_in_cm,Duff,Post-thinning,Duff & litter
+2021,FOR10,cont,2021-06-09,FOR10_H3,H3,2,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Pre-thinning,Duff & litter
+2021,FOR10,trmt,2021-12-09,FOR10_H3,H3,2,dl,duff,0,0,depth_in_inches,depth_in_cm,Duff,Post-thinning,Duff & litter

@@ -25,7 +25,7 @@ path_derived <- here("input/data_3-derived")
 source(file = here(path_fxn, "basic-functions.R"))
 
 # ========================================================== -----
-# TWO TRANSECTS PER PLOT (TUBBS FIRE) ----
+# TUBBS: TWO TRANSECTS PER PLOT ----
 # About this data set ----
 # Each year has 36 data points for litter and duff (9 plots x 2 transects x 2 quadrats)
 # Each year has 18 data points for downed woody debris (9 plots x 2 transects x 1 quadrat)
@@ -244,7 +244,7 @@ all_fuel_total <-
   write_csv(here(path_derived, "tubbs_total-by-plot-type-yr.csv"))
 
 # ========================================================== -----
-# THREE TRANSECTS PER PLOT (thin) ----
+# THIN: THREE TRANSECTS PER PLOT ----
 # About this data set ----
 # we now have additional fuels data for forests that were burned in Tubbs and recently thinned
 # do a quick ANOVA on those data for this conference - really focusing it on fuel load management
@@ -281,6 +281,8 @@ rename_thin <-
          transect_rep = transect_rep,
          units = units) 
 
+lab_trmt <- 
+
 # Read raw data; reshape and annotate ----
 fuels_thin_raw <- 
   read_excel(here(path_raw, 
@@ -288,15 +290,14 @@ fuels_thin_raw <-
              sheet = "Data") %>%
   # Clean column names 
   clean_names() %>%
-  rename(lab_timing = timing) %>%
+  rename(lab_thin = timing) %>%
   gather(fuel_class_orig, value, x1hr_load:duff2) %>%
   left_join(rename_thin, "fuel_class_orig") %>%
+  left_join(lab_type, "data_type") %>%
   # Convert datetime values to date values
   mutate(date = as_date(date), 
          year = year(date), 
-         timing = str_to_lower(str_sub(lab_timing, 1, 4)), 
-         timing = str_remove_all(timing, "-"), 
-         survey = ifelse(timing %in% "pre", "cont", "trmt")) %>%  
+         survey = ifelse(lab_thin %in% "Pre-thinning", "cont", "trmt")) %>%  
   # Convert measurements to metric units
   mutate(value_si = 
            case_when(data_type == "wd" ~ value *  2.242, 
@@ -310,7 +311,6 @@ fuels_thin_raw <-
   select(year, 
          plot_id, 
          survey,
-         timing, 
          date, 
          plot_tran,
          transect_id, 
@@ -331,14 +331,17 @@ thin_plot_class_mean <-
            plot_id, 
            data_type, 
            fuel_class,
-           lab_fuel) %>%
+           lab_type,
+           lab_fuel, 
+           lab_thin, 
+           units, 
+           units_si) %>%
   summarize(value = mean(value), 
             value_si = mean(value_si)) %>%
   ungroup() %>%
-  left_join(lab_type, "data_type") %>%
   mutate(subset = "survey_plot_class", 
          statistic = "mean") %>%
-  arrange(survey) %>%
+  arrange(data_type, fuel_class, survey) %>%
   relocate(starts_with("value"), .after = fuel_class) %>%
   write_csv(here(path_derived, "thin_mean-by-plot-type-class-trmt.csv"))
 
@@ -347,12 +350,19 @@ thin_plot_total <-
   thin_plot_class_mean  %>%
   group_by(survey, 
            plot_id, 
-           data_type) %>%
+           data_type, 
+           lab_type,
+           lab_thin, 
+           units, 
+           units_si) %>%
   summarize(value = sum(value), 
             value_si = sum(value_si)) %>%
   ungroup()  %>%
-  mutate(subset = "survey_plot", 
+  mutate(lab_fuel = "All", 
+         fuel_class = "all",
+         subset = "survey_plot", 
          statistic = "total") %>%
+  arrange(data_type, lab_type, survey) %>%
   relocate(starts_with("value"), .after = data_type) %>%
   write_csv(here(path_derived, "thin_total-by-plot-type-trmt.csv"))
 

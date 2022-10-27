@@ -1,21 +1,21 @@
-survey,plot_id,data_type,value,value_si,subset,statistic
-cont,FOR05,dl,2.3622047243999997,5.999999999976,survey_plot,total
-cont,FOR05,wd,16.27058001179567,36.47864038644589,survey_plot,total
-cont,FOR06,dl,1.6404199474999999,4.16666666665,survey_plot,total
-cont,FOR06,wd,1.3909557878010335,3.118522876249917,survey_plot,total
-cont,FOR07,dl,2.2965879264999995,5.83333333331,survey_plot,total
-cont,FOR07,wd,25.62849487125425,57.45908550135202,survey_plot,total
-cont,FOR08,dl,1.7716535433,4.499999999982,survey_plot,total
-cont,FOR08,wd,65.400605475257,146.6281574755262,survey_plot,total
-cont,FOR10,dl,1.5748031496,3.999999999984,survey_plot,total
-cont,FOR10,wd,3.293595918603687,7.384242049509466,survey_plot,total
-trmt,FOR05,dl,2.0997375328,5.333333333312,survey_plot,total
-trmt,FOR05,wd,155.8723678910623,349.46584881176176,survey_plot,total
-trmt,FOR06,dl,1.1154855643,2.833333333322,survey_plot,total
-trmt,FOR06,wd,42.932941154730166,96.25565406890503,survey_plot,total
-trmt,FOR07,dl,1.4107611548499999,3.5833333333189996,survey_plot,total
-trmt,FOR07,wd,175.15309587080628,392.69324094234764,survey_plot,total
-trmt,FOR08,dl,2.0341207349,5.166666666646,survey_plot,total
-trmt,FOR08,wd,30.645811358025952,68.70790906469419,survey_plot,total
-trmt,FOR10,dl,0.6561679789999999,1.6666666666599999,survey_plot,total
-trmt,FOR10,wd,23.258438035160502,52.14541807482984,survey_plot,total
+survey,plot_id,data_type,value,value_si,lab_type,lab_thin,units,units_si,lab_fuel,fuel_class,subset,statistic
+cont,FOR05,dl,2.3622047243999997,5.999999999976,Duff & litter,Pre-thinning,depth_in_inches,depth_in_cm,All,all,survey_plot,total
+cont,FOR06,dl,1.6404199474999999,4.16666666665,Duff & litter,Pre-thinning,depth_in_inches,depth_in_cm,All,all,survey_plot,total
+cont,FOR07,dl,2.2965879264999995,5.83333333331,Duff & litter,Pre-thinning,depth_in_inches,depth_in_cm,All,all,survey_plot,total
+cont,FOR08,dl,1.7716535433,4.499999999982,Duff & litter,Pre-thinning,depth_in_inches,depth_in_cm,All,all,survey_plot,total
+cont,FOR10,dl,1.5748031496,3.999999999984,Duff & litter,Pre-thinning,depth_in_inches,depth_in_cm,All,all,survey_plot,total
+trmt,FOR05,dl,2.0997375328,5.333333333312,Duff & litter,Post-thinning,depth_in_inches,depth_in_cm,All,all,survey_plot,total
+trmt,FOR06,dl,1.1154855643,2.833333333322,Duff & litter,Post-thinning,depth_in_inches,depth_in_cm,All,all,survey_plot,total
+trmt,FOR07,dl,1.4107611548499999,3.5833333333189996,Duff & litter,Post-thinning,depth_in_inches,depth_in_cm,All,all,survey_plot,total
+trmt,FOR08,dl,2.0341207349,5.166666666646,Duff & litter,Post-thinning,depth_in_inches,depth_in_cm,All,all,survey_plot,total
+trmt,FOR10,dl,0.6561679789999999,1.6666666666599999,Duff & litter,Post-thinning,depth_in_inches,depth_in_cm,All,all,survey_plot,total
+cont,FOR05,wd,16.27058001179567,36.47864038644589,Coarse woody debris,Pre-thinning,tons_per_acre,tons_per_hectare,All,all,survey_plot,total
+cont,FOR06,wd,1.3909557878010335,3.118522876249917,Coarse woody debris,Pre-thinning,tons_per_acre,tons_per_hectare,All,all,survey_plot,total
+cont,FOR07,wd,25.62849487125425,57.45908550135202,Coarse woody debris,Pre-thinning,tons_per_acre,tons_per_hectare,All,all,survey_plot,total
+cont,FOR08,wd,65.400605475257,146.6281574755262,Coarse woody debris,Pre-thinning,tons_per_acre,tons_per_hectare,All,all,survey_plot,total
+cont,FOR10,wd,3.293595918603687,7.384242049509466,Coarse woody debris,Pre-thinning,tons_per_acre,tons_per_hectare,All,all,survey_plot,total
+trmt,FOR05,wd,155.8723678910623,349.46584881176176,Coarse woody debris,Post-thinning,tons_per_acre,tons_per_hectare,All,all,survey_plot,total
+trmt,FOR06,wd,42.932941154730166,96.25565406890503,Coarse woody debris,Post-thinning,tons_per_acre,tons_per_hectare,All,all,survey_plot,total
+trmt,FOR07,wd,175.15309587080628,392.69324094234764,Coarse woody debris,Post-thinning,tons_per_acre,tons_per_hectare,All,all,survey_plot,total
+trmt,FOR08,wd,30.645811358025952,68.70790906469419,Coarse woody debris,Post-thinning,tons_per_acre,tons_per_hectare,All,all,survey_plot,total
+trmt,FOR10,wd,23.258438035160502,52.14541807482984,Coarse woody debris,Post-thinning,tons_per_acre,tons_per_hectare,All,all,survey_plot,total
