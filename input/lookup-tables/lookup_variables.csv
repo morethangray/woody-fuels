@@ -30,3 +30,7 @@ fuel,dl,thin,duff1,duff,Duff,1,1,depth_in_inches
 fuel,dl,thin,duff2,duff,Duff,2,2,depth_in_inches
 fuel,dl,thin,litter1,litter,Litter,3,1,depth_in_inches
 fuel,dl,thin,litter2,litter,Litter,4,2,depth_in_inches
+fuel,all,units_si,wd,Coarse woody debris,Coarse woody debris,,,Metric tons per hectare
+fuel,all,units_si,dl,Duff & litter,Duff & litter,,,Depth in centimeters
+fuel,all,units_us,wd,Coarse woody debris,Coarse woody debris,,,Tons per acre
+fuel,all,units_us,dl,Duff & litter,Duff & litter,,,Depth in inches
