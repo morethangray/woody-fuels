@@ -62,7 +62,7 @@ dw_class_summary <-
   mutate(se = sd/(sqrt(n))) %>%
   ungroup() 
 
-# Reshape the sumamry into a table to accompany the figure ----
+# Reshape the summary into a table to accompany the figure ----
 # Create a helper to order the statistics in the table
 ord_stat <- tibble(statistic = c("total", "mean", "sd", "n"), ord_stat = 1:4)
 
