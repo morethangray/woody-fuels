@@ -1,4 +1,4 @@
-# revised: 2022-10-27 ----
+# revised: 2022-10-28 ----
 # ========================================================== -----
 # CONFIGURE SETTINGS -----
 # Load libraries 
@@ -44,20 +44,19 @@ ord_fuel <-
 
 # Define plot settings ----
 colors_year <- c("gray70", "#C47E61", "#dbae84", "#e9d097")
-colors_dl <- c("#7da8b0", "#c4c4c4")
-colors_thin_bright <- c("#9d9596", "#069879")
 colors_thin_faded <- c("#bfbabb", "#75bca8")
-# Define plot colors  
 colors_stacked <- c("gray25", 
                     "#5c5c5c",
                     "#858585",
                     "#adadab",
                     "gray85")
+
+# colors_thin_bright <- c("#9d9596", "#069879")
+# colors_dl <- c("#7da8b0", "#c4c4c4")
 # plot_colors <- 
 #   read_csv(here(path_lookup, 
 #                 "plot-colors.csv")) %>%
 #   arrange(palette, palette_subset, levels)
-# 
 # colors_year <- 
 #   plot_colors %>%
 #   filter(palette %in% "year", 
@@ -73,8 +72,6 @@ theme_fuels <- function(){
       panel.grid = element_line(color = "white"),
       strip.text = element_text(size = 16),
       strip.background = element_rect(fill = "gray91", color = "gray91"),
-      # axis.line.x = element_line(color = "black"),
-      # axis.line.y = element_line(color = "black"),
       # Format the y-axis text 
       axis.title.y = element_text(size = 18, vjust = 1.5),
       axis.text.y = element_text(size = 16, color = "gray50"),
@@ -90,15 +87,44 @@ theme_fuels <- function(){
       legend.spacing.y = unit(0.5, 'cm'))  
 }
   
+theme_stacked <- function(){
+  theme_minimal() +
+    theme( 
+      # Format the facet strip
+      panel.spacing = unit(1.2, "lines"),
+      panel.border = element_rect(fill = NA, color = NA), 
+      panel.grid = element_line(color = "white"),
+      strip.text = element_text(size = 16),
+      strip.background = element_rect(fill = "gray91", color = "gray91"),
+      # Format plot frame
+      axis.line.x = element_line(color = "gray91", size = 1),
+      axis.line.y = element_line(color = "gray91", size = 1),
+      # Increase margins around plot to accommodate x-axis title
+      plot.margin = margin(0.5, 0.5, 0.5, 0.5, "cm"), 
+      # Format the y-axis text 
+      axis.title.y = element_text(size = 18, vjust = 1.5),
+      axis.text.y = element_text(size = 16, color = "gray50"),
+      # Format x-axis 
+      axis.title.x = element_text(size = 18, vjust = -1.2),
+      axis.text.x = element_text(size = 16, color = "gray30"),
+      axis.ticks.x = element_blank(),
+      # Format the legend
+      legend.position = "right", 
+      legend.box.spacing = unit(1.2, "lines"), 
+      legend.title = element_text(size = 18),
+      legend.text = element_text(size = 16, color = "gray30"), 
+      legend.spacing.y = unit(0.5, 'cm'))  
+}
+
 # Create Tubbs data  ----
-tubbs_input <-
-  read_csv(here(path_derived, "tubbs_total-by-plot-type-yr.csv")) %>%
-  mutate(lab_fuel = "All", 
-         fuel_class = "all")
+tubbs_class_mean <- 
+  read_csv(here(path_derived, "tubbs_mean-by-plot-type-class-yr.csv")) 
 
 tubbs <- 
-  read_csv(here(path_derived, "tubbs_mean-by-plot-type-class-yr.csv")) %>%
-  bind_rows(tubbs_input) %>%
+  read_csv(here(path_derived, "tubbs_total-by-plot-type-yr.csv")) %>%
+  mutate(lab_fuel = "All", 
+         fuel_class = "all") %>%
+  bind_rows(tubbs_class_mean) %>%
   left_join(lookup_units, "data_type") %>%
   arrange(year) %>%
   mutate(year = as_factor(year), 
@@ -119,15 +145,31 @@ tubbs_wd <-
   tubbs %>%
   filter(data_type %in% "wd")  
 
-
+# Calculate mean CWD by year x fuel class for stacked bar plot
+tubbs_wd_stack <- 
+  # Read the data for mean by plot x year x fuel class 
+  tubbs_class_mean   %>%
+  filter(fuel_class %nin% "all", 
+         data_type %in% "wd") %>%
+  left_join(ord_fuel, "fuel_class") %>%
+  arrange(year, ord_fuel) %>%
+  mutate_if(is.character, as_factor) %>%
+  # Calculate summary statistics by fuel class x year 
+  group_by(fuel_class, 
+           lab_fuel,
+           year, 
+           lab_year,
+           lab_year_abbr) %>%
+  summarize(mean = mean(value)) %>%
+  ungroup() 
 
 # Create thin data  ----
-thin_input <-
-  read_csv(here(path_derived, "thin_total-by-plot-type-trmt.csv"))  
+thin_class_mean <- 
+  read_csv(here(path_derived, "thin_mean-by-plot-type-class-trmt.csv")) 
 
-thin <- 
-  read_csv(here(path_derived, "thin_mean-by-plot-type-class-trmt.csv")) %>%
-  bind_rows(thin_input) %>%
+thin <-
+  read_csv(here(path_derived, "thin_total-by-plot-type-trmt.csv")) %>%
+  bind_rows(thin_class_mean) %>%
   arrange(survey, data_type, fuel_class) %>%
   mutate_if(is.character, as_factor)  %>%
   mutate(value = fxn_digit(value_si))
@@ -140,6 +182,22 @@ thin_wd <-
   thin %>%
   filter(data_type %in% "wd")  
 
+# Calculate mean CWD by treatment x fuel class for stacked bar plot
+thin_wd_stack <- 
+  # Read the data for mean by plot x year x fuel class 
+  thin_class_mean   %>%
+  filter(fuel_class %nin% "all", 
+         data_type %in% "wd") %>%
+  left_join(ord_fuel, "fuel_class") %>%
+  arrange(survey, ord_fuel) %>%
+  mutate_if(is.character, as_factor) %>%
+  # Calculate summary statistics by fuel class x year 
+  group_by(fuel_class, 
+           lab_fuel,
+           survey, 
+           lab_thin) %>%
+  summarize(mean = mean(value)) %>%
+  ungroup() 
 
 # ========================================================== -----
 # DUFF AND LITTER (dl) -----
@@ -574,101 +632,48 @@ thin_wd %>%
 # STACKED BAR CHARTS ----
 # Coarse woody debris, stacked by size class 
 # TUBBS -----
-
-# Read the data for mean by plot x year x fuel class 
-tubbs_wd   %>%
-  filter(fuel_class %nin% "all") %>%
-  left_join(ord_fuel, "fuel_class") %>%
-  arrange(year, ord_fuel) %>%
-  mutate(fuel_class = as.character(fuel_class), 
-         lab_year = as.character(lab_year), 
-         lab_fuel = as.character(lab_fuel),
-         year = as.character(year)) %>%
-  arrange(year, ord_fuel) %>%
-  mutate(fuel_class = as_factor(fuel_class), 
-         lab_year = as_factor(lab_year), 
-         lab_fuel = as_factor(lab_fuel),
-         year = as_factor(year))  %>%
-  # Calculate summary statistics by fuel class x year 
-  group_by(fuel_class, 
-           lab_fuel,
-           year, 
-           lab_year,
-           lab_year_abbr) %>%
-  summarize(mean = mean(value)) %>%
-  ungroup() %>%
-  select(fuel_class, lab_fuel, lab_year, lab_year_abbr, mean) %>% 
+tubbs_wd_stack %>% 
   ggplot(aes(x = lab_year_abbr, 
              y = mean, 
              fill = lab_fuel)) +
   geom_bar(stat = "identity",
            width = 0.5, 
+           color = "black", 
+           size = 0.05,
            position = "stack") +
+  # geom_hline(yintercept = 0, 
+  #            linetype = "longdash", 
+  #            color = "gray50") +
   scale_fill_manual(values = colors_stacked, 
                     name = "Size class") + 
-  theme_fuels() + 
+  theme_stacked() + 
   labs(x = "Chronosequence", 
        y = "Mean fuel load (metric tons per hectare)") + 
-  theme(
-    axis.title.x = element_text(size = 18, vjust = -1.2),
-    axis.text.x = element_text(size = 12, color = "gray50"),
-    # Increase margins around plot to accommodate repositioned x-axis title
-    plot.margin = margin(0.5, 0.5, 0.5, 0.5, "cm"), 
-    panel.border = element_rect(fill = NA, color = NA), 
-    axis.line.x = element_line(color = "gray91", size = 1),
-    axis.line.y = element_line(color = "gray91", size = 1)
-  )
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 15))
 
 ggsave(here(path_plots, "tubbs_wd_stacked-barchart.png"),
-       width = 12, 
-       height = 5)
+       width = 10, 
+       height = 5.2)
 
 
 # THIN -----
-# Read the data for mean by plot x year x fuel class 
-thin_wd   %>%
-  filter(fuel_class %nin% "all") %>%
-  left_join(ord_fuel, "fuel_class") %>%
-  arrange(year, ord_fuel) %>%
-  mutate(fuel_class = as.character(fuel_class), 
-         lab_year = as.character(lab_year), 
-         lab_fuel = as.character(lab_fuel),
-         year = as.character(year)) %>%
-  arrange(year, ord_fuel) %>%
-  mutate(fuel_class = as_factor(fuel_class), 
-         lab_year = as_factor(lab_year), 
-         lab_fuel = as_factor(lab_fuel),
-         year = as_factor(year))  %>%
-  # Calculate summary statistics by fuel class x year 
-  group_by(fuel_class, 
-           lab_fuel,
-           year, 
-           lab_year,
-           lab_year_abbr) %>%
-  summarize(mean = mean(value)) %>%
-  ungroup() %>%
-  select(fuel_class, lab_fuel, lab_year, lab_year_abbr, mean) %>% 
-  ggplot(aes(x = lab_year_abbr, 
+thin_wd_stack %>% 
+  ggplot(aes(x = lab_thin, 
              y = mean, 
              fill = lab_fuel)) +
   geom_bar(stat = "identity",
            width = 0.5, 
            position = "stack") +
+  # geom_hline(yintercept = 0, 
+  #            linetype = "longdash", 
+  #            color = "gray50") +
   scale_fill_manual(values = colors_stacked, 
                     name = "Size class") + 
-  theme_fuels() + 
+  theme_stacked() + 
   labs(x = "Chronosequence", 
        y = "Mean fuel load (metric tons per hectare)") + 
-  theme(
-    axis.title.x = element_text(size = 18, vjust = -1.2),
-    axis.text.x = element_text(size = 12, color = "gray50"),
-    # Increase margins around plot to accommodate repositioned x-axis title
-    plot.margin = margin(0.5, 0.5, 0.5, 0.5, "cm"), 
-    panel.border = element_rect(fill = NA, color = NA), 
-    axis.line.x = element_line(color = "gray91", size = 1),
-    axis.line.y = element_line(color = "gray91", size = 1)
-  )
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 15))
 
 ggsave(here(path_plots, "thin_wd_stacked-barchart.png"),
-       width = 12, 
+       width = 6.5, 
        height = 5)
