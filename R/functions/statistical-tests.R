@@ -7,20 +7,22 @@
 #   as.numeric(format(round(x, 3), nsmall = 3))
 # }
 #   fxn_aov_me ----
-fxn_aov_me <- function(df){
-  df %>%
+fxn_aov_me <- function(df, index_time){
+  subset <- 
+    df %>%
+    select(value, plot_id, time = all_of(index_time))
+  
+  subset %>%
     anova_test(dv = value, 
                wid = plot_id, 
-               within = year) %>%
+               within = time) %>%
     get_anova_table() %>%
     adjust_pvalue(method = "bonferroni") %>%
     as_tibble() %>%
     clean_names() %>%
-    mutate(method = "me", 
-           data_type = index_type) %>%
+    mutate(method = "me") %>%
     rename(statistic = f) %>% 
-    relocate(data_type, 
-             method, 
+    relocate(method, 
              effect, 
              starts_with("p_adj"), 
              statistic,
@@ -28,74 +30,94 @@ fxn_aov_me <- function(df){
              ges)
 }
 
-#   fxn_pwc ----
 
+#   fxn_pwc ----
 # Excludes fuel_class, is for pwc of fuel_type only
-fxn_pwc <- function(df){
-  df %>%
+fxn_pwc <- function(df, index_time){
+  subset <- 
+    df %>%
+    select(value, plot_id, time = all_of(index_time))
+  
+  subset %>%
     pairwise_t_test(
-      value ~ year, 
+      value ~ time, 
       paired = TRUE,
       p.adjust.method = "bonferroni") %>%
     clean_names() %>%
     mutate(method = "pwc", 
-           data_type = index_type, 
            statistic = fxn_digit(statistic)) %>%
     rename(p_adj_sig = p_adj_signif) %>%
-    select(data_type, 
-           method, 
-           starts_with("group"),
-           starts_with("p_adj"), 
-           statistic,
-           starts_with("d"),  
-           starts_with("p"))
+    relocate(method, 
+             starts_with("group"),
+             starts_with("p_adj"), 
+             statistic,
+             starts_with("d"),  
+             starts_with("p"))
 }
 
 #   fxn_aov2_me ----
-fxn_aov2_me <- function(df){
-  df %>%
+fxn_aov2_me <- function(df, index_time, index_variable){
+  subset <- 
+    df %>%
+    select(value, 
+           plot_id,
+           time = all_of(index_time), 
+           variable = all_of(index_variable))
+  
+  subset %>%
     anova_test(dv = value, 
                wid = plot_id, 
-               within = c(fuel_class, year)) %>%
+               within = c(time, variable)) %>%
     get_anova_table() %>%
     adjust_pvalue(method = "bonferroni") %>%
     as_tibble() %>%
     clean_names() %>%
     mutate(method = "aov2", 
-           data_type = index_type)  %>%
+           index_variable = index_variable)  %>%
     rename(statistic = f) %>%
-    select(data_type, 
-           method, 
-           effect, 
-           starts_with("p_adj"), 
-           statistic,
-           starts_with("d"), 
-           ges)
+    relocate(index_variable, 
+             method, 
+             effect, 
+             starts_with("p_adj"), 
+             statistic,
+             starts_with("d"), 
+             ges)
+  
+  
 }
 
 #   fxn_pwc2 ----
 # Includes a column for fuel_class
-fxn_pwc2 <- function(df){
-  df %>%
+fxn_pwc2 <- function(df, index_time, index_variable){
+  
+  subset <- 
+    df %>%
+    select(value, 
+           plot_id,
+           time = all_of(index_time), 
+           variable = all_of(index_variable))
+  
+  subset %>%
+    group_by(variable) %>%
     pairwise_t_test(
-      value ~ year, 
+      value ~ time, 
       paired = TRUE,
       p.adjust.method = "bonferroni") %>%
     clean_names() %>%
     mutate(method = "pwc", 
-           data_type = index_type, 
+           index_variable = index_variable, 
            statistic = fxn_digit(statistic)) %>%
     rename(p_adj_sig = p_adj_signif) %>%
-    select(data_type, 
-           method, 
-           fuel_class,
-           starts_with("group"),
-           starts_with("p_adj"), 
-           statistic,
-           starts_with("d"))
-  
+    relocate(index_variable, 
+             variable, 
+             method,
+             starts_with("group"),
+             starts_with("p_adj"), 
+             statistic,
+             starts_with("d"))
   
 }
+
 # ---------------------------------------------------------- -----
 # PLot test results (by year) ----
 # REQUIRES: colors_year ----

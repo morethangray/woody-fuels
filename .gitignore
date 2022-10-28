@@ -39,3 +39,4 @@ vignettes/*.pdf
 .Renviron
 manuscript/RxF_Oak-symposium_ms_2022-10-20.key
 *.key
+*.key
