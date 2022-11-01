@@ -1,0 +1,61 @@
+metric,data_type,fuel_class,plot_id,timing,value_tran,value_raw,units,transform,lab_type,lab_thin,lab_fuel
+total,wd,all,FOR05,survey1,-0.6744897501960817,36.479,tons_per_hectare,ordernorm,Coarse woody debris,Pre-thinning,All
+total,wd,all,FOR06,survey1,-1.6448536269514726,3.119,tons_per_hectare,ordernorm,Coarse woody debris,Pre-thinning,All
+total,wd,all,FOR07,survey1,-0.125661346855074,57.459,tons_per_hectare,ordernorm,Coarse woody debris,Pre-thinning,All
+total,wd,all,FOR08,survey1,0.6744897501960817,146.628,tons_per_hectare,ordernorm,Coarse woody debris,Pre-thinning,All
+total,wd,all,FOR10,survey1,-1.0364333894937894,7.384,tons_per_hectare,ordernorm,Coarse woody debris,Pre-thinning,All
+total,wd,all,FOR05,survey2,1.0364333894937894,349.466,tons_per_hectare,ordernorm,Coarse woody debris,Post-thinning,All
+total,wd,all,FOR06,survey2,0.3853204664075676,96.256,tons_per_hectare,ordernorm,Coarse woody debris,Post-thinning,All
+total,wd,all,FOR07,survey2,1.6448536269514715,392.693,tons_per_hectare,ordernorm,Coarse woody debris,Post-thinning,All
+total,wd,all,FOR08,survey2,0.12566134685507413,68.708,tons_per_hectare,ordernorm,Coarse woody debris,Post-thinning,All
+total,wd,all,FOR10,survey2,-0.3853204664075676,52.145,tons_per_hectare,ordernorm,Coarse woody debris,Post-thinning,All
+mean,wd,hr0001,FOR05,survey1,-0.125661346855074,1.275,tons_per_hectare,ordernorm,Coarse woody debris,Pre-thinning,1-hr
+mean,wd,hr0001,FOR06,survey1,-0.6744897501960817,0.377,tons_per_hectare,ordernorm,Coarse woody debris,Pre-thinning,1-hr
+mean,wd,hr0001,FOR07,survey1,1.0364333894937894,2.842,tons_per_hectare,ordernorm,Coarse woody debris,Pre-thinning,1-hr
+mean,wd,hr0001,FOR08,survey1,-1.0364333894937894,0.257,tons_per_hectare,ordernorm,Coarse woody debris,Pre-thinning,1-hr
+mean,wd,hr0001,FOR10,survey1,-1.6448536269514726,0.192,tons_per_hectare,ordernorm,Coarse woody debris,Pre-thinning,1-hr
+mean,wd,hr0001,FOR05,survey2,0.12566134685507413,1.617,tons_per_hectare,ordernorm,Coarse woody debris,Post-thinning,1-hr
+mean,wd,hr0001,FOR06,survey2,1.6448536269514715,4.037,tons_per_hectare,ordernorm,Coarse woody debris,Post-thinning,1-hr
+mean,wd,hr0001,FOR07,survey2,0.6744897501960817,1.936,tons_per_hectare,ordernorm,Coarse woody debris,Post-thinning,1-hr
+mean,wd,hr0001,FOR08,survey2,-0.3853204664075676,0.917,tons_per_hectare,ordernorm,Coarse woody debris,Post-thinning,1-hr
+mean,wd,hr0001,FOR10,survey2,0.3853204664075676,1.759,tons_per_hectare,ordernorm,Coarse woody debris,Post-thinning,1-hr
+mean,wd,hr0010,FOR05,survey1,0.12566134685507413,5.106,tons_per_hectare,ordernorm,Coarse woody debris,Pre-thinning,10-hr
+mean,wd,hr0010,FOR06,survey1,-1.0364333894937894,1.679,tons_per_hectare,ordernorm,Coarse woody debris,Pre-thinning,10-hr
+mean,wd,hr0010,FOR07,survey1,0.6744897501960817,6.012,tons_per_hectare,ordernorm,Coarse woody debris,Pre-thinning,10-hr
+mean,wd,hr0010,FOR08,survey1,-1.6448536269514726,1.447,tons_per_hectare,ordernorm,Coarse woody debris,Pre-thinning,10-hr
+mean,wd,hr0010,FOR10,survey1,-0.3853204664075676,2.731,tons_per_hectare,ordernorm,Coarse woody debris,Pre-thinning,10-hr
+mean,wd,hr0010,FOR05,survey2,1.0364333894937894,6.034,tons_per_hectare,ordernorm,Coarse woody debris,Post-thinning,10-hr
+mean,wd,hr0010,FOR06,survey2,0.3853204664075676,5.526,tons_per_hectare,ordernorm,Coarse woody debris,Post-thinning,10-hr
+mean,wd,hr0010,FOR07,survey2,1.6448536269514715,8.46,tons_per_hectare,ordernorm,Coarse woody debris,Post-thinning,10-hr
+mean,wd,hr0010,FOR08,survey2,-0.6744897501960817,1.988,tons_per_hectare,ordernorm,Coarse woody debris,Post-thinning,10-hr
+mean,wd,hr0010,FOR10,survey2,-0.125661346855074,3.346,tons_per_hectare,ordernorm,Coarse woody debris,Post-thinning,10-hr
+mean,wd,hr0100,FOR05,survey1,-1.0364333894937894,1.109,tons_per_hectare,ordernorm,Coarse woody debris,Pre-thinning,100-hr
+mean,wd,hr0100,FOR06,survey1,-1.6448536269514726,1.062,tons_per_hectare,ordernorm,Coarse woody debris,Pre-thinning,100-hr
+mean,wd,hr0100,FOR07,survey1,-0.6744897501960817,3.312,tons_per_hectare,ordernorm,Coarse woody debris,Pre-thinning,100-hr
+mean,wd,hr0100,FOR08,survey1,1.6448536269514715,110.112,tons_per_hectare,ordernorm,Coarse woody debris,Pre-thinning,100-hr
+mean,wd,hr0100,FOR10,survey1,-0.125661346855074,4.461,tons_per_hectare,ordernorm,Coarse woody debris,Pre-thinning,100-hr
+mean,wd,hr0100,FOR05,survey2,1.0364333894937894,14.517,tons_per_hectare,ordernorm,Coarse woody debris,Post-thinning,100-hr
+mean,wd,hr0100,FOR06,survey2,0.6744897501960817,9.78,tons_per_hectare,ordernorm,Coarse woody debris,Post-thinning,100-hr
+mean,wd,hr0100,FOR07,survey2,0.3853204664075676,8.969,tons_per_hectare,ordernorm,Coarse woody debris,Post-thinning,100-hr
+mean,wd,hr0100,FOR08,survey2,-0.3853204664075676,4.419,tons_per_hectare,ordernorm,Coarse woody debris,Post-thinning,100-hr
+mean,wd,hr0100,FOR10,survey2,0.12566134685507413,5.514,tons_per_hectare,ordernorm,Coarse woody debris,Post-thinning,100-hr
+mean,wd,hr1000r,FOR05,survey1,-0.125661346855074,0,tons_per_hectare,ordernorm,Coarse woody debris,Pre-thinning,1000-hr rotten
+mean,wd,hr1000r,FOR06,survey1,-0.125661346855074,0,tons_per_hectare,ordernorm,Coarse woody debris,Pre-thinning,1000-hr rotten
+mean,wd,hr1000r,FOR07,survey1,-0.125661346855074,0,tons_per_hectare,ordernorm,Coarse woody debris,Pre-thinning,1000-hr rotten
+mean,wd,hr1000r,FOR08,survey1,1.6448536269514715,34.811,tons_per_hectare,ordernorm,Coarse woody debris,Pre-thinning,1000-hr rotten
+mean,wd,hr1000r,FOR10,survey1,-0.125661346855074,0,tons_per_hectare,ordernorm,Coarse woody debris,Pre-thinning,1000-hr rotten
+mean,wd,hr1000r,FOR05,survey2,-0.125661346855074,0,tons_per_hectare,ordernorm,Coarse woody debris,Post-thinning,1000-hr rotten
+mean,wd,hr1000r,FOR06,survey2,-0.125661346855074,0,tons_per_hectare,ordernorm,Coarse woody debris,Post-thinning,1000-hr rotten
+mean,wd,hr1000r,FOR07,survey2,-0.125661346855074,0,tons_per_hectare,ordernorm,Coarse woody debris,Post-thinning,1000-hr rotten
+mean,wd,hr1000r,FOR08,survey2,-0.125661346855074,0,tons_per_hectare,ordernorm,Coarse woody debris,Post-thinning,1000-hr rotten
+mean,wd,hr1000r,FOR10,survey2,-0.125661346855074,0,tons_per_hectare,ordernorm,Coarse woody debris,Post-thinning,1000-hr rotten
+mean,wd,hr1000s,FOR05,survey1,-0.3853204664075676,28.989,tons_per_hectare,ordernorm,Coarse woody debris,Pre-thinning,1000-hr sound
+mean,wd,hr1000s,FOR06,survey1,-1.0364333894937894,0,tons_per_hectare,ordernorm,Coarse woody debris,Pre-thinning,1000-hr sound
+mean,wd,hr1000s,FOR07,survey1,0.12566134685507413,45.293,tons_per_hectare,ordernorm,Coarse woody debris,Pre-thinning,1000-hr sound
+mean,wd,hr1000s,FOR08,survey1,-1.0364333894937894,0,tons_per_hectare,ordernorm,Coarse woody debris,Pre-thinning,1000-hr sound
+mean,wd,hr1000s,FOR10,survey1,-1.0364333894937894,0,tons_per_hectare,ordernorm,Coarse woody debris,Pre-thinning,1000-hr sound
+mean,wd,hr1000s,FOR05,survey2,1.0364333894937894,327.298,tons_per_hectare,ordernorm,Coarse woody debris,Post-thinning,1000-hr sound
+mean,wd,hr1000s,FOR06,survey2,0.6744897501960817,76.912,tons_per_hectare,ordernorm,Coarse woody debris,Post-thinning,1000-hr sound
+mean,wd,hr1000s,FOR07,survey2,1.6448536269514715,373.329,tons_per_hectare,ordernorm,Coarse woody debris,Post-thinning,1000-hr sound
+mean,wd,hr1000s,FOR08,survey2,0.3853204664075676,61.384,tons_per_hectare,ordernorm,Coarse woody debris,Post-thinning,1000-hr sound
+mean,wd,hr1000s,FOR10,survey2,-0.125661346855074,41.527,tons_per_hectare,ordernorm,Coarse woody debris,Post-thinning,1000-hr sound

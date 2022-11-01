@@ -39,7 +39,7 @@ colors_thin_bright <- c("#9d9596", "#069879")
 colors_thin_faded <- c("#bfbabb", "#75bca8")
 
 # Read and subset thin data  
-input_data <- 
+input_dl <- 
   read_csv(here(path_derived, "thin_total-by-plot-type-trmt.csv")) %>%
   bind_rows(read_csv(here(path_derived, "thin_mean-by-plot-type-class-trmt.csv"))) %>%
   # Rename column bc "statistic" conflicts with shapiro test
@@ -51,15 +51,13 @@ input_data <-
   mutate_if(is.character, as_factor)  %>%
   select(-value_si, 
          -units_si) %>%
-  relocate(c(metric, subset), .after = value)  
+  relocate(c(metric, subset), .after = value)  %>%
+  filter(data_type %in% "dl")
 
 # ========================================================== -----
 # DUFF & LITTER (DL)  ----
-# Create data frames ----
-input_dl <-
-  input_data %>%
-  filter(data_type %in% "dl")
-# Check outliers ----
+# Check assumptions ----
+#   Outliers ----
 input_dl %>%
   group_by(timing, fuel_class) %>% 
   identify_outliers(value) %>%
@@ -75,7 +73,7 @@ input_dl %>%
 # No extreme outliers for total duff and litter 
 # Two extreme outliers for litter in post-thinning subset 
 
-# Check normality ----
+#   Normality ----
 input_dl %>%
   select(id = plot_id, 
          time = timing, 

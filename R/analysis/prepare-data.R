@@ -383,7 +383,6 @@ input_thin <-
          -units_si) %>%
   relocate(c(metric, subset), .after = value)  
 
-
 # Duff and litter ----
 dl_tran <- 
   input_thin %>%
@@ -408,10 +407,10 @@ list_classes_wd <-
   distinct(fuel_class) %>%
   pull()
 
-# wd_tran <- 
+wd_tran <- 
   input_thin %>%
   filter(data_type %in% "wd") %>%
-  # fxn_tranform_ordnorm(index_list = list_classes_wd)  %>%
+  fxn_tranform_ordnorm(index_list = list_classes_wd)  %>%
   select(metric, 
          data_type, 
          fuel_class, 
@@ -423,8 +422,8 @@ list_classes_wd <-
          transform,
          starts_with("lab")) 
 
-# wd_tran %>%
-#   write_csv(here(path_derived, "thin_wd_transformed_metric-units.csv"))
+wd_tran %>%
+  write_csv(here(path_derived, "thin_wd_transformed_metric-units.csv"))
 # ---------------------------------------------------------- -----
 # [NOT RUN] CALCULATE DIFFERENCE (TRMT - CONTROL) ----
 # # Calculate plot-level mean and total values: Difference between treatment and control  
