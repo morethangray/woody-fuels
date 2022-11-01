@@ -1,8 +1,9 @@
 ---
-title: 'Coarse woody debris: Pre- and post-thinning'
+title: "Coarse woody debris: Pre- and post-thinning"
 author: "Morgan Gray"
 date: "`r Sys.Date()`"
 output:
+  pdf_document: default
   html_document: default
 ---
 
@@ -31,6 +32,11 @@ path_derived <- here("input/data_3-derived")
 colors_thin_bright <- c("#9d9596", "#069879")
 colors_thin_faded <- c("#bfbabb", "#75bca8")
 
+# Define helpers 
+index_wd <- "Coarse woody debris"
+list_classes_wd <- c("all", "hr0001", "hr0010", "hr0100", "hr1000r", "hr1000s")
+index_units_lab_wd <- "Mean fuel load (metric tons per hectare)"
+
 # Source functions 
 source(file = here(path_fxn, "basic-functions.R"))
 source(file = here(path_fxn, "statistical-tests.R"))
@@ -39,7 +45,7 @@ source(file = here(path_fxn, "data-transformation.R"))
 
 ```
 
-### Read and summarize derived data (plot-level total, plot-level mean)
+### Read and summarize coarse woody debris data (plot-level total, plot-level mean)
 
 ```{r raw_read}
 # Read data tables for derived total and mean, with metric units 
@@ -57,33 +63,65 @@ input_wd <-
   relocate(c(metric, subset), .after = value)  %>%
   filter(data_type %in% "wd")
 
-# Create subset for mean by fuel class
-wd_class <-
-  input_wd %>%
-  filter(data_type %in% "wd", 
-         metric %in% "mean")
+# # Create subset for mean by fuel class
+# wd_class <-
+#   input_wd %>%
+#   filter(data_type %in% "wd", 
+#          metric %in% "mean")
+# 
+# # Create subset for total (all fuel classes combined)
+# wd_total <-
+#   input_wd %>%
+#   filter(data_type %in% "wd", 
+#          metric %in% "total") %>%
+#   remove_empty("cols")
 
-# Create subset for total (all fuel classes combined)
-wd_total <-
-  input_wd %>%
-  filter(data_type %in% "wd", 
-         metric %in% "total") %>%
-  remove_empty("cols")
+```
 
-# Define helpers 
-index_wd <- "Coarse woody debris"
-list_classes_wd <- unique(input_wd$fuel_class)
-index_units_lab_wd <- "Mean fuel load (metric tons per hectare)"
+```{r boxplot}
+# Visualize coarse woody debris by fuel type and treatment 
+# Total fuel load (all CWD classes combined) increased after thinning 
+# Mean fuel load increased after thinning for all fuel classes except 1000-hr rotten
+#   Data for 1000-hr rotten were mostly 0; difficult to interpret (see below)
+
+input_wd %>%
+  arrange(fuel_class) %>%
+  mutate(lab_thin = str_remove_all(lab_thin, "-thinning"), 
+         lab_fuel = as_factor(str_replace_all(lab_fuel, "-hr", "h"))) %>% 
+  ggboxplot(x = "lab_thin", 
+            y = "value", 
+            fill = "lab_thin", 
+            outlier.size = 0.8,
+            palette = colors_thin_faded) + 
+  geom_hline(yintercept = 0, 
+             linetype = "longdash", 
+             color = "gray30") +
+  theme(legend.position = "none", 
+        axis.title.x = element_blank(), 
+        axis.text.x = element_text(size = 10), 
+        axis.text.y = element_text(size = 9)) + 
+  labs(title = paste0(index_wd, " by fuel class, pre- and post-thinning"), 
+       y = index_units_lab_wd, 
+       fill = "Timing") +
+  facet_wrap(~lab_fuel, nrow = 1, scales = "free") 
 
 ```
 
 ```{r raw_means}
-# Pre- and post-thinning mean by fuel class 
+# Pre- and post-thinning fuel load by fuel class 
 input_wd %>%
   group_by(lab_type, lab_fuel, lab_thin, metric, units) %>% 
-  summarize(mean = mean(value)) %>%
-  spread(lab_thin, mean) %>%
+  get_summary_stats(value, type = "mean_sd") %>%
+  select(lab_type, 
+         lab_fuel, 
+         lab_thin, 
+         metric, 
+         units,
+         mean, 
+         sd, 
+         n) %>%
   fxn_kable()
+
 ```
 
 ```{r raw_zeros}
@@ -336,7 +374,7 @@ wd_transform <-
   read_csv(here(path_derived, "thin_wd_transformed_metric-units.csv")) %>%
   arrange(timing, plot_id, data_type, fuel_class) %>%
   # Non-numeric variables must be factors for rstatix 
-  mutate_if(is.character, as_factor)
+  mutate_if(is.character, as_factor)  
 
 wd_transform_total <-
   wd_transform %>%
@@ -350,35 +388,11 @@ wd_transform_class <-
 
 ```
 
-
-### Evaluate total fuel load by treatment 
-
-```{r total_boxplot}
-# Visualize the plot-level total amount of coarse woody debris by treatment 
-# Use raw data here (instead of transformed values) for easier interpretation by viewer
-# A boxplot by treatment showed a post-thinning increase in depth
-p_total <- 
-  wd_transform_total %>%
-  ggboxplot(x = "lab_thin", 
-            y = "value_raw", 
-            fill = "timing", 
-            outlier.size = 0.8,
-            palette = colors_thin_faded) + 
-  geom_hline(yintercept = 0, 
-             linetype = "longdash", 
-             color = "gray30") +
-  theme(legend.position = "none", 
-        axis.title.x = element_blank()) + 
-  labs(title = paste0(index_wd, " (all)"), 
-       y = index_units_lab_wd) 
-
-p_total
-```
-
+### Conduct statistical tests 
+#### Did thinning treatment have a significant effect on total coarse woody debris fuel load?
 ```{r total_main_effect}
 # Test for an effect of treatment on total CWD load (all CWD fuel classes combined)
-# No significant difference in fuel load between pre-thin and post-thin values 
-#
+# We found no significant difference in total fuel load between measurements collected pre- and post-thinning, F(1, 4) = 5.474, p-adj. =  0.079, eta2[g] = 0.358. P-values were adjusted using the Bonferroni multiple testing correction method. 
 wd_transform_total %>%
   # Use transformed values as input for statistical tests
   fxn_aov_me(index_value = "value_tran", 
@@ -389,7 +403,6 @@ wd_transform_total %>%
          fuel_class = "All") %>%
   select(data_type, 
          fuel_class, 
-         effect, 
          starts_with("p_adj"),
          statistic, 
          starts_with("d_"), 
@@ -398,86 +411,62 @@ wd_transform_total %>%
 
 ```
 
-### Evaluate mean fuel load by fuel class and treatment 
-```{r class_boxplot}
-# Visualize the plot-level mean amount of coarse woody debris by fuel class and treatment 
-# Use raw data here (instead of transformed values) for easier interpretation by viewer
-# A boxplot by treatment showed a post-thinning increase in depth for all fuel classes except 1000-hr rotten (which had very sparse data)
-p_class <-
-  wd_transform_class %>%
-  ggboxplot(x = "lab_thin", 
-            y = "value_raw", 
-            fill = "lab_thin", 
-            outlier.size = 0.8,
-            palette = colors_thin_faded) + 
-  geom_hline(yintercept = 0, 
-             linetype = "longdash", 
-             color = "gray30") +
-  theme(legend.position = "top", 
-        axis.title.x = element_blank(), 
-        axis.text.x = element_blank()) + 
-  labs(title = paste0(index_wd, " (by fuel class)"), 
-       y = index_units_lab_wd, 
-       fill = "Timing") +
-  facet_wrap(~lab_fuel, nrow = 1, scales = "free") 
+#### Did thinning treatment have a significant effect on the individual fuel classes?  
 
-p_class
-```
-### START WORKING HERE
 ```{r class_interaction}
-# Test for an interaction between treatment and fuel class on mean CWD load 
-# wd_transform_class  %>%
-#   filter(fuel_class %nin% "all") %>%
-#   fxn_aov2_me(index_value = "value_tran", 
-#               index_id = "plot_id", 
-#               index_time = "timing", 
-#               index_variable = "fuel_class") %>%
-#   fxn_signif_adj() %>%
-#   mutate(data_type = index_wd) %>%
-#   select(data_type, 
-#            effect, 
-#              starts_with("p_adj"), 
-#              statistic, 
-#              starts_with("d_"), 
-#              ges) %>%
-#   fxn_kable()
-# Significant interaction between treatment and fuel class 
+# Two-way interaction between thinning treatment and fuel class 
+# We wanted to know if the thinning treatment induced a significant change in fuel load among the five fuel classes 
+#   In other words, was there a significant interaction between thinning and fuel class on fuel load for coarse woody debris?
+# We conducted a two-way repeated measures ANOVA to evaluate the effect of thinning over different fuel classes on CWD fuel load.
+#
+# There was no statistically significant interaction between thinning treatment and fuel class on CWD fuel load, F(4, 16) = 2.512, p-adj. = 0.249. P-values were adjusted using the Bonferroni multiple testing correction method. 
+wd_transform_class  %>%
+  fxn_aov2_me(index_value = "value_tran",
+              index_id = "plot_id",
+              index_time = "timing",
+              index_variable = "fuel_class") %>%
+  fxn_signif_adj() %>%
+  mutate(data_type = index_wd) %>%
+  select(data_type,
+           effect,
+             starts_with("p_adj"),
+             statistic,
+             starts_with("d_"),
+             ges) %>%
+  fxn_kable() 
+# time:variable	0.249	n.s.	2.512	4.00	16.00	0.141000
 ```
 
-```{r class_pairwise}
-# Pairwise comparisons in fuel load between pre- and post-thin values, by fuel class
-# Effect of treatment on each fuel class 
-# wd_transform_class %>%
-#     fxn_pwc2(index_value = "value_tran", 
-#             index_id = "plot_id", 
-#             index_time = "lab_thin", 
-#             index_variable = "fuel_class") %>%
-#     select(fuel_class = variable, 
-#              starts_with("group"), 
-#              starts_with("p_adj"), 
-#              statistic, 
-#              starts_with("d")) %>%
-#     fxn_kable()
-# 
-# litter <- 
-#   fxn_posthoc_plot_bt(index_input = wd_transform_class,
-#                     index_subset <- "litter",
-#                     index_time <- "lab_thin",
-#                     index_value <- "value_tran") +
-#   scale_fill_manual(values = colors_thin_faded) + 
-#   theme(legend.position = "none")
-# 
-# duff <- 
-#   fxn_posthoc_plot_bt(index_input = wd_transform_class,
-#                     index_subset <- "duff",
-#                     index_time <- "lab_thin",
-#                     index_value <- "value_tran") +
-#   scale_fill_manual(values = colors_thin_faded)  + 
-#   theme(axis.title.y = element_blank(), 
-#         legend.position = "none") + 
-#   labs(caption = "Values have been transformed and standardized by fuel class")
-# 
-# 
-# litter + duff
+```{r class_pwc}
+# Main effect of thinning treatment on fuel load, for each fuel class 
+# We analyzed the effect of thinning treatment for each fuel class. The Bonferroni adjustment was applied. The effect of treatment was significant for the 1000-hr sound (p-adj. < 0.01) and 10-hr (p-adj. < 0.05) fuel classes. No significant effect was found for 1-hr (p-adj. = 0.655), 100-hr (p-adj. = 1), or 1000-hr rotten (p-adj. = 1).
+wd_transform_class  %>%
+  group_by(fuel_class) %>%
+  fxn_aov_me(index_value = "value_tran",
+             index_id = "plot_id",
+             index_time = "timing") %>%
+  fxn_signif_adj() %>%
+  mutate(data_type = index_wd) %>%
+  select(data_type, 
+         fuel_class, 
+         starts_with("p_adj"),
+         statistic,
+         starts_with("d")) %>%
+  arrange(p_adj) %>%
+  fxn_kable()
+
+```
+
+```{r class_boxplot}
+# Create individual plots
+all <- fxn_boxplot_class("all")
+hr0001 <- fxn_boxplot_class("hr0001")
+hr0010 <- fxn_boxplot_class("hr0010")
+hr0100 <- fxn_boxplot_class("hr0100")
+hr1000r <- fxn_boxplot_class("hr1000r")
+hr1000s <- fxn_boxplot_class("hr1000s") 
+
+# Join plots using patchwork
+all + hr0001 + hr0010 + hr0100 + hr1000r + hr1000s
 ```
 

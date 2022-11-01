@@ -44,7 +44,7 @@ fxn_aov_me <- function(df, index_value, index_id, index_time){
            index_id = index_id, 
            index_time = index_time) %>%
     rename(statistic = f) %>% 
-    select(method, 
+    relocate(method, 
            effect, 
            starts_with("p_adj"), 
            statistic,
@@ -73,7 +73,7 @@ fxn_pwc <- function(df, index_value, index_id, index_time){
            index_id = index_id, 
            index_time = index_time) %>%
     rename(p_adj_sig = p_adj_signif) %>%
-    select(method, 
+    relocate(method, 
            starts_with("group"),
            starts_with("p_adj"), 
            statistic,
@@ -103,7 +103,7 @@ fxn_aov2_me <- function(df, index_value, index_id, index_time, index_variable){
            index_time = index_time,
            index_variable = index_variable)  %>%
     rename(statistic = f) %>%
-    select(method, 
+    relocate(method, 
            effect, 
            starts_with("p_adj"), 
            statistic,
@@ -136,7 +136,7 @@ fxn_pwc2 <- function(df, index_value, index_id, index_time, index_variable){
            index_variable = index_variable, 
            statistic = fxn_digit(statistic)) %>%
     rename(p_adj_sig = p_adj_signif) %>%
-    select(index_variable, 
+    relocate(index_variable, 
            variable, 
            method,
            starts_with("group"),
@@ -245,6 +245,48 @@ fxn_posthoc_plot_bt <- function(index_subset, index_input, index_time, index_val
          y = label_y) +
     # Add p-values
     stat_pvalue_manual(annotation, tip.length = 0, hide.ns = TRUE) 
+  
+}
+
+#   fxn_boxplot_class [BRITTLE] ----
+# Write a function to create boxplots for each fuel class (iterate by fuel_type)
+# For comparison of thinning treatment on coarse woody debris by fuel class 
+fxn_boxplot_class <- function(index_subset){
+  
+  subset <- 
+    wd_transform %>%
+    filter(fuel_class %in% index_subset) %>%
+    select(time = all_of("lab_thin"), 
+           value = all_of("value_tran"), 
+           fuel_class, 
+           plot_id, 
+           starts_with("lab")) 
+  
+  # Create statistical comparison annotation 
+  annotation <- 
+    subset %>%
+    pairwise_t_test(value ~ time, paired = TRUE, p.adjust.method = "bonferroni")  %>%
+    add_xy_position(x = "time") 
+  
+  title <- unique(subset$lab_fuel)
+  
+  # Create boxplot comparing years  ----
+  subset %>%
+    ggboxplot(x = "time", 
+              y = "value", 
+              fill = "time", 
+              outlier.size = 0.5,
+              width = 0.6) +
+    theme(legend.position = "none",
+          axis.title.x = element_blank(),
+          axis.title.y = element_blank(), 
+          axis.text.x = element_text(size = 10)) +
+    labs(title = title, 
+         y = index_units_lab_wd) +
+    # Add p-values
+    stat_pvalue_manual(annotation, tip.length = 0, hide.ns = TRUE) +
+    scale_fill_manual(values = colors_thin_faded) +
+    scale_x_discrete(labels = c("Pre", "Post"))
   
 }
 
