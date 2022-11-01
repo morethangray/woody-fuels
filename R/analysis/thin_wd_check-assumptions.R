@@ -1,12 +1,4 @@
-# revised: 2022-10-31 ----
-# About this data set ----
-# hr1000r: 29 of the 30 values were 0 
-# we now have additional fuels data for forests that were burned in Tubbs and recently thinned
-# It will not be a repeated measures test because we only have two time steps. 
-# The key thing to account for is that our new forest plots have three transects per plot instead of just two 
-# All other sampling is the same as the RXF fuels data. 
-# There should be five plots in this small set - FOR05, 06, 07, 08, 10.
-
+# revised: 2022-11-01 ----
 # ========================================================== -----
 # CONFIGURE SETTINGS -----
 # Load libraries 
@@ -63,8 +55,14 @@ list_classes_wd <-
 list_classes_all <- unique(input_wd$fuel_class)
 # ========================================================== -----
 # COARSE WOODY DEBRIS (WD) ----
-# Notes about input data ----
-# hr1000r: 29 of the 30 values were 0 
+# About this data set ----
+# hr1000r: 29 of the 30 transect measurements were 0 
+# we now have additional fuels data for forests that were burned in Tubbs and recently thinned
+# It will not be a repeated measures test because we only have two time steps. 
+# The key thing to account for is that our new forest plots have three transects per plot instead of just two 
+# All other sampling is the same as the RXF fuels data. 
+# There should be five plots in this small set - FOR05, 06, 07, 08, 10.
+
 # Check assumptions ----
 #   Outliers ----
 input_wd %>%

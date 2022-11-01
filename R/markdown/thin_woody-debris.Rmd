@@ -1,0 +1,483 @@
+---
+title: 'Coarse woody debris: Pre- and post-thinning'
+author: "Morgan Gray"
+date: "`r Sys.Date()`"
+output:
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE)
+
+# Load libraries
+rm(list = ls())
+library(tidyverse)   ## To manipulate data frames
+library(here)   ## To manage directories
+library(janitor)   ## To clean data frames
+library(rstatix)  ## For repeated measure ANOVA
+library(broom)  ## To format output tables from statistical tests
+# library(lemon)  ## To manipulate faceted ggplots
+library(kableExtra)  ## For tables in rmarkdown
+library(ggpubr)  ## For qq plots
+library(patchwork)  ## To arrange faceted plots
+
+# Define file paths 
+path_r <- here("R")
+path_fxn <- here(path_r, "functions")
+path_lookup <- here("input/lookup-tables")
+path_derived <- here("input/data_3-derived")
+
+# Define plot colors 
+colors_thin_bright <- c("#9d9596", "#069879")
+colors_thin_faded <- c("#bfbabb", "#75bca8")
+
+# Source functions 
+source(file = here(path_fxn, "basic-functions.R"))
+source(file = here(path_fxn, "statistical-tests.R"))
+source(file = here(path_fxn, "data-transformation.R"))
+# source(file = here(path_fxn, "plot-themes.R"))
+
+```
+
+### Read and summarize derived data (plot-level total, plot-level mean)
+
+```{r raw_read}
+# Read data tables for derived total and mean, with metric units 
+input_wd <- 
+  read_csv(here(path_derived, "thin_total-by-plot-type-trmt.csv")) %>%
+  bind_rows(read_csv(here(path_derived, "thin_mean-by-plot-type-class-trmt.csv"))) %>%
+  arrange(survey, plot_id, data_type, fuel_class) %>%
+  mutate_if(is.character, as_factor)  %>%
+  mutate(value = fxn_digit(value_si), 
+         timing = ifelse(survey %in% "cont", "survey1", "survey2")) %>%
+  select(-value_si, 
+         -units) %>%
+  rename(units = units_si, 
+         metric = statistic) %>%
+  relocate(c(metric, subset), .after = value)  %>%
+  filter(data_type %in% "wd")
+
+# Create subset for mean by fuel class
+wd_class <-
+  input_wd %>%
+  filter(data_type %in% "wd", 
+         metric %in% "mean")
+
+# Create subset for total (all fuel classes combined)
+wd_total <-
+  input_wd %>%
+  filter(data_type %in% "wd", 
+         metric %in% "total") %>%
+  remove_empty("cols")
+
+# Define helpers 
+index_wd <- "Coarse woody debris"
+list_classes_wd <- unique(input_wd$fuel_class)
+index_units_lab_wd <- "Mean fuel load (metric tons per hectare)"
+
+```
+
+```{r raw_means}
+# Pre- and post-thinning mean by fuel class 
+input_wd %>%
+  group_by(lab_type, lab_fuel, lab_thin, metric, units) %>% 
+  summarize(mean = mean(value)) %>%
+  spread(lab_thin, mean) %>%
+  fxn_kable()
+```
+
+```{r raw_zeros}
+# 1000-hr rotten (hr1000r) is not normally distributed
+#   29 of the 30 transect measurements were 0 
+#   9 of 10 plot-level means were 0 (pre-thin: 4/5, post-thin: 5/5)
+input_wd %>%
+  filter(value == 0) %>%
+  group_by(lab_type, lab_fuel, lab_thin) %>% 
+  count() %>%
+  fxn_kable()
+```
+
+### Check assumptions
+
+Subset data subset by fuel class and timing because these are the groupings that will be evaluated with statistical tests.
+
+```{r raw_outliers}
+# Determine if there are extreme outliers 
+#
+# No extreme outliers for total CWD
+# Outlier for total pre-thinning in FOR08
+#
+# Three extreme outliers by fuel class : 
+#   Pre-thinning hr0100 and hr1000r in FOR08
+#   Post-thinning hr0001 in FOR06
+# 
+# Overall it looks like something was different about FOR08 during pre- and post-thinning surveys
+#
+input_wd %>%
+  group_by(lab_type, lab_fuel, lab_thin, metric, units) %>% 
+  identify_outliers(value) %>%
+  clean_names() %>%
+  select(lab_type, 
+         lab_fuel, 
+         lab_thin, 
+         plot_id,
+         value,
+         metric, 
+         units,
+         starts_with("is")) %>%
+  arrange(desc(is_extreme), metric, lab_fuel) %>%
+  # filter(is_extreme == TRUE) %>%
+  fxn_kable()
+```
+
+```{r raw_normality}
+# Evaluate normality 
+#
+# Shapiro test results indicated total CWD was normally distributed at each time point
+#
+# Shapiro test results by fuel class indicated 100-hr, 1000-hr sound (pre-thin) were not normally distributed 
+# 
+input_wd %>%
+  # Exclude hr1000r because we already know it's not normal
+  filter(fuel_class %nin% "hr1000r") %>%
+  # Rename columns for shapiro test
+  select(id = plot_id, 
+         time = lab_thin, 
+         score = value, 
+         lab_type,
+         lab_fuel, 
+         metric) %>%
+  group_by(lab_type, lab_fuel, time, metric) %>%
+  shapiro_test(score) %>%
+  clean_names() %>%
+  mutate(statistic = fxn_digit(statistic), 
+         # p = fxn_digit(p),
+         is_normal = p>0.05) %>%
+  select(lab_type, 
+         lab_fuel, 
+         lab_thin = time, 
+         metric,
+         is_normal,
+         p, 
+         statistic) %>%
+  arrange(is_normal, metric, lab_fuel) %>%
+  filter(is_normal == FALSE) %>%
+  fxn_kable()
+```
+
+```{r raw_qq_plot}
+# Create QQ plots for raw data subset by fuel_class and treatment   
+ggqqplot(input_wd, 
+         "value", 
+         palette = colors_thin_bright,
+         color = "lab_thin") + 
+  facet_wrap(~lab_fuel, 
+             scales = "free") + 
+  theme(legend.position = "top") +
+  geom_hline(yintercept = 0, 
+             linetype = "longdash", 
+             color = "gray5")  
+```
+
+### Identify appropriate transformation
+Apply a series of transformations to each subset, then evaluate impact on outliers and normality.
+
+```{r transformation_eval}
+# Use four normalization functions from the bestNormalize package to create transformed subsets:
+#   arcsinh_x
+#   log_x
+#   orderNorm
+#   sqrt_x
+# 
+# Most important for subsets that had extreme outliers or were not normally distributed:
+# Outlier for total: 
+#   Pre-thin in FOR08
+#
+# Extreme outliers by fuel class: 
+#   Pre-thin hr0100 in FOR08
+#   Pre-thin hr1000r in FOR08
+#   Post-thin hr0001 in FOR06
+#
+# Not normally distributed:
+#   Pre-thin hr0100  
+#   Pre-thin hr1000s
+#
+wd_transform_eval <-
+  fxn_tranform_eval(index_data = input_wd,
+                    index_list = list_classes_wd)  %>%
+  gather(transform, value, value_raw:value_sqrt)
+
+```
+
+```{r transformation_outliers}
+# Check outliers for each transformation  
+check_transform_outlier <-
+  wd_transform_eval %>%
+  group_by(timing, 
+           fuel_class, 
+           transform) %>%
+  identify_outliers(value) %>%
+  clean_names() %>%
+  select(transform,
+         fuel_class,
+         timing,
+         plot_id,
+         value,
+         starts_with("is")) %>%
+  arrange(desc(is_extreme), transform, fuel_class) 
+
+# Pre-thin total in FOR08: No extreme outliers for orderNorm, log_x, arcsinh_x, sqrt_x
+check_transform_outlier %>%
+  filter(fuel_class %in% "all" & timing %in% "survey1" & plot_id %in% "FOR08") %>%
+  fxn_kable()
+
+# Pre-thin hr0100 in FOR08: No extreme outliers for orderNorm, log_x, arcsinh_x
+check_transform_outlier %>%
+  filter(fuel_class %in% "hr0100" & timing %in% "survey1" & plot_id %in% "FOR08") %>%
+  fxn_kable()
+       
+# Post-thin hr0001 in FOR06: No extreme outliers for orderNorm 
+check_transform_outlier %>%
+  filter(fuel_class %in% "hr0001" & timing %in% "survey2" & plot_id %in% "FOR06") %>%
+  fxn_kable()
+
+# Pre-thin hr1000r in FOR08: No improvement with any transformation 
+check_transform_outlier %>%
+  filter(fuel_class %in% "hr1000r" & timing %in% "survey1" & plot_id %in% "FOR08") %>%
+  fxn_kable()
+
+```
+
+```{r transformation_normality}
+# Check normality for each transformation 
+check_transform_normal <-
+  wd_transform_eval %>%
+  # Exclude hr1000r because we already know it's not normal
+  filter(fuel_class %nin% "hr1000r") %>%
+  # Rename columns for shapiro test
+  select(id = plot_id,
+         time = timing,
+         score = value,
+         fuel_class, 
+         transform) %>%
+  group_by(fuel_class, 
+           time, 
+           transform) %>%
+  shapiro_test(score) %>%
+  clean_names() %>%
+  mutate(statistic = fxn_digit(statistic), 
+         is_normal = p>0.05) %>%
+  select(fuel_class,
+         timing = time,
+         transform,
+         is_normal,
+         p,
+         statistic)
+
+# Pre-thin hr0100: Normal distribution with orderNorm, log_x, arcsinh_x 
+check_transform_normal %>%
+  filter(fuel_class %in% "hr0100" & timing %in% "survey1", 
+         is_normal == TRUE) %>%
+  fxn_kable()
+
+# Pre-thin hr1000s: No transformation normalized hr1000s
+check_transform_normal %>%
+  filter(fuel_class %in% "hr1000s" & timing %in% "survey1",
+         is_normal == TRUE) %>%
+  fxn_kable()
+
+```
+
+```{r transformation_density_plot}
+# The orderNorm transformation looks pretty good for the total and mean subsets
+#
+wd_transform_eval %>%
+  filter(transform %nin% "value_sqrt") %>%
+  ggdensity(x = "value", 
+            color = "fuel_class") +
+  geom_vline(xintercept = 0, 
+             linetype = "dashed") +
+  facet_grid(fuel_class~transform, 
+             scales = "free") +
+  theme(panel.spacing = unit(1, "lines"),
+        legend.position = "right") +
+  labs(title = "Distribution of values, by fuel class and transformation",
+       caption = "Note: axis scales differ between plots",
+       x = "Mean tons per acre",
+       y = "Density") +
+  xlim(-5, 10)
+```
+
+```{r transformation_qq_plot}
+# The orderNorm transformed subsets look ok compared to the raw or standardized data
+wd_transform_eval %>%
+  filter(transform %in% c("value_raw", "value_std",  "value_ordnorm")) %>%
+  mutate(transform = str_remove_all(transform, "value_")) %>%
+  ggqqplot("value", 
+           palette = colors_thin_bright,
+           color = "timing") + 
+  # To let scales on y-axis vary between faceted columns
+  ggh4x::facet_grid2(transform ~ fuel_class, 
+                     scales="free", 
+                     independent = "all") +
+  theme(legend.position = "top", 
+        axis.text = element_text(size = 9)) +
+  geom_hline(yintercept = 0, 
+             linetype = "longdash", 
+             color = "gray5")  +
+  scale_x_continuous(breaks = c(-1, 0, 1))
+
+```
+
+### Create transformed data as input for statistical tests
+
+```{r transformed_read}
+wd_transform <-
+  read_csv(here(path_derived, "thin_wd_transformed_metric-units.csv")) %>%
+  arrange(timing, plot_id, data_type, fuel_class) %>%
+  # Non-numeric variables must be factors for rstatix 
+  mutate_if(is.character, as_factor)
+
+wd_transform_total <-
+  wd_transform %>%
+  filter(data_type %in% "wd",
+         metric %in% "total")
+
+wd_transform_class <-
+  wd_transform %>%
+  filter(data_type %in% "wd",
+         metric %in% "mean")
+
+```
+
+
+### Evaluate total fuel load by treatment 
+
+```{r total_boxplot}
+# Visualize the plot-level total amount of coarse woody debris by treatment 
+# Use raw data here (instead of transformed values) for easier interpretation by viewer
+# A boxplot by treatment showed a post-thinning increase in depth
+p_total <- 
+  wd_transform_total %>%
+  ggboxplot(x = "lab_thin", 
+            y = "value_raw", 
+            fill = "timing", 
+            outlier.size = 0.8,
+            palette = colors_thin_faded) + 
+  geom_hline(yintercept = 0, 
+             linetype = "longdash", 
+             color = "gray30") +
+  theme(legend.position = "none", 
+        axis.title.x = element_blank()) + 
+  labs(title = paste0(index_wd, " (all)"), 
+       y = index_units_lab_wd) 
+
+p_total
+```
+
+```{r total_main_effect}
+# Test for an effect of treatment on total CWD load (all CWD fuel classes combined)
+# No significant difference in fuel load between pre-thin and post-thin values 
+#
+wd_transform_total %>%
+  # Use transformed values as input for statistical tests
+  fxn_aov_me(index_value = "value_tran", 
+             index_id = "plot_id", 
+             index_time = "lab_thin")  %>%
+  fxn_signif_adj() %>%
+  mutate(data_type = index_wd,
+         fuel_class = "All") %>%
+  select(data_type, 
+         fuel_class, 
+         effect, 
+         starts_with("p_adj"),
+         statistic, 
+         starts_with("d_"), 
+         ges) %>%
+  fxn_kable()
+
+```
+
+### Evaluate mean fuel load by fuel class and treatment 
+```{r class_boxplot}
+# Visualize the plot-level mean amount of coarse woody debris by fuel class and treatment 
+# Use raw data here (instead of transformed values) for easier interpretation by viewer
+# A boxplot by treatment showed a post-thinning increase in depth for all fuel classes except 1000-hr rotten (which had very sparse data)
+p_class <-
+  wd_transform_class %>%
+  ggboxplot(x = "lab_thin", 
+            y = "value_raw", 
+            fill = "lab_thin", 
+            outlier.size = 0.8,
+            palette = colors_thin_faded) + 
+  geom_hline(yintercept = 0, 
+             linetype = "longdash", 
+             color = "gray30") +
+  theme(legend.position = "top", 
+        axis.title.x = element_blank(), 
+        axis.text.x = element_blank()) + 
+  labs(title = paste0(index_wd, " (by fuel class)"), 
+       y = index_units_lab_wd, 
+       fill = "Timing") +
+  facet_wrap(~lab_fuel, nrow = 1, scales = "free") 
+
+p_class
+```
+### START WORKING HERE
+```{r class_interaction}
+# Test for an interaction between treatment and fuel class on mean CWD load 
+# wd_transform_class  %>%
+#   filter(fuel_class %nin% "all") %>%
+#   fxn_aov2_me(index_value = "value_tran", 
+#               index_id = "plot_id", 
+#               index_time = "timing", 
+#               index_variable = "fuel_class") %>%
+#   fxn_signif_adj() %>%
+#   mutate(data_type = index_wd) %>%
+#   select(data_type, 
+#            effect, 
+#              starts_with("p_adj"), 
+#              statistic, 
+#              starts_with("d_"), 
+#              ges) %>%
+#   fxn_kable()
+# Significant interaction between treatment and fuel class 
+```
+
+```{r class_pairwise}
+# Pairwise comparisons in fuel load between pre- and post-thin values, by fuel class
+# Effect of treatment on each fuel class 
+# wd_transform_class %>%
+#     fxn_pwc2(index_value = "value_tran", 
+#             index_id = "plot_id", 
+#             index_time = "lab_thin", 
+#             index_variable = "fuel_class") %>%
+#     select(fuel_class = variable, 
+#              starts_with("group"), 
+#              starts_with("p_adj"), 
+#              statistic, 
+#              starts_with("d")) %>%
+#     fxn_kable()
+# 
+# litter <- 
+#   fxn_posthoc_plot_bt(index_input = wd_transform_class,
+#                     index_subset <- "litter",
+#                     index_time <- "lab_thin",
+#                     index_value <- "value_tran") +
+#   scale_fill_manual(values = colors_thin_faded) + 
+#   theme(legend.position = "none")
+# 
+# duff <- 
+#   fxn_posthoc_plot_bt(index_input = wd_transform_class,
+#                     index_subset <- "duff",
+#                     index_time <- "lab_thin",
+#                     index_value <- "value_tran") +
+#   scale_fill_manual(values = colors_thin_faded)  + 
+#   theme(axis.title.y = element_blank(), 
+#         legend.position = "none") + 
+#   labs(caption = "Values have been transformed and standardized by fuel class")
+# 
+# 
+# litter + duff
+```
+

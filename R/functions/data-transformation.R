@@ -61,6 +61,7 @@ fxn_transform_log <- function(index_data, index_list){
     relocate(transform, .after = value_tran) 
 }
 # Evaluate multiple tranformations ----
+#   fxn_tranform_eval ----
 fxn_tranform_eval <- function(index_data, index_list){
   
   datalist_normalized <- list()
@@ -90,4 +91,4 @@ fxn_tranform_eval <- function(index_data, index_list){
   bind_norm <- do.call(bind_rows, datalist_normalized)
   
 }
-#   fxn_tranform_eval ----
+
