@@ -102,8 +102,7 @@ fuels_by_plot_mean %>%
 
 
 # ========================================================== -----
-
-# GRAVEYARD ----
+# DIFFERENCE BETWEEN CONTROL VS. TREATMENT ----
 # thin_by_plot <- 
 #   read_csv(here(path_in, "thin_for-aov_2022.csv")) %>%
 #   mutate(value = fxn_digit(value))  
@@ -113,8 +112,7 @@ fuels_by_plot_mean %>%
 #
 # Raw data (by transect) 
 # fuels_by_transect <- read_csv(here(path_in, "fuel_for-aov_raw-data_2022.csv"))
-# ========================================================== -----
-# DIFFERENCE BETWEEN CONTROL VS. TREATMENT ----
+
 # Create data frames ----
 thin_diff <- 
   read_csv(here(path_in, "fuel_thin_diff_mean-by-plot-type-class_2022.csv")) %>%

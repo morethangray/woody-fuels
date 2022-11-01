@@ -30,27 +30,35 @@ path_raw <- here("input/data_1-raw")
 path_tidy <- here("input/data_2-tidy")
 path_derived <- here("input/data_3-derived")
 
-# Define helpers ----
-index_type <- "Coarse woody debris"
-index_units_si <- "Metric tons per hectare"
+# Define helpers 
+index_dl <- "Duff & litter"
+index_wd <- "Coarse woody debris"
 
-# Define plot colors ----
-plot_colors <- 
+# Define plot colors 
+colors_trmt_bright <- c("#9d9596", "#069879")
+colors_trmt_faded <- c("#bfbabb", "#75bca8")
+color_palette <- thematic::okabe_ito(2)
+colors_thin <- 
   read_csv(here(path_lookup, "plot-colors.csv")) %>%
-  arrange(palette, palette_subset, levels)
-
-colors_wd <- c("#7da8b0", "#c4c4c4")
-
-colors_wd5 <- 
-  plot_colors %>%
-  filter(palette_subset %in% "wd") %>%
-  pull(hex_code)
-
-colors_timing <- 
-  plot_colors %>%
-  filter(palette %in% "timing", 
+  arrange(palette, palette_subset, levels) %>%
+  filter(palette %in% "year", 
          palette_subset %in% "1pre_3post") %>%
   pull(hex_code) 
+
+# 
+# plot_colors <- 
+#   read_csv(here(path_lookup, "plot-colors.csv")) %>%
+#   arrange(palette, palette_subset, levels)
+# colors_wd <- c("#7da8b0", "#c4c4c4")
+# colors_wd5 <- 
+#   plot_colors %>%
+#   filter(palette_subset %in% "wd") %>%
+#   pull(hex_code)
+# colors_timing <- 
+#   plot_colors %>%
+#   filter(palette %in% "timing", 
+#          palette_subset %in% "1pre_3post") %>%
+#   pull(hex_code) 
 
 #
 # Source functions ----

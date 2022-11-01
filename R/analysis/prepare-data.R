@@ -23,6 +23,7 @@ path_derived <- here("input/data_3-derived")
 
 # Source functions 
 source(file = here(path_fxn, "basic-functions.R"))
+source(file = here(path_fxn, "data-transformation.R"))
 
 # ========================================================== -----
 # TUBBS: TWO TRANSECTS PER PLOT ----
@@ -281,7 +282,7 @@ rename_thin <-
          transect_rep = transect_rep,
          units = units) 
 
-lab_trmt <- 
+# lab_trmt <- 
 
 # Read raw data; reshape and annotate ----
 fuels_thin_raw <- 
@@ -366,6 +367,64 @@ thin_plot_total <-
   relocate(starts_with("value"), .after = data_type) %>%
   write_csv(here(path_derived, "thin_total-by-plot-type-trmt.csv"))
 
+# ---------------------------------------------------------- -----
+# Standardize and normalize data ---- 
+input_thin <- 
+  read_csv(here(path_derived, "thin_total-by-plot-type-trmt.csv")) %>%
+  bind_rows(read_csv(here(path_derived, "thin_mean-by-plot-type-class-trmt.csv"))) %>%
+  # Rename column bc "statistic" conflicts with shapiro test
+  rename(metric = statistic) %>%
+  mutate(value = fxn_digit(value_si), 
+         units = units_si, 
+         timing = ifelse(survey %in% "cont", "survey1", "survey2")) %>%
+  arrange(survey, plot_id, data_type, fuel_class) %>%
+  mutate_if(is.character, as_factor)  %>%
+  select(-value_si, 
+         -units_si) %>%
+  relocate(c(metric, subset), .after = value)  
+
+
+# Duff and litter ----
+dl_tran <- 
+  input_thin %>%
+  filter(data_type %in% "dl") %>%
+  fxn_tranform_ordnorm(index_list = c("all", "duff", "litter"))  %>%
+  select(metric, 
+         data_type, 
+         fuel_class, 
+         plot_id, 
+         timing, 
+         value_tran, 
+         value_raw,
+         units, 
+         transform,
+         starts_with("lab")) %>%
+  write_csv(here(path_derived, "thin_dl_transformed_metric-units.csv"))
+
+# Coarse woody debris  ----
+list_classes_wd <- 
+  input_thin %>%
+  filter(data_type %in% "wd") %>%
+  distinct(fuel_class) %>%
+  pull()
+
+# wd_tran <- 
+  input_thin %>%
+  filter(data_type %in% "wd") %>%
+  # fxn_tranform_ordnorm(index_list = list_classes_wd)  %>%
+  select(metric, 
+         data_type, 
+         fuel_class, 
+         plot_id, 
+         timing, 
+         value_tran, 
+         value_raw,
+         units, 
+         transform,
+         starts_with("lab")) 
+
+# wd_tran %>%
+#   write_csv(here(path_derived, "thin_wd_transformed_metric-units.csv"))
 # ---------------------------------------------------------- -----
 # [NOT RUN] CALCULATE DIFFERENCE (TRMT - CONTROL) ----
 # # Calculate plot-level mean and total values: Difference between treatment and control  

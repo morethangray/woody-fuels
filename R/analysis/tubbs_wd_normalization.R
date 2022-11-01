@@ -285,7 +285,6 @@ class_transform <-
   gather(metric, value, value_raw:value_b)  %>%
   drop_na(value)
 
-
 norm_class_transform <- 
   class_transform %>%
   filter(fuel_class %nin% "hr1000s") %>%
