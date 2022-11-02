@@ -3,8 +3,8 @@ title: "Coarse woody debris: Pre- and post-thinning"
 author: "Morgan Gray"
 date: "`r Sys.Date()`"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -438,13 +438,18 @@ wd_transform_class  %>%
 ```
 
 ```{r class_pwc}
-# Main effect of thinning treatment on fuel load, for each fuel class 
-# We analyzed the effect of thinning treatment for each fuel class. The Bonferroni adjustment was applied. The effect of treatment was significant for the 1000-hr sound (p-adj. < 0.01) and 10-hr (p-adj. < 0.05) fuel classes. No significant effect was found for 1-hr (p-adj. = 0.655), 100-hr (p-adj. = 1), or 1000-hr rotten (p-adj. = 1).
+# Pairwise comparison between fuel load by thinning treatment, for each fuel class 
+# We analyzed the effect of thinning treatment for each fuel class. The Bonferroni adjustment was applied. 
+# A post hoc pairwise comparison showed mean fuel load was significantly different between control and treatment (thinned and unthinned, pre- and post-thinning) measurements for the 1000-hr sound (p-adj. < 0.001) and 10-hr (p-adj. < 0.01) fuel classes. No significant effect was found for 1-hr (p-adj. = 0.131), 100-hr (p-adj. = 0.402), or 1000-hr rotten (p-adj. = 0.347).
+
 wd_transform_class  %>%
   group_by(fuel_class) %>%
-  fxn_aov_me(index_value = "value_tran",
+    fxn_pwc(index_value = "value_tran",
              index_id = "plot_id",
              index_time = "timing") %>%
+  # fxn_aov_me(index_value = "value_tran",
+  #            index_id = "plot_id",
+  #            index_time = "timing") %>%
   fxn_signif_adj() %>%
   mutate(data_type = index_wd) %>%
   select(data_type, 
