@@ -1,0 +1,12 @@
+﻿fuel_type,lab_fuel,si_units,us_units,fuel_class_orig_tubbs,fuel_class_orig_thin,fuel_class,lab_class,order_class
+dl,Duff & litter,Depth in centimeters,Depth in inches,duff,,duff,Duff,1
+dl,Duff & litter,Depth in centimeters,Depth in inches,litter,,litter,Litter,2
+dl,Duff & litter,Depth in centimeters,Depth in inches,,duff1,duff,Duff,1
+dl,Duff & litter,Depth in centimeters,Depth in inches,,duff2,duff,Duff,2
+dl,Duff & litter,Depth in centimeters,Depth in inches,,litter1,litter,Litter,3
+dl,Duff & litter,Depth in centimeters,Depth in inches,,litter2,litter,Litter,4
+wd,Coarse woody debris,Tons per acre,Metric tons per hectare,1,x1hr_load,hr0001,1-hr,1
+wd,Coarse woody debris,Tons per acre,Metric tons per hectare,10,x10hr_load,hr0010,10-hr,2
+wd,Coarse woody debris,Tons per acre,Metric tons per hectare,100,x100hr_load,hr0100,100-hr,3
+wd,Coarse woody debris,Tons per acre,Metric tons per hectare,1000rotten,x1000hr_load_rotten,hr1000r,1000-hr rotten,4
+wd,Coarse woody debris,Tons per acre,Metric tons per hectare,1000sound,x1000hr_load_sound,hr1000s,1000-hr sound,5

@@ -25,8 +25,11 @@ source(file = here(path_fxn, "basic-functions.R"))
 # 
 lookup_units <-
   tibble(data_type = c("dl", "wd"),
-         units = c("Depth in centimeters",
-                   "Metric tons per hectare"))
+         units_si = c("Depth in centimeters",
+                      "Metric tons per hectare"), 
+         units = c("Depth in inches",
+                   "Tons per acre"))
+
 
 # Create Tubbs data  ----
 tubbs <- 
@@ -39,9 +42,9 @@ tubbs <-
          fuel_class, 
          plot_id, 
          year, 
-         value = value_si, 
+         starts_with("value"),
          metric = statistic,
-         units, 
+         starts_with("units"),
          starts_with("lab"))
 
 # Create thin data  ----
@@ -49,13 +52,14 @@ thin <-
   read_csv(here(path_derived, "thin_total-by-plot-type-trmt.csv")) %>%
   bind_rows(read_csv(here(path_derived, "thin_mean-by-plot-type-class-trmt.csv"))) %>%
   mutate(timing = ifelse(survey %in% "cont", "survey1", "survey2")) %>%
+  left_join(lookup_units, "data_type") %>%
   select(fuel_type = data_type, 
            fuel_class, 
            plot_id, 
            timing,
-           value = value_si, 
-           metric = statistic,
-           units = units_si, 
+         starts_with("value"),
+         metric = statistic,
+         starts_with("units"),
            starts_with("lab"))
 
   

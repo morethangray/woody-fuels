@@ -2,7 +2,7 @@
 # title: Prepare raw data for analysis 
 # author: Morgan Gray
 # created: 2022-02-23
-# revised: 2022-10-25
+# revised: 2022-11-01
 # ========================================================== -----
 # CONFIGURE SETTINGS -----
 # Load libraries
@@ -25,51 +25,15 @@ path_derived <- here("input/data_3-derived")
 source(file = here(path_fxn, "basic-functions.R"))
 source(file = here(path_fxn, "data-transformation.R"))
 
+# Create lookup tables  ----
+lookup_time <- read_csv(here(path_lookup, "lookup_time.csv"))
+lookup_fuel <- read_csv(here(path_lookup, "lookup_fuel.csv"))
+
 # ========================================================== -----
 # TUBBS: TWO TRANSECTS PER PLOT ----
 # About this data set ----
 # Each year has 36 data points for litter and duff (9 plots x 2 transects x 2 quadrats)
 # Each year has 18 data points for downed woody debris (9 plots x 2 transects x 1 quadrat)
-# Create lookup tables  ----
-lookup_variables <- read_csv(here(path_lookup, "lookup_variables.csv"))
-
-lab_year <- 
-  lookup_variables %>%
-  filter(metric %in% "fuel", 
-         data_type %in% "all", 
-         subset %in% c("year_timing", "year_timing_abbr")) %>%
-  select(year = name, 
-         lab_year = label) %>%
-  mutate(year = as.numeric(year)) %>%
-  group_by(year) %>%
-  mutate(n = 1:n()) %>%
-  ungroup() %>%
-  spread(n, lab_year) %>%
-  set_names("year", "lab_year", "lab_year_abbr") 
-
-lab_type <- 
-  lookup_variables %>%
-  filter(metric %in% "fuel", 
-         data_type %in% "all", 
-         subset %in% "fuel_type") %>%
-  select(data_type = name, 
-         lab_type = label)
-
-lab_fuel <-  
-  lookup_variables %>%
-  filter(metric %in% "fuel", 
-         data_type %in% "all", 
-         subset %in% "fuel_class") %>%
-  select(fuel_class = name, 
-         lab_fuel = label)
-
-rename_wd_fuel <-
-  lookup_variables %>%
-  filter(metric %in% "fuel", 
-         data_type %in% "wd", 
-         subset %in% "fuel_class") %>%
-  select(fuel_class_orig = name_orig, 
-         fuel_class = name) 
 
 # Write functions ----
 #   fxn_yr_plot_class_mean  ----
@@ -108,120 +72,102 @@ fxn_yr_plot_total <- function(df){
 }
 
 # ---------------------------------------------------------- -----
-# COARSE WOODY DEBRIS (wd) -----
 # Read raw data; reshape and annotate ----
+# Coarse woody debris (wd) ----
 fuels_wd_raw <- 
-  read_excel(here(path_raw, 
-                  "RXF Fuels Data for R 2022-02-07.xlsx"), 
+  read_excel(here(path_raw,  "RXF Fuels Data for R 2022-02-07.xlsx"), 
              sheet = "Downed Woody Debris")  %>%
   # Clean column names 
   clean_names() %>%
-  # Reorder columns
-  rename(fuel_class_orig = fuel_class, 
-         value = tons_acre) %>%
-  left_join(rename_wd_fuel, "fuel_class_orig") %>%
-  left_join(lab_year, "year") %>%
-  left_join(lab_fuel, "fuel_class") %>%
-  select(-fuel_class_orig) %>%
-  # Convert datetime values to date values
-  mutate(date = as_date(date), 
-         # Convert measurements to metric units
-         # 1 US ton per acre = 2.242 metric tons per ha
-         value_si = value * 2.242, 
-         # Standardize transect number
-         transect_n = str_remove(transect, "Fuels"),
-         transect_rep = "a",
-         data_type = "wd",
-         units = "tons_per_acre", 
-         units_si = "tons_per_hectare",
-         lab_type = "Coarse woody debris") %>%
+  # Rename columns
+  rename(fuel_class_orig_tubbs = fuel_class, 
+         us_value = tons_acre, 
+         n_transect = transect) %>%
+  # Create attributes for subsequent analysis and figures
+  mutate(
+    # Convert year to character to allow left_join with lookup_time
+    time = as.character(year), 
+    # Calculate values in metric units
+    # 1 US ton per acre = 2.242 metric tons per ha
+    si_value = us_value * 2.242, 
+    # Standardize transect number
+    n_transect = str_remove(n_transect, "Fuels"), 
+    # Convert datetime values to date values
+    date = as_date(date)
+  ) %>%
+  # Create plot_tran for plot-level calculations
   unite(plot_tran,
-        c(plot_id, transect_n), 
+        c(plot_id, n_transect), 
         remove = FALSE) %>%
-  select(year, 
-         plot_id, 
-         timing, 
-         date, 
-         plot_tran,
-         transect_n, 
-         transect_rep,
-         data_type,
-         fuel_class, 
-         starts_with("value"),
-         starts_with("units"), 
-         lab_fuel,
-         starts_with("lab_year"), 
-         lab_type)
+  # Add fuel attributes
+  left_join(lookup_fuel, "fuel_class_orig_tubbs") %>%
+  # Add time attributes 
+  left_join(lookup_time, "time") %>%
+  select(
+    fuel_type, 
+    fuel_class,
+    plot_id, 
+    n_transect, 
+    plot_tran, 
+    time, 
+    si_value, 
+    si_units, 
+    us_value, 
+    us_units, 
+    starts_with("lab"), 
+    starts_with("order"), 
+    -starts_with("fuel_class_orig"))
 
-fuels_wd_raw %>%
-  write_csv(here(path_tidy, "tubbs_tidy-data_wd.csv"))
-
-# Calculate plot-level mean and total values ----
-# Calculate plot-level mean by class  
-wd_yr_plot_class_mean <- fxn_yr_plot_class_mean(fuels_wd_raw)  
-
-# Calculate plot-level total by summing the mean for each class  
-wd_yr_plot_total <- fxn_yr_plot_total(wd_yr_plot_class_mean)  
-
-# ---------------------------------------------------------- -----
-
-# DUFF AND LITTER (dl) -----
-# Read raw data; reshape and annotate ----
-fuels_dl_raw <- 
-  read_excel(here(path_raw, 
-                  "RXF Fuels Data for R 2022-02-07.xlsx"), 
+# Duff and litter (dl) ----
+# Exclude the derived values in columns litter_tons_acre and duff_tons_acre 
+# fuels_dl_raw <- 
+  read_excel(here(path_raw, "RXF Fuels Data for R 2022-02-07.xlsx"), 
              sheet = "Litter and Duff")  %>%
   # Clean column names 
   clean_names() %>%
-  gather(fuel_class, value, litter1a:duff2b) %>%
-  # Convert datetime values to date values
-  mutate(date = as_date(date), 
-         # Convert measurements to metric units
-         # 1 in =  2.54 cm
-         value_si = value * 2.54, 
-         # Standardize transect number
-         transect_n = substrRight(fuel_class, 2),
-         transect_rep = substrRight(transect_n, 1),
-         transect_n = str_sub(transect_n, 1, 1),
-         fuel_class = ifelse(str_detect(fuel_class, "litter"),
-                             "litter",
-                             "duff"),
-         # transect_n = str_remove(transect, "Fuels"),
-         data_type = "dl",
-         units = "depth_in_inches", 
-         units_si = "depth_in_cm",
-         lab_type = "Duff & litter") %>%
-  left_join(lab_year, "year") %>%
-  left_join(lab_fuel, "fuel_class") %>%
+  # Components from the gathered column will be derived below
+  gather(class_tran_quad, us_value, litter1a:duff2b) %>%
+  # Create attributes for subsequent analysis and figures
+  mutate(
+    # Convert year to character to allow left_join with lookup_time
+    time = as.character(year),
+    # Calculate values in metric units
+    # 1 in =  2.54 cm
+    si_value = us_value * 2.54, 
+    # Identify fuel_class
+    fuel_class = ifelse(str_detect(class_tran_quad, "litter"), "litter", "duff"), 
+    # Derive transect and quadrat 
+    tran_quad = str_remove_all(class_tran_quad, fuel_class), 
+    n_transect = str_sub(tran_quad, 1, 1),
+    quadrat = str_sub(tran_quad, 2, 2),
+    # Convert datetime values to date values
+    date = as_date(date)
+    ) %>%
+  # Create plot_tran for plot-level calculations
   unite(plot_tran,
-        c(plot_id, transect_n), 
+        c(plot_id, n_transect), 
         remove = FALSE) %>%
-  select(year, 
-         plot_id, 
-         timing, 
-         date, 
-         plot_tran,
-         transect_n, 
-         transect_rep,
-         data_type,
-         fuel_class, 
-         starts_with("value"),
-         starts_with("units"), 
-         lab_fuel,
-         starts_with("lab_year"), 
-         lab_type)
+  # Add fuel attributes
+  left_join(lookup_fuel %>%
+              # Exclude attributes for thin plot_types
+              filter(fuel_type %in% "dl" & !is.na(fuel_class_orig_tubbs)), 
+            "fuel_class") %>%
+  # Add time attributes 
+  left_join(lookup_time, "time") %>%
+  select(
+    fuel_type, 
+    fuel_class,
+    plot_id, 
+    n_transect, 
+    plot_tran, 
+    time, 
+    si_value, 
+    si_units, 
+    us_value, 
+    us_units, 
+    starts_with("lab"), 
+    starts_with("order")) 
 
-fuels_dl_raw %>%
-  write_csv(here(path_tidy, "tubbs_tidy-data_dl.csv"))
-
-# Calculate plot-level mean and total values ----
-# Calculate plot-level mean by class 
-dl_yr_plot_class_mean <- fxn_yr_plot_class_mean(fuels_dl_raw)  
-
-# Calculate plot-level total by summing the mean for each class  
-dl_yr_plot_total <- fxn_yr_plot_total(dl_yr_plot_class_mean)  
-
-# ---------------------------------------------------------- -----
 # Combine wd and dl data tables; write csv ----
 all_fuel_raw <- 
   bind_rows(fuels_dl_raw, fuels_wd_raw) %>%
@@ -232,6 +178,19 @@ all_fuel_raw <-
          lab_fuel = as_factor(lab_fuel),
          year = as_factor(year)) %>%
   write_csv(here(path_tidy, "tubbs_tidy-data_all.csv"))
+# Calculate plot-level mean and total values ----
+# Calculate plot-level mean by class  
+wd_yr_plot_class_mean <- fxn_yr_plot_class_mean(fuels_wd_raw)  
+
+# Calculate plot-level total by summing the mean for each class  
+wd_yr_plot_total <- fxn_yr_plot_total(wd_yr_plot_class_mean)  
+# Calculate plot-level mean and total values ----
+# Calculate plot-level mean by class 
+dl_yr_plot_class_mean <- fxn_yr_plot_class_mean(fuels_dl_raw)  
+
+# Calculate plot-level total by summing the mean for each class  
+dl_yr_plot_total <- fxn_yr_plot_total(dl_yr_plot_class_mean)  
+
 
 #   Derived data
 all_fuel_class_mean <- 
@@ -469,4 +428,49 @@ wd_tran %>%
 #   mutate(subset = "survey_plot") %>%
 #   relocate(total, .after = data_type) %>%
 #   write_csv(here(path_derived, "thin_diff_total-by-plot-type.csv"))
+
+
+
+# ========================================================== -----
+# GRAVEYARD ----
+# Create lookup tables  ----
+# lookup_units <-
+#   tibble(fuel_type = c("dl", "wd"),
+#          lab_type = c("Duff & litter", 
+#                       "Coarse woody debris"),
+#          units_si = c("Depth in centimeters",
+#                       "Metric tons per hectare"), 
+#          units = c("Depth in inches",
+#                    "Tons per acre"))
+
+# lookup_year <- 
+#   lookup_variables %>%
+#   filter(subset %in% c("year_timing", "year_timing_abbr")) %>%
+#   select(year = name, 
+#          lab_year = label) %>%
+#   mutate(year = as.numeric(year)) %>%
+#   group_by(year) %>%
+#   mutate(n = 1:n()) %>%
+#   ungroup() %>%
+#   spread(n, lab_year) %>%
+#   set_names("year", "lab_year", "lab_year_abbr") 
+# 
+# lookup_fuel <-  
+#   lookup_variables %>%
+#   filter(subset %in% "fuel_class") %>%
+#   select(fuel_type = data_type, 
+#          fuel_class = name, 
+#          lab_fuel = label) %>%
+#   distinct() %>%
+#   left_join(lookup_units, "fuel_type")
+#   
+# 
+# rename_wd_fuel <-
+#   lookup_variables %>%
+#   filter(metric %in% "fuel", 
+#          data_type %in% "wd", 
+#          subset %in% "fuel_class") %>%
+#   select(fuel_class_orig = name_orig, 
+#          fuel_class = name) 
+# 
 

@@ -1,0 +1,7 @@
+﻿plot_type,time,lab_time,lab_time_abbr,order_time
+tubbs,2016,1 Year pre-fire (2016),1-y pre-fire (2016),1
+tubbs,2017,0 Years post-fire (2017),0-y post-fire (2017),2
+tubbs,2019,2 Years post-fire (2019),2-y post-fire (2019),3
+tubbs,2021,4 Years post-fire (2021),4-y post-fire (2021),4
+thin,t1,Pre-thinning,Pre-thin,1
+thin,t2,Post-thinning,Post-thin,2
