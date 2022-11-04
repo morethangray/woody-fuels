@@ -323,6 +323,7 @@ thin_derived_norm <-
   read_csv(here(path_derived, "thin_derived.csv")) %>%
   group_by(fuel_class) %>%
   mutate(value_norm = orderNorm(si_value, standardize = TRUE)$x.t) %>%
+  ungroup() %>%
   relocate(value_norm, .before = si_value) %>%
   write_csv(here(path_derived, "thin_derived-norm.csv"))
 
