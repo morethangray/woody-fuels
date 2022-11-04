@@ -28,10 +28,10 @@ source(file = here(path_fxn, "plot-themes.R"))
 # ========================================================== -----
 # CREATE DATA FRAMES ----
 # Create helpers ----
-lookup_units <- 
-  tibble(data_type = c("dl", "wd"),
-         units = c("Depth in centimeters",
-                   "Metric tons per hectare"))
+# lookup_units <- 
+#   tibble(data_type = c("dl", "wd"),
+#          units = c("Depth in centimeters",
+#                    "Metric tons per hectare"))
 
 # Create helper to order the fuel classes for the stacked plot
 ord_fuel <- 

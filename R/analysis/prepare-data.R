@@ -18,7 +18,7 @@ path_r <- here("R")
 path_fxn <- here(path_r, "functions")
 path_lookup <- here("input/lookup-tables")
 path_raw <- here("input/data_1-raw")
-path_tidy <- here("input/data_2-tidy")
+path_tidy <- here("input/data_2-raw-tidy")
 path_derived <- here("input/data_3-derived")
 
 # Source functions 
@@ -30,51 +30,13 @@ lookup_time <- read_csv(here(path_lookup, "lookup_time.csv"))
 lookup_fuel <- read_csv(here(path_lookup, "lookup_fuel.csv"))
 
 # ========================================================== -----
-# TUBBS: TWO TRANSECTS PER PLOT ----
+# TUBBS: TWO TRANSECTS PER PLOT (n = 9 plots) ----
 # About this data set ----
 # Each year has 36 data points for litter and duff (9 plots x 2 transects x 2 quadrats)
 # Each year has 18 data points for downed woody debris (9 plots x 2 transects x 1 quadrat)
-
-# Write functions ----
-#   fxn_yr_plot_class_mean  ----
-# Mean value by class x plot x year
-fxn_yr_plot_class_mean <- function(df){
-  df %>%
-    group_by(data_type, 
-             year, 
-             plot_id, 
-             fuel_class) %>%
-    summarize(value = mean(value), 
-              value_si = mean(value_si)) %>%
-    ungroup() %>%
-    left_join(lab_year, "year") %>%
-    left_join(lab_fuel, "fuel_class") %>%
-    left_join(lab_type, "data_type") %>%
-    mutate(subset = "yr_plot_class", 
-           statistic = "mean") %>%
-    arrange(year) 
-}
-
-#   fxn_yr_plot_total ----
-# Sum of class mean values by plot x year
-fxn_yr_plot_total <- function(df){
-  df %>%
-    group_by(data_type, 
-             year, 
-             plot_id) %>%
-    summarize(value = mean(value), 
-              value_si = mean(value_si)) %>%
-    ungroup()  %>%
-    left_join(lab_year, "year") %>%
-    left_join(lab_type, "data_type") %>%
-    mutate(subset = "yr_plot", 
-           statistic = "total")
-}
-
-# ---------------------------------------------------------- -----
-# Read raw data; reshape and annotate ----
-# Coarse woody debris (wd) ----
-fuels_wd_raw <- 
+# Reshape and annotate raw data ----
+#   tubbs_raw_wd: Coarse woody debris (wd) ----
+tubbs_raw_wd <- 
   read_excel(here(path_raw,  "RXF Fuels Data for R 2022-02-07.xlsx"), 
              sheet = "Downed Woody Debris")  %>%
   # Clean column names 
@@ -118,9 +80,9 @@ fuels_wd_raw <-
     starts_with("order"), 
     -starts_with("fuel_class_orig"))
 
-# Duff and litter (dl) ----
+#   tubbs_raw_dl: Duff and litter (dl) ----
 # Exclude the derived values in columns litter_tons_acre and duff_tons_acre 
-# fuels_dl_raw <- 
+tubbs_raw_dl <- 
   read_excel(here(path_raw, "RXF Fuels Data for R 2022-02-07.xlsx"), 
              sheet = "Litter and Duff")  %>%
   # Clean column names 
@@ -168,43 +130,73 @@ fuels_wd_raw <-
     starts_with("lab"), 
     starts_with("order")) 
 
-# Combine wd and dl data tables; write csv ----
-all_fuel_raw <- 
-  bind_rows(fuels_dl_raw, fuels_wd_raw) %>%
-  # left_join(ord_fuel, "fuel_class") %>%
-  arrange(year, data_type, fuel_class) %>%
-  mutate(fuel_class = as_factor(fuel_class), 
-         lab_year = as_factor(lab_year), 
-         lab_fuel = as_factor(lab_fuel),
-         year = as_factor(year)) %>%
-  write_csv(here(path_tidy, "tubbs_tidy-data_all.csv"))
-# Calculate plot-level mean and total values ----
-# Calculate plot-level mean by class  
-wd_yr_plot_class_mean <- fxn_yr_plot_class_mean(fuels_wd_raw)  
+#   tubbs_raw_tidy: Combine tidy (raw) dl and wd data frames, write to csv ----
+tubbs_raw_tidy <- 
+  bind_rows(tubbs_raw_wd, tubbs_raw_dl) %>%
+  write_csv(here(path_tidy, "tubbs_raw-tidy.csv"))
 
-# Calculate plot-level total by summing the mean for each class  
-wd_yr_plot_total <- fxn_yr_plot_total(wd_yr_plot_class_mean)  
-# Calculate plot-level mean and total values ----
-# Calculate plot-level mean by class 
-dl_yr_plot_class_mean <- fxn_yr_plot_class_mean(fuels_dl_raw)  
+# Derive plot-level mean and total values  ----
+# Calculate plot-level mean by fuel_type x fuel_class x time 
+tubbs_derived_mean <- 
+  tubbs_raw_tidy %>%
+  group_by(fuel_type, 
+           fuel_class, 
+           plot_id, 
+           time, 
+           si_units, 
+           us_units, 
+           lab_fuel, 
+           lab_class,
+           lab_time, 
+           lab_time_abbr, 
+           order_class,
+           order_time) %>%
+  summarize(us_value = mean(us_value, na.rm = TRUE), 
+            si_value = mean(si_value, na.rm = TRUE)) %>%
+  ungroup() %>%
+  mutate(subset_by = "type_class_time_plot", 
+         metric = "mean") 
 
-# Calculate plot-level total by summing the mean for each class  
-dl_yr_plot_total <- fxn_yr_plot_total(dl_yr_plot_class_mean)  
+# Calculate plot-level total by fuel_type x time 
+tubbs_derived_total <- 
+  tubbs_raw_tidy %>%
+  group_by(fuel_type, 
+           plot_id, 
+           time, 
+           si_units, 
+           us_units, 
+           lab_fuel, 
+           lab_time, 
+           lab_time_abbr, 
+           order_time) %>%
+    summarize(us_value = sum(us_value, na.rm = TRUE), 
+              si_value = sum(si_value, na.rm = TRUE)) %>%
+  ungroup() %>%
+    mutate(subset_by = "type_time_plot", 
+           metric = "total", 
+           fuel_class = "all", 
+           lab_class = "All", 
+           order_class = 1) 
 
-
-#   Derived data
-all_fuel_class_mean <- 
-  bind_rows(dl_yr_plot_class_mean, 
-            wd_yr_plot_class_mean) %>%
-  write_csv(here(path_derived, "tubbs_mean-by-plot-type-class-yr.csv"))
-
-all_fuel_total <- 
-  bind_rows(dl_yr_plot_total, 
-            wd_yr_plot_total)  %>%
-  write_csv(here(path_derived, "tubbs_total-by-plot-type-yr.csv"))
+tubbs_derived_all <- 
+  bind_rows(tubbs_derived_mean, 
+            tubbs_derived_total) %>%
+  relocate(
+    fuel_type, 
+    fuel_class,
+    plot_id, 
+    time, 
+    si_value, 
+    si_units, 
+    us_value, 
+    us_units, 
+    starts_with("lab"), 
+    starts_with("order")
+  ) %>%
+  write_csv(here(path_derived, "tubbs_derived.csv"))
 
 # ========================================================== -----
-# THIN: THREE TRANSECTS PER PLOT ----
+# THIN: THREE TRANSECTS PER PLOT (n = 5 plots) ----
 # About this data set ----
 # we now have additional fuels data for forests that were burned in Tubbs and recently thinned
 # do a quick ANOVA on those data for this conference - really focusing it on fuel load management
@@ -231,15 +223,7 @@ lab_fuel <-
   select(fuel_class = name, 
          lab_fuel = label)
 
-rename_thin <- 
-  lookup_variables %>%
-  filter(subset %in% "thin") %>%
-  select(fuel_class_orig = name_orig, 
-         fuel_class = name, 
-         lab_fuel = label,
-         data_type = data_type,
-         transect_rep = transect_rep,
-         units = units) 
+
 
 # lab_trmt <- 
 
@@ -383,7 +367,59 @@ wd_tran <-
 
 wd_tran %>%
   write_csv(here(path_derived, "thin_wd_transformed_metric-units.csv"))
-# ---------------------------------------------------------- -----
+# ========================================================== -----
+# GRAVEYARD ----
+# Create lookup tables  ----
+# lookup_units <-
+#   tibble(fuel_type = c("dl", "wd"),
+#          lab_type = c("Duff & litter", 
+#                       "Coarse woody debris"),
+#          units_si = c("Depth in centimeters",
+#                       "Metric tons per hectare"), 
+#          units = c("Depth in inches",
+#                    "Tons per acre"))
+
+# lookup_year <- 
+#   lookup_variables %>%
+#   filter(subset %in% c("year_timing", "year_timing_abbr")) %>%
+#   select(year = name, 
+#          lab_year = label) %>%
+#   mutate(year = as.numeric(year)) %>%
+#   group_by(year) %>%
+#   mutate(n = 1:n()) %>%
+#   ungroup() %>%
+#   spread(n, lab_year) %>%
+#   set_names("year", "lab_year", "lab_year_abbr") 
+# 
+# lookup_fuel <-  
+#   lookup_variables %>%
+#   filter(subset %in% "fuel_class") %>%
+#   select(fuel_type = data_type, 
+#          fuel_class = name, 
+#          lab_fuel = label) %>%
+#   distinct() %>%
+#   left_join(lookup_units, "fuel_type")
+#   
+# 
+# rename_wd_fuel <-
+#   lookup_variables %>%
+#   filter(metric %in% "fuel", 
+#          data_type %in% "wd", 
+#          subset %in% "fuel_class") %>%
+#   select(fuel_class_orig = name_orig, 
+#          fuel_class = name) 
+# 
+# rename_thin <- 
+#   lookup_variables %>%
+#   filter(subset %in% "thin") %>%
+#   select(fuel_class_orig = name_orig, 
+#          fuel_class = name, 
+#          lab_fuel = label,
+#          data_type = data_type,
+#          transect_rep = transect_rep,
+#          units = units) 
+
+
 # [NOT RUN] CALCULATE DIFFERENCE (TRMT - CONTROL) ----
 # # Calculate plot-level mean and total values: Difference between treatment and control  
 # # By plot x transect x quadrat 
@@ -428,49 +464,4 @@ wd_tran %>%
 #   mutate(subset = "survey_plot") %>%
 #   relocate(total, .after = data_type) %>%
 #   write_csv(here(path_derived, "thin_diff_total-by-plot-type.csv"))
-
-
-
-# ========================================================== -----
-# GRAVEYARD ----
-# Create lookup tables  ----
-# lookup_units <-
-#   tibble(fuel_type = c("dl", "wd"),
-#          lab_type = c("Duff & litter", 
-#                       "Coarse woody debris"),
-#          units_si = c("Depth in centimeters",
-#                       "Metric tons per hectare"), 
-#          units = c("Depth in inches",
-#                    "Tons per acre"))
-
-# lookup_year <- 
-#   lookup_variables %>%
-#   filter(subset %in% c("year_timing", "year_timing_abbr")) %>%
-#   select(year = name, 
-#          lab_year = label) %>%
-#   mutate(year = as.numeric(year)) %>%
-#   group_by(year) %>%
-#   mutate(n = 1:n()) %>%
-#   ungroup() %>%
-#   spread(n, lab_year) %>%
-#   set_names("year", "lab_year", "lab_year_abbr") 
-# 
-# lookup_fuel <-  
-#   lookup_variables %>%
-#   filter(subset %in% "fuel_class") %>%
-#   select(fuel_type = data_type, 
-#          fuel_class = name, 
-#          lab_fuel = label) %>%
-#   distinct() %>%
-#   left_join(lookup_units, "fuel_type")
-#   
-# 
-# rename_wd_fuel <-
-#   lookup_variables %>%
-#   filter(metric %in% "fuel", 
-#          data_type %in% "wd", 
-#          subset %in% "fuel_class") %>%
-#   select(fuel_class_orig = name_orig, 
-#          fuel_class = name) 
-# 
 

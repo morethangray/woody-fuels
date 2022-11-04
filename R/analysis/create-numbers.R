@@ -22,15 +22,6 @@ source(file = here(path_fxn, "basic-functions.R"))
 # Create helpers ----
 # index_dl <- "Duff & litter"
 # index_wd <- "Coarse woody debris"
-# 
-lookup_units <-
-  tibble(data_type = c("dl", "wd"),
-         units_si = c("Depth in centimeters",
-                      "Metric tons per hectare"), 
-         units = c("Depth in inches",
-                   "Tons per acre"))
-
-
 # Create Tubbs data  ----
 tubbs <- 
   read_csv(here(path_derived, "tubbs_total-by-plot-type-yr.csv")) %>%
