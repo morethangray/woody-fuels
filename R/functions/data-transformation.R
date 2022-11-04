@@ -1,7 +1,7 @@
 # Data transformation (normalize and standardize) ----
 # REQUIRES: list_classes ----
 #   fxn_tranform_ordnorm ----
-fxn_tranform_ordnorm <- function(index_data, index_list){
+fxn_tranform_ordnorm <- function(index_data, index_list, index_value){
   
   datalist_normalized <- list()
   for(index_class in index_list){
@@ -9,7 +9,7 @@ fxn_tranform_ordnorm <- function(index_data, index_list){
     subset <- 
       index_data %>%
       filter(fuel_class %in% index_class) %>%
-      rename(value_raw = value) 
+      rename(value_raw = all_of(index_value)) 
     
     bn_o <- bestNormalize::orderNorm(subset$value_raw, standardize = TRUE)
     

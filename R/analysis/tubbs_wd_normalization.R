@@ -434,7 +434,7 @@ all_transform <-
   fxn_tranform_2()  %>%
   relocate(starts_with("value"), .after = "plot_id")  
 
-# Apply functions to normalize and standardize the data by fuel class 
+# Apply functions to normalize and standardize the data by fuel class ----
 bn_hr_0001 <- all_transform %>% 
   filter(fuel_class %in% "hr0001") %>%
   select(fuel_class, year, plot_id, value_raw, value_ordnorm)

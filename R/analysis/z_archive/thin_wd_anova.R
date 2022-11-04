@@ -46,19 +46,6 @@ colors_thin <-
   filter(palette %in% "year", 
          palette_subset %in% "1pre_3post") %>%
   pull(hex_code) 
-#
-# input_dl <- 
-#   read_csv(here(path_derived, "thin_total-by-plot-type-trmt.csv")) %>%
-#   bind_rows(read_csv(here(path_derived, "thin_mean-by-plot-type-class-trmt.csv"))) %>%
-#   arrange(survey, plot_id, data_type, fuel_class) %>%
-#   mutate_if(is.character, as_factor)  %>%
-#   mutate(value = fxn_digit(value_si), 
-#          timing = ifelse(survey %in% "cont", "survey1", "survey2")) %>%
-#   select(-value_si, 
-#          -units) %>%
-#   rename(units = units_si) %>%
-#   relocate(c(statistic, subset), .after = value)  %>%
-#   filter(data_type %in% "dl")
 # ========================================================== -----
 # COARSE WOODY DEBRIS (WD) ----
 # Notes about input data ----
