@@ -2,7 +2,7 @@
 # title: Prepare raw data for analysis 
 # author: Morgan Gray
 # created: 2022-02-23
-# revised: 2022-11-01
+# revised: 2022-11-04
 # ========================================================== -----
 # CONFIGURE SETTINGS -----
 # Load libraries
@@ -17,9 +17,8 @@ library(janitor)   ## To tidy data frames
 path_r <- here("R")
 path_fxn <- here(path_r, "functions")
 path_lookup <- here("input/lookup-tables")
-path_raw <- here("input/data_1-raw")
-path_tidy <- here("input/data_2-raw-tidy")
-path_derived <- here("input/data_3-derived")
+path_raw <- here("input/data_raw")
+path_derived <- here("input/data_derived")
 
 # Source functions 
 source(file = here(path_fxn, "basic-functions.R"))
@@ -77,8 +76,7 @@ tubbs_raw_wd <-
     us_value, 
     us_units, 
     starts_with("lab"), 
-    starts_with("order"), 
-    -starts_with("fuel_class_orig"))
+    starts_with("order"))
 
 #   tubbs_raw_dl: Duff and litter (dl) ----
 # Exclude the derived values in columns litter_tons_acre and duff_tons_acre 
@@ -121,6 +119,7 @@ tubbs_raw_dl <-
     fuel_class,
     plot_id, 
     n_transect, 
+    quadrat,
     plot_tran, 
     time, 
     si_value, 
@@ -132,8 +131,8 @@ tubbs_raw_dl <-
 
 #   tubbs_raw_tidy: Combine tidy (raw) dl and wd data frames, write to csv ----
 tubbs_raw_tidy <- 
-  bind_rows(tubbs_raw_wd, tubbs_raw_dl) %>%
-  write_csv(here(path_tidy, "tubbs_raw-tidy.csv"))
+  bind_rows(tubbs_raw_dl, tubbs_raw_wd) %>%
+  write_csv(here(path_derived, "tubbs_raw-tidy.csv"))
 
 # Derive plot-level mean and total values  ----
 # Calculate plot-level mean by fuel_type x fuel_class x time 
@@ -159,7 +158,7 @@ tubbs_derived_mean <-
 
 # Calculate plot-level total by fuel_type x time 
 tubbs_derived_total <- 
-  tubbs_raw_tidy %>%
+  tubbs_derived_mean %>%
   group_by(fuel_type, 
            plot_id, 
            time, 
@@ -178,6 +177,7 @@ tubbs_derived_total <-
            lab_class = "All", 
            order_class = 1) 
 
+# Combine derived data frames and write to csv 
 tubbs_derived_all <- 
   bind_rows(tubbs_derived_mean, 
             tubbs_derived_total) %>%
@@ -204,111 +204,117 @@ tubbs_derived_all <-
 # The key thing to account for is that our new forest plots have three transects per plot instead of just two 
 # All other sampling is the same as the RXF fuels data. 
 # There should be five plots in this small set - FOR05, 06, 07, 08, 10.
-# Create lookup tables  ----
-lookup_variables <- read_csv(here(path_lookup, "lookup_variables.csv"))
-
-lab_type <- 
-  lookup_variables %>%
-  filter(metric %in% "fuel", 
-         data_type %in% "all", 
-         subset %in% "fuel_type") %>%
-  select(data_type = name, 
-         lab_type = label)
-
-lab_fuel <-  
-  lookup_variables %>%
-  filter(metric %in% "fuel", 
-         data_type %in% "all", 
-         subset %in% "fuel_class") %>%
-  select(fuel_class = name, 
-         lab_fuel = label)
-
-
-
-# lab_trmt <- 
-
-# Read raw data; reshape and annotate ----
-fuels_thin_raw <- 
-  read_excel(here(path_raw, 
-                  "FOR_Fuels_MorganANOVA.xlsx"), 
+# Reshape and annotate raw data ----
+thin_raw_tidy <- 
+  read_excel(here(path_raw, "FOR_Fuels_MorganANOVA.xlsx"), 
              sheet = "Data") %>%
   # Clean column names 
   clean_names() %>%
-  rename(lab_thin = timing) %>%
-  gather(fuel_class_orig, value, x1hr_load:duff2) %>%
-  left_join(rename_thin, "fuel_class_orig") %>%
-  left_join(lab_type, "data_type") %>%
-  # Convert datetime values to date values
-  mutate(date = as_date(date), 
-         year = year(date), 
-         survey = ifelse(lab_thin %in% "Pre-thinning", "cont", "trmt")) %>%  
-  # Convert measurements to metric units
-  mutate(value_si = 
-           case_when(data_type == "wd" ~ value *  2.242, 
-                     data_type == "dl" ~ value * 2.54), 
-         units_si = 
-           case_when(data_type == "wd" ~ "tons_per_hectare", 
-                     data_type == "dl" ~ "depth_in_cm")) %>%
+  rename(lab_time = timing) %>%
+  # Components from the gathered column will be derived below
+  gather(fuel_class_orig_thin, us_value, x1hr_load:duff2) %>%
+  # Add fuel attributes
+  left_join(lookup_fuel %>%
+              # Exclude attributes for tubbs plot_types
+              filter(!is.na(fuel_class_orig_thin)), 
+            "fuel_class_orig_thin") %>%
+  # Add time attributes 
+  left_join(lookup_time, "lab_time") %>%
+  # Create attributes for subsequent analysis and figures
+  mutate(
+    # Convert measurements to metric units
+    si_value = 
+      case_when(fuel_type == "wd" ~ us_value *  2.242, 
+                fuel_type == "dl" ~ us_value * 2.54),
+    # Derive transect and quadrat 
+    n_transect = str_sub(transect_id, 2, 2),
+    # Use as.numeric to exclude wd values 
+    quadrat = as.numeric(str_remove_all(fuel_class_orig_thin, fuel_class)),
+    # Convert datetime values to date values
+    date = as_date(date)
+  ) %>%
+  # Create plot_tran for plot-level calculations
   unite(plot_tran,
-        c(plot_id, transect_id), 
+        c(plot_id, n_transect),
         remove = FALSE) %>%
-  select(year, 
-         plot_id, 
-         survey,
-         date, 
-         plot_tran,
-         transect_id, 
-         transect_rep,
-         data_type,
-         fuel_class, 
-         starts_with("value"),
-         starts_with("units"), 
-         lab_fuel,
-         starts_with("lab"))  %>%
-  write_csv(here(path_tidy, "thin_tidy-data.csv"))
+  select(
+    fuel_type, 
+    fuel_class,
+    plot_id, 
+    n_transect, 
+    quadrat,
+    plot_tran, 
+    time, 
+    si_value, 
+    si_units, 
+    us_value, 
+    us_units, 
+    starts_with("lab"), 
+    starts_with("order"))
 
-# Calculate plot-level mean and total values ----
-# Calculate plot-level mean by fuel_class x plot x survey  
-thin_plot_class_mean <-  
-  fuels_thin_raw %>%
-  group_by(survey, 
+thin_raw_tidy %>%
+  write_csv(here(path_derived, "thin_raw-tidy.csv"))
+
+# Derive plot-level mean and total values  ----
+# Calculate plot-level mean by fuel_type x fuel_class x time 
+thin_derived_mean <-  
+  thin_raw_tidy %>%
+  group_by(fuel_type, 
+           fuel_class, 
            plot_id, 
-           data_type, 
-           fuel_class,
-           lab_type,
+           time, 
+           si_units, 
+           us_units, 
            lab_fuel, 
-           lab_thin, 
-           units, 
-           units_si) %>%
-  summarize(value = mean(value), 
-            value_si = mean(value_si)) %>%
+           lab_class,
+           lab_time, 
+           lab_time_abbr, 
+           order_class,
+           order_time) %>%
+  summarize(us_value = mean(us_value, na.rm = TRUE), 
+            si_value = mean(si_value, na.rm = TRUE)) %>%
   ungroup() %>%
-  mutate(subset = "survey_plot_class", 
-         statistic = "mean") %>%
-  arrange(data_type, fuel_class, survey) %>%
-  relocate(starts_with("value"), .after = fuel_class) %>%
-  write_csv(here(path_derived, "thin_mean-by-plot-type-class-trmt.csv"))
+  mutate(subset_by = "type_class_time_plot", 
+         metric = "mean") 
 
-# Calculate plot-level total by summing the mean for each class 
-thin_plot_total <- 
-  thin_plot_class_mean  %>%
-  group_by(survey, 
+# Calculate plot-level total by fuel_type x time 
+thin_derived_total <- 
+  thin_derived_mean %>%
+  group_by(fuel_type, 
            plot_id, 
-           data_type, 
-           lab_type,
-           lab_thin, 
-           units, 
-           units_si) %>%
-  summarize(value = sum(value), 
-            value_si = sum(value_si)) %>%
-  ungroup()  %>%
-  mutate(lab_fuel = "All", 
-         fuel_class = "all",
-         subset = "survey_plot", 
-         statistic = "total") %>%
-  arrange(data_type, lab_type, survey) %>%
-  relocate(starts_with("value"), .after = data_type) %>%
-  write_csv(here(path_derived, "thin_total-by-plot-type-trmt.csv"))
+           time, 
+           si_units, 
+           us_units, 
+           lab_fuel, 
+           lab_time, 
+           lab_time_abbr, 
+           order_time) %>%
+  summarize(us_value = sum(us_value, na.rm = TRUE), 
+            si_value = sum(si_value, na.rm = TRUE)) %>%
+  ungroup() %>%
+  mutate(subset_by = "type_time_plot", 
+         metric = "total", 
+         fuel_class = "all", 
+         lab_class = "All", 
+         order_class = 1) 
+
+# Combine derived data frames and write to csv 
+thin_derived_all <- 
+  bind_rows(thin_derived_mean, 
+            thin_derived_total) %>%
+  relocate(
+    fuel_type, 
+    fuel_class,
+    plot_id, 
+    time, 
+    si_value, 
+    si_units, 
+    us_value, 
+    us_units, 
+    starts_with("lab"), 
+    starts_with("order")
+  ) %>%
+  write_csv(here(path_derived, "thin_derived.csv"))
 
 # ---------------------------------------------------------- -----
 # Standardize and normalize data ---- 
@@ -437,7 +443,7 @@ wd_tran %>%
 #          lab_fuel) %>%
 #   spread(survey, value) %>%
 #   mutate(diff = trmt - cont) %>%
-#   write_csv(here(path_tidy, "thin_tidy-data_all_diff.csv"))
+#   write_csv(here(path_derived, "thin_tidy-data_all_diff.csv"))
 # 
 # # Calculate plot-level mean by fuel_class x plot x survey  
 # thin_diff_plot_class_mean <-  

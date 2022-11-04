@@ -1,0 +1,271 @@
+fuel_type,fuel_class,plot_id,n_transect,quadrat,plot_tran,time,si_value,si_units,us_value,us_units,lab_time,lab_fuel,lab_class,lab_time_abbr,order_class,order_time
+wd,hr0001,FOR05,1,NA,FOR05_1,t1,0.4906581458613758,Metric tons per hectare,0.21884841474637637,Tons per acre,Pre-thinning,Coarse woody debris,1-hr,Pre-thin,1,1
+wd,hr0001,FOR05,1,NA,FOR05_1,t2,1.605324471667137,Metric tons per hectare,0.7160234039550121,Tons per acre,Post-thinning,Coarse woody debris,1-hr,Post-thin,1,2
+wd,hr0001,FOR05,2,NA,FOR05_2,t1,2.258223162578433,Metric tons per hectare,1.0072360225595152,Tons per acre,Pre-thinning,Coarse woody debris,1-hr,Pre-thin,1,1
+wd,hr0001,FOR05,2,NA,FOR05_2,t2,1.4638457934853624,Metric tons per hectare,0.6529196224287968,Tons per acre,Post-thinning,Coarse woody debris,1-hr,Post-thin,1,2
+wd,hr0001,FOR05,3,NA,FOR05_3,t1,1.0753581037654178,Metric tons per hectare,0.4796423299578135,Tons per acre,Pre-thinning,Coarse woody debris,1-hr,Pre-thin,1,1
+wd,hr0001,FOR05,3,NA,FOR05_3,t2,1.7818946806889226,Metric tons per hectare,0.7947790725641939,Tons per acre,Post-thinning,Coarse woody debris,1-hr,Post-thin,1,2
+wd,hr0001,FOR06,1,NA,FOR06_1,t1,0.8815369295808346,Metric tons per hectare,0.39319220766317337,Tons per acre,Pre-thinning,Coarse woody debris,1-hr,Pre-thin,1,1
+wd,hr0001,FOR06,1,NA,FOR06_1,t2,2.4683326419447846,Metric tons per hectare,1.1009512229905374,Tons per acre,Post-thinning,Coarse woody debris,1-hr,Post-thin,1,2
+wd,hr0001,FOR06,2,NA,FOR06_2,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,1-hr,Pre-thin,1,1
+wd,hr0001,FOR06,2,NA,FOR06_2,t2,8.728596588906196,Metric tons per hectare,3.8932188175317557,Tons per acre,Post-thinning,Coarse woody debris,1-hr,Post-thin,1,2
+wd,hr0001,FOR06,3,NA,FOR06_3,t1,0.2506760561475078,Metric tons per hectare,0.11180912406222471,Tons per acre,Pre-thinning,Coarse woody debris,1-hr,Pre-thin,1,1
+wd,hr0001,FOR06,3,NA,FOR06_3,t2,0.9155233978985305,Metric tons per hectare,0.40835120334457203,Tons per acre,Post-thinning,Coarse woody debris,1-hr,Post-thin,1,2
+wd,hr0001,FOR07,1,NA,FOR07_1,t1,5.896315553208402,Metric tons per hectare,2.629935572349867,Tons per acre,Pre-thinning,Coarse woody debris,1-hr,Pre-thin,1,1
+wd,hr0001,FOR07,1,NA,FOR07_1,t2,2.7957232377108037,Metric tons per hectare,1.246977358479395,Tons per acre,Post-thinning,Coarse woody debris,1-hr,Post-thin,1,2
+wd,hr0001,FOR07,2,NA,FOR07_2,t1,1.0042734526475858,Metric tons per hectare,0.4479364195573532,Tons per acre,Pre-thinning,Coarse woody debris,1-hr,Pre-thin,1,1
+wd,hr0001,FOR07,2,NA,FOR07_2,t2,1.6541170455874548,Metric tons per hectare,0.7377863718052876,Tons per acre,Post-thinning,Coarse woody debris,1-hr,Post-thin,1,2
+wd,hr0001,FOR07,3,NA,FOR07_3,t1,1.6266286702617705,Metric tons per hectare,0.7255257226858923,Tons per acre,Pre-thinning,Coarse woody debris,1-hr,Pre-thin,1,1
+wd,hr0001,FOR07,3,NA,FOR07_3,t2,1.3568496496331612,Metric tons per hectare,0.6051960970709908,Tons per acre,Post-thinning,Coarse woody debris,1-hr,Post-thin,1,2
+wd,hr0001,FOR08,1,NA,FOR08_1,t1,0.11847469286253458,Metric tons per hectare,0.052843306361523006,Tons per acre,Pre-thinning,Coarse woody debris,1-hr,Pre-thin,1,1
+wd,hr0001,FOR08,1,NA,FOR08_1,t2,0.3966373658550685,Metric tons per hectare,0.17691229520743465,Tons per acre,Post-thinning,Coarse woody debris,1-hr,Post-thin,1,2
+wd,hr0001,FOR08,2,NA,FOR08_2,t1,0.17582496386693092,Metric tons per hectare,0.07842326666678454,Tons per acre,Pre-thinning,Coarse woody debris,1-hr,Pre-thin,1,1
+wd,hr0001,FOR08,2,NA,FOR08_2,t2,0.4281006353477884,Metric tons per hectare,0.19094586768411614,Tons per acre,Post-thinning,Coarse woody debris,1-hr,Post-thin,1,2
+wd,hr0001,FOR08,3,NA,FOR08_3,t1,0.47793693500685236,Metric tons per hectare,0.21317436887013932,Tons per acre,Pre-thinning,Coarse woody debris,1-hr,Pre-thin,1,1
+wd,hr0001,FOR08,3,NA,FOR08_3,t2,1.9273554709492426,Metric tons per hectare,0.8596589968551483,Tons per acre,Post-thinning,Coarse woody debris,1-hr,Post-thin,1,2
+wd,hr0001,FOR10,1,NA,FOR10_1,t1,0.4009807149631106,Metric tons per hectare,0.1788495606436711,Tons per acre,Pre-thinning,Coarse woody debris,1-hr,Pre-thin,1,1
+wd,hr0001,FOR10,1,NA,FOR10_1,t2,1.4644686544724823,Metric tons per hectare,0.6531974373204649,Tons per acre,Post-thinning,Coarse woody debris,1-hr,Post-thin,1,2
+wd,hr0001,FOR10,2,NA,FOR10_2,t1,0.17582496386693092,Metric tons per hectare,0.07842326666678454,Tons per acre,Pre-thinning,Coarse woody debris,1-hr,Pre-thin,1,1
+wd,hr0001,FOR10,2,NA,FOR10_2,t2,2.9253543415432213,Metric tons per hectare,1.3047967625081272,Tons per acre,Post-thinning,Coarse woody debris,1-hr,Post-thin,1,2
+wd,hr0001,FOR10,3,NA,FOR10_3,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,1-hr,Pre-thin,1,1
+wd,hr0001,FOR10,3,NA,FOR10_3,t2,0.8864620462148154,Metric tons per hectare,0.39538895906102384,Tons per acre,Post-thinning,Coarse woody debris,1-hr,Post-thin,1,2
+wd,hr0010,FOR05,1,NA,FOR05_1,t1,3.0034095969191625,Metric tons per hectare,1.3396117738265667,Tons per acre,Pre-thinning,Coarse woody debris,10-hr,Pre-thin,2,1
+wd,hr0010,FOR05,1,NA,FOR05_1,t2,6.866353517837969,Metric tons per hectare,3.0626019258866943,Tons per acre,Post-thinning,Coarse woody debris,10-hr,Post-thin,2,2
+wd,hr0010,FOR05,2,NA,FOR05_2,t1,6.462702793018896,Metric tons per hectare,2.8825614598656983,Tons per acre,Pre-thinning,Coarse woody debris,10-hr,Pre-thin,2,1
+wd,hr0010,FOR05,2,NA,FOR05_2,t2,7.223304890018084,Metric tons per hectare,3.2218130642364335,Tons per acre,Post-thinning,Coarse woody debris,10-hr,Post-thin,2,2
+wd,hr0010,FOR05,3,NA,FOR05_3,t1,5.85108140740931,Metric tons per hectare,2.609759771369005,Tons per acre,Pre-thinning,Coarse woody debris,10-hr,Pre-thin,2,1
+wd,hr0010,FOR05,3,NA,FOR05_3,t2,4.012998438121716,Metric tons per hectare,1.7899190178955025,Tons per acre,Post-thinning,Coarse woody debris,10-hr,Post-thin,2,2
+wd,hr0010,FOR06,1,NA,FOR06_1,t1,0.7194734926748106,Metric tons per hectare,0.32090699940892536,Tons per acre,Pre-thinning,Coarse woody debris,10-hr,Pre-thin,2,1
+wd,hr0010,FOR06,1,NA,FOR06_1,t2,5.263521142090108,Metric tons per hectare,2.3476900722971044,Tons per acre,Post-thinning,Coarse woody debris,10-hr,Post-thin,2,2
+wd,hr0010,FOR06,2,NA,FOR06_2,t1,4.316840956048864,Metric tons per hectare,1.925441996453552,Tons per acre,Pre-thinning,Coarse woody debris,10-hr,Pre-thin,2,1
+wd,hr0010,FOR06,2,NA,FOR06_2,t2,9.211161998657689,Metric tons per hectare,4.108457626519932,Tons per acre,Post-thinning,Coarse woody debris,10-hr,Post-thin,2,2
+wd,hr0010,FOR06,3,NA,FOR06_3,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,10-hr,Pre-thin,2,1
+wd,hr0010,FOR06,3,NA,FOR06_3,t2,2.1048020107088767,Metric tons per hectare,0.9388055355525765,Tons per acre,Post-thinning,Coarse woody debris,10-hr,Post-thin,2,2
+wd,hr0010,FOR07,1,NA,FOR07_1,t1,12.917295066328835,Metric tons per hectare,5.761505381948633,Tons per acre,Pre-thinning,Coarse woody debris,10-hr,Pre-thin,2,1
+wd,hr0010,FOR07,1,NA,FOR07_1,t2,16.676522249166908,Metric tons per hectare,7.438234723089612,Tons per acre,Post-thinning,Coarse woody debris,10-hr,Post-thin,2,2
+wd,hr0010,FOR07,2,NA,FOR07_2,t1,2.169650907402962,Metric tons per hectare,0.9677301103492247,Tons per acre,Pre-thinning,Coarse woody debris,10-hr,Pre-thin,2,1
+wd,hr0010,FOR07,2,NA,FOR07_2,t2,3.3068172821112647,Metric tons per hectare,1.4749408037962821,Tons per acre,Post-thinning,Coarse woody debris,10-hr,Post-thin,2,2
+wd,hr0010,FOR07,3,NA,FOR07_3,t1,2.950191424915869,Metric tons per hectare,1.3158748550026178,Tons per acre,Pre-thinning,Coarse woody debris,10-hr,Pre-thin,2,1
+wd,hr0010,FOR07,3,NA,FOR07_3,t2,5.395749494719807,Metric tons per hectare,2.406667928064142,Tons per acre,Post-thinning,Coarse woody debris,10-hr,Post-thin,2,2
+wd,hr0010,FOR08,1,NA,FOR08_1,t1,0.7252055887316657,Metric tons per hectare,0.32346368810511406,Tons per acre,Pre-thinning,Coarse woody debris,10-hr,Pre-thin,2,1
+wd,hr0010,FOR08,1,NA,FOR08_1,t2,0.6631819982797309,Metric tons per hectare,0.2957992855841797,Tons per acre,Post-thinning,Coarse woody debris,10-hr,Post-thin,2,2
+wd,hr0010,FOR08,2,NA,FOR08_2,t1,2.1525144881833906,Metric tons per hectare,0.9600867476286309,Tons per acre,Pre-thinning,Coarse woody debris,10-hr,Pre-thin,2,1
+wd,hr0010,FOR08,2,NA,FOR08_2,t2,2.6245594017849885,Metric tons per hectare,1.1706330962466496,Tons per acre,Post-thinning,Coarse woody debris,10-hr,Post-thin,2,2
+wd,hr0010,FOR08,3,NA,FOR08_3,t1,1.4627703518523274,Metric tons per hectare,0.6524399428422513,Tons per acre,Pre-thinning,Coarse woody debris,10-hr,Pre-thin,2,1
+wd,hr0010,FOR08,3,NA,FOR08_3,t2,2.6753322920811446,Metric tons per hectare,1.1932793452636685,Tons per acre,Post-thinning,Coarse woody debris,10-hr,Post-thin,2,2
+wd,hr0010,FOR10,1,NA,FOR10_1,t1,6.041790509817812,Metric tons per hectare,2.694821815262182,Tons per acre,Pre-thinning,Coarse woody debris,10-hr,Pre-thin,2,1
+wd,hr0010,FOR10,1,NA,FOR10_1,t2,3.453164493754211,Metric tons per hectare,1.5402160989091038,Tons per acre,Post-thinning,Coarse woody debris,10-hr,Post-thin,2,2
+wd,hr0010,FOR10,2,NA,FOR10_2,t1,2.1525144881833906,Metric tons per hectare,0.9600867476286309,Tons per acre,Pre-thinning,Coarse woody debris,10-hr,Pre-thin,2,1
+wd,hr0010,FOR10,2,NA,FOR10_2,t2,5.905258654016224,Metric tons per hectare,2.6339244665549617,Tons per acre,Post-thinning,Coarse woody debris,10-hr,Post-thin,2,2
+wd,hr0010,FOR10,3,NA,FOR10_3,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,10-hr,Pre-thin,2,1
+wd,hr0010,FOR10,3,NA,FOR10_3,t2,0.6793298425697699,Metric tons per hectare,0.3030017139026628,Tons per acre,Post-thinning,Coarse woody debris,10-hr,Post-thin,2,2
+wd,hr0100,FOR05,1,NA,FOR05_1,t1,3.3260398771414135,Metric tons per hectare,1.483514664202236,Tons per acre,Pre-thinning,Coarse woody debris,100-hr,Pre-thin,3,1
+wd,hr0100,FOR05,1,NA,FOR05_1,t2,20.41287141050406,Metric tons per hectare,9.104759772749357,Tons per acre,Post-thinning,Coarse woody debris,100-hr,Post-thin,3,2
+wd,hr0100,FOR05,2,NA,FOR05_2,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,100-hr,Pre-thin,3,1
+wd,hr0100,FOR05,2,NA,FOR05_2,t2,3.2536433903635142,Metric tons per hectare,1.4512236353093284,Tons per acre,Post-thinning,Coarse woody debris,100-hr,Post-thin,3,2
+wd,hr0100,FOR05,3,NA,FOR05_3,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,100-hr,Pre-thin,3,1
+wd,hr0100,FOR05,3,NA,FOR05_3,t2,19.88363034205421,Metric tons per hectare,8.868702204306071,Tons per acre,Post-thinning,Coarse woody debris,100-hr,Post-thin,3,2
+wd,hr0100,FOR06,1,NA,FOR06_1,t1,3.1870411942977337,Metric tons per hectare,1.4215170358152247,Tons per acre,Pre-thinning,Coarse woody debris,100-hr,Pre-thin,3,1
+wd,hr0100,FOR06,1,NA,FOR06_1,t2,13.039864119146259,Metric tons per hectare,5.81617489703223,Tons per acre,Post-thinning,Coarse woody debris,100-hr,Post-thin,3,2
+wd,hr0100,FOR06,2,NA,FOR06_2,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,100-hr,Pre-thin,3,1
+wd,hr0100,FOR06,2,NA,FOR06_2,t2,16.299830148932823,Metric tons per hectare,7.2702186212902875,Tons per acre,Post-thinning,Coarse woody debris,100-hr,Post-thin,3,2
+wd,hr0100,FOR06,3,NA,FOR06_3,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,100-hr,Pre-thin,3,1
+wd,hr0100,FOR06,3,NA,FOR06_3,t2,0,Metric tons per hectare,0,Tons per acre,Post-thinning,Coarse woody debris,100-hr,Post-thin,3,2
+wd,hr0100,FOR07,1,NA,FOR07_1,t1,6.731712092970098,Metric tons per hectare,3.0025477667128,Tons per acre,Pre-thinning,Coarse woody debris,100-hr,Pre-thin,3,1
+wd,hr0100,FOR07,1,NA,FOR07_1,t2,10.328617395023143,Metric tons per hectare,4.606876625790876,Tons per acre,Post-thinning,Coarse woody debris,100-hr,Post-thin,3,2
+wd,hr0100,FOR07,2,NA,FOR07_2,t1,3.203623617149738,Metric tons per hectare,1.428913299353139,Tons per acre,Pre-thinning,Coarse woody debris,100-hr,Pre-thin,3,1
+wd,hr0100,FOR07,2,NA,FOR07_2,t2,6.55385577244249,Metric tons per hectare,2.9232184533641794,Tons per acre,Post-thinning,Coarse woody debris,100-hr,Post-thin,3,2
+wd,hr0100,FOR07,3,NA,FOR07_3,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,100-hr,Pre-thin,3,1
+wd,hr0100,FOR07,3,NA,FOR07_3,t2,10.025585297282424,Metric tons per hectare,4.471715119216068,Tons per acre,Post-thinning,Coarse woody debris,100-hr,Post-thin,3,2
+wd,hr0100,FOR08,1,NA,FOR08_1,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,100-hr,Pre-thin,3,1
+wd,hr0100,FOR08,1,NA,FOR08_1,t2,0,Metric tons per hectare,0,Tons per acre,Post-thinning,Coarse woody debris,100-hr,Post-thin,3,2
+wd,hr0100,FOR08,2,NA,FOR08_2,t1,6.356641270789051,Metric tons per hectare,2.8352548040985956,Tons per acre,Pre-thinning,Coarse woody debris,100-hr,Pre-thin,3,1
+wd,hr0100,FOR08,2,NA,FOR08_2,t2,0,Metric tons per hectare,0,Tons per acre,Post-thinning,Coarse woody debris,100-hr,Post-thin,3,2
+wd,hr0100,FOR08,3,NA,FOR08_3,t1,323.98062031576876,Metric tons per hectare,144.50518301327776,Tons per acre,Pre-thinning,Coarse woody debris,100-hr,Pre-thin,3,1
+wd,hr0100,FOR08,3,NA,FOR08_3,t2,13.255753561369474,Metric tons per hectare,5.912468136204048,Tons per acre,Post-thinning,Coarse woody debris,100-hr,Post-thin,3,2
+wd,hr0100,FOR10,1,NA,FOR10_1,t1,13.381615471697154,Metric tons per hectare,5.9686063656097925,Tons per acre,Pre-thinning,Coarse woody debris,100-hr,Pre-thin,3,1
+wd,hr0100,FOR10,1,NA,FOR10_1,t2,3.4219523063782935,Metric tons per hectare,1.5262945166718527,Tons per acre,Post-thinning,Coarse woody debris,100-hr,Post-thin,3,2
+wd,hr0100,FOR10,2,NA,FOR10_2,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,100-hr,Pre-thin,3,1
+wd,hr0100,FOR10,2,NA,FOR10_2,t2,9.753137789709903,Metric tons per hectare,4.3501952674888065,Tons per acre,Post-thinning,Coarse woody debris,100-hr,Post-thin,3,2
+wd,hr0100,FOR10,3,NA,FOR10_3,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,100-hr,Pre-thin,3,1
+wd,hr0100,FOR10,3,NA,FOR10_3,t2,3.365947851279352,Metric tons per hectare,1.5013148310791045,Tons per acre,Post-thinning,Coarse woody debris,100-hr,Post-thin,3,2
+wd,hr1000s,FOR05,1,NA,FOR05_1,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,1000-hr sound,Pre-thin,5,1
+wd,hr1000s,FOR05,1,NA,FOR05_1,t2,275.04222058599163,Metric tons per hectare,122.67717242907744,Tons per acre,Post-thinning,Coarse woody debris,1000-hr sound,Post-thin,5,2
+wd,hr1000s,FOR05,2,NA,FOR05_2,t1,22.297156895793478,Metric tons per hectare,9.94520824968487,Tons per acre,Pre-thinning,Coarse woody debris,1000-hr sound,Pre-thin,5,1
+wd,hr1000s,FOR05,2,NA,FOR05_2,t2,153.64134673507695,Metric tons per hectare,68.5287005954848,Tons per acre,Post-thinning,Coarse woody debris,1000-hr sound,Post-thin,5,2
+wd,hr1000s,FOR05,3,NA,FOR05_3,t1,64.67129117685019,Metric tons per hectare,28.84535734917493,Tons per acre,Pre-thinning,Coarse woody debris,1000-hr sound,Pre-thin,5,1
+wd,hr1000s,FOR05,3,NA,FOR05_3,t2,553.2101121794757,Metric tons per hectare,246.74848892929333,Tons per acre,Post-thinning,Coarse woody debris,1000-hr sound,Post-thin,5,2
+wd,hr1000s,FOR06,1,NA,FOR06_1,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,1000-hr sound,Pre-thin,5,1
+wd,hr1000s,FOR06,1,NA,FOR06_1,t2,0,Metric tons per hectare,0,Tons per acre,Post-thinning,Coarse woody debris,1000-hr sound,Post-thin,5,2
+wd,hr1000s,FOR06,2,NA,FOR06_2,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,1000-hr sound,Pre-thin,5,1
+wd,hr1000s,FOR06,2,NA,FOR06_2,t2,230.73533015842983,Metric tons per hectare,102.9149554676315,Tons per acre,Post-thinning,Coarse woody debris,1000-hr sound,Post-thin,5,2
+wd,hr1000s,FOR06,3,NA,FOR06_3,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,1000-hr sound,Pre-thin,5,1
+wd,hr1000s,FOR06,3,NA,FOR06_3,t2,0,Metric tons per hectare,0,Tons per acre,Post-thinning,Coarse woody debris,1000-hr sound,Post-thin,5,2
+wd,hr1000s,FOR07,1,NA,FOR07_1,t1,23.593940181596704,Metric tons per hectare,10.523612926671143,Tons per acre,Pre-thinning,Coarse woody debris,1000-hr sound,Pre-thin,5,1
+wd,hr1000s,FOR07,1,NA,FOR07_1,t2,289.76307785523454,Metric tons per hectare,129.24312125568,Tons per acre,Post-thinning,Coarse woody debris,1000-hr sound,Post-thin,5,2
+wd,hr1000s,FOR07,2,NA,FOR07_2,t1,112.28362553757411,Metric tons per hectare,50.081902559132075,Tons per acre,Pre-thinning,Coarse woody debris,1000-hr sound,Pre-thin,5,1
+wd,hr1000s,FOR07,2,NA,FOR07_2,t2,196.84723102055958,Metric tons per hectare,87.79983542397841,Tons per acre,Post-thinning,Coarse woody debris,1000-hr sound,Post-thin,5,2
+wd,hr1000s,FOR07,3,NA,FOR07_3,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,1000-hr sound,Pre-thin,5,1
+wd,hr1000s,FOR07,3,NA,FOR07_3,t2,633.3755765275714,Metric tons per hectare,282.5047174520836,Tons per acre,Post-thinning,Coarse woody debris,1000-hr sound,Post-thin,5,2
+wd,hr1000s,FOR08,1,NA,FOR08_1,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,1000-hr sound,Pre-thin,5,1
+wd,hr1000s,FOR08,1,NA,FOR08_1,t2,0,Metric tons per hectare,0,Tons per acre,Post-thinning,Coarse woody debris,1000-hr sound,Post-thin,5,2
+wd,hr1000s,FOR08,2,NA,FOR08_2,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,1000-hr sound,Pre-thin,5,1
+wd,hr1000s,FOR08,2,NA,FOR08_2,t2,184.15280646841512,Metric tons per hectare,82.13773705103262,Tons per acre,Post-thinning,Coarse woody debris,1000-hr sound,Post-thin,5,2
+wd,hr1000s,FOR08,3,NA,FOR08_3,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,1000-hr sound,Pre-thin,5,1
+wd,hr1000s,FOR08,3,NA,FOR08_3,t2,0,Metric tons per hectare,0,Tons per acre,Post-thinning,Coarse woody debris,1000-hr sound,Post-thin,5,2
+wd,hr1000s,FOR10,1,NA,FOR10_1,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,1000-hr sound,Pre-thin,5,1
+wd,hr1000s,FOR10,1,NA,FOR10_1,t2,124.58117824455127,Metric tons per hectare,55.5669840519854,Tons per acre,Post-thinning,Coarse woody debris,1000-hr sound,Post-thin,5,2
+wd,hr1000s,FOR10,2,NA,FOR10_2,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,1000-hr sound,Pre-thin,5,1
+wd,hr1000s,FOR10,2,NA,FOR10_2,t2,0,Metric tons per hectare,0,Tons per acre,Post-thinning,Coarse woody debris,1000-hr sound,Post-thin,5,2
+wd,hr1000s,FOR10,3,NA,FOR10_3,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,1000-hr sound,Pre-thin,5,1
+wd,hr1000s,FOR10,3,NA,FOR10_3,t2,0,Metric tons per hectare,0,Tons per acre,Post-thinning,Coarse woody debris,1000-hr sound,Post-thin,5,2
+wd,hr1000r,FOR05,1,NA,FOR05_1,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,1000-hr rotten,Pre-thin,4,1
+wd,hr1000r,FOR05,1,NA,FOR05_1,t2,0,Metric tons per hectare,0,Tons per acre,Post-thinning,Coarse woody debris,1000-hr rotten,Post-thin,4,2
+wd,hr1000r,FOR05,2,NA,FOR05_2,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,1000-hr rotten,Pre-thin,4,1
+wd,hr1000r,FOR05,2,NA,FOR05_2,t2,0,Metric tons per hectare,0,Tons per acre,Post-thinning,Coarse woody debris,1000-hr rotten,Post-thin,4,2
+wd,hr1000r,FOR05,3,NA,FOR05_3,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,1000-hr rotten,Pre-thin,4,1
+wd,hr1000r,FOR05,3,NA,FOR05_3,t2,0,Metric tons per hectare,0,Tons per acre,Post-thinning,Coarse woody debris,1000-hr rotten,Post-thin,4,2
+wd,hr1000r,FOR06,1,NA,FOR06_1,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,1000-hr rotten,Pre-thin,4,1
+wd,hr1000r,FOR06,1,NA,FOR06_1,t2,0,Metric tons per hectare,0,Tons per acre,Post-thinning,Coarse woody debris,1000-hr rotten,Post-thin,4,2
+wd,hr1000r,FOR06,2,NA,FOR06_2,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,1000-hr rotten,Pre-thin,4,1
+wd,hr1000r,FOR06,2,NA,FOR06_2,t2,0,Metric tons per hectare,0,Tons per acre,Post-thinning,Coarse woody debris,1000-hr rotten,Post-thin,4,2
+wd,hr1000r,FOR06,3,NA,FOR06_3,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,1000-hr rotten,Pre-thin,4,1
+wd,hr1000r,FOR06,3,NA,FOR06_3,t2,0,Metric tons per hectare,0,Tons per acre,Post-thinning,Coarse woody debris,1000-hr rotten,Post-thin,4,2
+wd,hr1000r,FOR07,1,NA,FOR07_1,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,1000-hr rotten,Pre-thin,4,1
+wd,hr1000r,FOR07,1,NA,FOR07_1,t2,0,Metric tons per hectare,0,Tons per acre,Post-thinning,Coarse woody debris,1000-hr rotten,Post-thin,4,2
+wd,hr1000r,FOR07,2,NA,FOR07_2,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,1000-hr rotten,Pre-thin,4,1
+wd,hr1000r,FOR07,2,NA,FOR07_2,t2,0,Metric tons per hectare,0,Tons per acre,Post-thinning,Coarse woody debris,1000-hr rotten,Post-thin,4,2
+wd,hr1000r,FOR07,3,NA,FOR07_3,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,1000-hr rotten,Pre-thin,4,1
+wd,hr1000r,FOR07,3,NA,FOR07_3,t2,0,Metric tons per hectare,0,Tons per acre,Post-thinning,Coarse woody debris,1000-hr rotten,Post-thin,4,2
+wd,hr1000r,FOR08,1,NA,FOR08_1,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,1000-hr rotten,Pre-thin,4,1
+wd,hr1000r,FOR08,1,NA,FOR08_1,t2,0,Metric tons per hectare,0,Tons per acre,Post-thinning,Coarse woody debris,1000-hr rotten,Post-thin,4,2
+wd,hr1000r,FOR08,2,NA,FOR08_2,t1,104.43448381951707,Metric tons per hectare,46.58094728792019,Tons per acre,Pre-thinning,Coarse woody debris,1000-hr rotten,Pre-thin,4,1
+wd,hr1000r,FOR08,2,NA,FOR08_2,t2,0,Metric tons per hectare,0,Tons per acre,Post-thinning,Coarse woody debris,1000-hr rotten,Post-thin,4,2
+wd,hr1000r,FOR08,3,NA,FOR08_3,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,1000-hr rotten,Pre-thin,4,1
+wd,hr1000r,FOR08,3,NA,FOR08_3,t2,0,Metric tons per hectare,0,Tons per acre,Post-thinning,Coarse woody debris,1000-hr rotten,Post-thin,4,2
+wd,hr1000r,FOR10,1,NA,FOR10_1,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,1000-hr rotten,Pre-thin,4,1
+wd,hr1000r,FOR10,1,NA,FOR10_1,t2,0,Metric tons per hectare,0,Tons per acre,Post-thinning,Coarse woody debris,1000-hr rotten,Post-thin,4,2
+wd,hr1000r,FOR10,2,NA,FOR10_2,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,1000-hr rotten,Pre-thin,4,1
+wd,hr1000r,FOR10,2,NA,FOR10_2,t2,0,Metric tons per hectare,0,Tons per acre,Post-thinning,Coarse woody debris,1000-hr rotten,Post-thin,4,2
+wd,hr1000r,FOR10,3,NA,FOR10_3,t1,0,Metric tons per hectare,0,Tons per acre,Pre-thinning,Coarse woody debris,1000-hr rotten,Pre-thin,4,1
+wd,hr1000r,FOR10,3,NA,FOR10_3,t2,0,Metric tons per hectare,0,Tons per acre,Post-thinning,Coarse woody debris,1000-hr rotten,Post-thin,4,2
+dl,litter,FOR05,1,1,FOR05_1,t1,4.99999999998,Depth in centimeters,1.968503937,Depth in inches,Pre-thinning,Duff & litter,Litter,Pre-thin,3,1
+dl,litter,FOR05,1,1,FOR05_1,t2,6.999999999972,Depth in centimeters,2.7559055118,Depth in inches,Post-thinning,Duff & litter,Litter,Post-thin,3,2
+dl,litter,FOR05,2,1,FOR05_2,t1,3.999999999984,Depth in centimeters,1.5748031496,Depth in inches,Pre-thinning,Duff & litter,Litter,Pre-thin,3,1
+dl,litter,FOR05,2,1,FOR05_2,t2,4.99999999998,Depth in centimeters,1.968503937,Depth in inches,Post-thinning,Duff & litter,Litter,Post-thin,3,2
+dl,litter,FOR05,3,1,FOR05_3,t1,6.999999999972,Depth in centimeters,2.7559055118,Depth in inches,Pre-thinning,Duff & litter,Litter,Pre-thin,3,1
+dl,litter,FOR05,3,1,FOR05_3,t2,3.999999999984,Depth in centimeters,1.5748031496,Depth in inches,Post-thinning,Duff & litter,Litter,Post-thin,3,2
+dl,litter,FOR06,1,1,FOR06_1,t1,5.999999999976,Depth in centimeters,2.3622047243999997,Depth in inches,Pre-thinning,Duff & litter,Litter,Pre-thin,3,1
+dl,litter,FOR06,1,1,FOR06_1,t2,1.999999999992,Depth in centimeters,0.7874015748,Depth in inches,Post-thinning,Duff & litter,Litter,Post-thin,3,2
+dl,litter,FOR06,2,1,FOR06_2,t1,1.999999999992,Depth in centimeters,0.7874015748,Depth in inches,Pre-thinning,Duff & litter,Litter,Pre-thin,3,1
+dl,litter,FOR06,2,1,FOR06_2,t2,3.999999999984,Depth in centimeters,1.5748031496,Depth in inches,Post-thinning,Duff & litter,Litter,Post-thin,3,2
+dl,litter,FOR06,3,1,FOR06_3,t1,6.999999999972,Depth in centimeters,2.7559055118,Depth in inches,Pre-thinning,Duff & litter,Litter,Pre-thin,3,1
+dl,litter,FOR06,3,1,FOR06_3,t2,1.999999999992,Depth in centimeters,0.7874015748,Depth in inches,Post-thinning,Duff & litter,Litter,Post-thin,3,2
+dl,litter,FOR07,1,1,FOR07_1,t1,1.999999999992,Depth in centimeters,0.7874015748,Depth in inches,Pre-thinning,Duff & litter,Litter,Pre-thin,3,1
+dl,litter,FOR07,1,1,FOR07_1,t2,4.499999999981999,Depth in centimeters,1.7716535432999998,Depth in inches,Post-thinning,Duff & litter,Litter,Post-thin,3,2
+dl,litter,FOR07,2,1,FOR07_2,t1,1.999999999992,Depth in centimeters,0.7874015748,Depth in inches,Pre-thinning,Duff & litter,Litter,Pre-thin,3,1
+dl,litter,FOR07,2,1,FOR07_2,t2,1.999999999992,Depth in centimeters,0.7874015748,Depth in inches,Post-thinning,Duff & litter,Litter,Post-thin,3,2
+dl,litter,FOR07,3,1,FOR07_3,t1,4.99999999998,Depth in centimeters,1.968503937,Depth in inches,Pre-thinning,Duff & litter,Litter,Pre-thin,3,1
+dl,litter,FOR07,3,1,FOR07_3,t2,1.999999999992,Depth in centimeters,0.7874015748,Depth in inches,Post-thinning,Duff & litter,Litter,Post-thin,3,2
+dl,litter,FOR08,1,1,FOR08_1,t1,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Pre-thinning,Duff & litter,Litter,Pre-thin,3,1
+dl,litter,FOR08,1,1,FOR08_1,t2,2.999999999988,Depth in centimeters,1.1811023621999999,Depth in inches,Post-thinning,Duff & litter,Litter,Post-thin,3,2
+dl,litter,FOR08,2,1,FOR08_2,t1,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Pre-thinning,Duff & litter,Litter,Pre-thin,3,1
+dl,litter,FOR08,2,1,FOR08_2,t2,2.999999999988,Depth in centimeters,1.1811023621999999,Depth in inches,Post-thinning,Duff & litter,Litter,Post-thin,3,2
+dl,litter,FOR08,3,1,FOR08_3,t1,4.99999999998,Depth in centimeters,1.968503937,Depth in inches,Pre-thinning,Duff & litter,Litter,Pre-thin,3,1
+dl,litter,FOR08,3,1,FOR08_3,t2,2.999999999988,Depth in centimeters,1.1811023621999999,Depth in inches,Post-thinning,Duff & litter,Litter,Post-thin,3,2
+dl,litter,FOR10,1,1,FOR10_1,t1,6.999999999972,Depth in centimeters,2.7559055118,Depth in inches,Pre-thinning,Duff & litter,Litter,Pre-thin,3,1
+dl,litter,FOR10,1,1,FOR10_1,t2,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Post-thinning,Duff & litter,Litter,Post-thin,3,2
+dl,litter,FOR10,2,1,FOR10_2,t1,1.999999999992,Depth in centimeters,0.7874015748,Depth in inches,Pre-thinning,Duff & litter,Litter,Pre-thin,3,1
+dl,litter,FOR10,2,1,FOR10_2,t2,1.999999999992,Depth in centimeters,0.7874015748,Depth in inches,Post-thinning,Duff & litter,Litter,Post-thin,3,2
+dl,litter,FOR10,3,1,FOR10_3,t1,3.999999999984,Depth in centimeters,1.5748031496,Depth in inches,Pre-thinning,Duff & litter,Litter,Pre-thin,3,1
+dl,litter,FOR10,3,1,FOR10_3,t2,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Post-thinning,Duff & litter,Litter,Post-thin,3,2
+dl,litter,FOR05,1,2,FOR05_1,t1,5.999999999976,Depth in centimeters,2.3622047243999997,Depth in inches,Pre-thinning,Duff & litter,Litter,Pre-thin,4,1
+dl,litter,FOR05,1,2,FOR05_1,t2,2.999999999988,Depth in centimeters,1.1811023621999999,Depth in inches,Post-thinning,Duff & litter,Litter,Post-thin,4,2
+dl,litter,FOR05,2,2,FOR05_2,t1,5.999999999976,Depth in centimeters,2.3622047243999997,Depth in inches,Pre-thinning,Duff & litter,Litter,Pre-thin,4,1
+dl,litter,FOR05,2,2,FOR05_2,t2,3.999999999984,Depth in centimeters,1.5748031496,Depth in inches,Post-thinning,Duff & litter,Litter,Post-thin,4,2
+dl,litter,FOR05,3,2,FOR05_3,t1,1.999999999992,Depth in centimeters,0.7874015748,Depth in inches,Pre-thinning,Duff & litter,Litter,Pre-thin,4,1
+dl,litter,FOR05,3,2,FOR05_3,t2,1.999999999992,Depth in centimeters,0.7874015748,Depth in inches,Post-thinning,Duff & litter,Litter,Post-thin,4,2
+dl,litter,FOR06,1,2,FOR06_1,t1,2.999999999988,Depth in centimeters,1.1811023621999999,Depth in inches,Pre-thinning,Duff & litter,Litter,Pre-thin,4,1
+dl,litter,FOR06,1,2,FOR06_1,t2,2.999999999988,Depth in centimeters,1.1811023621999999,Depth in inches,Post-thinning,Duff & litter,Litter,Post-thin,4,2
+dl,litter,FOR06,2,2,FOR06_2,t1,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Pre-thinning,Duff & litter,Litter,Pre-thin,4,1
+dl,litter,FOR06,2,2,FOR06_2,t2,1.999999999992,Depth in centimeters,0.7874015748,Depth in inches,Post-thinning,Duff & litter,Litter,Post-thin,4,2
+dl,litter,FOR06,3,2,FOR06_3,t1,5.999999999976,Depth in centimeters,2.3622047243999997,Depth in inches,Pre-thinning,Duff & litter,Litter,Pre-thin,4,1
+dl,litter,FOR06,3,2,FOR06_3,t2,1.999999999992,Depth in centimeters,0.7874015748,Depth in inches,Post-thinning,Duff & litter,Litter,Post-thin,4,2
+dl,litter,FOR07,1,2,FOR07_1,t1,3.999999999984,Depth in centimeters,1.5748031496,Depth in inches,Pre-thinning,Duff & litter,Litter,Pre-thin,4,1
+dl,litter,FOR07,1,2,FOR07_1,t2,1.499999999994,Depth in centimeters,0.5905511810999999,Depth in inches,Post-thinning,Duff & litter,Litter,Post-thin,4,2
+dl,litter,FOR07,2,2,FOR07_2,t1,11.999999999952,Depth in centimeters,4.7244094487999995,Depth in inches,Pre-thinning,Duff & litter,Litter,Pre-thin,4,1
+dl,litter,FOR07,2,2,FOR07_2,t2,3.999999999984,Depth in centimeters,1.5748031496,Depth in inches,Post-thinning,Duff & litter,Litter,Post-thin,4,2
+dl,litter,FOR07,3,2,FOR07_3,t1,3.999999999984,Depth in centimeters,1.5748031496,Depth in inches,Pre-thinning,Duff & litter,Litter,Pre-thin,4,1
+dl,litter,FOR07,3,2,FOR07_3,t2,2.999999999988,Depth in centimeters,1.1811023621999999,Depth in inches,Post-thinning,Duff & litter,Litter,Post-thin,4,2
+dl,litter,FOR08,1,2,FOR08_1,t1,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Pre-thinning,Duff & litter,Litter,Pre-thin,4,1
+dl,litter,FOR08,1,2,FOR08_1,t2,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Post-thinning,Duff & litter,Litter,Post-thin,4,2
+dl,litter,FOR08,2,2,FOR08_2,t1,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Pre-thinning,Duff & litter,Litter,Pre-thin,4,1
+dl,litter,FOR08,2,2,FOR08_2,t2,2.999999999988,Depth in centimeters,1.1811023621999999,Depth in inches,Post-thinning,Duff & litter,Litter,Post-thin,4,2
+dl,litter,FOR08,3,2,FOR08_3,t1,9.99999999996,Depth in centimeters,3.937007874,Depth in inches,Pre-thinning,Duff & litter,Litter,Pre-thin,4,1
+dl,litter,FOR08,3,2,FOR08_3,t2,3.999999999984,Depth in centimeters,1.5748031496,Depth in inches,Post-thinning,Duff & litter,Litter,Post-thin,4,2
+dl,litter,FOR10,1,2,FOR10_1,t1,2.999999999988,Depth in centimeters,1.1811023621999999,Depth in inches,Pre-thinning,Duff & litter,Litter,Pre-thin,4,1
+dl,litter,FOR10,1,2,FOR10_1,t2,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Post-thinning,Duff & litter,Litter,Post-thin,4,2
+dl,litter,FOR10,2,2,FOR10_2,t1,2.999999999988,Depth in centimeters,1.1811023621999999,Depth in inches,Pre-thinning,Duff & litter,Litter,Pre-thin,4,1
+dl,litter,FOR10,2,2,FOR10_2,t2,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Post-thinning,Duff & litter,Litter,Post-thin,4,2
+dl,litter,FOR10,3,2,FOR10_3,t1,3.999999999984,Depth in centimeters,1.5748031496,Depth in inches,Pre-thinning,Duff & litter,Litter,Pre-thin,4,1
+dl,litter,FOR10,3,2,FOR10_3,t2,1.999999999992,Depth in centimeters,0.7874015748,Depth in inches,Post-thinning,Duff & litter,Litter,Post-thin,4,2
+dl,duff,FOR05,1,1,FOR05_1,t1,1.999999999992,Depth in centimeters,0.7874015748,Depth in inches,Pre-thinning,Duff & litter,Duff,Pre-thin,1,1
+dl,duff,FOR05,1,1,FOR05_1,t2,1.999999999992,Depth in centimeters,0.7874015748,Depth in inches,Post-thinning,Duff & litter,Duff,Post-thin,1,2
+dl,duff,FOR05,2,1,FOR05_2,t1,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Pre-thinning,Duff & litter,Duff,Pre-thin,1,1
+dl,duff,FOR05,2,1,FOR05_2,t2,2.999999999988,Depth in centimeters,1.1811023621999999,Depth in inches,Post-thinning,Duff & litter,Duff,Post-thin,1,2
+dl,duff,FOR05,3,1,FOR05_3,t1,0,Depth in centimeters,0,Depth in inches,Pre-thinning,Duff & litter,Duff,Pre-thin,1,1
+dl,duff,FOR05,3,1,FOR05_3,t2,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Post-thinning,Duff & litter,Duff,Post-thin,1,2
+dl,duff,FOR06,1,1,FOR06_1,t1,0,Depth in centimeters,0,Depth in inches,Pre-thinning,Duff & litter,Duff,Pre-thin,1,1
+dl,duff,FOR06,1,1,FOR06_1,t2,0,Depth in centimeters,0,Depth in inches,Post-thinning,Duff & litter,Duff,Post-thin,1,2
+dl,duff,FOR06,2,1,FOR06_2,t1,0,Depth in centimeters,0,Depth in inches,Pre-thinning,Duff & litter,Duff,Pre-thin,1,1
+dl,duff,FOR06,2,1,FOR06_2,t2,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Post-thinning,Duff & litter,Duff,Post-thin,1,2
+dl,duff,FOR06,3,1,FOR06_3,t1,0,Depth in centimeters,0,Depth in inches,Pre-thinning,Duff & litter,Duff,Pre-thin,1,1
+dl,duff,FOR06,3,1,FOR06_3,t2,0,Depth in centimeters,0,Depth in inches,Post-thinning,Duff & litter,Duff,Post-thin,1,2
+dl,duff,FOR07,1,1,FOR07_1,t1,0,Depth in centimeters,0,Depth in inches,Pre-thinning,Duff & litter,Duff,Pre-thin,1,1
+dl,duff,FOR07,1,1,FOR07_1,t2,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Post-thinning,Duff & litter,Duff,Post-thin,1,2
+dl,duff,FOR07,2,1,FOR07_2,t1,0,Depth in centimeters,0,Depth in inches,Pre-thinning,Duff & litter,Duff,Pre-thin,1,1
+dl,duff,FOR07,2,1,FOR07_2,t2,0.499999999998,Depth in centimeters,0.1968503937,Depth in inches,Post-thinning,Duff & litter,Duff,Post-thin,1,2
+dl,duff,FOR07,3,1,FOR07_3,t1,0,Depth in centimeters,0,Depth in inches,Pre-thinning,Duff & litter,Duff,Pre-thin,1,1
+dl,duff,FOR07,3,1,FOR07_3,t2,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Post-thinning,Duff & litter,Duff,Post-thin,1,2
+dl,duff,FOR08,1,1,FOR08_1,t1,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Pre-thinning,Duff & litter,Duff,Pre-thin,1,1
+dl,duff,FOR08,1,1,FOR08_1,t2,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Post-thinning,Duff & litter,Duff,Post-thin,1,2
+dl,duff,FOR08,2,1,FOR08_2,t1,2.999999999988,Depth in centimeters,1.1811023621999999,Depth in inches,Pre-thinning,Duff & litter,Duff,Pre-thin,1,1
+dl,duff,FOR08,2,1,FOR08_2,t2,1.999999999992,Depth in centimeters,0.7874015748,Depth in inches,Post-thinning,Duff & litter,Duff,Post-thin,1,2
+dl,duff,FOR08,3,1,FOR08_3,t1,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Pre-thinning,Duff & litter,Duff,Pre-thin,1,1
+dl,duff,FOR08,3,1,FOR08_3,t2,1.999999999992,Depth in centimeters,0.7874015748,Depth in inches,Post-thinning,Duff & litter,Duff,Post-thin,1,2
+dl,duff,FOR10,1,1,FOR10_1,t1,0,Depth in centimeters,0,Depth in inches,Pre-thinning,Duff & litter,Duff,Pre-thin,1,1
+dl,duff,FOR10,1,1,FOR10_1,t2,0,Depth in centimeters,0,Depth in inches,Post-thinning,Duff & litter,Duff,Post-thin,1,2
+dl,duff,FOR10,2,1,FOR10_2,t1,0,Depth in centimeters,0,Depth in inches,Pre-thinning,Duff & litter,Duff,Pre-thin,1,1
+dl,duff,FOR10,2,1,FOR10_2,t2,0,Depth in centimeters,0,Depth in inches,Post-thinning,Duff & litter,Duff,Post-thin,1,2
+dl,duff,FOR10,3,1,FOR10_3,t1,0,Depth in centimeters,0,Depth in inches,Pre-thinning,Duff & litter,Duff,Pre-thin,1,1
+dl,duff,FOR10,3,1,FOR10_3,t2,0,Depth in centimeters,0,Depth in inches,Post-thinning,Duff & litter,Duff,Post-thin,1,2
+dl,duff,FOR05,1,2,FOR05_1,t1,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Pre-thinning,Duff & litter,Duff,Pre-thin,2,1
+dl,duff,FOR05,1,2,FOR05_1,t2,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Post-thinning,Duff & litter,Duff,Post-thin,2,2
+dl,duff,FOR05,2,2,FOR05_2,t1,1.999999999992,Depth in centimeters,0.7874015748,Depth in inches,Pre-thinning,Duff & litter,Duff,Pre-thin,2,1
+dl,duff,FOR05,2,2,FOR05_2,t2,0,Depth in centimeters,0,Depth in inches,Post-thinning,Duff & litter,Duff,Post-thin,2,2
+dl,duff,FOR05,3,2,FOR05_3,t1,0,Depth in centimeters,0,Depth in inches,Pre-thinning,Duff & litter,Duff,Pre-thin,2,1
+dl,duff,FOR05,3,2,FOR05_3,t2,0,Depth in centimeters,0,Depth in inches,Post-thinning,Duff & litter,Duff,Post-thin,2,2
+dl,duff,FOR06,1,2,FOR06_1,t1,0,Depth in centimeters,0,Depth in inches,Pre-thinning,Duff & litter,Duff,Pre-thin,2,1
+dl,duff,FOR06,1,2,FOR06_1,t2,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Post-thinning,Duff & litter,Duff,Post-thin,2,2
+dl,duff,FOR06,2,2,FOR06_2,t1,0,Depth in centimeters,0,Depth in inches,Pre-thinning,Duff & litter,Duff,Pre-thin,2,1
+dl,duff,FOR06,2,2,FOR06_2,t2,0,Depth in centimeters,0,Depth in inches,Post-thinning,Duff & litter,Duff,Post-thin,2,2
+dl,duff,FOR06,3,2,FOR06_3,t1,0,Depth in centimeters,0,Depth in inches,Pre-thinning,Duff & litter,Duff,Pre-thin,2,1
+dl,duff,FOR06,3,2,FOR06_3,t2,0,Depth in centimeters,0,Depth in inches,Post-thinning,Duff & litter,Duff,Post-thin,2,2
+dl,duff,FOR07,1,2,FOR07_1,t1,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Pre-thinning,Duff & litter,Duff,Pre-thin,2,1
+dl,duff,FOR07,1,2,FOR07_1,t2,0,Depth in centimeters,0,Depth in inches,Post-thinning,Duff & litter,Duff,Post-thin,2,2
+dl,duff,FOR07,2,2,FOR07_2,t1,3.999999999984,Depth in centimeters,1.5748031496,Depth in inches,Pre-thinning,Duff & litter,Duff,Pre-thin,2,1
+dl,duff,FOR07,2,2,FOR07_2,t2,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Post-thinning,Duff & litter,Duff,Post-thin,2,2
+dl,duff,FOR07,3,2,FOR07_3,t1,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Pre-thinning,Duff & litter,Duff,Pre-thin,2,1
+dl,duff,FOR07,3,2,FOR07_3,t2,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Post-thinning,Duff & litter,Duff,Post-thin,2,2
+dl,duff,FOR08,1,2,FOR08_1,t1,0,Depth in centimeters,0,Depth in inches,Pre-thinning,Duff & litter,Duff,Pre-thin,2,1
+dl,duff,FOR08,1,2,FOR08_1,t2,1.999999999992,Depth in centimeters,0.7874015748,Depth in inches,Post-thinning,Duff & litter,Duff,Post-thin,2,2
+dl,duff,FOR08,2,2,FOR08_2,t1,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Pre-thinning,Duff & litter,Duff,Pre-thin,2,1
+dl,duff,FOR08,2,2,FOR08_2,t2,4.99999999998,Depth in centimeters,1.968503937,Depth in inches,Post-thinning,Duff & litter,Duff,Post-thin,2,2
+dl,duff,FOR08,3,2,FOR08_3,t1,1.999999999992,Depth in centimeters,0.7874015748,Depth in inches,Pre-thinning,Duff & litter,Duff,Pre-thin,2,1
+dl,duff,FOR08,3,2,FOR08_3,t2,1.999999999992,Depth in centimeters,0.7874015748,Depth in inches,Post-thinning,Duff & litter,Duff,Post-thin,2,2
+dl,duff,FOR10,1,2,FOR10_1,t1,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Pre-thinning,Duff & litter,Duff,Pre-thin,2,1
+dl,duff,FOR10,1,2,FOR10_1,t2,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Post-thinning,Duff & litter,Duff,Post-thin,2,2
+dl,duff,FOR10,2,2,FOR10_2,t1,0,Depth in centimeters,0,Depth in inches,Pre-thinning,Duff & litter,Duff,Pre-thin,2,1
+dl,duff,FOR10,2,2,FOR10_2,t2,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Post-thinning,Duff & litter,Duff,Post-thin,2,2
+dl,duff,FOR10,3,2,FOR10_3,t1,0,Depth in centimeters,0,Depth in inches,Pre-thinning,Duff & litter,Duff,Pre-thin,2,1
+dl,duff,FOR10,3,2,FOR10_3,t2,0,Depth in centimeters,0,Depth in inches,Post-thinning,Duff & litter,Duff,Post-thin,2,2

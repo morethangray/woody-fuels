@@ -1,0 +1,111 @@
+fuel_type,fuel_class,plot_id,time,si_value,si_units,us_value,us_units,lab_fuel,lab_class,lab_time,lab_time_abbr,order_class,order_time,subset_by,metric
+dl,duff,FOR05,t1,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Duff & litter,Duff,Pre-thinning,Pre-thin,1,1,type_class_time_plot,mean
+dl,duff,FOR05,t1,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Duff & litter,Duff,Pre-thinning,Pre-thin,2,1,type_class_time_plot,mean
+dl,duff,FOR05,t2,1.999999999992,Depth in centimeters,0.7874015748,Depth in inches,Duff & litter,Duff,Post-thinning,Post-thin,1,2,type_class_time_plot,mean
+dl,duff,FOR05,t2,0.333333333332,Depth in centimeters,0.1312335958,Depth in inches,Duff & litter,Duff,Post-thinning,Post-thin,2,2,type_class_time_plot,mean
+dl,duff,FOR06,t1,0,Depth in centimeters,0,Depth in inches,Duff & litter,Duff,Pre-thinning,Pre-thin,1,1,type_class_time_plot,mean
+dl,duff,FOR06,t1,0,Depth in centimeters,0,Depth in inches,Duff & litter,Duff,Pre-thinning,Pre-thin,2,1,type_class_time_plot,mean
+dl,duff,FOR06,t2,0.333333333332,Depth in centimeters,0.1312335958,Depth in inches,Duff & litter,Duff,Post-thinning,Post-thin,1,2,type_class_time_plot,mean
+dl,duff,FOR06,t2,0.333333333332,Depth in centimeters,0.1312335958,Depth in inches,Duff & litter,Duff,Post-thinning,Post-thin,2,2,type_class_time_plot,mean
+dl,duff,FOR07,t1,0,Depth in centimeters,0,Depth in inches,Duff & litter,Duff,Pre-thinning,Pre-thin,1,1,type_class_time_plot,mean
+dl,duff,FOR07,t1,1.999999999992,Depth in centimeters,0.7874015748,Depth in inches,Duff & litter,Duff,Pre-thinning,Pre-thin,2,1,type_class_time_plot,mean
+dl,duff,FOR07,t2,0.8333333333299999,Depth in centimeters,0.32808398949999995,Depth in inches,Duff & litter,Duff,Post-thinning,Post-thin,1,2,type_class_time_plot,mean
+dl,duff,FOR07,t2,0.666666666664,Depth in centimeters,0.2624671916,Depth in inches,Duff & litter,Duff,Post-thinning,Post-thin,2,2,type_class_time_plot,mean
+dl,duff,FOR08,t1,1.6666666666599999,Depth in centimeters,0.6561679789999999,Depth in inches,Duff & litter,Duff,Pre-thinning,Pre-thin,1,1,type_class_time_plot,mean
+dl,duff,FOR08,t1,0.999999999996,Depth in centimeters,0.3937007874,Depth in inches,Duff & litter,Duff,Pre-thinning,Pre-thin,2,1,type_class_time_plot,mean
+dl,duff,FOR08,t2,1.6666666666599999,Depth in centimeters,0.6561679789999999,Depth in inches,Duff & litter,Duff,Post-thinning,Post-thin,1,2,type_class_time_plot,mean
+dl,duff,FOR08,t2,2.999999999988,Depth in centimeters,1.1811023621999999,Depth in inches,Duff & litter,Duff,Post-thinning,Post-thin,2,2,type_class_time_plot,mean
+dl,duff,FOR10,t1,0,Depth in centimeters,0,Depth in inches,Duff & litter,Duff,Pre-thinning,Pre-thin,1,1,type_class_time_plot,mean
+dl,duff,FOR10,t1,0.333333333332,Depth in centimeters,0.1312335958,Depth in inches,Duff & litter,Duff,Pre-thinning,Pre-thin,2,1,type_class_time_plot,mean
+dl,duff,FOR10,t2,0,Depth in centimeters,0,Depth in inches,Duff & litter,Duff,Post-thinning,Post-thin,1,2,type_class_time_plot,mean
+dl,duff,FOR10,t2,0.666666666664,Depth in centimeters,0.2624671916,Depth in inches,Duff & litter,Duff,Post-thinning,Post-thin,2,2,type_class_time_plot,mean
+dl,litter,FOR05,t1,5.333333333312,Depth in centimeters,2.0997375328,Depth in inches,Duff & litter,Litter,Pre-thinning,Pre-thin,3,1,type_class_time_plot,mean
+dl,litter,FOR05,t1,4.666666666648,Depth in centimeters,1.8372703411999998,Depth in inches,Duff & litter,Litter,Pre-thinning,Pre-thin,4,1,type_class_time_plot,mean
+dl,litter,FOR05,t2,5.333333333312,Depth in centimeters,2.0997375328,Depth in inches,Duff & litter,Litter,Post-thinning,Post-thin,3,2,type_class_time_plot,mean
+dl,litter,FOR05,t2,2.999999999988,Depth in centimeters,1.1811023621999999,Depth in inches,Duff & litter,Litter,Post-thinning,Post-thin,4,2,type_class_time_plot,mean
+dl,litter,FOR06,t1,4.99999999998,Depth in centimeters,1.968503937,Depth in inches,Duff & litter,Litter,Pre-thinning,Pre-thin,3,1,type_class_time_plot,mean
+dl,litter,FOR06,t1,3.3333333333199997,Depth in centimeters,1.3123359579999998,Depth in inches,Duff & litter,Litter,Pre-thinning,Pre-thin,4,1,type_class_time_plot,mean
+dl,litter,FOR06,t2,2.666666666656,Depth in centimeters,1.0498687664,Depth in inches,Duff & litter,Litter,Post-thinning,Post-thin,3,2,type_class_time_plot,mean
+dl,litter,FOR06,t2,2.333333333324,Depth in centimeters,0.9186351705999999,Depth in inches,Duff & litter,Litter,Post-thinning,Post-thin,4,2,type_class_time_plot,mean
+dl,litter,FOR07,t1,2.999999999988,Depth in centimeters,1.1811023621999999,Depth in inches,Duff & litter,Litter,Pre-thinning,Pre-thin,3,1,type_class_time_plot,mean
+dl,litter,FOR07,t1,6.666666666639999,Depth in centimeters,2.6246719159999996,Depth in inches,Duff & litter,Litter,Pre-thinning,Pre-thin,4,1,type_class_time_plot,mean
+dl,litter,FOR07,t2,2.833333333322,Depth in centimeters,1.1154855643,Depth in inches,Duff & litter,Litter,Post-thinning,Post-thin,3,2,type_class_time_plot,mean
+dl,litter,FOR07,t2,2.833333333322,Depth in centimeters,1.1154855643,Depth in inches,Duff & litter,Litter,Post-thinning,Post-thin,4,2,type_class_time_plot,mean
+dl,litter,FOR08,t1,2.333333333324,Depth in centimeters,0.9186351706,Depth in inches,Duff & litter,Litter,Pre-thinning,Pre-thin,3,1,type_class_time_plot,mean
+dl,litter,FOR08,t1,3.999999999984,Depth in centimeters,1.5748031496,Depth in inches,Duff & litter,Litter,Pre-thinning,Pre-thin,4,1,type_class_time_plot,mean
+dl,litter,FOR08,t2,2.999999999988,Depth in centimeters,1.1811023621999999,Depth in inches,Duff & litter,Litter,Post-thinning,Post-thin,3,2,type_class_time_plot,mean
+dl,litter,FOR08,t2,2.666666666656,Depth in centimeters,1.0498687664,Depth in inches,Duff & litter,Litter,Post-thinning,Post-thin,4,2,type_class_time_plot,mean
+dl,litter,FOR10,t1,4.333333333316,Depth in centimeters,1.7060367454,Depth in inches,Duff & litter,Litter,Pre-thinning,Pre-thin,3,1,type_class_time_plot,mean
+dl,litter,FOR10,t1,3.3333333333199997,Depth in centimeters,1.3123359579999998,Depth in inches,Duff & litter,Litter,Pre-thinning,Pre-thin,4,1,type_class_time_plot,mean
+dl,litter,FOR10,t2,1.333333333328,Depth in centimeters,0.5249343832,Depth in inches,Duff & litter,Litter,Post-thinning,Post-thin,3,2,type_class_time_plot,mean
+dl,litter,FOR10,t2,1.333333333328,Depth in centimeters,0.5249343832,Depth in inches,Duff & litter,Litter,Post-thinning,Post-thin,4,2,type_class_time_plot,mean
+wd,hr0001,FOR05,t1,1.2747464707350755,Metric tons per hectare,0.5685755890879016,Tons per acre,Coarse woody debris,1-hr,Pre-thinning,Pre-thin,1,1,type_class_time_plot,mean
+wd,hr0001,FOR05,t2,1.6170216486138074,Metric tons per hectare,0.7212406996493342,Tons per acre,Coarse woody debris,1-hr,Post-thinning,Post-thin,1,2,type_class_time_plot,mean
+wd,hr0001,FOR06,t1,0.37740432857611417,Metric tons per hectare,0.16833377724179935,Tons per acre,Coarse woody debris,1-hr,Pre-thinning,Pre-thin,1,1,type_class_time_plot,mean
+wd,hr0001,FOR06,t2,4.0374842095831704,Metric tons per hectare,1.8008404146222883,Tons per acre,Coarse woody debris,1-hr,Post-thinning,Post-thin,1,2,type_class_time_plot,mean
+wd,hr0001,FOR07,t1,2.842405892039253,Metric tons per hectare,1.2677992381977043,Tons per acre,Coarse woody debris,1-hr,Pre-thinning,Pre-thin,1,1,type_class_time_plot,mean
+wd,hr0001,FOR07,t2,1.93556331097714,Metric tons per hectare,0.8633199424518911,Tons per acre,Coarse woody debris,1-hr,Post-thinning,Post-thin,1,2,type_class_time_plot,mean
+wd,hr0001,FOR08,t1,0.2574121972454393,Metric tons per hectare,0.11481364729948229,Tons per acre,Coarse woody debris,1-hr,Pre-thinning,Pre-thin,1,1,type_class_time_plot,mean
+wd,hr0001,FOR08,t2,0.9173644907173665,Metric tons per hectare,0.40917238658223304,Tons per acre,Coarse woody debris,1-hr,Post-thinning,Post-thin,1,2,type_class_time_plot,mean
+wd,hr0001,FOR10,t1,0.19226855961001385,Metric tons per hectare,0.08575760910348522,Tons per acre,Coarse woody debris,1-hr,Pre-thinning,Pre-thin,1,1,type_class_time_plot,mean
+wd,hr0001,FOR10,t2,1.7587616807435063,Metric tons per hectare,0.7844610529632052,Tons per acre,Coarse woody debris,1-hr,Post-thinning,Post-thin,1,2,type_class_time_plot,mean
+wd,hr0010,FOR05,t1,5.105731265782456,Metric tons per hectare,2.27731100168709,Tons per acre,Coarse woody debris,10-hr,Pre-thinning,Pre-thin,2,1,type_class_time_plot,mean
+wd,hr0010,FOR05,t2,6.034218948659256,Metric tons per hectare,2.6914446693395435,Tons per acre,Coarse woody debris,10-hr,Post-thinning,Post-thin,2,2,type_class_time_plot,mean
+wd,hr0010,FOR06,t1,1.6787714829078917,Metric tons per hectare,0.7487829986208259,Tons per acre,Coarse woody debris,10-hr,Pre-thinning,Pre-thin,2,1,type_class_time_plot,mean
+wd,hr0010,FOR06,t2,5.526495050485558,Metric tons per hectare,2.4649844114565376,Tons per acre,Coarse woody debris,10-hr,Post-thinning,Post-thin,2,2,type_class_time_plot,mean
+wd,hr0010,FOR07,t1,6.012379132882556,Metric tons per hectare,2.6817034491001586,Tons per acre,Coarse woody debris,10-hr,Pre-thinning,Pre-thin,2,1,type_class_time_plot,mean
+wd,hr0010,FOR07,t2,8.459696341999326,Metric tons per hectare,3.773281151650012,Tons per acre,Coarse woody debris,10-hr,Post-thinning,Post-thin,2,2,type_class_time_plot,mean
+wd,hr0010,FOR08,t1,1.4468301429224613,Metric tons per hectare,0.6453301261919987,Tons per acre,Coarse woody debris,10-hr,Pre-thinning,Pre-thin,2,1,type_class_time_plot,mean
+wd,hr0010,FOR08,t2,1.987691230715288,Metric tons per hectare,0.8865705756981659,Tons per acre,Coarse woody debris,10-hr,Post-thinning,Post-thin,2,2,type_class_time_plot,mean
+wd,hr0010,FOR10,t1,2.731434999333734,Metric tons per hectare,1.2183028542969376,Tons per acre,Coarse woody debris,10-hr,Pre-thinning,Pre-thin,2,1,type_class_time_plot,mean
+wd,hr0010,FOR10,t2,3.345917663446735,Metric tons per hectare,1.4923807597889094,Tons per acre,Coarse woody debris,10-hr,Post-thinning,Post-thin,2,2,type_class_time_plot,mean
+wd,hr0100,FOR05,t1,1.108679959047138,Metric tons per hectare,0.49450488806741205,Tons per acre,Coarse woody debris,100-hr,Pre-thinning,Pre-thin,3,1,type_class_time_plot,mean
+wd,hr0100,FOR05,t2,14.516715047640595,Metric tons per hectare,6.4748952041215855,Tons per acre,Coarse woody debris,100-hr,Post-thinning,Post-thin,3,2,type_class_time_plot,mean
+wd,hr0100,FOR06,t1,1.0623470647659112,Metric tons per hectare,0.4738390119384082,Tons per acre,Coarse woody debris,100-hr,Pre-thinning,Pre-thin,3,1,type_class_time_plot,mean
+wd,hr0100,FOR06,t2,9.779898089359694,Metric tons per hectare,4.3621311727741725,Tons per acre,Coarse woody debris,100-hr,Post-thinning,Post-thin,3,2,type_class_time_plot,mean
+wd,hr0100,FOR07,t1,3.3117785700399454,Metric tons per hectare,1.4771536886886465,Tons per acre,Coarse woody debris,100-hr,Pre-thinning,Pre-thin,3,1,type_class_time_plot,mean
+wd,hr0100,FOR07,t2,8.969352821582685,Metric tons per hectare,4.000603399457041,Tons per acre,Coarse woody debris,100-hr,Post-thinning,Post-thin,3,2,type_class_time_plot,mean
+wd,hr0100,FOR08,t1,110.11242052885261,Metric tons per hectare,49.11347927245878,Tons per acre,Coarse woody debris,100-hr,Pre-thinning,Pre-thin,3,1,type_class_time_plot,mean
+wd,hr0100,FOR08,t2,4.418584520456491,Metric tons per hectare,1.970822712068016,Tons per acre,Coarse woody debris,100-hr,Post-thinning,Post-thin,3,2,type_class_time_plot,mean
+wd,hr0100,FOR10,t1,4.460538490565718,Metric tons per hectare,1.9895354552032642,Tons per acre,Coarse woody debris,100-hr,Pre-thinning,Pre-thin,3,1,type_class_time_plot,mean
+wd,hr0100,FOR10,t2,5.513679315789183,Metric tons per hectare,2.4592682050799213,Tons per acre,Coarse woody debris,100-hr,Post-thinning,Post-thin,3,2,type_class_time_plot,mean
+wd,hr1000r,FOR05,t1,0,Metric tons per hectare,0,Tons per acre,Coarse woody debris,1000-hr rotten,Pre-thinning,Pre-thin,4,1,type_class_time_plot,mean
+wd,hr1000r,FOR05,t2,0,Metric tons per hectare,0,Tons per acre,Coarse woody debris,1000-hr rotten,Post-thinning,Post-thin,4,2,type_class_time_plot,mean
+wd,hr1000r,FOR06,t1,0,Metric tons per hectare,0,Tons per acre,Coarse woody debris,1000-hr rotten,Pre-thinning,Pre-thin,4,1,type_class_time_plot,mean
+wd,hr1000r,FOR06,t2,0,Metric tons per hectare,0,Tons per acre,Coarse woody debris,1000-hr rotten,Post-thinning,Post-thin,4,2,type_class_time_plot,mean
+wd,hr1000r,FOR07,t1,0,Metric tons per hectare,0,Tons per acre,Coarse woody debris,1000-hr rotten,Pre-thinning,Pre-thin,4,1,type_class_time_plot,mean
+wd,hr1000r,FOR07,t2,0,Metric tons per hectare,0,Tons per acre,Coarse woody debris,1000-hr rotten,Post-thinning,Post-thin,4,2,type_class_time_plot,mean
+wd,hr1000r,FOR08,t1,34.81149460650569,Metric tons per hectare,15.52698242930673,Tons per acre,Coarse woody debris,1000-hr rotten,Pre-thinning,Pre-thin,4,1,type_class_time_plot,mean
+wd,hr1000r,FOR08,t2,0,Metric tons per hectare,0,Tons per acre,Coarse woody debris,1000-hr rotten,Post-thinning,Post-thin,4,2,type_class_time_plot,mean
+wd,hr1000r,FOR10,t1,0,Metric tons per hectare,0,Tons per acre,Coarse woody debris,1000-hr rotten,Pre-thinning,Pre-thin,4,1,type_class_time_plot,mean
+wd,hr1000r,FOR10,t2,0,Metric tons per hectare,0,Tons per acre,Coarse woody debris,1000-hr rotten,Post-thinning,Post-thin,4,2,type_class_time_plot,mean
+wd,hr1000s,FOR05,t1,28.98948269088122,Metric tons per hectare,12.930188532953267,Tons per acre,Coarse woody debris,1000-hr sound,Pre-thinning,Pre-thin,5,1,type_class_time_plot,mean
+wd,hr1000s,FOR05,t2,327.2978931668481,Metric tons per hectare,145.98478731795186,Tons per acre,Coarse woody debris,1000-hr sound,Post-thinning,Post-thin,5,2,type_class_time_plot,mean
+wd,hr1000s,FOR06,t1,0,Metric tons per hectare,0,Tons per acre,Coarse woody debris,1000-hr sound,Pre-thinning,Pre-thin,5,1,type_class_time_plot,mean
+wd,hr1000s,FOR06,t2,76.9117767194766,Metric tons per hectare,34.30498515587717,Tons per acre,Coarse woody debris,1000-hr sound,Post-thinning,Post-thin,5,2,type_class_time_plot,mean
+wd,hr1000s,FOR07,t1,45.29252190639027,Metric tons per hectare,20.20183849526774,Tons per acre,Coarse woody debris,1000-hr sound,Pre-thinning,Pre-thin,5,1,type_class_time_plot,mean
+wd,hr1000s,FOR07,t2,373.3286284677885,Metric tons per hectare,166.51589137724733,Tons per acre,Coarse woody debris,1000-hr sound,Post-thinning,Post-thin,5,2,type_class_time_plot,mean
+wd,hr1000s,FOR08,t1,0,Metric tons per hectare,0,Tons per acre,Coarse woody debris,1000-hr sound,Pre-thinning,Pre-thin,5,1,type_class_time_plot,mean
+wd,hr1000s,FOR08,t2,61.38426882280504,Metric tons per hectare,27.37924568367754,Tons per acre,Coarse woody debris,1000-hr sound,Post-thinning,Post-thin,5,2,type_class_time_plot,mean
+wd,hr1000s,FOR10,t1,0,Metric tons per hectare,0,Tons per acre,Coarse woody debris,1000-hr sound,Pre-thinning,Pre-thin,5,1,type_class_time_plot,mean
+wd,hr1000s,FOR10,t2,41.52705941485042,Metric tons per hectare,18.522328017328466,Tons per acre,Coarse woody debris,1000-hr sound,Post-thinning,Post-thin,5,2,type_class_time_plot,mean
+dl,all,FOR05,t1,11.999999999952,Depth in centimeters,4.7244094487999995,Depth in inches,Duff & litter,All,Pre-thinning,Pre-thin,1,1,type_time_plot,total
+dl,all,FOR05,t2,10.666666666624,Depth in centimeters,4.1994750656,Depth in inches,Duff & litter,All,Post-thinning,Post-thin,1,2,type_time_plot,total
+dl,all,FOR06,t1,8.3333333333,Depth in centimeters,3.2808398949999997,Depth in inches,Duff & litter,All,Pre-thinning,Pre-thin,1,1,type_time_plot,total
+dl,all,FOR06,t2,5.666666666644,Depth in centimeters,2.2309711286,Depth in inches,Duff & litter,All,Post-thinning,Post-thin,1,2,type_time_plot,total
+dl,all,FOR07,t1,11.66666666662,Depth in centimeters,4.593175852999999,Depth in inches,Duff & litter,All,Pre-thinning,Pre-thin,1,1,type_time_plot,total
+dl,all,FOR07,t2,7.166666666637999,Depth in centimeters,2.8215223096999997,Depth in inches,Duff & litter,All,Post-thinning,Post-thin,1,2,type_time_plot,total
+dl,all,FOR08,t1,8.999999999964,Depth in centimeters,3.5433070865999996,Depth in inches,Duff & litter,All,Pre-thinning,Pre-thin,1,1,type_time_plot,total
+dl,all,FOR08,t2,10.333333333292,Depth in centimeters,4.068241469799999,Depth in inches,Duff & litter,All,Post-thinning,Post-thin,1,2,type_time_plot,total
+dl,all,FOR10,t1,7.999999999968,Depth in centimeters,3.1496062992,Depth in inches,Duff & litter,All,Pre-thinning,Pre-thin,1,1,type_time_plot,total
+dl,all,FOR10,t2,3.3333333333199997,Depth in centimeters,1.3123359579999998,Depth in inches,Duff & litter,All,Post-thinning,Post-thin,1,2,type_time_plot,total
+wd,all,FOR05,t1,36.47864038644589,Metric tons per hectare,16.27058001179567,Tons per acre,Coarse woody debris,All,Pre-thinning,Pre-thin,1,1,type_time_plot,total
+wd,all,FOR05,t2,349.46584881176176,Metric tons per hectare,155.8723678910623,Tons per acre,Coarse woody debris,All,Post-thinning,Post-thin,1,2,type_time_plot,total
+wd,all,FOR06,t1,3.118522876249917,Metric tons per hectare,1.3909557878010335,Tons per acre,Coarse woody debris,All,Pre-thinning,Pre-thin,1,1,type_time_plot,total
+wd,all,FOR06,t2,96.25565406890503,Metric tons per hectare,42.932941154730166,Tons per acre,Coarse woody debris,All,Post-thinning,Post-thin,1,2,type_time_plot,total
+wd,all,FOR07,t1,57.45908550135202,Metric tons per hectare,25.62849487125425,Tons per acre,Coarse woody debris,All,Pre-thinning,Pre-thin,1,1,type_time_plot,total
+wd,all,FOR07,t2,392.69324094234764,Metric tons per hectare,175.15309587080628,Tons per acre,Coarse woody debris,All,Post-thinning,Post-thin,1,2,type_time_plot,total
+wd,all,FOR08,t1,146.6281574755262,Metric tons per hectare,65.400605475257,Tons per acre,Coarse woody debris,All,Pre-thinning,Pre-thin,1,1,type_time_plot,total
+wd,all,FOR08,t2,68.70790906469419,Metric tons per hectare,30.645811358025952,Tons per acre,Coarse woody debris,All,Post-thinning,Post-thin,1,2,type_time_plot,total
+wd,all,FOR10,t1,7.384242049509466,Metric tons per hectare,3.293595918603687,Tons per acre,Coarse woody debris,All,Pre-thinning,Pre-thin,1,1,type_time_plot,total
+wd,all,FOR10,t2,52.14541807482984,Metric tons per hectare,23.258438035160502,Tons per acre,Coarse woody debris,All,Post-thinning,Post-thin,1,2,type_time_plot,total

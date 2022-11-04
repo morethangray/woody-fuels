@@ -251,75 +251,75 @@ wd,hr1000s,RxF09,2016,0,Metric tons per hectare,0,Tons per acre,Coarse woody deb
 wd,hr1000s,RxF09,2017,0,Metric tons per hectare,0,Tons per acre,Coarse woody debris,1000-hr sound,0 Years post-fire (2017),0-y post-fire (2017),5,2,type_class_time_plot,mean
 wd,hr1000s,RxF09,2019,0,Metric tons per hectare,0,Tons per acre,Coarse woody debris,1000-hr sound,2 Years post-fire (2019),2-y post-fire (2019),5,3,type_class_time_plot,mean
 wd,hr1000s,RxF09,2021,2.2088711109103225,Metric tons per hectare,0.9852235106647291,Tons per acre,Coarse woody debris,1000-hr sound,4 Years post-fire (2021),4-y post-fire (2021),5,4,type_class_time_plot,mean
-dl,all,RxF01,2016,17.78,Depth in centimeters,7,Depth in inches,Duff & litter,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
-dl,all,RxF01,2017,6.8580000000000005,Depth in centimeters,2.7,Depth in inches,Duff & litter,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
-dl,all,RxF01,2019,15.367,Depth in centimeters,6.05,Depth in inches,Duff & litter,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
-dl,all,RxF01,2021,18.161,Depth in centimeters,7.15,Depth in inches,Duff & litter,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
-dl,all,RxF02,2016,40.005,Depth in centimeters,15.75,Depth in inches,Duff & litter,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
-dl,all,RxF02,2017,9.779,Depth in centimeters,3.85,Depth in inches,Duff & litter,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
-dl,all,RxF02,2019,33.909,Depth in centimeters,13.35,Depth in inches,Duff & litter,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
-dl,all,RxF02,2021,7.366,Depth in centimeters,2.9,Depth in inches,Duff & litter,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
-dl,all,RxF03,2016,30.48,Depth in centimeters,12,Depth in inches,Duff & litter,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
-dl,all,RxF03,2017,17.653,Depth in centimeters,6.95,Depth in inches,Duff & litter,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
-dl,all,RxF03,2019,5.588,Depth in centimeters,2.2,Depth in inches,Duff & litter,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
-dl,all,RxF03,2021,4.572,Depth in centimeters,1.8,Depth in inches,Duff & litter,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
-dl,all,RxF04,2016,26.67,Depth in centimeters,10.5,Depth in inches,Duff & litter,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
-dl,all,RxF04,2017,6.985,Depth in centimeters,2.75,Depth in inches,Duff & litter,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
-dl,all,RxF04,2019,15.748000000000001,Depth in centimeters,6.2,Depth in inches,Duff & litter,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
-dl,all,RxF04,2021,14.605,Depth in centimeters,5.75,Depth in inches,Duff & litter,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
-dl,all,RxF05,2016,16.51,Depth in centimeters,6.5,Depth in inches,Duff & litter,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
-dl,all,RxF05,2017,3.81,Depth in centimeters,1.5,Depth in inches,Duff & litter,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
-dl,all,RxF05,2019,24.384,Depth in centimeters,9.6,Depth in inches,Duff & litter,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
-dl,all,RxF05,2021,4.064,Depth in centimeters,1.6,Depth in inches,Duff & litter,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
-dl,all,RxF06,2016,30.607,Depth in centimeters,12.05,Depth in inches,Duff & litter,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
-dl,all,RxF06,2017,5.207,Depth in centimeters,2.05,Depth in inches,Duff & litter,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
-dl,all,RxF06,2019,39.878,Depth in centimeters,15.7,Depth in inches,Duff & litter,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
-dl,all,RxF06,2021,5.461,Depth in centimeters,2.15,Depth in inches,Duff & litter,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
-dl,all,RxF07,2016,46.99,Depth in centimeters,18.5,Depth in inches,Duff & litter,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
-dl,all,RxF07,2017,7.239,Depth in centimeters,2.85,Depth in inches,Duff & litter,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
-dl,all,RxF07,2019,17.272,Depth in centimeters,6.8,Depth in inches,Duff & litter,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
-dl,all,RxF07,2021,12.446,Depth in centimeters,4.9,Depth in inches,Duff & litter,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
-dl,all,RxF08,2016,34.925,Depth in centimeters,13.75,Depth in inches,Duff & litter,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
-dl,all,RxF08,2017,4.191,Depth in centimeters,1.65,Depth in inches,Duff & litter,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
-dl,all,RxF08,2019,10.795,Depth in centimeters,4.25,Depth in inches,Duff & litter,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
-dl,all,RxF08,2021,12.318999999999999,Depth in centimeters,4.85,Depth in inches,Duff & litter,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
-dl,all,RxF09,2016,40.64,Depth in centimeters,16,Depth in inches,Duff & litter,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
-dl,all,RxF09,2017,4.953,Depth in centimeters,1.95,Depth in inches,Duff & litter,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
-dl,all,RxF09,2019,7.239,Depth in centimeters,2.85,Depth in inches,Duff & litter,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
-dl,all,RxF09,2021,5.715,Depth in centimeters,2.25,Depth in inches,Duff & litter,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
-wd,all,RxF01,2016,26.82097403590276,Metric tons per hectare,11.962967901829956,Tons per acre,Coarse woody debris,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
-wd,all,RxF01,2017,228.41464616688506,Metric tons per hectare,101.87986002091216,Tons per acre,Coarse woody debris,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
-wd,all,RxF01,2019,223.57625316122093,Metric tons per hectare,99.72178999162396,Tons per acre,Coarse woody debris,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
-wd,all,RxF01,2021,42.30027791083184,Metric tons per hectare,18.867206918301445,Tons per acre,Coarse woody debris,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
-wd,all,RxF02,2016,32.65303759696659,Metric tons per hectare,14.564245136916409,Tons per acre,Coarse woody debris,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
-wd,all,RxF02,2017,3.367502811211314,Metric tons per hectare,1.5020083903707913,Tons per acre,Coarse woody debris,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
-wd,all,RxF02,2019,5.386203382346655,Metric tons per hectare,2.402410072411532,Tons per acre,Coarse woody debris,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
-wd,all,RxF02,2021,2.950377947499866,Metric tons per hectare,1.3159580497323222,Tons per acre,Coarse woody debris,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
-wd,all,RxF03,2016,23.079380252029562,Metric tons per hectare,10.294103591449403,Tons per acre,Coarse woody debris,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
-wd,all,RxF03,2017,29.812687537993167,Metric tons per hectare,13.297362862619611,Tons per acre,Coarse woody debris,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
-wd,all,RxF03,2019,30.10337162115093,Metric tons per hectare,13.427016780174366,Tons per acre,Coarse woody debris,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
-wd,all,RxF03,2021,76.99299252640462,Metric tons per hectare,34.34120986904756,Tons per acre,Coarse woody debris,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
-wd,all,RxF04,2016,78.72270874143307,Metric tons per hectare,35.112715763351055,Tons per acre,Coarse woody debris,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
-wd,all,RxF04,2017,1.6474033011774885,Metric tons per hectare,0.7347918381701555,Tons per acre,Coarse woody debris,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
-wd,all,RxF04,2019,15.634724436684357,Metric tons per hectare,6.973561300929687,Tons per acre,Coarse woody debris,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
-wd,all,RxF04,2021,32.269811430671034,Metric tons per hectare,14.393314643475037,Tons per acre,Coarse woody debris,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
-wd,all,RxF05,2016,21.3794304384648,Metric tons per hectare,9.535874415015524,Tons per acre,Coarse woody debris,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
-wd,all,RxF05,2017,0.1885428519101897,Metric tons per hectare,0.08409583046841647,Tons per acre,Coarse woody debris,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
-wd,all,RxF05,2019,0.6718080081366277,Metric tons per hectare,0.29964674760777327,Tons per acre,Coarse woody debris,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
-wd,all,RxF05,2021,21.449863948545282,Metric tons per hectare,9.567289896764176,Tons per acre,Coarse woody debris,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
-wd,all,RxF06,2016,94.66659318543911,Metric tons per hectare,42.22417180438855,Tons per acre,Coarse woody debris,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
-wd,all,RxF06,2017,17.33214643817646,Metric tons per hectare,7.730662996510463,Tons per acre,Coarse woody debris,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
-wd,all,RxF06,2019,24.94542148718554,Metric tons per hectare,11.126414579476156,Tons per acre,Coarse woody debris,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
-wd,all,RxF06,2021,8.108561814590999,Metric tons per hectare,3.616664502493755,Tons per acre,Coarse woody debris,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
-wd,all,RxF07,2016,89.66279894779316,Metric tons per hectare,39.99232780900677,Tons per acre,Coarse woody debris,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
-wd,all,RxF07,2017,113.6544652124881,Metric tons per hectare,50.69333863179666,Tons per acre,Coarse woody debris,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
-wd,all,RxF07,2019,67.42019541513623,Metric tons per hectare,30.071452013887708,Tons per acre,Coarse woody debris,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
-wd,all,RxF07,2021,99.30943803787483,Metric tons per hectare,44.295021426349166,Tons per acre,Coarse woody debris,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
-wd,all,RxF08,2016,36.563168886893344,Metric tons per hectare,16.30828228674993,Tons per acre,Coarse woody debris,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
-wd,all,RxF08,2017,129.96412271242954,Metric tons per hectare,57.96794054970096,Tons per acre,Coarse woody debris,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
-wd,all,RxF08,2019,70.6485817717959,Metric tons per hectare,31.511410246117713,Tons per acre,Coarse woody debris,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
-wd,all,RxF08,2021,9.198151840763137,Metric tons per hectare,4.102654701500061,Tons per acre,Coarse woody debris,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
-wd,all,RxF09,2016,31.545846814857438,Metric tons per hectare,14.070404466930169,Tons per acre,Coarse woody debris,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
-wd,all,RxF09,2017,0.12020537378330773,Metric tons per hectare,0.05361524254384823,Tons per acre,Coarse woody debris,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
-wd,all,RxF09,2019,0.41846473907817566,Metric tons per hectare,0.1866479656905333,Tons per acre,Coarse woody debris,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
-wd,all,RxF09,2021,8.096490017497514,Metric tons per hectare,3.611280114851701,Tons per acre,Coarse woody debris,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
+dl,all,RxF01,2016,4.445,Depth in centimeters,1.75,Depth in inches,Duff & litter,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
+dl,all,RxF01,2017,1.7145,Depth in centimeters,0.675,Depth in inches,Duff & litter,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
+dl,all,RxF01,2019,3.84175,Depth in centimeters,1.5125,Depth in inches,Duff & litter,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
+dl,all,RxF01,2021,4.54025,Depth in centimeters,1.7875,Depth in inches,Duff & litter,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
+dl,all,RxF02,2016,10.001249999999999,Depth in centimeters,3.9375,Depth in inches,Duff & litter,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
+dl,all,RxF02,2017,2.44475,Depth in centimeters,0.9625,Depth in inches,Duff & litter,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
+dl,all,RxF02,2019,8.47725,Depth in centimeters,3.3375,Depth in inches,Duff & litter,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
+dl,all,RxF02,2021,1.8415,Depth in centimeters,0.725,Depth in inches,Duff & litter,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
+dl,all,RxF03,2016,7.620000000000001,Depth in centimeters,3,Depth in inches,Duff & litter,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
+dl,all,RxF03,2017,4.41325,Depth in centimeters,1.7375,Depth in inches,Duff & litter,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
+dl,all,RxF03,2019,1.397,Depth in centimeters,0.55,Depth in inches,Duff & litter,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
+dl,all,RxF03,2021,1.143,Depth in centimeters,0.45,Depth in inches,Duff & litter,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
+dl,all,RxF04,2016,6.6675,Depth in centimeters,2.625,Depth in inches,Duff & litter,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
+dl,all,RxF04,2017,1.74625,Depth in centimeters,0.6875,Depth in inches,Duff & litter,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
+dl,all,RxF04,2019,3.9370000000000003,Depth in centimeters,1.55,Depth in inches,Duff & litter,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
+dl,all,RxF04,2021,3.65125,Depth in centimeters,1.4375,Depth in inches,Duff & litter,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
+dl,all,RxF05,2016,4.1274999999999995,Depth in centimeters,1.625,Depth in inches,Duff & litter,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
+dl,all,RxF05,2017,0.9525000000000001,Depth in centimeters,0.375,Depth in inches,Duff & litter,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
+dl,all,RxF05,2019,6.096,Depth in centimeters,2.4,Depth in inches,Duff & litter,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
+dl,all,RxF05,2021,1.016,Depth in centimeters,0.4,Depth in inches,Duff & litter,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
+dl,all,RxF06,2016,7.651750000000001,Depth in centimeters,3.0125,Depth in inches,Duff & litter,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
+dl,all,RxF06,2017,1.3017500000000002,Depth in centimeters,0.5125,Depth in inches,Duff & litter,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
+dl,all,RxF06,2019,9.9695,Depth in centimeters,3.925,Depth in inches,Duff & litter,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
+dl,all,RxF06,2021,1.36525,Depth in centimeters,0.5375,Depth in inches,Duff & litter,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
+dl,all,RxF07,2016,11.747500000000002,Depth in centimeters,4.625,Depth in inches,Duff & litter,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
+dl,all,RxF07,2017,1.80975,Depth in centimeters,0.7125,Depth in inches,Duff & litter,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
+dl,all,RxF07,2019,4.318,Depth in centimeters,1.7,Depth in inches,Duff & litter,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
+dl,all,RxF07,2021,3.1115,Depth in centimeters,1.225,Depth in inches,Duff & litter,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
+dl,all,RxF08,2016,8.73125,Depth in centimeters,3.4375,Depth in inches,Duff & litter,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
+dl,all,RxF08,2017,1.0477500000000002,Depth in centimeters,0.41250000000000003,Depth in inches,Duff & litter,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
+dl,all,RxF08,2019,2.69875,Depth in centimeters,1.0625,Depth in inches,Duff & litter,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
+dl,all,RxF08,2021,3.07975,Depth in centimeters,1.2125000000000001,Depth in inches,Duff & litter,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
+dl,all,RxF09,2016,10.16,Depth in centimeters,4,Depth in inches,Duff & litter,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
+dl,all,RxF09,2017,1.23825,Depth in centimeters,0.4875,Depth in inches,Duff & litter,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
+dl,all,RxF09,2019,1.80975,Depth in centimeters,0.7125,Depth in inches,Duff & litter,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
+dl,all,RxF09,2021,1.42875,Depth in centimeters,0.5625,Depth in inches,Duff & litter,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
+wd,all,RxF01,2016,13.41048701795138,Metric tons per hectare,5.981483950914978,Tons per acre,Coarse woody debris,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
+wd,all,RxF01,2017,114.20732308344253,Metric tons per hectare,50.93993001045608,Tons per acre,Coarse woody debris,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
+wd,all,RxF01,2019,111.78812658061047,Metric tons per hectare,49.86089499581198,Tons per acre,Coarse woody debris,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
+wd,all,RxF01,2021,21.15013895541592,Metric tons per hectare,9.433603459150723,Tons per acre,Coarse woody debris,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
+wd,all,RxF02,2016,16.326518798483296,Metric tons per hectare,7.282122568458204,Tons per acre,Coarse woody debris,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
+wd,all,RxF02,2017,1.683751405605657,Metric tons per hectare,0.7510041951853956,Tons per acre,Coarse woody debris,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
+wd,all,RxF02,2019,2.6931016911733274,Metric tons per hectare,1.201205036205766,Tons per acre,Coarse woody debris,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
+wd,all,RxF02,2021,1.475188973749933,Metric tons per hectare,0.6579790248661611,Tons per acre,Coarse woody debris,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
+wd,all,RxF03,2016,11.539690126014781,Metric tons per hectare,5.1470517957247015,Tons per acre,Coarse woody debris,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
+wd,all,RxF03,2017,14.906343768996583,Metric tons per hectare,6.6486814313098055,Tons per acre,Coarse woody debris,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
+wd,all,RxF03,2019,15.051685810575465,Metric tons per hectare,6.713508390087183,Tons per acre,Coarse woody debris,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
+wd,all,RxF03,2021,38.49649626320231,Metric tons per hectare,17.17060493452378,Tons per acre,Coarse woody debris,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
+wd,all,RxF04,2016,39.36135437071653,Metric tons per hectare,17.556357881675527,Tons per acre,Coarse woody debris,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
+wd,all,RxF04,2017,0.8237016505887442,Metric tons per hectare,0.36739591908507774,Tons per acre,Coarse woody debris,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
+wd,all,RxF04,2019,7.817362218342178,Metric tons per hectare,3.4867806504648433,Tons per acre,Coarse woody debris,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
+wd,all,RxF04,2021,16.134905715335517,Metric tons per hectare,7.1966573217375185,Tons per acre,Coarse woody debris,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
+wd,all,RxF05,2016,10.6897152192324,Metric tons per hectare,4.767937207507762,Tons per acre,Coarse woody debris,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
+wd,all,RxF05,2017,0.09427142595509486,Metric tons per hectare,0.042047915234208234,Tons per acre,Coarse woody debris,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
+wd,all,RxF05,2019,0.33590400406831383,Metric tons per hectare,0.14982337380388663,Tons per acre,Coarse woody debris,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
+wd,all,RxF05,2021,10.724931974272641,Metric tons per hectare,4.783644948382088,Tons per acre,Coarse woody debris,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
+wd,all,RxF06,2016,47.333296592719556,Metric tons per hectare,21.112085902194274,Tons per acre,Coarse woody debris,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
+wd,all,RxF06,2017,8.66607321908823,Metric tons per hectare,3.8653314982552316,Tons per acre,Coarse woody debris,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
+wd,all,RxF06,2019,12.47271074359277,Metric tons per hectare,5.563207289738078,Tons per acre,Coarse woody debris,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
+wd,all,RxF06,2021,4.0542809072954995,Metric tons per hectare,1.8083322512468776,Tons per acre,Coarse woody debris,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
+wd,all,RxF07,2016,44.83139947389658,Metric tons per hectare,19.99616390450338,Tons per acre,Coarse woody debris,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
+wd,all,RxF07,2017,56.82723260624405,Metric tons per hectare,25.34666931589833,Tons per acre,Coarse woody debris,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
+wd,all,RxF07,2019,33.71009770756812,Metric tons per hectare,15.035726006943854,Tons per acre,Coarse woody debris,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
+wd,all,RxF07,2021,49.65471901893741,Metric tons per hectare,22.147510713174583,Tons per acre,Coarse woody debris,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
+wd,all,RxF08,2016,18.281584443446672,Metric tons per hectare,8.154141143374964,Tons per acre,Coarse woody debris,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
+wd,all,RxF08,2017,64.98206135621477,Metric tons per hectare,28.98397027485048,Tons per acre,Coarse woody debris,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
+wd,all,RxF08,2019,35.32429088589795,Metric tons per hectare,15.755705123058856,Tons per acre,Coarse woody debris,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
+wd,all,RxF08,2021,4.599075920381568,Metric tons per hectare,2.0513273507500305,Tons per acre,Coarse woody debris,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
+wd,all,RxF09,2016,15.77292340742872,Metric tons per hectare,7.0352022334650846,Tons per acre,Coarse woody debris,All,1 Year pre-fire (2016),1-y pre-fire (2016),1,1,type_time_plot,total
+wd,all,RxF09,2017,0.060102686891653864,Metric tons per hectare,0.026807621271924115,Tons per acre,Coarse woody debris,All,0 Years post-fire (2017),0-y post-fire (2017),1,2,type_time_plot,total
+wd,all,RxF09,2019,0.20923236953908783,Metric tons per hectare,0.09332398284526665,Tons per acre,Coarse woody debris,All,2 Years post-fire (2019),2-y post-fire (2019),1,3,type_time_plot,total
+wd,all,RxF09,2021,4.048245008748757,Metric tons per hectare,1.8056400574258504,Tons per acre,Coarse woody debris,All,4 Years post-fire (2021),4-y post-fire (2021),1,4,type_time_plot,total
