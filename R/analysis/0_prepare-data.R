@@ -197,6 +197,44 @@ tubbs_derived_all <-
   write_csv(here(path_derived, "tubbs_derived.csv"))
 
 # Normalize (and standardize) data ---- 
+# ordNorm: total, 1, 100, 1000s
+# sqrt: 10, 1000r
+#
+# Total: arcsine, log, ordnorm
+# 1: ordnorm (outlier)
+# 10: sqrt (outlier)
+# 100: ordnorm (outlier), (nothing helped norm)
+# 1000r: sqrt
+# 1000s: ordnorm
+
+tubbs_norm_dl <- 
+  read_csv(here(path_derived, "tubbs_derived.csv")) %>%
+  filter(fuel_type %in% "dl") %>%
+  mutate(value_norm = orderNorm(si_value, standardize = TRUE)$x.t) %>%
+  ungroup()
+
+tubbs_norm_wd_ord <-  
+  read_csv(here(path_derived, "tubbs_derived.csv")) %>%
+  filter(fuel_type %in% "wd",
+         fuel_class %in% c("all", "hr0001", "hr0100", "hr1000s")) %>%
+  mutate(value_norm = orderNorm(si_value, standardize = TRUE)$x.t) %>%
+  ungroup()
+
+tubbs_norm_wd_sqr <-  
+  read_csv(here(path_derived, "tubbs_derived.csv")) %>%
+  filter(fuel_type %in% "wd",
+         fuel_class %in% c("hr0010", "hr1000r")) %>%
+  mutate(value_norm = sqrt_x(si_value, standardize = TRUE)$x.t) %>%
+  ungroup()
+
+tubbs_derived_norm <- 
+  bind_rows(tubbs_norm_dl, 
+            tubbs_norm_wd_ord, 
+            tubbs_norm_wd_sqr) %>%
+  relocate(value_norm, .before = si_value) %>%
+  write_csv(here(path_derived, "tubbs_derived-norm.csv"))
+
+
 # ========================================================== -----
 # THIN: THREE TRANSECTS PER PLOT (n = 5 plots) ----
 # About this data set ----
