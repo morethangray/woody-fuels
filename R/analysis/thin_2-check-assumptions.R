@@ -155,7 +155,7 @@ dl_eval %>%
 dl_eval %>%
   ggdensity(x = "number", color = "fuel_class") +
   geom_vline(xintercept = 0, linetype = "dashed") +
-  facet_wrap(~method) + 
+  facet_wrap(~method, scales = "free") + 
   xlim(-5, 10)   +
   labs(title = "Distribution of values, by fuel class and transformation",
        x = "Mean fuel depth (cm)",
@@ -198,7 +198,6 @@ dl_norm %>%
 dl_norm %>%
   filter(fuel_class %in% "all") %>%
   anova_test(dv = value_norm, wid = plot_id, within = time)
-# ========================================================== -----
 
 # ========================================================== -----
 # COARSE WOODY DEBRIS (WD) ----
@@ -402,90 +401,5 @@ wd_eval %>%
 wd_norm <- 
   input_wd %>% 
   mutate(value_norm = orderNorm(si_value, standardize = TRUE)$x.t) 
-
-
-# [NOT RUN] ----
-# Recheck assumptions for standardized data 
-# wd_norm %>%
-#   group_by(fuel_class, time) %>%
-#   summarize(mean_si = fxn_digit(mean(si_value, na.rm = TRUE)), 
-#             mean_us = fxn_digit(mean(us_value, na.rm = TRUE))) %>%
-#   ungroup() %>%
-#   arrange(time, fuel_class)
-#   
-# # The following plot shows the raw (untransformed) values on the left and the transformed values on the right.
-# input_class_transform %>%
-#   rename(raw_values = value_raw, transformed_values = value) %>%
-#   gather(metric, si_value, raw_values:transformed_values) %>%
-#   ggdensity(x = "value", color = "fuel_class") +
-#   geom_vline(xintercept = 0, linetype = "dashed") +
-#   facet_grid(metric ~ fuel_class, scales = "free") +
-#   theme(legend.position = "right", 
-#         axis.text = element_text(size = 8),
-#         panel.spacing = unit(1, "lines"),
-#         legend.text=element_text(size=8),
-#         # strip.text = element_text(size = 8),
-#         strip.background = element_rect(fill = "gray91", color = "gray91"),
-#         panel.border = element_rect(fill = NA, color = "gray91", size = 2)) + 
-#   labs(title = "Distribution of values, by fuel class and transformation",
-#        caption = "Note: axis scales differ between plots",
-#        x = "Mean tons per acre",
-#        y = "Density", 
-#        color = "Fuel class") + 
-#   xlim(-5, 10)
-# 
-# input_total_transform %>%
-#   select(id = plot_id, 
-#          time = time, 
-#          score = value) %>%
-#   group_by(time) %>%
-#   shapiro_test(score)  %>%
-#   clean_names() %>%
-#   mutate(fuel_type = index_type,
-#          fuel_class = "All", 
-#          metric = fxn_digit(metric), 
-#          is_normal = p>0.05) %>%
-#   select(fuel_type, 
-#          fuel_class, 
-#          time = time, 
-#          is_normal,
-#          p, 
-#          metric) %>%
-#   arrange(is_normal, time)  
-# # filter(is_normal == FALSE)  
-# 
-# ggqqplot(input_total_transform, "value", 
-#          facet.by = "time", 
-#          color = "time",
-#          palette = colors_thin)
-# 
-# norm_class_transform <- 
-#   input_class_transform %>%
-#   filter(fuel_class %nin% "hr1000s") %>%
-#   select(id = plot_id, 
-#          time = time, 
-#          score = si_value, 
-#          treatment = fuel_class) %>%
-#   group_by(time, treatment) %>%
-#   shapiro_test(score)  %>%
-#   clean_names() %>%
-#   mutate(fuel_type = index_type,
-#          metric = fxn_digit(metric), 
-#          is_normal = p>0.05) %>%
-#   select(fuel_type, 
-#          fuel_class = treatment, 
-#          time = time, 
-#          is_normal,
-#          p, 
-#          metric) %>%
-#   arrange(is_normal, fuel_class, time) %>%
-#   filter(is_normal == FALSE) 
-# 
-# ggqqplot(input_class_transform, 
-#          "value", 
-#          facet.by = "fuel_class", 
-#          color = "time",
-#          palette = colors_thin) +
-#   labs(caption = "Values have been normalized and standardized by fuel class")
 
 # ========================================================== -----
