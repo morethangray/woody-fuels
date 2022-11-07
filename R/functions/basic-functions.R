@@ -12,9 +12,9 @@ fxn_digit <- function(x){
 fxn_signif_adj <- function(df){
   df %>%
     mutate(p_adj_sig = case_when(
-      p_adj < 0.001 ~ "***", 
-      p_adj > 0.001 & p_adj < 0.01 ~ "**", 
-      p_adj > 0.01 & p_adj < 0.05 ~ "*", 
+      p_adj <= 0.001 ~ "***", 
+      p_adj > 0.001 & p_adj <= 0.01 ~ "**", 
+      p_adj > 0.01 & p_adj <= 0.05 ~ "*", 
       p_adj > 0.05 ~ "n.s.")) %>%
     arrange(p_adj)
   
