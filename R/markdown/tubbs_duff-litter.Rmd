@@ -9,7 +9,7 @@ output:
 ---
 
 ```{r setup, include=FALSE, message = FALSE, warning=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE, include = FALSE, warning = FALSE)
 
 # Load libraries -----
 rm(list = ls())
