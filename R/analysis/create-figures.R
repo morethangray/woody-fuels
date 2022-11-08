@@ -1,4 +1,4 @@
-# revised: 2022-11-07 ----
+# revised: 2022-11-08 ----
 # ========================================================== -----
 # CONFIGURE SETTINGS -----
 # Load libraries 
@@ -17,12 +17,18 @@ path_r <- here("R")
 path_fxn <- here(path_r, "functions")
 path_lookup <- here("input/lookup-tables")
 path_derived <- here("input/data_derived")
-# path_plots <- here("output/plots")
+# Create a new folder for new iteration of plots
+folder_datetime <- 
+  as.character(Sys.time()) %>%
+  str_replace_all(" ", "_") %>%
+  str_replace_all(":", ".")
+path_datetime <- here("output/plots", folder_datetime)
+dir.create(path_datetime)
+# path_plots <- here("output/plots", path_datetime)
 
 # Source functions 
 source(file = here(path_fxn, "basic-functions.R"))
-# source(file = here(path_fxn, "metrical-tests.R"))
-# source(file = here(path_fxn, "data-transformation.R"))
+
 source(file = here(path_fxn, "plot-themes.R"))
 # ========================================================== -----
 # CREATE DATA FRAMES ----
