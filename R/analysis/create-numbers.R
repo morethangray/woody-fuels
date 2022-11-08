@@ -40,7 +40,6 @@ input_all <-
          starts_with("lab"))
 # ========================================================== -----
 # CALCULATE SUMMARY STATISTICS -----
-
 input_all %>%
   unite(type_time, c(plot_type, time)) %>%
   group_by(type_time, 

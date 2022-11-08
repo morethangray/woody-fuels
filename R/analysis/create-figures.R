@@ -1,4 +1,4 @@
-# revised: 2022-10-28 ----
+# revised: 2022-11-07 ----
 # ========================================================== -----
 # CONFIGURE SETTINGS -----
 # Load libraries 
@@ -7,9 +7,8 @@ library(tidyverse)   ## To manipulate data frames
 library(here)   ## To manage directories
 library(janitor)   ## To clean data frames
 library(rstatix)  ## For repeated measure ANOVA
-library(broom)  ## To format output tables from statistical tests
+library(broom)  ## To format output tables from metrical tests
 library(lemon)  ## To manipulate faceted ggplots
-# library(kableExtra)  ## For tables in rmarkdown
 library(ggpubr)  ## For plot templates 
 library(ggsignif)  ## To add significance results to plots
 
@@ -17,32 +16,17 @@ library(ggsignif)  ## To add significance results to plots
 path_r <- here("R")
 path_fxn <- here(path_r, "functions")
 path_lookup <- here("input/lookup-tables")
-path_derived <- here("input/data_3-derived")
-path_plots <- here("output/plots")
+path_derived <- here("input/data_derived")
+# path_plots <- here("output/plots")
 
 # Source functions 
 source(file = here(path_fxn, "basic-functions.R"))
-# source(file = here(path_fxn, "statistical-tests.R"))
+# source(file = here(path_fxn, "metrical-tests.R"))
 # source(file = here(path_fxn, "data-transformation.R"))
 source(file = here(path_fxn, "plot-themes.R"))
 # ========================================================== -----
 # CREATE DATA FRAMES ----
-# Create helpers ----
-# lookup_units <- 
-#   tibble(data_type = c("dl", "wd"),
-#          units = c("Depth in centimeters",
-#                    "Metric tons per hectare"))
-
-# Create helper to order the fuel classes for the stacked plot
-ord_fuel <- 
-  read_csv(here(path_lookup, "lookup_variables.csv")) %>%
-  filter(metric %in% "fuel", 
-         data_type %in% "wd", 
-         subset %in% "fuel_class") %>%
-  select(fuel_class = name, 
-         ord_fuel = order)
-
-
+# Define plot settings ----
 colors_year <- c("gray70", "#C47E61", "#dbae84", "#e9d097")
 colors_thin_faded <- c("#bfbabb", "#75bca8")
 colors_stacked <- c("gray25", 
@@ -52,121 +36,73 @@ colors_stacked <- c("gray25",
                     "gray85")
 
 # colors_thin_bright <- c("#9d9596", "#069879")
-# colors_dl <- c("#7da8b0", "#c4c4c4")
-# plot_colors <- 
-#   read_csv(here(path_lookup, 
-#                 "plot-colors.csv")) %>%
-#   arrange(palette, palette_subset, levels)
-# colors_year <- 
-#   plot_colors %>%
-#   filter(palette %in% "year", 
-#          palette_subset %in% "1pre_3post") %>%
-#   pull(hex_code) 
-# Create Tubbs data  ----
-tubbs_class_mean <- 
-  read_csv(here(path_derived, "tubbs_mean-by-plot-type-class-yr.csv")) 
+
+# Create Tubbs and thin data frames  ----
+index_dl <- "Duff & litter"
+index_wd <- "Coarse woody debris"
+
+index_dl_si <- "Mean fuel depth (centimeters)"
+index_wd_si <- "Mean fuel load (metric tons per hectare)"
 
 tubbs <- 
-  read_csv(here(path_derived, "tubbs_total-by-plot-type-yr.csv")) %>%
-  mutate(lab_fuel = "All", 
-         fuel_class = "all") %>%
-  bind_rows(tubbs_class_mean) %>%
-  left_join(lookup_units, "data_type") %>%
-  arrange(year) %>%
-  mutate(year = as_factor(year), 
-         lab_year = as_factor(lab_year), 
-         lab_year_abbr = as_factor(lab_year_abbr), 
-         value = fxn_digit(value_si)) %>%
-  group_by(data_type) %>%
-  arrange(year, fuel_class) %>%
+  read_csv(here(path_derived, "tubbs_derived.csv")) %>%
+  arrange(time) %>%
+  mutate(time = as_factor(time), 
+         lab_time = as_factor(lab_time), 
+         lab_time_abbr = as_factor(lab_time_abbr), 
+         si_value = fxn_digit(si_value)) %>%
+  group_by(fuel_type) %>%
+  arrange(time, fuel_class) %>%
   mutate_if(is.character, as_factor) %>%
   ungroup() %>%
-  relocate(c(statistic, subset), .after = value)   
+  relocate(c(metric, subset_by), .after = si_value) 
 
+tubbs %>%
+  distinct(si_units)
 tubbs_dl <- 
   tubbs %>%
-  filter(data_type %in% "dl")  
+  filter(fuel_type %in% "dl")  
 
 tubbs_wd <- 
   tubbs %>%
-  filter(data_type %in% "wd")  
-
-# Calculate mean CWD by year x fuel class for stacked bar plot
-tubbs_wd_stack <- 
-  # Read the data for mean by plot x year x fuel class 
-  tubbs_class_mean   %>%
-  filter(fuel_class %nin% "all", 
-         data_type %in% "wd") %>%
-  left_join(ord_fuel, "fuel_class") %>%
-  arrange(year, ord_fuel) %>%
-  mutate_if(is.character, as_factor) %>%
-  # Calculate summary statistics by fuel class x year 
-  group_by(fuel_class, 
-           lab_fuel,
-           year, 
-           lab_year,
-           lab_year_abbr) %>%
-  summarize(mean = mean(value)) %>%
-  ungroup() 
-
-# Create thin data  ----
-thin_class_mean <- 
-  read_csv(here(path_derived, "thin_mean-by-plot-type-class-trmt.csv")) 
+  filter(fuel_type %in% "wd")  
 
 thin <-
-  read_csv(here(path_derived, "thin_total-by-plot-type-trmt.csv")) %>%
-  bind_rows(thin_class_mean) %>%
-  arrange(survey, data_type, fuel_class) %>%
+  read_csv(here(path_derived, "thin_derived.csv")) %>%
+  arrange(time, fuel_type, fuel_class) %>%
   mutate_if(is.character, as_factor)  %>%
-  mutate(value = fxn_digit(value_si))
+  mutate(si_value = fxn_digit(si_value))
   
 thin_dl <- 
   thin %>%
-  filter(data_type %in% "dl")  
+  filter(fuel_type %in% "dl")  
 
 thin_wd <- 
   thin %>%
-  filter(data_type %in% "wd")  
+  filter(fuel_type %in% "wd")  
 
-# Calculate mean CWD by treatment x fuel class for stacked bar plot
-thin_wd_stack <- 
-  # Read the data for mean by plot x year x fuel class 
-  thin_class_mean   %>%
-  filter(fuel_class %nin% "all", 
-         data_type %in% "wd") %>%
-  left_join(ord_fuel, "fuel_class") %>%
-  arrange(survey, ord_fuel) %>%
-  mutate_if(is.character, as_factor) %>%
-  # Calculate summary statistics by fuel class x year 
-  group_by(fuel_class, 
-           lab_fuel,
-           survey, 
-           lab_thin) %>%
-  summarize(mean = mean(value)) %>%
-  ungroup() 
+
 
 # ========================================================== -----
-# DUFF AND LITTER (dl) -----
-# Visualize duff and litter by year and fuel class as faceted boxplot 
-
-# ---------------------------------------------------------- -----
 # TUBBS  -----
-# Visualize duff and litter by year and fuel class as faceted boxplot 
-# Create base box plot ----
+# DUFF AND LITTER (dl) -----
+# Visualize duff and litter by time and fuel class as faceted boxplot 
+#   Create base box plot ----
 # Without significant comparisons
 # Without x-axis labels or title 
 tubbs_dl_box_base <- 
   tubbs_dl %>%
-  ggplot(aes(x = year, 
-           y = value, 
-           fill = as_factor(str_wrap(lab_year_abbr, 15)))) +
+  ggplot(aes(x = time, 
+             y = si_value, 
+             # Wrap the long label name at 15 characters
+             fill = as_factor(str_wrap(lab_time_abbr, 15)))) +
   geom_hline(yintercept = 0, 
              linetype = "longdash", 
              color = "gray50") +
   geom_boxplot(outlier.size = 0.8) +
-  labs(y = "Mean fuel depth (centimeters)", 
+  labs(y = index_dl_si, 
        fill = "Year") + 
-  facet_wrap(~lab_fuel, nrow = 1) +
+  facet_wrap(~lab_class, nrow = 1) +
   guides(fill = guide_legend(byrow = TRUE)) +
   scale_fill_manual(values = colors_year) +
   scale_y_continuous(limits = c(0, 12.5), 
@@ -181,7 +117,7 @@ ggsave(tubbs_dl_box_base,
        height = 5)
 
 
-# Add year (YYYY) as x-axis label ----
+#   Add year (YYYY) as x-axis label ----
 # Without significant comparison labels
 tubbs_dl_box_x <- 
   tubbs_dl_box_base +
@@ -193,15 +129,107 @@ tubbs_dl_box_x <-
     plot.margin = margin(0.5, 0.5, 0.5, 0.5, "cm")
   )
 tubbs_dl_box_x
+
 ggsave(tubbs_dl_box_x, 
        filename = here(path_plots, "tubbs_dl_boxplot_legend-right_with-x.png"), 
        width = 9.25, 
        height = 5)
 
+# COARSE WOODY DEBRIS (wd) -----
+# Visualize coarse woody debris by year and fuel class as faceted boxplot 
+# Include significant comparisons ?
+#   Create base box plot ----
+# Legend above the plot 
+# Without significant comparisons
+# Without x-axis labels or title 
+tubbs_wd_box_base <- 
+  tubbs_wd %>%
+  ggplot(aes(x = time, 
+             y = si_value, 
+             # Wrap the long label name at 15 characters
+             fill = as_factor(str_wrap(lab_time_abbr, 15)))) +
+  geom_hline(yintercept = 0, 
+             linetype = "longdash", 
+             color = "gray50") +
+  geom_boxplot(outlier.size = 0.8) +
+  labs(y = index_wd_si,
+       fill = "Year") + 
+  facet_wrap(~lab_class, scales = "free", nrow = 1) +
+  guides(fill = guide_legend(byrow = TRUE)) +
+  scale_fill_manual(values = colors_year) +
+  theme_fuels()
+
+tubbs_wd_box_base 
+
+ggsave(tubbs_wd_box_base, 
+       filename = here(path_plots, "tubbs_wd_boxplot_legend-right.png"), 
+       width = 16, 
+       height = 5)
+#   Add year (YYYY) as x-axis label ----
+# Without significant comparison labels
+tubbs_wd_box_x <- 
+  tubbs_wd_box_base +
+  labs(x = "Year") + 
+  theme(
+    axis.title.x = element_text(size = 18, vjust = -1.2),
+    axis.text.x = element_text(size = 11, color = "gray50"),
+    # Increase margins around plot to accommodate repositioned x-axis title
+    plot.margin = margin(0.5, 0.5, 0.5, 0.5, "cm")
+  )
+
+tubbs_wd_box_x
+ggsave(tubbs_wd_box_x, 
+       filename = here(path_plots, "tubbs_wd_boxplot_legend-right_with-x.png"), 
+       width = 16, 
+       height = 5)
+
+#   Add year (YYYY) and move legend to above the plot ----
+# Without significant comparisons
+# Without x-axis labels or title 
+tubbs_wd %>%
+  ggboxplot(x = "time",
+            y = "si_value",
+            fill = "lab_time_abbr",
+            outlier.size = 0.8,
+            palette = colors_year) +
+  geom_hline(yintercept = 0, 
+             linetype = "longdash", 
+             color = "gray15") +
+  labs(y = "Mean fuel load (metric tons per hectare)",
+       x = "Year",
+       fill = "Year") +
+  facet_wrap(~lab_class,  scales = "free", nrow = 1) +
+  theme(
+    # Format the facet strip
+    panel.spacing = unit(1.2, "lines"),
+    panel.border = element_rect(fill = NA, color = "gray91", size = 2),
+    panel.grid = element_line(color = "white"),
+    strip.text = element_text(size = 16),
+    strip.background = element_rect(fill = "gray91", color = "gray91"),
+    # Format the y-axis text 
+    axis.title.y = element_text(size = 18, vjust = 1.5),
+    axis.text.y = element_text(size = 16, color = "gray50"),
+    # Format x-axis  
+    axis.title.x = element_text(size = 18, vjust = -1.2),
+    axis.text.x = element_text(size = 14, color = "gray50"),
+    axis.ticks.x = element_blank(),
+    # Increase margins around plot to accommodate repositioned x-axis title
+    plot.margin = margin(0.5, 0.5, 0.5, 0.5, "cm"),
+    # Format the legend
+    legend.position = "top", 
+    legend.box.spacing = unit(1.2, "lines"), 
+    legend.title = element_text(size = 20),
+    legend.text = element_text(size = 18, color = "gray30"), 
+    legend.spacing.y = unit(0.5, 'cm')
+  )  
+
+ggsave(filename = here(path_plots, "tubbs_wd_boxplot_legend-top_with-x.png"),
+       width = 17.5,
+       height = 5.5)
 
 
 
-
+# ---------------------------------------------------------- -----
 # [NOT RUN] ----
 # Add significant comparisons (POST-PROCESSING BY HAND)
 # Shows the n.s. comparison bars 
@@ -231,8 +259,8 @@ ggsave(tubbs_dl_box_x,
 # tubbs_dl_pwc <- 
 #   tubbs_dl %>%
 #   group_by(fuel_class) %>%
-#   pairwise_t_test(value ~ year, paired = TRUE, p.adjust.method = "bonferroni")  %>%
-#   add_xy_position(x = "year")  
+#   pairwise_t_test(value ~ time, paired = TRUE, p.adjust.method = "bonferroni")  %>%
+#   add_xy_position(x = "time")  
 
 # Add brackets and p-values 
 # Without significant comparisons
@@ -240,9 +268,9 @@ ggsave(tubbs_dl_box_x,
 # 
 # tubbs_dl %>%
 #   filter(fuel_class %in% "all") %>%
-#   ggplot(aes(x = year, 
-#              y = value, 
-#              fill = as_factor(str_wrap(lab_year_abbr, 15)))) +
+#   ggplot(aes(x = time, 
+#              y = si_value, 
+#              fill = as_factor(str_wrap(lab_time_abbr, 15)))) +
 #   geom_boxplot(outlier.size = 0.8) +
 #   theme_minimal() + 
 #   labs(y = "Mean fuel depth (centimeters)", 
@@ -286,10 +314,10 @@ ggsave(tubbs_dl_box_x,
 #        c("2017", "2021"),
 #        c("2019", "2021"))
 # tubbs_dl %>%
-#   ggboxplot(x = "year",
+#   ggboxplot(x = "time",
 #             y = "value",
-#             fill = "year",
-#             facet.by = "lab_fuel") +
+#             fill = "time",
+#             facet.by = "lab_class") +
 #   stat_compare_means(
 #     aes(label = ..p.signif..),
 #     comparisons = tubbs_comparisons,
@@ -306,18 +334,18 @@ ggsave(tubbs_dl_box_x,
 # stat.test <- 
 #   tubbs_dl %>%
 #   group_by(fuel_class) %>%
-#   pairwise_t_test(value ~ year, paired = TRUE) %>%
+#   pairwise_t_test(value ~ time, paired = TRUE) %>%
 #   adjust_pvalue(method = "bonferroni") %>%
 #   add_significance() %>%
-#   add_xy_position(x = "year")  
+#   add_xy_position(x = "time")  
 # 
 # # Create a box plot
 # bxp <- 
 #   tubbs_dl %>%
-#   ggboxplot(x = "year",
+#   ggboxplot(x = "time",
 #             y = "value",
-#             fill = "year",
-#             facet.by = "lab_fuel")  
+#             fill = "time",
+#             facet.by = "lab_class")  
 # 
 # # Make facet and add p-values
 # bxp + stat_pvalue_manual(stat.test)
@@ -341,15 +369,15 @@ ggsave(tubbs_dl_box_x,
 
 
 
-# x_pwc <- compare_means(value ~ year, data = tubbs_dl, group.by = "fuel_class", paired = TRUE, method = "t.test")
+# x_pwc <- compare_means(value ~ time, data = tubbs_dl, group.by = "fuel_class", paired = TRUE, method = "t.test")
 # x_pwc %>%
 #   filter(p.adj > 0.05)
 
 # tubbs_dl %>%
-#   ggboxplot(x = "year", 
+#   ggboxplot(x = "time", 
 #             y = "value",
-#             fill = "year", 
-#             facet.by = "lab_fuel") + 
+#             fill = "time", 
+#             facet.by = "lab_class") + 
 #   stat_pvalue_manual(tubbs_dl_pwc, hide.ns = TRUE, label = "p.adj.signif") 
   
 # stat_pvalue_manual(
@@ -364,31 +392,32 @@ ggsave(tubbs_dl_box_x,
 #     step.increase = 0.1)
 
 # tubbs_dl %>%
-#   filter(lab_fuel %in% "All") %>%
-#   ggplot(aes(x = year, 
-#              y = value, 
-#              fill = year)) +
+#   filter(lab_class %in% "All") %>%
+#   ggplot(aes(x = time, 
+#              y = si_value, 
+#              fill = time)) +
 #   geom_boxplot(outlier.size = 0.8) +
 #   geom_signif(comparisons = list(c("2016", "2017"), 
 #                                  c("2016", "2019"), 
 #                                  c("2016", "2021")), 
 #               map_signif_level=TRUE)
-# ---------------------------------------------------------- -----
+# ========================================================== -----
 # THIN  -----
-# Create base box plot ----
+# DUFF AND LITTER (dl) -----
+#   Create base box plot ----
 # Without significant comparisons
 thin_dl_box_base <- 
   thin_dl %>%
-  ggplot(aes(x = lab_thin, 
-             y = value,  
-             fill = lab_thin))  +
+  ggplot(aes(x = lab_time, 
+             y = si_value,  
+             fill = lab_time))  +
   geom_hline(yintercept = 0, 
              linetype = "longdash", 
              color = "gray50") +
   geom_boxplot(outlier.size = 0.8) +
-  labs(y = "Mean fuel depth (centimeters)", 
+  labs(y = index_dl_si, 
        fill = "Timing") + 
-  facet_wrap(~lab_fuel, nrow = 1) +
+  facet_wrap(~lab_class, nrow = 1) +
   guides(fill = guide_legend(byrow = TRUE)) +
   scale_fill_manual(values = colors_thin_faded) +
   scale_y_continuous(limits = c(0, 6.5),
@@ -402,21 +431,21 @@ ggsave(thin_dl_box_base,
        width = 9.25, 
        height = 5)
 
-# Add significant comparisons (POST-PROCESSING BY HAND) ----
+#   Add significant comparisons (POST-PROCESSING BY HAND) ----
 # Shows the n.s. comparison bars 
 # Manually correct significance labels 
 
 thin_dl %>%
-  ggplot(aes(x = lab_thin, 
-             y = value,  
-             fill = lab_thin))  +
+  ggplot(aes(x = lab_time, 
+             y = si_value,  
+             fill = lab_time))  +
   geom_hline(yintercept = 0, 
              linetype = "longdash", 
              color = "gray50") +
   geom_boxplot(outlier.size = 0.8) +
   labs(y = "Mean fuel depth (centimeters)", 
        fill = "Timing") + 
-  facet_wrap(~lab_fuel, nrow = 1) +
+  facet_wrap(~lab_class, nrow = 1) +
   guides(fill = guide_legend(byrow = TRUE)) +
   scale_fill_manual(values = colors_thin_faded) +
   scale_y_continuous(limits = c(0, 6.5),
@@ -439,125 +468,24 @@ ggsave(filename =
        width = 9.25,
        height = 5)
 
-# ========================================================== -----
 # COARSE WOODY DEBRIS (wd) -----
-# ---------------------------------------------------------- -----
-# TUBBS -----
-# Visualize coarse woody debris by year and fuel class as faceted boxplot 
-# Include significant comparisons ?
-# Create base box plot ----
-# Legend above the plot 
-# Without significant comparisons
-# Without x-axis labels or title 
-tubbs_wd_box_base <- 
-  tubbs_wd %>%
-  ggplot(aes(x = year, 
-             y = value, 
-             fill = as_factor(str_wrap(lab_year_abbr, 15)))) +
-  geom_hline(yintercept = 0, 
-             linetype = "longdash", 
-             color = "gray50") +
-  geom_boxplot(outlier.size = 0.8) +
-  labs(y = "Mean fuel load (metric tons per hectare)", 
-       fill = "Year") + 
-  facet_wrap(~lab_fuel, scales = "free", nrow = 1) +
-  guides(fill = guide_legend(byrow = TRUE)) +
-  scale_fill_manual(values = colors_year) +
-  theme_fuels()
-
-tubbs_wd_box_base 
-
-ggsave(tubbs_wd_box_base, 
-       filename = here(path_plots, "tubbs_wd_boxplot_legend-right.png"), 
-       width = 16, 
-       height = 5)
-# Add year (YYYY) as x-axis label ----
-# Without significant comparison labels
-tubbs_wd_box_x <- 
-  tubbs_wd_box_base +
-  labs(x = "Year") + 
-  theme(
-    axis.title.x = element_text(size = 18, vjust = -1.2),
-    axis.text.x = element_text(size = 11, color = "gray50"),
-    # Increase margins around plot to accommodate repositioned x-axis title
-    plot.margin = margin(0.5, 0.5, 0.5, 0.5, "cm")
-  )
-
-tubbs_wd_box_x
-ggsave(tubbs_wd_box_x, 
-       filename = here(path_plots, "tubbs_wd_boxplot_legend-right_with-x.png"), 
-       width = 16, 
-       height = 5)
-
-# Add year (YYYY) and move legend to above the plot ----
-# Without significant comparisons
-# Without x-axis labels or title 
-tubbs_wd %>%
-  ggboxplot(x = "year",
-            y = "value",
-            fill = "lab_year_abbr",
-            outlier.size = 0.8,
-            palette = colors_year) +
-  geom_hline(yintercept = 0, 
-             linetype = "longdash", 
-             color = "gray15") +
-  labs(y = "Mean fuel load (metric tons per hectare)",
-       x = "Year",
-       fill = "Year") +
-  facet_wrap(~lab_fuel,  scales = "free", nrow = 1) +
-  theme(
-    # Format the facet strip
-    panel.spacing = unit(1.2, "lines"),
-    panel.border = element_rect(fill = NA, color = "gray91", size = 2),
-    panel.grid = element_line(color = "white"),
-    strip.text = element_text(size = 16),
-    strip.background = element_rect(fill = "gray91", color = "gray91"),
-    # Format the y-axis text 
-    axis.title.y = element_text(size = 18, vjust = 1.5),
-    axis.text.y = element_text(size = 16, color = "gray50"),
-    # Format x-axis  
-    axis.title.x = element_text(size = 18, vjust = -1.2),
-    axis.text.x = element_text(size = 14, color = "gray50"),
-    axis.ticks.x = element_blank(),
-    # Increase margins around plot to accommodate repositioned x-axis title
-    plot.margin = margin(0.5, 0.5, 0.5, 0.5, "cm"),
-    # Format the legend
-    legend.position = "top", 
-    legend.box.spacing = unit(1.2, "lines"), 
-    legend.title = element_text(size = 20),
-    legend.text = element_text(size = 18, color = "gray30"), 
-    legend.spacing.y = unit(0.5, 'cm')
-    )  
-
-ggsave(filename = here(path_plots, "tubbs_wd_boxplot_legend-top_with-x.png"),
-       width = 17.5,
-       height = 5.5)
-
-
-
-# ---------------------------------------------------------- -----
-# THIN  -----
-# Create base box plot ----
+#   Create base box plot ----
 # Without significant comparisons
 thin_wd_box_base <- 
   thin_wd %>%
-  ggplot(aes(x = lab_thin, 
-             y = value,  
-             fill = lab_thin))  +
+  ggplot(aes(x = lab_time, 
+             y = si_value,  
+             fill = lab_time))  +
   geom_hline(yintercept = 0, 
              linetype = "longdash", 
              color = "gray50") +
   geom_boxplot(outlier.size = 0.8) +
-  labs(y = "Mean fuel load (metric tons per hectare)", 
+  labs(y = index_wd_si, 
        fill = "Timing") + 
-  # facet_wrap(~lab_fuel, nrow = 1) +
-  facet_wrap(~lab_fuel, scales = "free", nrow = 1) +
+  facet_wrap(~lab_class, scales = "free", nrow = 1) +
   guides(fill = guide_legend(byrow = TRUE)) +
   scale_fill_manual(values = colors_thin_faded) +
-  # scale_y_continuous(limits = c(0, 6.5),
-  #                    breaks = c(0, 2, 4, 6)) +
   theme_fuels() 
-
 
 thin_wd_box_base 
 
@@ -566,58 +494,93 @@ ggsave(thin_wd_box_base,
        width = 16, 
        height = 5)
 
-# No significant comparisons to add 
-thin_wd %>%
-  group_by(fuel_class) %>%
-  pairwise_t_test(value ~ lab_thin, 
-                  paired = TRUE,
-                  p.adjust.method = "bonferroni")  
- 
+# # No significant comparisons to add 
+# thin_wd %>%
+#   group_by(fuel_class) %>%
+#   pairwise_t_test(si_value ~ lab_time, 
+#                   paired = TRUE,
+#                   p.adjust.method = "bonferroni")  
 
 # ========================================================== -----
 # STACKED BAR CHARTS ----
+# Create data frames ----
+# Calculate mean CWD by time x fuel class for stacked bar plot
+tubbs_wd_stack <- 
+  # Read the data for mean by plot x time x fuel class 
+  tubbs %>%
+  filter(fuel_class %nin% "all", 
+         fuel_type %in% "wd") %>%
+  arrange(time, order_class) %>%
+  mutate_if(is.character, as_factor) %>%
+  # Calculate summary metrics by fuel class x time 
+  group_by(fuel_class, 
+           lab_class,
+           time, 
+           lab_time,
+           lab_time_abbr) %>%
+  summarize(mean = mean(si_value)) %>%
+  ungroup() 
+
+thin_wd_stack <- 
+  # Read the data for mean by plot x time x fuel class 
+  thin   %>%
+  filter(fuel_class %nin% "all", 
+         fuel_type %in% "wd") %>%
+  arrange(time, order_class) %>%
+  mutate_if(is.character, as_factor) %>%
+  # Calculate summary metrics by fuel class x time 
+  group_by(fuel_class, 
+           lab_class,
+           time, 
+           lab_time,
+           lab_time_abbr) %>%
+  summarize(mean = mean(si_value)) %>%
+  ungroup() 
+
+
 # Coarse woody debris, stacked by size class 
-# TUBBS -----
+# TUBBS ----
+#   With legend ----
 tubbs_wd_stack %>% 
-  ggplot(aes(x = lab_year_abbr, 
+  ggplot(aes(x = lab_time_abbr, 
              y = mean, 
-             fill = lab_fuel)) +
+             fill = lab_class)) +
   geom_bar(stat = "identity",
            width = 0.5, 
            color = "black", 
            size = 0.05,
            position = "stack") +
-  # geom_hline(yintercept = 0, 
-  #            linetype = "longdash", 
-  #            color = "gray50") +
+  geom_hline(yintercept = 0,
+             linetype = "longdash",
+             color = "gray30") +
   scale_fill_manual(values = colors_stacked, 
                     name = "Size class") + 
   theme_stacked() + 
   labs(x = "Chronosequence", 
-       y = "Mean fuel load (metric tons per hectare)") + 
+       y = index_wd_si) + 
   scale_x_discrete(labels = function(x) str_wrap(x, width = 15))
 
 ggsave(here(path_plots, "tubbs_wd_stacked-barchart.png"),
        width = 10, 
        height = 5.2)
 
-
-# THIN -----
+# THIN ----
+#   With legend ----
 thin_wd_stack %>% 
-  ggplot(aes(x = lab_thin, 
+  ggplot(aes(x = lab_time, 
              y = mean, 
-             fill = lab_fuel)) +
+             fill = lab_class)) +
   geom_bar(stat = "identity",
            width = 0.5, 
            position = "stack") +
-  # geom_hline(yintercept = 0, 
-  #            linetype = "longdash", 
-  #            color = "gray50") +
+  geom_hline(yintercept = 0,
+             linetype = "longdash",
+             color = "gray30") +
   scale_fill_manual(values = colors_stacked, 
                     name = "Size class") + 
   theme_stacked() + 
   labs(x = "Chronosequence", 
-       y = "Mean fuel load (metric tons per hectare)") + 
+       y = index_wd_si) + 
   scale_x_discrete(labels = function(x) str_wrap(x, width = 15))
 
 ggsave(here(path_plots, "thin_wd_stacked-barchart.png"),
