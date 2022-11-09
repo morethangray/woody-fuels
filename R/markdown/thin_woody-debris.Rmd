@@ -361,7 +361,7 @@ wd_eval %>%
 
 
 ## Total coarse woody debris 
-#### Summary statistics for the plot-level total amount of CWD by treatment  
+#### Summary statistics for the plot-level total fuel load by treatment  
 The following table summarizes the plot-level total amount of CWD for each time point.
 
 ```{r total_summary}
@@ -374,7 +374,7 @@ wd_total %>%
   fxn_kable()
 
 ```
-#### Visualization of the plot-level total amount of CWD by treatment
+#### Visualization of the plot-level total fuel load by treatment
 Visual inspection of a boxplot for total CWD by treatment suggests a post-thinning increase in mass.
 
 ```{r total_boxplot}

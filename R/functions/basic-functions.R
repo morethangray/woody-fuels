@@ -28,7 +28,7 @@ fxn_kable <- function(df){
   df  %>%
     knitr::kable() %>%
     kableExtra::kable_styling(bootstrap_options = c("striped", "hover"), 
-                  full_width = F,  
+                  full_width = TRUE,  
                   position = "left", 
-                  fixed_thead = T)
+                  fixed_thead = TRUE)
 }

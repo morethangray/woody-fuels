@@ -3,13 +3,13 @@ title: 'Duff and litter: Pre- and post-Tubbs fire'
 author: "Morgan Gray"
 date: "`r Sys.Date()`"
 output:
-  pdf_document: default
   html_document:
     df_print: paged
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE, message = FALSE, warning=FALSE}
-knitr::opts_chunk$set(echo = FALSE, include = FALSE, warning = FALSE)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 
 # Load libraries -----
 rm(list = ls())
@@ -33,8 +33,10 @@ path_derived <- here("input/data_derived")
 # Define helpers 
 index_dl <- "Duff & litter"
 index_dl_si <- "Mean fuel depth (centimeters)"
+index_dl_si_abbr <- "cm"
 index_wd <- "Coarse woody debris"
 index_wd_si <- "Mean fuel load (metric tons per hectare)"
+index_wd_si_abbr <- "MT/ha"
 
 # Define plot colors 
 colors_year <- c("gray70", "#C47E61", "#dbae84", "#e9d097")
@@ -53,7 +55,8 @@ input_dl <-
   arrange(time, fuel_type, fuel_class) %>%
   mutate_if(is.character, as_factor)  %>%
   mutate(time = as_factor(time), 
-         si_value = fxn_digit(si_value)) %>%
+         si_value = fxn_digit(si_value), 
+         units = ifelse(fuel_type %in% "dl", index_dl_si_abbr, index_wd_si_abbr)) %>%
   filter(fuel_type %in% "dl")  
 
 dl_class <-
@@ -81,23 +84,21 @@ Using the duff and litter data set as input, we asked the following questions:
 
 We answered these questions using a time series of plot-level data for (1) the total amount of duff and litter and (2) the mean amount of each fuel class (duff, litter). We defined "total (or all) duff and litter" as the combined total of the duff and litter within a plot.
 
-We calculated the ***plot-level mean for each fuel class*** to account for replicate surveys within each plot. To calculated the the ***plot-level total*** at each time point, we summed the plot means for all fuel classes by fuel type.  
+We calculated the ***plot-level mean for each fuel class*** to account for replicate surveys within each plot. To calculated the the ***plot-level total*** at each time point, we summed the plot means for all fuel classes by fuel type.
 
-Below is a table that shows the plot-level mean at each time point for litter and duff (total and mean by fuel class).  
+Below is a table that shows the plot-level mean at each time point for litter and duff (total and mean by fuel class).
 
 ```{r raw_summary}
 input_dl %>%
   arrange(plot_id, fuel_class, time) %>%
-  select(fuel_type = lab_fuel, 
-         fuel_class = lab_class, 
+  select(fuel_class = lab_class, 
          plot_id, 
          time,
          si_value, 
          metric,
-         si_units) %>%
+         units) %>%
   spread(time, si_value)  %>%
-  relocate(c(metric, si_units), .after = last_col()) 
-
+  fxn_kable()
 ```
 
 #### Statistical methods
@@ -119,22 +120,22 @@ The assumption of sphericity was checked during the computation of the ANOVA tes
 #### Check assumptions
 
 ##### *Check for outliers*
-There was one extreme outlier in the data set for total duff and litter (plot RxF03 in 2017). There were two extreme outliers in the  mean by fuel class data set for duff (plots RxF03 and RxFO4 in 2021). 
+
+There was one extreme outlier in the data set for total duff and litter (plot RxF03 in 2017). There were two extreme outliers in the mean by fuel class data set for duff (plots RxF03 and RxFO4 in 2021).
 
 ```{r raw_outliers}
 input_dl %>%
   group_by(time, fuel_class) %>% 
   identify_outliers(si_value) %>%
   clean_names() %>%
-  select(fuel_type, 
+  select(fuel_class, 
          metric,
-         fuel_class, 
          time, 
          plot_id, 
          si_value, 
          starts_with("is")) %>%
-  filter(is_extreme == TRUE)
-
+  filter(is_extreme == TRUE)  %>%
+  fxn_kable()
 
 ```
 
@@ -151,8 +152,8 @@ ggqqplot(input_dl,
 
 ```
 
-
 ##### *Check for normality*
+
 Total duff and litter load was normally distributed at each time point (p \> 0.01), except for year 2017. Plot-level values by fuel class were normally distributed at each time point (p \> 0.01), except for duff in 2021 and litter in 2017. Normality was assessed by Shapiro-Wilk's test.
 
 ```{r raw_normality}
@@ -172,11 +173,13 @@ input_dl %>%
          p, 
          statistic) %>%
   arrange(is_normal, time)  %>%
-  filter(is_normal == FALSE)
+  filter(is_normal == FALSE)  %>%
+  fxn_kable()
 
 ```
 
 #### Identify the most appropriate transformation
+
 We applied a series of transformations to each subset, then evaluated the resulting data for outliers and normality. To create the transformed subsets, we used scale() from base R and four normalization functions from the bestNormalize package: arcsinh_x, log_x, orderNorm, and sqrt_x.
 
 ```{r transformation_eval}
@@ -193,7 +196,6 @@ dl_eval <-
   gather(method, number, value_std:value_norm) %>%
   select(fuel_class, lab_class, plot_id, time, lab_time_abbr, metric, method, number) 
 
-
 ```
 
 The application of the arcsine and log functions resolved outliers within the subset for total fuels. Outliers within the Duff subset were not improved with any transformation.
@@ -205,10 +207,9 @@ dl_eval_outlier <-
   identify_outliers(number) %>%
   clean_names()  %>%
   ungroup() %>%
-  select(lab_class, 
-         fuel_class,
+  select(fuel_class,
          time, 
-         lab_time_abbr, 
+         # lab_time_abbr, 
          method,
          plot_id, 
          number, 
@@ -233,11 +234,12 @@ out3 <-
   dl_eval_outlier %>%
   filter(fuel_class %in% "duff" & time %in% "2021" & plot_id %in% "RxF04")  
 
-bind_rows(out1, out2, out3)  
+bind_rows(out1, out2, out3)   %>%
+  fxn_kable()
 
 ```
 
-A QQ plot of the transformed values for fuel classes with outliers (rows; all fuels, duff) by transformation (columns) is below.  
+A QQ plot of the transformed values for fuel classes with outliers (rows; all fuels, duff) by transformation (columns) is below.\
 The outlier points for total fuels in 2017 (yellow) are nearer to the reference line for the arcsine, log, and orderNorm transformations.
 
 ```{r transformation_qq_plot}
@@ -268,7 +270,7 @@ dl_eval %>%
 
 ```
 
-The application of the multiple transformations resulted in normally-distributed values for total fuels and litter in 2017; raw data for these two subsets were not normally distributed. The effective transformations for total fuels and litter included: arcsine, log, orderNorm, and square root. No transformation normalized the distribution of the 1000-hr sound subset.  
+The application of the multiple transformations resulted in normally-distributed values for total fuels and litter in 2017; raw data for these two subsets were not normally distributed. The effective transformations for total fuels and litter included: arcsine, log, orderNorm, and square root. No transformation normalized the distribution of the Duff subset in 2021.
 
 ```{r transformation_normality}
 dl_eval_normal <- 
@@ -309,7 +311,8 @@ nor3 <-
 
 bind_rows(nor1, nor2, nor3)  %>%
   select(fuel_class, time, method, is_normal) %>%
-  spread(method, is_normal)
+  spread(method, is_normal)  %>%
+  fxn_kable()
 
 ```
 
@@ -323,93 +326,48 @@ dl_eval %>%
          # fuel_class %in% c("all", "duff"),
          method %in% c("si_value",
                        # "std",
-                       # "arcsine",
-                       # "log",
+                       "arcsine",
+                       "log",
                        "ordnorm")) %>%
                        # "sqrt")) %>%
   ggdensity(x = "number", 
-            color = "method") +
+            color = "time") +
   geom_vline(xintercept = 0, linetype = "dashed") +
   # facet_wrap(~fuel_class) + 
-  facet_grid(fuel_class ~ time, scales = "free") +
+  facet_grid(fuel_class ~ method, scales = "free") +
   xlim(-5, 10)   +
-  theme(legend.position = "none") +
+  theme(legend.position = "right") +
   labs(x = "Mean fuel load",
        y = "Density")   
 
 ```
 
-The following plot shows the raw values in pink (si_value) and the orderNorm transformed values in blue (value_norm). The transformed values showed a more normal distribution than raw values for all subsets. 
-
-```{r transformation_density_plot}
-input_dl %>%
-  gather(value_subset, number, c(value_norm, si_value)) %>%
-  ggdensity(x = "number", color = "value_subset") +
-  geom_vline(xintercept = 0, linetype = "dashed") +
-  facet_wrap(~fuel_class) + 
-  xlim(-5, 10)   +
-  labs(title = "Distribution of values, by fuel class and transformation",
-       x = "Mean fuel load",
-       y = "Density")   
-
-```
-
-
 ##### *Normalize and standardize data*
-We transformed and standardized the plot-level values for total and mean duff and litter by time point. We took this step to enable subsequent comparisons with plot-level means (which did require transformation); total values did not violate any statistical assumptions.
 
-We subset the plot-level values for duff and litter by treatment (pre- and post-thinning), then applied an ordered quantile transformation to normalize the plot-level values for total duff and litter, calculated as:
+We transformed and standardized the plot-level values for total fuels and mean by fuel class by time point. We subset the plot-level values by fuel class (all, duff, litter), then applied an ordered quantile transformation to normalize the values, calculated as:
 
 g(x) = psi\^-1 \* ((rank(x) - .5) / (length(x)))
 
-Where psi refers to the standard normal cumulative distribution function, rank(x) refers to each observation's rank, and length(x) refers to the number of observations. The ordered quantile transformation is a rank-based procedure by which the values of a vector are mapped to their percentile, which is then mapped to the same percentile of the normal distribution. Without the presence of ties, this essentially guarantees that the transformation leads to a uniform distribution. Values were standardized by fuel class upon normalization to have a mean of 0 and standard deviation of 1.  
-
-
-```{r transformation_qq_plot}
-# Subset palette to colors for 2017, 2021
-colors_year_subset <- c(colors_year[2], colors_year[4])
-
-input_dl %>%
-  filter(time %in% c("2017", "2021")) %>%
-  ggqqplot("si_value", 
-           palette = colors_year_subset,
-           color = "time") + 
-  facet_wrap(~fuel_class, scales = "free") + 
-  theme(legend.position = "top") +
-  geom_hline(yintercept = 0, linetype = "longdash", color = "gray30") +
-  labs(caption = "Values have been transformed and standardized by fuel class")
-
-
-```
-
-A Shapiro-Wilk's test showed that the transformed values for total and mean subsets were normally distributed, with the exception of Duff in 2021. 
-
-
+Where psi refers to the standard normal cumulative distribution function, rank(x) refers to each observation's rank, and length(x) refers to the number of observations. The ordered quantile transformation is a rank-based procedure by which the values of a vector are mapped to their percentile, which is then mapped to the same percentile of the normal distribution. Without the presence of ties, this essentially guarantees that the transformation leads to a uniform distribution. Values were standardized by fuel class upon normalization to have a mean of 0 and standard deviation of 1.
 
 ------------------------------------------------------------------------
 
-## Q1: Did total fuel load differ between years?
+## Total fuel load
 
-The first question we asked was whether there was a significant main effect of year on total fuel load. A one-way repeated measures ANOVA was used to determine whether fuel load was significantly different between the four time points.
-
-### Summary statistics for the plot-level total amount of duff and litter by year
+### Summary statistics for the plot-level total fuel load by year
 
 The following table summarizes the plot-level total amount of duff and litter for each time point.
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-input_total %>%
-  group_by(year, units) %>%
-  get_summary_stats(value, type = "mean_sd")  %>%
+```{r total_summary}
+dl_total %>%
+  group_by(lab_time,
+           time,
+           units) %>%
+  get_summary_stats(si_value, type = "mean_sd")  %>%
   mutate(fuel_type = index_dl,
-         fuel_class = "All",) %>%
-  select(fuel_type, 
-         fuel_class, 
-         year,
-         n,
-         mean, 
-         sd,
-         units) %>%
-     fxn_kable()
+         fuel_class = "All") %>%
+  select(fuel_class, time, units, mean, sd, n)   %>%
+  fxn_kable()
 
 ```
 
@@ -417,311 +375,325 @@ input_total %>%
 
 A box plot of total duff and litter by year showed lower values in post-fire years. Specifically, we observed a decrease in the depth of all duff and litter immediately following the fire (2017; 0-y post-fire). The mean depth of duff and litter did not return to pre-fire levels in subsequent years.
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-p_total <- 
-  input_total %>%
-  ggboxplot(x = "lab_year", 
-            y = "value", 
-            fill = "year", 
+```{r total_boxplot}
+dl_total %>%
+  ggboxplot(x = "lab_time", 
+            y = "si_value", 
+            fill = "time", 
+            outlier.size = 0.3,
             palette = colors_year) + 
+  geom_hline(yintercept = 0, 
+             linetype = "longdash", 
+             color = "gray50") +
   theme(legend.position = "none", 
         axis.title.x = element_blank()) + 
-  scale_x_discrete(labels = function(lab_year) str_wrap(lab_year, width = 20)) + 
+  scale_x_discrete(labels = function(lab_time) str_wrap(lab_time, width = 20)) + 
   labs(title = paste0(index_dl, " (all)"), 
-       y = paste0(index_dl_si, " (mean)"))
-
-p_total
+       y = index_dl_si) 
 
 ```
 
+### Main effect of year on total fuel load
 
+We conducted a one-way repeated measures ANOVA to test for a main effect of year on fuel load (i.e., whether total fuel load was significantly different between the four time points). We found a significant effect of year on total fuel load F(3, 24) = 14.413, p-adj. = 1.41e-05, ges = 0.554.
 
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-ggqqplot(input_total, "value", 
-         facet.by = "year", 
-         color = "year",
-         palette = colors_year)
-
-```
-
-### Repeated measures ANOVA test
-
-Total duff and litter load differed between years. We found a significant main effect of year on duff and litter load (p-adjusted \< 0.001). The mean fuel load for all duff and litter (duff and litter combined) was significantly different between the four years; F(3, 24) = 14.029, p-adjusted (p-adj.) = 1.73e-05, ges = 0.59. The generalized effect size (ges) is the amount of variability due to the within-subjects factor.
-
-```{r, echo=FALSE, warning=FALSE}
-# Effect of year (all fuel classes)
-input_total %>%
-  fxn_aov_me() %>%
-  mutate(data_type = index_dl,
-         fuel_class = "All") %>%
+```{r total_main_effect}
+dl_total %>%
+  mutate(time = lab_time_abbr) %>%
+  anova_test(dv = value_norm, 
+             wid = plot_id, 
+             within = time) %>%
+  get_anova_table() %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  as_tibble() %>%
   clean_names() %>%
-  select(-p, 
-         -p_05) %>%
-  relocate(data_type, 
-           fuel_class,
-           effect, 
-           starts_with("p_adj"), 
-           statistic, 
-           starts_with("d_"), 
-           ges) %>%
+  mutate(method = "me",
+         fuel_type = index_dl,
+         fuel_class = "All",
+         index_value = "value_norm") %>% 
+  rename(statistic = f) %>% 
+  fxn_signif_adj()  %>%
+  select(fuel_class, 
+         method, 
+         effect, 
+         starts_with("p_adj"), 
+         statistic,
+         starts_with("d"), 
+         ges, 
+         starts_with("index"))  %>%
   fxn_kable()
-```
-
-### Post hoc tests
-
-We conducted post hoc pairwise comparisons between the levels of the within-subjects factor (here, year). The result of paired t-tests between years showed a significant difference between pre- and post-fire mean duff and litter levels in 2017 (p-adj. \<0.001) and 2021 (p-adj \<0.01).
-
-The results from the pairwise comparisons are shown below as (1) a boxplot of total duff and litter by year updated with p-values, and (2) a table of test results.
-
-```{r, echo=FALSE}
-pwc <- 
-  input_total %>%
-  pairwise_t_test(value ~ year, paired = TRUE, p.adjust.method = "bonferroni")  %>% 
-  add_xy_position(x = "year")
-
-aov_me <- 
-  input_total %>%
-    anova_test(dv = value, wid = plot_id, within = year)
-  
-p_total + 
-  labs(subtitle = get_test_label(aov_me, detailed = TRUE),
-       caption = get_pwc_label(pwc)) +
-  stat_pvalue_manual(pwc, hide.ns = TRUE) 
 
 ```
 
-```{r, echo=FALSE, warning=FALSE}
-# Effect of year (all fuel classes)
-input_total %>%
-  fxn_pwc() %>%
-  mutate(statistic = fxn_digit(statistic),
-         data_type = index_dl,
-         fuel_class = "All") %>%
-  select(-p) %>%
-  relocate(data_type, 
-           fuel_class,
-           starts_with("group"), 
-           starts_with("p_adj"), 
-           statistic, 
-           starts_with("d")) %>%
-  arrange(p_adj) %>%
+### Pairwise comparison of total fuel load between years
+
+Because we found a significant effect of year, we conducted a post hoc pairwise comparison in total fuel load between years. We found a significant difference in total fuel load between 2016 and 2017 (p-adj. \<0.001) and 2021 (p-adj \<0.01).
+
+```{r total_pairwise_comparison}
+# We found no significant difference in total fuels between pre-thin and post-thin surveys.
+dl_total %>%
+  pairwise_t_test(
+    value_norm ~ time,
+    paired = TRUE,
+    p.adjust.method = "bonferroni") %>%
+  clean_names() %>%
+  mutate(method = "pwc",
+         statistic = fxn_digit(statistic),
+         fuel_type = index_dl,
+         fuel_class = "All",
+         index_value = "value_norm") %>%
+  fxn_signif_adj() %>%
+  select(fuel_class,
+         method,
+         starts_with("group"),
+         starts_with("p_adj"),
+         statistic,
+         starts_with("d"),
+         starts_with("index"),
+         - p_adj_signif) %>%
+  arrange(p_adj)  %>%
   fxn_kable()
 
 ```
 
 ------------------------------------------------------------------------
 
-## Q2: Did fuel load differ between years by fuel class?
+## Mean fuel load, by fuel class
 
-Next, we investigated whether there was a significant change in plot-level fuel load over time when accounting for fuel class (duff, litter). A two-way repeated measures ANOVA was used to determine whether there was a significant interaction between year and fuel class on fuel load.
+### Summary statistics for the plot-level mean fuel load by fuel class and year
 
-Here, the effect of year on fuel load was our focal variable of primary concern. However, the effect of year may differ between duff and litter, so fuel_class was considered a moderator variable.
-
-### Summary statistics for duff and litter by year
-
-The following table summarizes duff and litter by class for each time point.
+The following table summarizes the plot-level mean values for the two fuel classes (duff, litter) at each time point.
 
 ```{r class_summary}
-input_class %>%
-  group_by(year, fuel_class, units) %>%
-  get_summary_stats(value, type = "mean_sd")  %>%
-  arrange(fuel_class, year) %>%
+dl_class %>%
+  # Include time for sorting
+  group_by(time, lab_time, units, fuel_class) %>%
+  get_summary_stats(si_value, type = "mean_sd")  %>%
   mutate(fuel_type = index_dl) %>%
-  select(fuel_type, 
-         fuel_class, 
-         year,
-         n,
-         mean, 
+  arrange(fuel_class, time) %>%
+  select(fuel_class, 
+         time, 
+         units, 
+         mean,
          sd,
-         units) %>%
-  gather(statistic, value, n:sd) %>%
-  spread(year, value) %>%
-  relocate(units, .after = last_col()) %>%
+         n)  %>%
   fxn_kable()
 
 ```
 
-### Visualization of duff and litter by year
+### Visualization of the plot-level mean fuel load by fuel class and year
 
-A box plot of duff and litter by year showed differing post-fire trends. Although duff and litter both showed a decrease in depth immediately following the fire (2017; 0-y post-fire), the subsequent annual trends differed. The temporal trend for total duff and litter was more similar to that of the litter fuel class, and showed less similarity to that of the duff fuel class. These results suggest that litter was an influential driver of the post-fire patterns observed for duff and litter as a group.
+Visual inspection of box plots for mean fuel depth by year showed differing post-fire trends between the duff and litter fuel classes. Although duff and litter both showed a decrease in depth immediately following the fire (2017, 0-y post-fire; red), the subsequent annual trends differed. The temporal trend for total duff and litter was more similar to that of the litter fuel class, and showed less similarity to that of the duff fuel class. These results suggest that litter was an influential driver of the post-fire patterns observed for duff and litter as a group.
 
 **Duff**\
 -- Duff depth remained low in all post-fire years.\
--- Values in 2019 and 2021 were lower than those for 2017.
+-- Values in 2019 (orange) and 2021 (yellow) were lower than those for 2017 (red).
 
 **Litter**\
--- Litter depth returned to pre-fire levels 2-y after the fire (2019), then showed a second decrease in 2021 (4-y post-fire).\
+-- Litter depth returned to pre-fire levels 2-y after the fire (2019, orange), then showed a second decrease in 2021 (4-y post-fire, yellow).\
 -- This post-fire increase and decrease in litter depth was similar to the temporal trend observed for duff and litter overall.
 
 ```{r class_boxplot}
-p_class <- 
-  input_class %>%
-  bind_rows(input_total) %>%
-  ggboxplot(x = "year", 
-            y = "value", 
-            fill = "year", 
-            palette = colors_year) + 
-  theme(legend.position = "none", 
-        axis.title.x = element_blank(), 
-        panel.spacing = unit(2, "lines"),
-        strip.background = element_rect(fill = "gray91",
-                                        color = "gray91"),
-        panel.border = element_rect(fill = NA,
-                                    color = "gray91",
-                                    size = 1.5)) + 
-  # scale_x_discrete(labels = function(lab_year) str_wrap(lab_year, width = 20)) + 
-  labs(title = paste0(index_dl), 
-       y = paste0(index_dl_si, " (mean)")) + 
-  facet_wrap(~lab_fuel)
-
-p_class
+input_dl %>%
+  # filter(metric %in% "mean") %>%
+  ggplot(aes(x = lab_time, 
+             y = si_value,  
+             fill = lab_time_abbr))  +
+  geom_hline(yintercept = 0, 
+             linetype = "longdash", 
+             color = "gray50") +
+  geom_boxplot(outlier.size = 0.8) +
+  labs(y = index_dl_si,
+       fill = "Timing") + 
+  facet_wrap(~lab_class, nrow = 1) +
+  guides(fill = guide_legend(byrow = TRUE)) +
+  scale_fill_manual(values = colors_year) +
+  theme_fuels_markdown() 
 
 ```
 
-### Repeated measures ANOVA test
+### Interaction between year and fuel class
 
-There was a statistically significant two-way interaction between duff and litter and year, F(2, 14) = 10.382, p-adj. = 0.006, ges = 0.329. A significant two-way interaction indicates that the impact of fuel class on fuel load depends on year (and vice versa).
+We investigated whether there was a significant change in the plot-level fuel load over time when accounting for fuel class (duff, litter). A two-way repeated measures ANOVA was used to determine whether there was a significant interaction between year and fuel class on mean fuel load. Here, the effect of year on fuel load was our focal variable of primary concern. However, the effect of year may differ between duff and litter, so fuel_class was considered a moderator variable.
 
-```{r, echo=FALSE, warning=FALSE}
-# Two-way ANOVA: Interaction between year x fuel class  
-input_class %>%
-  fxn_aov2_me() %>%
-  fxn_signif_adj() %>%
-  # mutate(data_type = index_dl) %>%
-  relocate(data_type, 
-           effect, 
-           starts_with("p_adj"), 
-           statistic, 
-           starts_with("d_"), 
-           ges) %>%
-  fxn_kable()
+There was a statistically significant two-way interaction between fuel clas and year, F(3, 24) = 26.727, p-adj. = 2.397e-07, ges = 0.506. A significant two-way interaction indicates that the impact of fuel class on fuel load depends on year (and vice versa).
 
-```
-
-### Post hoc tests
-
-We found a significant main effect of year on fuel load for both duff and litter. One thing the pairwise comparisons by fuel class had in common: For both duff and litter, the fuel load in 2016 was significantly different from that in 2017 (duff: p \<0.001; litter: p \< 0.01).
-
-```{r, echo=FALSE}
-# Create annotations to visualize p-values on boxplot ----
-pwc_yr <- 
-  input_class %>%
-  group_by(fuel_class) %>%
-  pairwise_t_test(value ~ year, paired = TRUE, p.adjust.method = "bonferroni")  %>%
-  add_xy_position(x = "fuel_class")
-
-# Create boxplot comparing both fuel classes by year  ----
-input_class %>%
-  ggboxplot(x = "lab_fuel", 
-            y = "value", 
-            fill = "lab_year_abbr", 
-            palette = colors_year, 
-            width = 0.6) +
-  labs(title = paste0(index_dl), 
-       y = paste0(index_dl_si, " (mean)"),
-       fill = "Year") +
-  theme(axis.title.x = element_blank(), 
-        legend.position = "right")  + 
-  stat_pvalue_manual(pwc_yr, tip.length = 0, hide.ns = TRUE) 
-
-
-```
-
-```{r, echo=FALSE, warning=FALSE}
-# Main effect of year, by fuel class 
-input_class %>%
-  group_by(fuel_class) %>%
-  fxn_aov_me() %>%
-  fxn_signif_adj() %>%
-  select(-p, 
-         -p_05) %>%
-  relocate(data_type, 
-           fuel_class, 
-           effect, 
-           starts_with("p_adj"), 
-           statistic, 
-           starts_with("d_"), 
-           ges) %>%
-  fxn_kable()
-
-```
-
-The following sections present the results from post hoc tests by fuel class for (1) the main effect of fuel class on fuel load at each time point, and (2) significant pairwise differences between years.
-
-##### *Duff vs. Year*
-
-There was a statistically significant main effect of year on duff; F(3, 24) = 62.909, p-adj. = 1.07e-05, ges = 0.853. Pairwise comparisons showed that the mean duff depth was significantly different between all years except 2019/2021. This result indicated that duff depth differed between 2016 (pre-fire) and all post-fire years, as well as between 2017 (0y post-fire) and subsequent years.
-
-```{r, echo=FALSE}
-fxn_posthoc_plot(index_subset = "duff", input_class) +
-  theme(legend.position = "right")
-fxn_posthoc_table(index_subset = "duff", input_class)
-
- 
-```
-
-##### *Litter vs. Year*
-
-There was a statistically significant main effect of year on litter; F(1, 10) = 6.83, p-adj. = 0.004, ges = 0.423. Pairwise comparisons showed that the mean litter depth was significantly different between 2016 and 2017 (p-adj. \<0.01), as well as 2017 and 2019 (p-adj. \<0.05).
-
-```{r, echo=FALSE, warning=FALSE}
-
-fxn_posthoc_plot(index_subset = "litter", input_class) +
-  theme(legend.position = "right")
-
-fxn_posthoc_table(index_subset = "litter", input_class)
-
-```
-
-##### *Duff vs. Litter*
-
-We found a significant difference in mean depth between duff and litter in 2019 and in 2021.
-
-```{r, echo=FALSE}
-
-# Create annotations to visualize p-values on boxplot ----
-pwc_class <- 
-  input_class %>%
-  group_by(year) %>%
-  pairwise_t_test(value ~ fuel_class, paired = TRUE, p.adjust.method = "bonferroni") %>%
-  add_xy_position(x = "year")
-
-# Create boxplot comparing fuel class by year  ----
-input_class %>%
-  ggboxplot(x = "lab_year", 
-            y = "value", 
-            fill = "lab_fuel", 
-            palette = colors_dl, 
-            width = 0.6) +
-  scale_x_discrete(labels = function(lab_year) str_wrap(lab_year, width = 20)) + 
-  labs(title = paste0(index_dl), 
-       y = paste0(index_dl_si, " (mean)"),
-       fill = "Fuel class") +
-  theme(axis.title.x = element_blank(), 
-        legend.position = "right")  + 
-  font("x.text", size = 10)  +
-  stat_pvalue_manual(pwc_class, tip.length = 0, hide.ns = TRUE) 
-
-# Create summary table  ----
-pwc_class %>%
-  mutate(data_type = index_dl,
-         statistic = fxn_digit(statistic), 
-         method = "pwc") %>%
+```{r class_interaction}
+dl_class  %>%
+ anova_test(dv = value_norm, 
+             wid = plot_id, 
+             within = c(time, fuel_class)) %>%
+  get_anova_table() %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  as_tibble() %>%
   clean_names() %>%
-  select(data_type, 
-         year,
-         group1, group2,
+  mutate(method = "interaction",
+         fuel_type = index_dl,
+         fuel_class = "By class",
+         index_value = "value_norm") %>% 
+  rename(statistic = f) %>% 
+  fxn_signif_adj()  %>%
+  select(method, 
+         effect, 
          starts_with("p_adj"), 
-         statistic, 
-         starts_with("d")) %>%
+         statistic,
+         starts_with("d"), 
+         ges, 
+         starts_with("index")) %>%
+  arrange(p_adj) %>%
+  filter(effect %in% "time:fuel_class")    %>%
   fxn_kable()
+
+
+```
+
+#### Effect of treatment on each fuel class
+
+Because we found a significant interaction between fuel class and year, we conducted a main effect assessment for each fuel class.
+
+We found a significant main effect of year on fuel load for both fuel classes at a signficance level of \<0.001.
+
+```{r class_main_effect}
+dl_class %>%
+  group_by(fuel_class) %>%
+  anova_test(dv = value_norm, 
+             wid = plot_id, 
+             within = time) %>%
+  get_anova_table() %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  as_tibble() %>%
+  clean_names() %>%
+  mutate(method = "me",
+         fuel_type = index_dl,
+         index_value = "value_norm") %>% 
+  rename(statistic = f) %>% 
+  fxn_signif_adj()  %>%
+  select(fuel_class, 
+         method, 
+         effect, 
+         starts_with("p_adj"), 
+         statistic,
+         starts_with("d"), 
+         ges, 
+         starts_with("index")) %>%
+  arrange(p_adj)   %>%
+  fxn_kable()
+```
+
+### Pairwise comparisons of mean fuel load between years, by fuel class
+
+The pre-fire fuel load (2016) was significantly different from that in 2017 for both fuel classes (duff: p \<0.001; litter: p \< 0.01). For each fuel class, we found a significant difference in mean fuel load between the years for the following comparisons:
+
+**Duff**
+
+-   2016 and 2019, 2021, 2017 (p-adj \< 0.001)
+
+-   2017 and 2019, 2021 (p-adj \< 0.01)
+
+-   A pairwise comparison between years showed that the mean duff depth was significantly different between all years except 2019/2021.
+
+**Litter**
+
+-   2017 and 2016, 2019 (p-adj \< 0.01)
+
+```{r class_pairwise_comparison}
+dl_class %>%
+  group_by(fuel_class) %>%
+  pairwise_t_test(
+    value_norm ~ time, 
+    paired = TRUE,
+    p.adjust.method = "bonferroni") %>%
+  clean_names() %>%
+  mutate(method = "pwc", 
+         statistic = fxn_digit(statistic), 
+         fuel_type = index_dl,
+         index_value = "value_norm") %>%
+  fxn_signif_adj() %>%
+  select(fuel_class, 
+         method, 
+         starts_with("group"),
+         starts_with("p_adj"), 
+         statistic,
+         starts_with("d"), 
+         starts_with("index"), 
+         - p_adj_signif) %>%
+  filter(p_adj < 0.05) %>%
+  arrange(fuel_class, p_adj)   %>%
+  fxn_kable()
+```
+
+
+```{r, echo=FALSE}
+# input_class %>%
+#   ggboxplot(x = "lab_fuel", 
+#             y = "value", 
+#             fill = "lab_year_abbr", 
+#             palette = colors_year, 
+#             width = 0.6) +
+#   labs(title = paste0(index_dl), 
+#        y = paste0(index_dl_si, " (mean)"),
+#        fill = "Year") +
+#   theme(axis.title.x = element_blank(), 
+#         legend.position = "right")  + 
+#   stat_pvalue_manual(pwc_yr, tip.length = 0, hide.ns = TRUE) 
+
+# input_class %>%
+#   group_by(fuel_class) %>%
+#   fxn_aov_me() %>%
+#   fxn_signif_adj() %>%
+#   select(-p, 
+#          -p_05) %>%
+#   relocate(data_type, 
+#            fuel_class, 
+#            effect, 
+#            starts_with("p_adj"), 
+#            statistic, 
+#            starts_with("d_"), 
+#            ges) %>%
+#   fxn_kable()
+
+
+##### *Duff vs. Litter* ----
+
+# We found a significant difference in mean depth between duff and litter in 2019 and in 2021.
+
+# # Create annotations to visualize p-values on boxplot
+# pwc_class <- 
+#   input_class %>%
+#   group_by(year) %>%
+#   pairwise_t_test(value ~ fuel_class, paired = TRUE, p.adjust.method = "bonferroni") %>%
+#   add_xy_position(x = "year")
+# 
+# # Create boxplot comparing fuel class by year 
+# input_class %>%
+#   ggboxplot(x = "lab_year", 
+#             y = "value", 
+#             fill = "lab_fuel", 
+#             palette = colors_dl, 
+#             width = 0.6) +
+#   scale_x_discrete(labels = function(lab_year) str_wrap(lab_year, width = 20)) + 
+#   labs(title = paste0(index_dl), 
+#        y = paste0(index_dl_si, " (mean)"),
+#        fill = "Fuel class") +
+#   theme(axis.title.x = element_blank(), 
+#         legend.position = "right")  + 
+#   font("x.text", size = 10)  +
+#   stat_pvalue_manual(pwc_class, tip.length = 0, hide.ns = TRUE) 
+# 
+# # Create summary table 
+# pwc_class %>%
+#   mutate(data_type = index_dl,
+#          statistic = fxn_digit(statistic), 
+#          method = "pwc") %>%
+#   clean_names() %>%
+#   select(data_type, 
+#          year,
+#          group1, group2,
+#          starts_with("p_adj"), 
+#          statistic, 
+#          starts_with("d")) %>%
+#   fxn_kable()
 
 ```
 
 ------------------------------------------------------------------------
-
-```{r, echo=FALSE}
-tibble("Date of last revision" = Sys.Date()) %>%
-    knitr::kable()
-```

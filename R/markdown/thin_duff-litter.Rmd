@@ -250,15 +250,15 @@ input_dl %>%
 
 ------------------------------------------------------------------------
 
-## Total duff and litter 
+## Total fuel load 
 
 The first question we asked was whether there was a significant difference in total fuel load between surveys conduted before and after thinning treatment. We used a paired t-test to test for a significant difference between total fuel values from before and after thinning. 
 
-#### Summary statistics for the plot-level total amount of duff and litter by treatment
+#### Summary statistics for the plot-level total fuel load by treatment
 
 The following table summarizes the plot-level total amount of duff and litter for each time point.
 
-```{r, echo=FALSE}
+```{r total_summary}
 dl_total %>%
   group_by(lab_time, si_units) %>%
   get_summary_stats(si_value, type = "mean_sd")  %>%
@@ -268,11 +268,11 @@ dl_total %>%
 
 ```
 
-#### Visualization of the plot-level total amount of duff and litter by treatment
+#### Visualization of the plot-level total fuel load by treatment
 
 A boxplot of total duff and litter by treatment showed a post-thinning decrease in depth.
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r total_boxplot}
 dl_total %>%
   ggboxplot(x = "lab_time", 
             y = "si_value", 
@@ -293,7 +293,7 @@ dl_total %>%
 #### Main effect of treatment on total fuel load 
 We found no significant effect of treatment on total fuel load (litter and duff fuel classes combined), F(1, 4) = 6.356, p-adj. =  0.065, ges = 0.253. P-values were adjusted using the Bonferroni multiple testing correction method. 
 
-```{r paired_ttest}
+```{r total_main_effect}
 dl_total %>%
   mutate(time = lab_time_abbr) %>%
   anova_test(dv = value_norm, 
@@ -351,7 +351,7 @@ dl_total %>%
 
 ------------------------------------------------------------------------
 
-## Mean duff and litter, by fuel class 
+## Mean fuel load, by fuel class 
 Next, we investigated whether there was a significant change in plot-level fuel load by treatment when accounting for fuel class. A two-way repeated measures ANOVA was used to determine whether there was a significant interaction between treatment and fuel class on fuel load.
 
 Here, the effect of treatment on fuel load was our focal variable of primary concern. However, the effect of treatment may differ between fuel classes, so fuel_class was considered a moderator variable.
@@ -471,7 +471,7 @@ dl_class %>%
 
 A post hoc pairwise comparison showed a significant difference in fuel load between treatments for litter. No other comparisons were significant.
 
-```{r class_pwc}
+```{r class_pairwise_comparison}
 dl_class %>%
   group_by(fuel_class) %>%
   pairwise_t_test(
