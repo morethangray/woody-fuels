@@ -3,14 +3,14 @@ title: "Coarse woody debris: Pre- and post-thinning"
 author: "Morgan Gray"
 date: "`r Sys.Date()`"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE)
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE)
 
-# Load libraries
+# Load libraries -----
 rm(list = ls())
 library(tidyverse)   ## To manipulate data frames
 library(here)   ## To manage directories
@@ -20,345 +20,274 @@ library(broom)  ## To format output tables from statistical tests
 # library(lemon)  ## To manipulate faceted ggplots
 library(kableExtra)  ## For tables in rmarkdown
 library(ggpubr)  ## For qq plots
-library(patchwork)  ## To arrange faceted plots
+# library(patchwork)  ## To arrange faceted plots
+library(bestNormalize)
 
-# Define file paths 
+# Define file paths ----
 path_r <- here("R")
 path_fxn <- here(path_r, "functions")
 path_lookup <- here("input/lookup-tables")
-path_derived <- here("input/data_3-derived")
+path_derived <- here("input/data_derived")
+
+# Define helpers 
+index_wd <- "Duff & litter"
+index_wd_si <- "Mean fuel depth (centimeters)"
+index_wd <- "Coarse woody debris"
+index_wd_si <- "Mean fuel load (metric tons per hectare)"
+# list_classes_wd <- c("all", "hr0001", "hr0010", "hr0100", "hr1000r", "hr1000s")
 
 # Define plot colors 
 colors_thin_bright <- c("#9d9596", "#069879")
 colors_thin_faded <- c("#bfbabb", "#75bca8")
 
-# Define helpers 
-index_wd <- "Coarse woody debris"
-list_classes_wd <- c("all", "hr0001", "hr0010", "hr0100", "hr1000r", "hr1000s")
-index_units_lab_wd <- "Mean fuel load (metric tons per hectare)"
-
-# Source functions 
+# Source functions ----
 source(file = here(path_fxn, "basic-functions.R"))
-source(file = here(path_fxn, "statistical-tests.R"))
-source(file = here(path_fxn, "data-transformation.R"))
-# source(file = here(path_fxn, "plot-themes.R"))
+source(file = here(path_fxn, "plot-themes.R"))
 
-```
-
-### Read and summarize coarse woody debris data (plot-level total, plot-level mean)
-
-```{r raw_read}
-# Read data tables for derived total and mean, with metric units 
-input_wd <- 
-  read_csv(here(path_derived, "thin_total-by-plot-type-trmt.csv")) %>%
-  bind_rows(read_csv(here(path_derived, "thin_mean-by-plot-type-class-trmt.csv"))) %>%
-  arrange(survey, plot_id, data_type, fuel_class) %>%
+# ========================================================== -----
+# Read input data: derived total and mean ----
+input_wd <-
+  read_csv(here(path_derived, "thin_derived-norm.csv")) %>%
+  arrange(time, fuel_type, fuel_class) %>%
   mutate_if(is.character, as_factor)  %>%
-  mutate(value = fxn_digit(value_si), 
-         timing = ifelse(survey %in% "cont", "survey1", "survey2")) %>%
-  select(-value_si, 
-         -units) %>%
-  rename(units = units_si, 
-         metric = statistic) %>%
-  relocate(c(metric, subset), .after = value)  %>%
-  filter(data_type %in% "wd")
+  mutate(si_value = fxn_digit(si_value)) %>%
+  filter(fuel_type %in% "wd")  
 
-# # Create subset for mean by fuel class
-# wd_class <-
-#   input_wd %>%
-#   filter(data_type %in% "wd", 
-#          metric %in% "mean")
-# 
-# # Create subset for total (all fuel classes combined)
-# wd_total <-
-#   input_wd %>%
-#   filter(data_type %in% "wd", 
-#          metric %in% "total") %>%
-#   remove_empty("cols")
+wd_class <-
+  input_wd %>%
+  filter(metric %in% "mean")
+
+wd_total <-
+  input_wd %>%
+  filter(metric %in% "total")  
 
 ```
+------------------------------------------------------------------------
 
-```{r boxplot}
-# Visualize coarse woody debris by fuel type and treatment 
-# Total fuel load (all CWD classes combined) increased after thinning 
-# Mean fuel load increased after thinning for all fuel classes except 1000-hr rotten
-#   Data for 1000-hr rotten were mostly 0; difficult to interpret (see below)
+## Overview
+The aim of this research was to understand the impact of fuel load management (i.e., thinning) on fuels. Our objective was to evaluate the short-term impact of thinning on levels of coarse woody debris (total, and by fuel class). To meet this objective, we used a "treatment and control" approach to compare fuel levels before (control, pre-thinning) and after (treatment, post-thinning) thinning was applied at five vegetation monitoring plots.
 
-input_wd %>%
-  arrange(fuel_class) %>%
-  mutate(lab_thin = str_remove_all(lab_thin, "-thinning"), 
-         lab_fuel = as_factor(str_replace_all(lab_fuel, "-hr", "h"))) %>% 
-  ggboxplot(x = "lab_thin", 
-            y = "value", 
-            fill = "lab_thin", 
-            outlier.size = 0.8,
-            palette = colors_thin_faded) + 
-  geom_hline(yintercept = 0, 
-             linetype = "longdash", 
-             color = "gray30") +
-  theme(legend.position = "none", 
-        axis.title.x = element_blank(), 
-        axis.text.x = element_text(size = 10), 
-        axis.text.y = element_text(size = 9)) + 
-  labs(title = paste0(index_wd, " by fuel class, pre- and post-thinning"), 
-       y = index_units_lab_wd, 
-       fill = "Timing") +
-  facet_wrap(~lab_fuel, nrow = 1, scales = "free") 
+The control and treatment data sets were collected at two time points in 2021. Control data were collected before thinning, between 6/9/21 and 7/7/21. Treatment data were collected after thinning on 10/18/21 and 10/19/21, with the exception of measurements for plot FOR10 which surveyed on 12/9/21. On average, 133.6 days elapsed between control and treatment surveys (range: 104 to 183, standard deviation = 27.2).
 
-```
+We used these data to answer the following questions:
 
-```{r raw_means}
+1.  Did the total fuel load (all coarse woody debris fuel classes combined) differ between control and treatment surveys?
+
+2.  Did fuel load for between control and treatment surveys differ by fuel class?
+
+#### Fuel data for coarse woody debris
+We answered these questions using plot-level data collected before and after treatment (i.e., pre- and post-thinning) for (1) the total amount of coarse woody debris and (2) the mean amount of each of the five fuel classes. We defined "total (or all) coarse woody debris" as the combined total of the the five fuel classes within a plot: 1-hr, 10-hr, 100-hr, 1000-hr rotten, 1000-hr sound.
+
+Recall that surveys were conducted along three transects within each plot. We calculated the ***plot-level mean for each fuel class*** to account for replicate surveys within each plot. To calculated the the ***plot-level total*** at each time point, we summed the plot means for all CWD fuel classes.
+
+Below is a table that shows the plot-level mean at each time point for coarse woody debris (total and mean by fuel class).  
+
+```{r raw_summary}
 # Pre- and post-thinning fuel load by fuel class 
 input_wd %>%
-  group_by(lab_type, lab_fuel, lab_thin, metric, units) %>% 
-  get_summary_stats(value, type = "mean_sd") %>%
-  select(lab_type, 
-         lab_fuel, 
-         lab_thin, 
+  group_by(lab_class, lab_time, metric, si_units) %>% 
+  get_summary_stats(si_value, type = "mean_sd") %>%
+  select(lab_class, 
+         lab_time, 
          metric, 
-         units,
+         si_units,
          mean, 
          sd, 
-         n) %>%
+         n)  %>%
   fxn_kable()
 
+
 ```
+
+Most values for the 1000-hr rotten fuel class were equal to zero:
+29 of the 30 transect measurements equaled 0
+9 of 10 plot-level means were 0 (pre-thin: 4/5, post-thin: 5/5)
+As a result, this data subset is not normally distributed.  
 
 ```{r raw_zeros}
-# 1000-hr rotten (hr1000r) is not normally distributed
-#   29 of the 30 transect measurements were 0 
-#   9 of 10 plot-level means were 0 (pre-thin: 4/5, post-thin: 5/5)
 input_wd %>%
-  filter(value == 0) %>%
-  group_by(lab_type, lab_fuel, lab_thin) %>% 
-  count() %>%
+  filter(si_value == 0) %>%
+  group_by(lab_fuel, lab_class, lab_time) %>% 
+  summarize(count = n())  %>%
   fxn_kable()
 ```
 
-### Check assumptions
 
-Subset data subset by fuel class and timing because these are the groupings that will be evaluated with statistical tests.
+#### Statistical methods
+
+Statistically significant differences were identified using repeated measures analysis of variance (ANOVA) and post hoc comparisons. P-values were adjusted using the Bonferroni multiple testing correction method.
+
+[NOTE: A repeated measures ANOVA is appropriate to use for a paired time series (before vs. after, treatment vs. control). For these data in particular, the approach accounts for elements that structure the data set in addition to time. For example, transects within each plot are more likely to be similar than transects between plots.]
+
+The repeated-measures ANOVA is used for analyzing data where same subjects are measured more than once. This test is also referred to as a within-subjects ANOVA or ANOVA with repeated measures. The "within-subjects" term means that the same individuals (here, individuals are plots) are measured on the same outcome variable under different time points. The main goal of a repeated measures ANOVA is to evaluate if there is a statistically significant interaction effect between within-subjects factors in explaining a continuous outcome variable. The repeated measures ANOVA makes the following assumptions about the data:
+
+-   No significant outliers in any cell of the design
+-   Normality: the outcome (or dependent) variable should be approximately normally distributed in each cell of the design
+-   Assumption of sphericity: the variance of the differences between groups should be equal
+
+We assessed outliers using the the interquartile range (IQR; IQR = Q3 - Q1). Values above Q3 + 1.5xIQR or below Q1 - 1.5xIQR are considered as outliers. Values above Q3 + 3xIQR or below Q1 - 3xIQR are considered as extreme points (or extreme outliers). Q1 and Q3 are the first and third quartile, respectively. Extreme outliers can be due to data entry errors, measurement errors, or unusual values. The outlier may be included if one believes the result will not be substantially affected; this can be evaluated by comparing the result of the ANOVA with and without the outlier.
+
+We assessed normality by visual inspection of a QQ plot for each time point. A QQ plot draws the correlation between a given data and the normal distribution. We also conducted the Shapiro-Wilk test for each time point. Using this method, normally distributed data will have p-value \>0.05.
+
+The assumption of sphericity was checked during the computation of the ANOVA test using the R function anova_test() [rstatix package]. The Mauchly's test was internally used to assess the sphericity assumption, and the Greenhouse-Geisser sphericity correction was automatically applied to factors violating the sphericity assumption.
+
+#### Check assumptions
+Subset data by fuel class and time because these are the groupings that will be evaluated with statistical tests.
+
+##### *Check for outliers*
+There were no extreme outliers in the data set for total CWD; a non-extreme outlier was found in pre-thinning total at FOR08. There were three extreme outliers by fuel class: pre-thinning 100-hr and 1000-hr rotten in FOR08; post-thinning 1-hr in FOR06. Overall it looks like something was different about FOR08 during pre- and post-thinning surveys.  
 
 ```{r raw_outliers}
-# Determine if there are extreme outliers 
-#
-# No extreme outliers for total CWD
-# Outlier for total pre-thinning in FOR08
-#
-# Three extreme outliers by fuel class : 
-#   Pre-thinning hr0100 and hr1000r in FOR08
-#   Post-thinning hr0001 in FOR06
-# 
-# Overall it looks like something was different about FOR08 during pre- and post-thinning surveys
-#
 input_wd %>%
-  group_by(lab_type, lab_fuel, lab_thin, metric, units) %>% 
-  identify_outliers(value) %>%
+  group_by(time, fuel_class) %>% 
+  identify_outliers(si_value) %>%
   clean_names() %>%
-  select(lab_type, 
-         lab_fuel, 
-         lab_thin, 
-         plot_id,
-         value,
-         metric, 
-         units,
+  select(lab_class, 
+         metric,
+         lab_class, 
+         lab_time_abbr, 
+         plot_id, 
+         si_value, 
          starts_with("is")) %>%
-  arrange(desc(is_extreme), metric, lab_fuel) %>%
-  # filter(is_extreme == TRUE) %>%
   fxn_kable()
+ 
+# No extreme outliers for total CWD
+# Three extreme outliers for mean CWD
+
 ```
 
+As expected, outliers were seen in the QQ plots created using CWD raw values for 1-hr, 100-hr, and 1000-hr rotten.  
+
+```{r raw_qq_plot}
+ggqqplot(input_wd, 
+         "si_value", 
+         palette = colors_thin_bright,
+         color = "lab_time") + 
+  facet_wrap(~lab_class, scales = "free") + 
+  theme(legend.position = "top") +
+  geom_hline(yintercept = 0, linetype = "longdash", color = "gray30")
+
+```
+
+##### *Check for normality*
+Shapiro-Wilk's test indicated that plot-level values were normally distributed for total CWD and for mean CWD within the 1-hr and 10-hr fuel classes. Three fuel classes were not normally distributed: 100-hr, 1000-hr rotten (mostly 0 values), 1000-hr sound.   
+
 ```{r raw_normality}
-# Evaluate normality 
-#
-# Shapiro test results indicated total CWD was normally distributed at each time point
-#
-# Shapiro test results by fuel class indicated 100-hr, 1000-hr sound (pre-thin) were not normally distributed 
-# 
 input_wd %>%
+  # hr1000r: 29 of the 30 values were 0 
   # Exclude hr1000r because we already know it's not normal
   filter(fuel_class %nin% "hr1000r") %>%
-  # Rename columns for shapiro test
   select(id = plot_id, 
-         time = lab_thin, 
-         score = value, 
-         lab_type,
-         lab_fuel, 
+         time = lab_time_abbr, 
+         score = si_value, 
+         lab_class, 
          metric) %>%
-  group_by(lab_type, lab_fuel, time, metric) %>%
+  group_by(lab_class, time, metric) %>%
   shapiro_test(score) %>%
   clean_names() %>%
   mutate(statistic = fxn_digit(statistic), 
-         # p = fxn_digit(p),
          is_normal = p>0.05) %>%
-  select(lab_type, 
-         lab_fuel, 
-         lab_thin = time, 
+  select(lab_class, 
+         time, 
          metric,
          is_normal,
          p, 
          statistic) %>%
-  arrange(is_normal, metric, lab_fuel) %>%
+  arrange(is_normal, time)   %>%
   filter(is_normal == FALSE) %>%
   fxn_kable()
+
+
 ```
 
-```{r raw_qq_plot}
-# Create QQ plots for raw data subset by fuel_class and treatment   
-ggqqplot(input_wd, 
-         "value", 
-         palette = colors_thin_bright,
-         color = "lab_thin") + 
-  facet_wrap(~lab_fuel, 
-             scales = "free") + 
-  theme(legend.position = "top") +
-  geom_hline(yintercept = 0, 
-             linetype = "longdash", 
-             color = "gray5")  
-```
-
-### Identify appropriate transformation
-Apply a series of transformations to each subset, then evaluate impact on outliers and normality.
+#### Identify the most appropriate transformation
+We applied a series of transformations to each subset, then evaluated the resulting data for outliers and normality. To create the transformed subsets, we used scale() from base R and four normalization functions from the bestNormalize package: arcsinh_x, log_x, orderNorm, and sqrt_x.
 
 ```{r transformation_eval}
-# Use four normalization functions from the bestNormalize package to create transformed subsets:
-#   arcsinh_x
-#   log_x
-#   orderNorm
-#   sqrt_x
-# 
+wd_eval <- 
+  input_wd %>%
+  group_by(lab_class, fuel_class) %>%
+  mutate(value_std = as.vector(scale(si_value)), 
+         value_arcsine = arcsinh_x(si_value, standardize = TRUE)$x.t, 
+         value_log = log_x(si_value, standardize = TRUE)$x.t, 
+         value_ordnorm = orderNorm(si_value, standardize = TRUE)$x.t, 
+         value_sqrt = sqrt_x(si_value, standardize = TRUE)$x.t) %>%
+  ungroup() %>%
+  relocate(c(si_value, us_value, value_norm), .after = last_col()) %>%
+  gather(method, number, value_std:value_norm) %>%
+  select(fuel_class, lab_class, plot_id, time, lab_time_abbr, metric, method, number) 
+
+
+```
+
+The application of the orderNorm function resolved outliers within the 1-hr and 100-hr subsets. Outliers within the 1000-hr rotten subset were not improved with any transformation.
+
+```{r transformation_outliers}
+# Check outliers for each transformation  
+wd_eval_outlier <- 
+  wd_eval %>%
+  group_by(lab_class, fuel_class, time, lab_time_abbr, method) %>%
+  identify_outliers(number) %>%
+  clean_names()  %>%
+  ungroup() %>%
+  select(lab_class, 
+         fuel_class,
+         time, 
+         lab_time_abbr, 
+         method,
+         plot_id, 
+         number, 
+         starts_with("is")) %>%
+  filter(is_extreme == FALSE)  
+
 # Most important for subsets that had extreme outliers or were not normally distributed:
-# Outlier for total: 
-#   Pre-thin in FOR08
-#
 # Extreme outliers by fuel class: 
 #   Pre-thin hr0100 in FOR08
 #   Pre-thin hr1000r in FOR08
 #   Post-thin hr0001 in FOR06
-#
-# Not normally distributed:
-#   Pre-thin hr0100  
-#   Pre-thin hr1000s
-#
-wd_transform_eval <-
-  fxn_tranform_eval(index_data = input_wd,
-                    index_list = list_classes_wd)  %>%
-  gather(transform, value, value_raw:value_sqrt)
-
-```
-
-```{r transformation_outliers}
-# Check outliers for each transformation  
-check_transform_outlier <-
-  wd_transform_eval %>%
-  group_by(timing, 
-           fuel_class, 
-           transform) %>%
-  identify_outliers(value) %>%
-  clean_names() %>%
-  select(transform,
-         fuel_class,
-         timing,
-         plot_id,
-         value,
-         starts_with("is")) %>%
-  arrange(desc(is_extreme), transform, fuel_class) 
-
-# Pre-thin total in FOR08: No extreme outliers for orderNorm, log_x, arcsinh_x, sqrt_x
-check_transform_outlier %>%
-  filter(fuel_class %in% "all" & timing %in% "survey1" & plot_id %in% "FOR08") %>%
-  fxn_kable()
 
 # Pre-thin hr0100 in FOR08: No extreme outliers for orderNorm, log_x, arcsinh_x
-check_transform_outlier %>%
-  filter(fuel_class %in% "hr0100" & timing %in% "survey1" & plot_id %in% "FOR08") %>%
-  fxn_kable()
+out1 <- 
+  wd_eval_outlier %>%
+  filter(fuel_class %in% "hr0100" & time %in% "t1" & plot_id %in% "FOR08") 
        
 # Post-thin hr0001 in FOR06: No extreme outliers for orderNorm 
-check_transform_outlier %>%
-  filter(fuel_class %in% "hr0001" & timing %in% "survey2" & plot_id %in% "FOR06") %>%
-  fxn_kable()
+out2 <- 
+  wd_eval_outlier %>%
+  filter(fuel_class %in% "hr0001" & time %in% "t2" & plot_id %in% "FOR06")  
 
 # Pre-thin hr1000r in FOR08: No improvement with any transformation 
-check_transform_outlier %>%
-  filter(fuel_class %in% "hr1000r" & timing %in% "survey1" & plot_id %in% "FOR08") %>%
+out3 <- 
+  wd_eval_outlier %>%
+  filter(fuel_class %in% "hr1000r" & time %in% "t1" & plot_id %in% "FOR08")  
+
+bind_rows(out1, out2, out3) %>%
   fxn_kable()
 
 ```
 
-```{r transformation_normality}
-# Check normality for each transformation 
-check_transform_normal <-
-  wd_transform_eval %>%
-  # Exclude hr1000r because we already know it's not normal
-  filter(fuel_class %nin% "hr1000r") %>%
-  # Rename columns for shapiro test
-  select(id = plot_id,
-         time = timing,
-         score = value,
-         fuel_class, 
-         transform) %>%
-  group_by(fuel_class, 
-           time, 
-           transform) %>%
-  shapiro_test(score) %>%
-  clean_names() %>%
-  mutate(statistic = fxn_digit(statistic), 
-         is_normal = p>0.05) %>%
-  select(fuel_class,
-         timing = time,
-         transform,
-         is_normal,
-         p,
-         statistic)
-
-# Pre-thin hr0100: Normal distribution with orderNorm, log_x, arcsinh_x 
-check_transform_normal %>%
-  filter(fuel_class %in% "hr0100" & timing %in% "survey1", 
-         is_normal == TRUE) %>%
-  fxn_kable()
-
-# Pre-thin hr1000s: No transformation normalized hr1000s
-check_transform_normal %>%
-  filter(fuel_class %in% "hr1000s" & timing %in% "survey1",
-         is_normal == TRUE) %>%
-  fxn_kable()
-
-```
-
-```{r transformation_density_plot}
-# The orderNorm transformation looks pretty good for the total and mean subsets
-#
-wd_transform_eval %>%
-  filter(transform %nin% "value_sqrt") %>%
-  ggdensity(x = "value", 
-            color = "fuel_class") +
-  geom_vline(xintercept = 0, 
-             linetype = "dashed") +
-  facet_grid(fuel_class~transform, 
-             scales = "free") +
-  theme(panel.spacing = unit(1, "lines"),
-        legend.position = "right") +
-  labs(title = "Distribution of values, by fuel class and transformation",
-       caption = "Note: axis scales differ between plots",
-       x = "Mean tons per acre",
-       y = "Density") +
-  xlim(-5, 10)
-```
+A QQ plot of the values for fuel classes with outliers (rows) by transformation (columns) is below.  
 
 ```{r transformation_qq_plot}
 # The orderNorm transformed subsets look ok compared to the raw or standardized data
-wd_transform_eval %>%
-  filter(transform %in% c("value_raw", "value_std",  "value_ordnorm")) %>%
-  mutate(transform = str_remove_all(transform, "value_")) %>%
-  ggqqplot("value", 
+wd_eval %>%
+  mutate(method = str_remove_all(method, "value_")) %>%
+  # Subset to fuel classes with outliers 
+  filter(fuel_class %in% c("hr0001", "hr0100", "hr1000r"), 
+         method %in% c("si_value", 
+                       "std",
+                       "arcsine", 
+                       "log",
+                       "ordnorm", 
+                       "sqrt")) %>%
+  ggqqplot("number", 
            palette = colors_thin_bright,
-           color = "timing") + 
+           color = "time") + 
   # To let scales on y-axis vary between faceted columns
-  ggh4x::facet_grid2(transform ~ fuel_class, 
+  ggh4x::facet_grid2(lab_class ~ method, 
                      scales="free", 
                      independent = "all") +
-  theme(legend.position = "top", 
+  theme(legend.position = "none", 
         axis.text = element_text(size = 9)) +
   geom_hline(yintercept = 0, 
              linetype = "longdash", 
@@ -367,111 +296,338 @@ wd_transform_eval %>%
 
 ```
 
-### Create transformed data as input for statistical tests
+The application of the orderNorm function resulted in values for the 100-hr fuel class that were normally distributed, as assessed by Shapiro-Wilk's test. No transformation normalized the distribution of the 1000-hr sound subset.  
 
-```{r transformed_read}
-wd_transform <-
-  read_csv(here(path_derived, "thin_wd_transformed_metric-units.csv")) %>%
-  arrange(timing, plot_id, data_type, fuel_class) %>%
-  # Non-numeric variables must be factors for rstatix 
-  mutate_if(is.character, as_factor)  
+```{r transformation_normality}
+wd_eval_normal <- 
+  wd_eval %>%
+  # hr1000r: 29 of the 30 values were 0 
+  # Exclude hr1000r because we already know it's not normal
+  filter(fuel_class %nin% "hr1000r") %>%
+  select(id = plot_id, 
+         time,
+         score = number,
+         treatment = fuel_class,
+         method) %>%
+  group_by(time, treatment, method) %>%
+  shapiro_test(score)  %>%
+  clean_names() %>%
+  mutate(is_normal = p>0.05) %>%
+  select(fuel_class = treatment,
+         time,
+         is_normal,
+         method,
+         p,
+         statistic) %>%
+  arrange(is_normal, fuel_class, method, time) %>%
+  filter(is_normal == TRUE)
 
-wd_transform_total <-
-  wd_transform %>%
-  filter(data_type %in% "wd",
-         metric %in% "total")
+# Pre-thin hr0100: Normal distribution with orderNorm, log_x, arcsinh_x 
+nor1 <- 
+  wd_eval_normal %>%
+  filter(fuel_class %in% "hr0100" & time %in% "t1") 
 
-wd_transform_class <-
-  wd_transform %>%
-  filter(data_type %in% "wd",
-         metric %in% "mean")
+# Pre-thin hr1000s: No transformation normalized hr1000s
+nor2 <- 
+  wd_eval_normal %>%
+  filter(fuel_class %in% "hr1000s" & time %in% "t1")
 
-```
-
-### Conduct statistical tests 
-#### Did thinning treatment have a significant effect on total coarse woody debris fuel load?
-```{r total_main_effect}
-# Test for an effect of treatment on total CWD load (all CWD fuel classes combined)
-# We found no significant difference in total fuel load between measurements collected pre- and post-thinning, F(1, 4) = 5.474, p-adj. =  0.079, eta2[g] = 0.358. P-values were adjusted using the Bonferroni multiple testing correction method. 
-wd_transform_total %>%
-  # Use transformed values as input for statistical tests
-  fxn_aov_me(index_value = "value_tran", 
-             index_id = "plot_id", 
-             index_time = "lab_thin")  %>%
-  fxn_signif_adj() %>%
-  mutate(data_type = index_wd,
-         fuel_class = "All") %>%
-  select(data_type, 
-         fuel_class, 
-         starts_with("p_adj"),
-         statistic, 
-         starts_with("d_"), 
-         ges) %>%
+bind_rows(nor1, nor2) %>%
   fxn_kable()
 
 ```
 
-#### Did thinning treatment have a significant effect on the individual fuel classes?  
+The following plot shows the values by fuel class (rows) and transformation method (columns). Overall, the orderNorm function (green) appeared to be an effective normalization method for most data subsets.  
 
-```{r class_interaction}
-# Two-way interaction between thinning treatment and fuel class 
-# We wanted to know if the thinning treatment induced a significant change in fuel load among the five fuel classes 
-#   In other words, was there a significant interaction between thinning and fuel class on fuel load for coarse woody debris?
-# We conducted a two-way repeated measures ANOVA to evaluate the effect of thinning over different fuel classes on CWD fuel load.
-#
-# There was no statistically significant interaction between thinning treatment and fuel class on CWD fuel load, F(4, 16) = 2.512, p-adj. = 0.249. P-values were adjusted using the Bonferroni multiple testing correction method. 
-wd_transform_class  %>%
-  fxn_aov2_me(index_value = "value_tran",
-              index_id = "plot_id",
-              index_time = "timing",
-              index_variable = "fuel_class") %>%
-  fxn_signif_adj() %>%
-  mutate(data_type = index_wd) %>%
-  select(data_type,
-           effect,
-             starts_with("p_adj"),
-             statistic,
-             starts_with("d_"),
-             ges) %>%
-  fxn_kable() 
-# time:variable	0.249	n.s.	2.512	4.00	16.00	0.141000
+```{r, transformation_density_plot}
+wd_eval %>%
+  mutate(method = str_remove_all(method, "value_")) %>%
+  filter(method %in% c("si_value", 
+                       # "std", 
+                       "arcsine", 
+                       "log", 
+                       "ordnorm", 
+                       "sqrt")) %>%
+  ggdensity(x = "number", 
+            color = "method") +
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  facet_grid(fuel_class ~ method, scales = "free") + 
+  xlim(-5, 10)   +
+  theme(legend.position = "none") +
+  labs(x = "Mean fuel load",
+       y = "Density")   
+
 ```
 
-```{r class_pwc}
-# Pairwise comparison between fuel load by thinning treatment, for each fuel class 
-# We analyzed the effect of thinning treatment for each fuel class. The Bonferroni adjustment was applied. 
-# A post hoc pairwise comparison showed mean fuel load was significantly different between control and treatment (thinned and unthinned, pre- and post-thinning) measurements for the 1000-hr sound (p-adj. < 0.001) and 10-hr (p-adj. < 0.01) fuel classes. No significant effect was found for 1-hr (p-adj. = 0.131), 100-hr (p-adj. = 0.402), or 1000-hr rotten (p-adj. = 0.347).
 
-wd_transform_class  %>%
-  group_by(fuel_class) %>%
-    fxn_pwc(index_value = "value_tran",
-             index_id = "plot_id",
-             index_time = "timing") %>%
-  # fxn_aov_me(index_value = "value_tran",
-  #            index_id = "plot_id",
-  #            index_time = "timing") %>%
-  fxn_signif_adj() %>%
-  mutate(data_type = index_wd) %>%
-  select(data_type, 
+## Total coarse woody debris 
+#### Summary statistics for the plot-level total amount of CWD by treatment  
+The following table summarizes the plot-level total amount of CWD for each time point.
+
+```{r total_summary}
+wd_total %>%
+  group_by(lab_time, si_units) %>%
+  get_summary_stats(si_value, type = "mean_sd")  %>%
+  mutate(fuel_type = index_wd,
+         fuel_class = "All") %>%
+  select(fuel_type, fuel_class, lab_time, si_units, mean, sd, n)  %>%
+  fxn_kable()
+
+```
+#### Visualization of the plot-level total amount of CWD by treatment
+Visual inspection of a boxplot for total CWD by treatment suggests a post-thinning increase in mass.
+
+```{r total_boxplot}
+wd_total %>%
+  ggboxplot(x = "lab_time", 
+            y = "si_value", 
+            fill = "time", 
+            outlier.size = 0.3,
+            palette = colors_thin_faded) + 
+  geom_hline(yintercept = 0, 
+             linetype = "longdash", 
+             color = "gray50") +
+  theme(legend.position = "none", 
+        axis.title.x = element_blank()) + 
+  scale_x_discrete(labels = function(lab_time) str_wrap(lab_time, width = 20)) + 
+  labs(title = paste0(index_wd, " (all)"), 
+       y = index_wd_si) 
+
+```
+
+#### Main effect of treatment on total fuel load 
+We found no significant effect of treatment on total fuel load (all CWD fuel classes combined), F(1, 4) = 4.205, p-adj. =  0.11, ges = 0.313. P-values were adjusted using the Bonferroni multiple testing correction method. 
+
+
+```{r total_main_effect}
+wd_total %>%
+  mutate(time = lab_time_abbr) %>%
+  anova_test(dv = value_norm, 
+             wid = plot_id, 
+             within = time) %>%
+  get_anova_table() %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  as_tibble() %>%
+  clean_names() %>%
+  mutate(method = "main effect",
+         fuel_type = index_wd,
+         fuel_class = "All",
+         index_value = "value_norm") %>% 
+  rename(statistic = f) %>% 
+  fxn_signif_adj()  %>%
+  select(fuel_type, 
          fuel_class, 
-         starts_with("p_adj"),
+         method, 
+         effect, 
+         starts_with("p_adj"), 
          statistic,
-         starts_with("d")) %>%
+         starts_with("d"), 
+         ges, 
+         starts_with("index")) %>%
+  fxn_kable()
+
+# # We found no significant difference in total fuel load values (all CWD fuel classes combined) between measurements collected before and after thinning, F(1, 4) = -2.051, p-adj. =  0.11. P-values were adjusted using the Bonferroni multiple testing correction method. 
+# 
+# wd_total %>%
+#   mutate(time = lab_time_abbr) %>%
+#   pairwise_t_test(
+#     value_norm ~ time,
+#     paired = TRUE,
+#     p.adjust.method = "bonferroni") %>%
+#   clean_names() %>%
+#   mutate(method = "pairwis of e comparison",
+#          statistic = fxn_digit(statistic),
+#          fuel_type = index_wd,
+#          fuel_class = "All",
+#          index_value = "value_norm") %>%
+#          # index_plot = "thin",
+#          # index_metric = "total") %>%
+#   fxn_signif_adj() %>%
+#   select(fuel_type,
+#          fuel_class,
+#          method,
+#          starts_with("group"),
+#          starts_with("p_adj"),
+#          statistic,
+#          starts_with("d"),
+#          # starts_with("n"),
+#          starts_with("index"),
+#          - p_adj_signif) %>%
+#   arrange(p_adj) 
+```
+
+
+------------------------------------------------------------------------
+
+## Mean coarse woody debris, by fuel class 
+Next, we investigated whether there was a significant change in plot-level fuel load by treatment when accounting for fuel class. A two-way repeated measures ANOVA was used to determine whether there was a significant interaction between treatment and fuel class on fuel load.
+
+Here, the effect of treatment on fuel load was our focal variable of primary concern. However, the effect of treatment may differ between fuel classes, so fuel_class was considered a moderator variable.
+
+#### Summary statistics for CWD by treatment and fuel class
+The following table shows the plot-level mean values for the five CWD fuel classes at each time point. We observed an increase in mean fuel load after thinning for the following fuel classes: 1-hr, 10-hr, 1000-hr rotten, and 1000-hr sound. Mean fuel load for the 100-hr fuel class decreased after thinning (pre-thin = 24.01, post-thin = 8.64). 
+
+```{r class_summary}
+wd_class %>%
+  # Include time for sorting
+  group_by(time, lab_time, si_units, fuel_class) %>%
+  get_summary_stats(si_value, type = "mean_sd")  %>%
+  mutate(fuel_type = index_wd) %>%
+  arrange(fuel_class, time) %>%
+  select(fuel_type, 
+         fuel_class, 
+         lab_time, 
+         si_units, 
+         mean,
+         sd,
+         n)  %>%
+  fxn_kable()
+# 
+# wd_class %>% 
+#   filter(fuel_class %in% "hr0100") %>%
+#   # Include time for sorting
+#   group_by(time, lab_time, si_units, fuel_class) %>%
+#   get_summary_stats(si_value, type = "mean_sd")
+
+```
+
+#### Visualization of CWD fuel classes, by treatment 
+A visual inspection of boxplots of the plot-level mean values for the five CWD fuel classes at each time point were mostly consistent with the summary table above. We observed an increase in fuel load after thinning for the following fuel classes: 1-hr, 10-hr, 1000-hr rotten, and 1000-hr sound. 
+
+BUT!  
+
+What I don't understand is why the values for the 100-hr fuel class appear to increase after thinning, which is in contrast to the summary statistics that show a decrease in mean values after thinning (pre-thin = 24.01, post-thin = 8.64). 
+
+```{r class_boxplot}
+input_wd %>%
+  filter(metric %in% "mean") %>%
+  ggplot(aes(x = lab_time_abbr, 
+             y = si_value,  
+             fill = lab_time_abbr))  +
+  geom_hline(yintercept = 0, 
+             linetype = "longdash", 
+             color = "gray50") +
+  geom_boxplot(outlier.size = 0.8) +
+  labs(y = index_wd_si,
+       fill = "Timing") + 
+  facet_wrap(~fuel_class, scales = "free", nrow = 1) +
+  guides(fill = guide_legend(byrow = TRUE)) +
+  scale_fill_manual(values = colors_thin_faded) +
+  theme_fuels_markdown() 
+
+```
+
+#### Interaction between treatment and fuel class
+We wanted to know if the thinning treatment induced a significant change in fuel load among the five fuel classes.  In other words, was there a significant interaction between thinning and fuel class on fuel load for coarse woody debris?
+We conducted a two-way repeated measures ANOVA to evaluate the effect of thinning over different fuel classes on CWD fuel load.
+
+There was no statistically significant interaction between thinning treatment and fuel class on CWD fuel load, F(4, 16) = 2.512, p-adj. = 0.249, ges = 0.141. P-values were adjusted using the Bonferroni multiple testing correction method.
+
+```{r class_interaction}
+wd_class  %>%
+  anova_test(dv = value_norm, 
+             wid = plot_id, 
+             within = c(time, fuel_class)) %>%
+  get_anova_table() %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  as_tibble() %>%
+  clean_names() %>%
+  mutate(method = "interaction",
+         fuel_type = index_wd,
+         fuel_class = "By class",
+         index_value = "value_norm") %>% 
+  rename(statistic = f) %>% 
+  fxn_signif_adj()  %>%
+  select(fuel_type, 
+         fuel_class, 
+         method, 
+         effect, 
+         starts_with("p_adj"), 
+         statistic,
+         starts_with("d"), 
+         ges, 
+         starts_with("index")) %>%
+  arrange(p_adj) %>%
+  filter(effect %in% "time:fuel_class")  %>%
+  fxn_kable()
+
+```
+
+### Effect of treatment on each fuel class
+To analyze the effect of thinning treatment on each fuel class, we used a repeated measures ANOVA. We found a significant main effect of treatment on fuel load for the 1000-hr sound () and 10-hr (p-adj. <0.01) fuel classes.  
+
+```{r class_main_effect}
+wd_class %>%
+  group_by(lab_class) %>%
+  anova_test(dv = value_norm, 
+             wid = plot_id, 
+             within = time) %>%
+  get_anova_table() %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  as_tibble() %>%
+  clean_names() %>%
+  mutate(method = "main effect",
+         fuel_type = index_wd,
+         index_value = "value_norm") %>% 
+  rename(statistic = f) %>% 
+  fxn_signif_adj()  %>%
+  select(fuel_type, 
+         fuel_class = lab_class, 
+         method, 
+         # effect, 
+         starts_with("p_adj"), 
+         statistic,
+         starts_with("d"), 
+         ges, 
+         starts_with("index")) %>%
+  arrange(p_adj)  %>%
+  fxn_kable()
+
+```
+
+We conducted post hoc pairwise comparison tests to identify significant differences in fuel load values between measurements collected before and after thinning treatments. Mean fuel load values were significantly different between pre- and post-thinning surveys for 1000-hr sound (p-adj. < 0.001) and 10-hr (p-adj. < 0.01) fuel classes. No other comparisons were significant.
+
+```{r class_pwc}
+wd_class %>%
+  # filter(fuel_class %in% c("hr0010", "hr1000s")) %>%
+  group_by(lab_class) %>%
+  pairwise_t_test(
+    value_norm ~ time, 
+    paired = TRUE,
+    p.adjust.method = "bonferroni") %>%
+  clean_names() %>%
+  mutate(method = "pairwise comparison", 
+         statistic = fxn_digit(statistic), 
+         fuel_type = index_wd,
+         index_value = "value_norm") %>%
+  fxn_signif_adj() %>%
+  select(fuel_type, 
+         fuel_class = lab_class, 
+         method, 
+         starts_with("group"),
+         starts_with("p_adj"), 
+         statistic,
+         starts_with("d"), 
+         # starts_with("n"),
+         starts_with("index"), 
+         - p_adj_signif) %>%
   arrange(p_adj) %>%
   fxn_kable()
 
+
 ```
 
-```{r class_boxplot}
-# Create individual plots
-all <- fxn_boxplot_class("all")
-hr0001 <- fxn_boxplot_class("hr0001")
-hr0010 <- fxn_boxplot_class("hr0010")
-hr0100 <- fxn_boxplot_class("hr0100")
-hr1000r <- fxn_boxplot_class("hr1000r")
-hr1000s <- fxn_boxplot_class("hr1000s") 
 
-# Join plots using patchwork
-all + hr0001 + hr0010 + hr0100 + hr1000r + hr1000s
+```{r class_boxplot_patchwork}
+# # Create individual plots
+# all <- fxn_boxplot_class("all")
+# hr0001 <- fxn_boxplot_class("hr0001")
+# hr0010 <- fxn_boxplot_class("hr0010")
+# hr0100 <- fxn_boxplot_class("hr0100")
+# hr1000r <- fxn_boxplot_class("hr1000r")
+# hr1000s <- fxn_boxplot_class("hr1000s") 
+# 
+# # Join plots using patchwork
+# all + hr0001 + hr0010 + hr0100 + hr1000r + hr1000s
 ```
 

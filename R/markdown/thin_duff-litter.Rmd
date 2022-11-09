@@ -27,7 +27,6 @@ library(patchwork)  ## To arrange faceted plots
 path_r <- here("R")
 path_fxn <- here(path_r, "functions")
 path_lookup <- here("input/lookup-tables")
-path_raw <- here("input/data_raw")
 path_derived <- here("input/data_derived")
 
 # Define helpers 
@@ -39,12 +38,9 @@ index_wd_si <- "Mean fuel load (metric tons per hectare)"
 # Define plot colors 
 colors_thin_bright <- c("#9d9596", "#069879")
 colors_thin_faded <- c("#bfbabb", "#75bca8")
-# color_palette <- thematic::okabe_ito(2)
-#
+
 # Source functions ----
 source(file = here(path_fxn, "basic-functions.R"))
-# source(file = here(path_fxn, "statistical-tests.R"))
-# source(file = here(path_fxn, "data-transformation.R"))
 source(file = here(path_fxn, "plot-themes.R"))
 
 # ========================================================== -----
@@ -74,8 +70,6 @@ The aim of this research was to understand the impact of fuel load management (i
 
 The control and treatment data sets were collected at two time points in 2021. Control data were collected before thinning, between 6/9/21 and 7/7/21. Treatment data were collected after thinning on 10/18/21 and 10/19/21, with the exception of measurements for plot FOR10 which surveyed on 12/9/21. On average, 133.6 days elapsed between control and treatment surveys (range: 104 to 183, standard deviation = 27.2).
 
-The data for each time point were collected by conducting surveys along three transects within each of the five plots. Each transect had one quadrat for duff and litter (n = 3 quadrats per plot) and two quadrats for duff and litter (n = 6 quadrats per plot). Each time point had 30 data points each for duff and litter (5 plots x 3 transects x 2 quadrats).
-
 We used these data to answer the following questions:
 
 1.  Did the total fuel load (all duff and litter combined) differ between control and treatment surveys?
@@ -90,7 +84,7 @@ Recall that surveys were conducted along three transects within each plot; each 
 
 Below is a table that shows the plot-level mean at each time point for litter and duff (total and mean by fuel class).
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r raw_summary}
 input_dl %>%
   arrange(plot_id, fuel_class, time) %>%
   select(fuel_type = lab_fuel, 
@@ -156,7 +150,7 @@ ggqqplot(input_dl,
          "si_value", 
          palette = colors_thin_bright,
          color = "lab_time") + 
-  facet_wrap(~fuel_class, scales = "free") + 
+  facet_wrap(~lab_class, scales = "free") + 
   theme(legend.position = "top") +
   geom_hline(yintercept = 0, linetype = "longdash", color = "gray30")
 
@@ -256,11 +250,11 @@ ggqqplot(input_dl,
 
 ------------------------------------------------------------------------
 
-## Q1: Did total duff and litter differ between control and treatment surveys?
+## Total duff and litter 
 
 The first question we asked was whether there was a significant difference in total fuel load between surveys conduted before and after thinning treatment. We used a paired t-test to test for a significant difference between total fuel values from before and after thinning. 
 
-### Summary statistics for the plot-level total amount of duff and litter by treatment
+#### Summary statistics for the plot-level total amount of duff and litter by treatment
 
 The following table summarizes the plot-level total amount of duff and litter for each time point.
 
@@ -274,7 +268,7 @@ dl_total %>%
 
 ```
 
-### Visualization of the plot-level total amount of duff and litter by treatment
+#### Visualization of the plot-level total amount of duff and litter by treatment
 
 A boxplot of total duff and litter by treatment showed a post-thinning decrease in depth.
 
@@ -296,54 +290,77 @@ dl_total %>%
 
 ```
 
-### Paired t-test 
+#### Main effect of treatment on total fuel load 
+We found no significant effect of treatment on total fuel load (litter and duff fuel classes combined), F(1, 4) = 6.356, p-adj. =  0.065, ges = 0.253. P-values were adjusted using the Bonferroni multiple testing correction method. 
 
-We found no significant difference in total fuels between pre-thin and post-thin surveys.
-
-
-```{r, echo=FALSE, warning=FALSE}
+```{r paired_ttest}
 dl_total %>%
   mutate(time = lab_time_abbr) %>%
-  pairwise_t_test(
-    value_norm ~ time,
-    paired = TRUE,
-    p.adjust.method = "bonferroni") %>%
+  anova_test(dv = value_norm, 
+             wid = plot_id, 
+             within = time) %>%
+  get_anova_table() %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  as_tibble() %>%
   clean_names() %>%
-  mutate(method = "pairwise comparison",
-         statistic = fxn_digit(statistic),
+  mutate(method = "main effect",
          fuel_type = index_dl,
          fuel_class = "All",
-         index_value = "value_norm") %>%
-         # index_plot = "thin",
-         # index_metric = "total") %>%
-  fxn_signif_adj() %>%
-  select(fuel_type,
-         fuel_class,
-         method,
-         starts_with("group"),
-         starts_with("p_adj"),
+         index_value = "value_norm") %>% 
+  rename(statistic = f) %>% 
+  fxn_signif_adj()  %>%
+  select(fuel_type, 
+         fuel_class, 
+         method, 
+         effect, 
+         starts_with("p_adj"), 
          statistic,
-         starts_with("d"),
-         # starts_with("n"),
-         starts_with("index"),
-         - p_adj_signif) %>%
-  arrange(p_adj) 
+         starts_with("d"), 
+         ges, 
+         starts_with("index"))
+
+# # We found no significant difference in total fuels between pre-thin and post-thin surveys.
+# dl_total %>%
+#   mutate(time = lab_time_abbr) %>%
+#   pairwise_t_test(
+#     value_norm ~ time,
+#     paired = TRUE,
+#     p.adjust.method = "bonferroni") %>%
+#   clean_names() %>%
+#   mutate(method = "pairwise comparison",
+#          statistic = fxn_digit(statistic),
+#          fuel_type = index_dl,
+#          fuel_class = "All",
+#          index_value = "value_norm") %>%
+#          # index_plot = "thin",
+#          # index_metric = "total") %>%
+#   fxn_signif_adj() %>%
+#   select(fuel_type,
+#          fuel_class,
+#          method,
+#          starts_with("group"),
+#          starts_with("p_adj"),
+#          statistic,
+#          starts_with("d"),
+#          # starts_with("n"),
+#          starts_with("index"),
+#          - p_adj_signif) %>%
+#   arrange(p_adj) 
 
 ```
 
 ------------------------------------------------------------------------
 
-## Q2: Did duff and litter for control and treatment surveys differ by fuel class?
+## Mean duff and litter, by fuel class 
 
 Next, we investigated whether there was a significant change in plot-level fuel load by treatment when accounting for fuel class. A two-way repeated measures ANOVA was used to determine whether there was a significant interaction between treatment and fuel class on fuel load.
 
 Here, the effect of treatment on fuel load was our focal variable of primary concern. However, the effect of treatment may differ between fuel classes, so fuel_class was considered a moderator variable.
 
-### Summary statistics for duff and litter by treatment and fuel class
-
+#### Summary statistics for duff and litter by treatment and fuel class
 The following table shows the plot-level mean values for the two fuel classes (duff, litter) at each time point.
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r class_summary}
 dl_class %>%
   # Include time for sorting
   group_by(time, lab_time, si_units, fuel_class) %>%
@@ -360,11 +377,10 @@ dl_class %>%
 
 ```
 
-### Visualization of duff and litter fuel classes, by treatment 
-
+#### Visualization of duff and litter fuel classes, by treatment 
 We observed a decrease in mean fuel load after thinning for both fuel classes, although litter depth showed the greatest decrease.
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r class_boxplot}
 input_dl %>%
   filter(metric %in% "mean") %>%
   ggplot(aes(x = lab_time, 
@@ -384,11 +400,10 @@ input_dl %>%
 
 ```
 
-### Interaction between treatment and fuel class
-
+#### Interaction between treatment and fuel class
 There was a statistically significant two-way interaction between fuel class and treatment, F(1, 4) = 29.238, p-adj. = 0.018, ges = 0.228. A significant two-way interaction indicates that the impact of fuel class on fuel load depends on treatment (and vice versa).
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r class_interaction}
 dl_class  %>%
  anova_test(dv = value_norm, 
              wid = plot_id, 
@@ -419,11 +434,10 @@ dl_class  %>%
 # Significant interaction between time and fuel class (p-adj <0.05)
 ```
 
-### Effect of treatment on each fuel class
-
+#### Effect of treatment on each fuel class
 Because we found a significant interaction between fuel class and treatment, we conducted a main effect assessment for each fuel class. We found a significant main effect of treatment on fuel load for the litter fuel class (p-adj. = 0.012), but not for duff.
 
-```{r}
+```{r class_main_effect}
 #   Main effect: time on fuel class ----
 dl_class %>%
   group_by(fuel_class) %>%
@@ -458,7 +472,7 @@ dl_class %>%
 
 A post hoc pairwise comparison showed a significant difference in fuel load between treatments for litter. No other comparisons were significant.
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r class_pwc}
 dl_class %>%
   group_by(fuel_class) %>%
   pairwise_t_test(
