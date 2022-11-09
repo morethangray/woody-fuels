@@ -125,7 +125,7 @@ The assumption of sphericity was checked during the computation of the ANOVA tes
 
 There were no outliers in the data set for total duff and litter. There were two extreme outliers in the post-thinning survey for litter (FOR05, FOR10).
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r raw_outliers}
 input_dl %>%
   group_by(time, fuel_class) %>% 
   identify_outliers(si_value) %>%
@@ -145,7 +145,7 @@ input_dl %>%
 
 All points in a QQ plot created using raw values fell within the reference range for total, as well as mean duff. As expected, two outlier values for litter in the post-thinning subset strayed from the reference line (green).
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r raw_qq_plot}
 ggqqplot(input_dl, 
          "si_value", 
          palette = colors_thin_bright,
@@ -161,7 +161,7 @@ ggqqplot(input_dl,
 
 Plot-level values for total and mean duff and litter were normally distributed, as assessed by Shapiro-Wilk's test.
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r raw_normality}
 input_dl %>%
   select(id = plot_id, 
          time = time, 
@@ -194,24 +194,24 @@ g(x) = psi\^-1 \* ((rank(x) - .5) / (length(x)))
 
 Where psi refers to the standard normal cumulative distribution function, rank(x) refers to each observation's rank, and length(x) refers to the number of observations. The ordered quantile transformation is a rank-based procedure by which the values of a vector are mapped to their percentile, which is then mapped to the same percentile of the normal distribution. Without the presence of ties, this essentially guarantees that the transformation leads to a uniform distribution. Values were standardized by fuel class upon normalization to have a mean of 0 and standard deviation of 1.
 
-The following plot shows the raw values in pink (si_value) and the transformed values in blue (value_norm).
+After normalization, the outlier points on the QQ plot for litter (post-thinning, green) are nearer to the reference line, suggesting an approximately normal distribution.
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
-input_dl %>%
-  gather(value_subset, number, c(value_norm, si_value)) %>%
-  ggdensity(x = "number", color = "value_subset") +
-  geom_vline(xintercept = 0, linetype = "dashed") +
-  facet_wrap(~fuel_class) + 
-  xlim(-5, 10)   +
-  labs(title = "Distribution of values, by fuel class and transformation",
-       x = "Mean fuel load",
-       y = "Density")   
+```{r transformation_qq_plot}
+ggqqplot(input_dl, 
+         "value_norm", 
+         palette = colors_thin_bright,
+         color = "lab_time") + 
+  facet_wrap(~fuel_class, scales = "free") + 
+  theme(legend.position = "top") +
+  geom_hline(yintercept = 0, linetype = "longdash", color = "gray30") +
+  labs(caption = "Values have been transformed and standardized by fuel class")
+
 
 ```
 
 The transformed values for total and mean duff and litter were normally distributed, as assessed by Shapiro-Wilk's test.
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+```{r transformation_normality}
 input_dl %>%
   select(id = plot_id, 
          time = time, 
@@ -233,18 +233,18 @@ input_dl %>%
 
 ```
 
-After normalization, the outlier points on the QQ plot for litter (post-thinning, green) are nearer to the reference line, suggesting an approximately normal distribution.
+The following plot shows the raw values in pink (si_value) and the transformed values in blue (value_norm).
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
-ggqqplot(input_dl, 
-         "value_norm", 
-         palette = colors_thin_bright,
-         color = "lab_time") + 
-  facet_wrap(~fuel_class, scales = "free") + 
-  theme(legend.position = "top") +
-  geom_hline(yintercept = 0, linetype = "longdash", color = "gray30") +
-  labs(caption = "Values have been transformed and standardized by fuel class")
-
+```{r, transformation_density_plot}
+input_dl %>%
+  gather(value_subset, number, c(value_norm, si_value)) %>%
+  ggdensity(x = "number", color = "value_subset") +
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  facet_wrap(~fuel_class) + 
+  xlim(-5, 10)   +
+  labs(title = "Distribution of values, by fuel class and transformation",
+       x = "Mean fuel load",
+       y = "Density")   
 
 ```
 
@@ -352,7 +352,6 @@ dl_total %>%
 ------------------------------------------------------------------------
 
 ## Mean duff and litter, by fuel class 
-
 Next, we investigated whether there was a significant change in plot-level fuel load by treatment when accounting for fuel class. A two-way repeated measures ANOVA was used to determine whether there was a significant interaction between treatment and fuel class on fuel load.
 
 Here, the effect of treatment on fuel load was our focal variable of primary concern. However, the effect of treatment may differ between fuel classes, so fuel_class was considered a moderator variable.

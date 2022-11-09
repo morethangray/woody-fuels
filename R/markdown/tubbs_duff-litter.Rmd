@@ -1,5 +1,5 @@
 ---
-title: 'Fuel analysis for Oak Symposium: Duff and litter'
+title: 'Duff and litter: Pre- and post-Tubbs fire'
 author: "Morgan Gray"
 date: "`r Sys.Date()`"
 output:
@@ -18,40 +18,51 @@ library(here)   ## To manage directories
 library(janitor)   ## To clean data frames
 library(rstatix)  ## For repeated measure ANOVA
 library(broom)  ## To format output tables from statistical tests
-library(lemon)  ## To manipulate faceted ggplots
+# library(lemon)  ## To manipulate faceted ggplots
 library(kableExtra)  ## For tables in rmarkdown
 library(ggpubr)  ## For qq plots
+library(bestNormalize)
+# library(patchwork)  ## To arrange faceted plots
 
 # Define file paths ----
 path_r <- here("R")
 path_fxn <- here(path_r, "functions")
 path_lookup <- here("input/lookup-tables")
-path_raw <- here("input/data_1-raw")
-path_tidy <- here("input/data_2-tidy")
-path_derived <- here("input/data_3-derived")
+path_derived <- here("input/data_derived")
 
-# Define helpers ----
-index_type <- "Duff & litter"
-index_units_si <- "Depth in centimeters"
+# Define helpers 
+index_dl <- "Duff & litter"
+index_dl_si <- "Mean fuel depth (centimeters)"
+index_wd <- "Coarse woody debris"
+index_wd_si <- "Mean fuel load (metric tons per hectare)"
 
-# Define plot colors ----
-plot_colors <- 
-  read_csv(here(path_lookup, 
-                "plot-colors.csv")) %>%
-  arrange(palette, palette_subset, levels)
-
-colors_year <- 
-  plot_colors %>%
-  filter(palette %in% "year", 
-         palette_subset %in% "1pre_3post") %>%
-  pull(hex_code) 
-
+# Define plot colors 
+colors_year <- c("gray70", "#C47E61", "#dbae84", "#e9d097")
 colors_dl <- c("#7da8b0", "#c4c4c4")
+# Subset palette to colors for 2017, 2021
+colors_year_subset <- c(colors_year[2], colors_year[4])
 
 # Source functions ----
 source(file = here(path_fxn, "basic-functions.R"))
-source(file = here(path_fxn, "statistical-tests.R"))
-source(file = here(path_fxn, "data-transformation.R"))
+source(file = here(path_fxn, "plot-themes.R"))
+
+# ========================================================== -----
+# Read input data: derived total and mean ----
+input_dl <-
+  read_csv(here(path_derived, "tubbs_derived-norm.csv")) %>%
+  arrange(time, fuel_type, fuel_class) %>%
+  mutate_if(is.character, as_factor)  %>%
+  mutate(time = as_factor(time), 
+         si_value = fxn_digit(si_value)) %>%
+  filter(fuel_type %in% "dl")  
+
+dl_class <-
+  input_dl %>%
+  filter(metric %in% "mean")
+
+dl_total <-
+  input_dl %>%
+  filter(metric %in% "total")  
 
 ```
 
@@ -70,58 +81,22 @@ Using the duff and litter data set as input, we asked the following questions:
 
 We answered these questions using a time series of plot-level data for (1) the total amount of duff and litter and (2) the mean amount of each fuel class (duff, litter). We defined "total (or all) duff and litter" as the combined total of the duff and litter within a plot.
 
-First, we calculated the plot-level mean (n = 4 quadrats) for each fuel class (duff, litter) at each time point. A subset of the data frame with the plot-level mean for each fuel class by year is shown below.
+We calculated the ***plot-level mean for each fuel class*** to account for replicate surveys within each plot. To calculated the the ***plot-level total*** at each time point, we summed the plot means for all fuel classes by fuel type.  
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-input_class <- 
-  read_csv(here(path_derived, "tubbs_mean-by-plot-type-class-yr.csv")) %>%
-  arrange(year) %>%
-  mutate(year = as_factor(year), 
-         lab_year = as_factor(lab_year), 
-         lab_year_abbr = as_factor(lab_year_abbr), 
-         value = fxn_digit(value_si), 
-         statistic = "mean",
-         units = index_units_si) %>%
-  relocate(c(statistic, subset), .after = value)  %>%
-  filter(lab_type %in% index_type)
+Below is a table that shows the plot-level mean at each time point for litter and duff (total and mean by fuel class).  
 
-head(input_class) %>%
-  select(fuel_type = lab_type, 
-         fuel_class = lab_fuel, 
+```{r raw_summary}
+input_dl %>%
+  arrange(plot_id, fuel_class, time) %>%
+  select(fuel_type = lab_fuel, 
+         fuel_class = lab_class, 
          plot_id, 
-         year,
-         value, 
-         units,
-         statistic) %>%
-  fxn_kable()  
-
-```
-
-Next, we summed the means for the duff and litter fuel classes to find the plot-level total at each time point. Below is a subset of the data frame for the plot-level values of duff and litter by year.
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-input_total <-
-  read_csv(here(path_derived, "tubbs_total-by-plot-type-yr.csv")) %>%
-  arrange(year) %>%
-  mutate(year = as_factor(year), 
-         lab_year = as_factor(lab_year), 
-         lab_year_abbr = as_factor(lab_year_abbr), 
-         lab_fuel = "All", 
-         value = fxn_digit(value_si), 
-         statistic = "total", 
-         units = index_units_si) %>%
-  relocate(c(statistic, subset), .after = value)  %>%
-  filter(lab_type %in% index_type)
-
-head(input_total) %>%
-  select(fuel_type = lab_type, 
-         fuel_class = lab_fuel, 
-         plot_id, 
-         year,
-         value, 
-         units,
-         statistic) %>%
-    fxn_kable()
+         time,
+         si_value, 
+         metric,
+         si_units) %>%
+  spread(time, si_value)  %>%
+  relocate(c(metric, si_units), .after = last_col()) 
 
 ```
 
@@ -141,6 +116,276 @@ We assessed normality by visual inspection of a QQ plot for each time point. A Q
 
 The assumption of sphericity was checked during the computation of the ANOVA test using the R function anova_test() [rstatix package]. The Mauchly's test was internally used to assess the sphericity assumption, and the Greenhouse-Geisser sphericity correction was automatically applied to factors violating the sphericity assumption.
 
+#### Check assumptions
+
+##### *Check for outliers*
+There was one extreme outlier in the data set for total duff and litter (plot RxF03 in 2017). There were two extreme outliers in the  mean by fuel class data set for duff (plots RxF03 and RxFO4 in 2021). 
+
+```{r raw_outliers}
+input_dl %>%
+  group_by(time, fuel_class) %>% 
+  identify_outliers(si_value) %>%
+  clean_names() %>%
+  select(fuel_type, 
+         metric,
+         fuel_class, 
+         time, 
+         plot_id, 
+         si_value, 
+         starts_with("is")) %>%
+  filter(is_extreme == TRUE)
+
+
+```
+
+A QQ plot created using raw values showed one point for total (all) duff and litter in 2017 (red) that was distant from the reference line. As expected, two outlier values for duff in 2021 (yellow) strayed from the reference line.
+
+```{r raw_qq_plot}
+ggqqplot(input_dl, 
+         "si_value", 
+         palette = colors_year,
+         color = "time") + 
+  facet_wrap(~lab_class, scales = "free") + 
+  theme(legend.position = "top") +
+  geom_hline(yintercept = 0, linetype = "longdash", color = "gray30")
+
+```
+
+
+##### *Check for normality*
+Total duff and litter load was normally distributed at each time point (p \> 0.01), except for year 2017. Plot-level values by fuel class were normally distributed at each time point (p \> 0.01), except for duff in 2021 and litter in 2017. Normality was assessed by Shapiro-Wilk's test.
+
+```{r raw_normality}
+input_dl %>%
+  select(id = plot_id, 
+         time = time, 
+         score = si_value, 
+         fuel_class) %>%
+  group_by(fuel_class, time) %>%
+  shapiro_test(score) %>%
+  clean_names() %>%
+  mutate(statistic = fxn_digit(statistic), 
+         is_normal = p>0.05) %>%
+  select(fuel_class, 
+         time, 
+         is_normal,
+         p, 
+         statistic) %>%
+  arrange(is_normal, time)  %>%
+  filter(is_normal == FALSE)
+
+```
+
+#### Identify the most appropriate transformation
+We applied a series of transformations to each subset, then evaluated the resulting data for outliers and normality. To create the transformed subsets, we used scale() from base R and four normalization functions from the bestNormalize package: arcsinh_x, log_x, orderNorm, and sqrt_x.
+
+```{r transformation_eval}
+dl_eval <- 
+  input_dl %>%
+  group_by(lab_class, fuel_class) %>%
+  mutate(value_std = as.vector(scale(si_value)), 
+         value_arcsine = arcsinh_x(si_value, standardize = TRUE)$x.t, 
+         value_log = log_x(si_value, standardize = TRUE)$x.t, 
+         value_ordnorm = orderNorm(si_value, standardize = TRUE)$x.t, 
+         value_sqrt = sqrt_x(si_value, standardize = TRUE)$x.t) %>%
+  ungroup() %>%
+  relocate(c(si_value, us_value, value_norm), .after = last_col()) %>%
+  gather(method, number, value_std:value_norm) %>%
+  select(fuel_class, lab_class, plot_id, time, lab_time_abbr, metric, method, number) 
+
+
+```
+
+The application of the arcsine and log functions resolved outliers within the subset for total fuels. Outliers within the Duff subset were not improved with any transformation.
+
+```{r transformation_outliers}
+dl_eval_outlier <- 
+  dl_eval %>%
+  group_by(lab_class, fuel_class, time, lab_time_abbr, method) %>%
+  identify_outliers(number) %>%
+  clean_names()  %>%
+  ungroup() %>%
+  select(lab_class, 
+         fuel_class,
+         time, 
+         lab_time_abbr, 
+         method,
+         plot_id, 
+         number, 
+         starts_with("is")) %>%
+  filter(is_extreme == FALSE)  
+
+# Most important for subsets that had extreme outliers
+# total in 2017 at RxF03
+# duff in 2021 at RxF03 
+# duff in 2021 at RxF04
+
+# arcsine, log
+out1 <- 
+  dl_eval_outlier %>%
+  filter(fuel_class %in% "all" & time %in% "2017" & plot_id %in% "RxF03") 
+        
+out2 <- 
+  dl_eval_outlier %>%
+  filter(fuel_class %in% "duff" & time %in% "2021" & plot_id %in% "RxF03")  
+
+out3 <- 
+  dl_eval_outlier %>%
+  filter(fuel_class %in% "duff" & time %in% "2021" & plot_id %in% "RxF04")  
+
+bind_rows(out1, out2, out3)  
+
+```
+
+A QQ plot of the transformed values for fuel classes with outliers (rows; all fuels, duff) by transformation (columns) is below.  
+The outlier points for total fuels in 2017 (yellow) are nearer to the reference line for the arcsine, log, and orderNorm transformations.
+
+```{r transformation_qq_plot}
+dl_eval %>%
+  mutate(method = str_remove_all(method, "value_")) %>%
+  # Subset to fuel classes and years with outliers 
+  filter(time %in% c("2017", "2021"), 
+         fuel_class %in% c("all", "duff"),
+         method %in% c("si_value",
+                       "std",
+                       "arcsine",
+                       "log",
+                       "ordnorm", 
+                       "sqrt")) %>%
+  ggqqplot("number", 
+           palette = colors_year_subset,
+           color = "time") + 
+  # To let scales on y-axis vary between faceted columns
+  ggh4x::facet_grid2(lab_class ~ method, 
+                     scales="free", 
+                     independent = "all") +
+  theme(legend.position = "none", 
+        axis.text = element_text(size = 9)) +
+  geom_hline(yintercept = 0, 
+             linetype = "longdash", 
+             color = "gray5")  +
+  scale_x_continuous(breaks = c(-1, 0, 1))
+
+```
+
+The application of the multiple transformations resulted in normally-distributed values for total fuels and litter in 2017; raw data for these two subsets were not normally distributed. The effective transformations for total fuels and litter included: arcsine, log, orderNorm, and square root. No transformation normalized the distribution of the 1000-hr sound subset.  
+
+```{r transformation_normality}
+dl_eval_normal <- 
+  dl_eval %>%
+  select(id = plot_id, 
+         time,
+         score = number,
+         treatment = fuel_class,
+         method) %>%
+  group_by(time, treatment, method) %>%
+  shapiro_test(score)  %>%
+  clean_names() %>%
+  mutate(is_normal = p>0.05) %>%
+  select(fuel_class = treatment,
+         time,
+         is_normal,
+         method,
+         p,
+         statistic) %>%
+  arrange(is_normal, fuel_class, method, time) %>%
+  filter(is_normal == TRUE)
+
+
+# total in 2017 
+nor1 <- 
+  dl_eval_normal %>%
+  filter(fuel_class %in% "all" & time %in% "2017") 
+
+# litter in 2017
+nor2 <- 
+  dl_eval_normal %>%
+  filter(fuel_class %in% "litter" & time %in% "2017")
+
+# duff in 2021
+nor3 <- 
+  dl_eval_normal %>%
+  filter(fuel_class %in% "duff" & time %in% "2021")
+
+bind_rows(nor1, nor2, nor3)  %>%
+  select(fuel_class, time, method, is_normal) %>%
+  spread(method, is_normal)
+
+```
+
+The following plot shows the values by fuel class (rows) and transformation method (columns). Overall, the orderNorm function (green) appeared to be an effective normalization method for the total and litter subsets.
+
+```{r, transformation_density_plot}
+dl_eval %>%
+  mutate(method = str_remove_all(method, "value_")) %>%
+  # Subset to fuel classes and years with outliers 
+  filter(time %in% c("2017", "2021"), 
+         # fuel_class %in% c("all", "duff"),
+         method %in% c("si_value",
+                       # "std",
+                       # "arcsine",
+                       # "log",
+                       "ordnorm")) %>%
+                       # "sqrt")) %>%
+  ggdensity(x = "number", 
+            color = "method") +
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  # facet_wrap(~fuel_class) + 
+  facet_grid(fuel_class ~ time, scales = "free") +
+  xlim(-5, 10)   +
+  theme(legend.position = "none") +
+  labs(x = "Mean fuel load",
+       y = "Density")   
+
+```
+
+The following plot shows the raw values in pink (si_value) and the orderNorm transformed values in blue (value_norm). The transformed values showed a more normal distribution than raw values for all subsets. 
+
+```{r transformation_density_plot}
+input_dl %>%
+  gather(value_subset, number, c(value_norm, si_value)) %>%
+  ggdensity(x = "number", color = "value_subset") +
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  facet_wrap(~fuel_class) + 
+  xlim(-5, 10)   +
+  labs(title = "Distribution of values, by fuel class and transformation",
+       x = "Mean fuel load",
+       y = "Density")   
+
+```
+
+
+##### *Normalize and standardize data*
+We transformed and standardized the plot-level values for total and mean duff and litter by time point. We took this step to enable subsequent comparisons with plot-level means (which did require transformation); total values did not violate any statistical assumptions.
+
+We subset the plot-level values for duff and litter by treatment (pre- and post-thinning), then applied an ordered quantile transformation to normalize the plot-level values for total duff and litter, calculated as:
+
+g(x) = psi\^-1 \* ((rank(x) - .5) / (length(x)))
+
+Where psi refers to the standard normal cumulative distribution function, rank(x) refers to each observation's rank, and length(x) refers to the number of observations. The ordered quantile transformation is a rank-based procedure by which the values of a vector are mapped to their percentile, which is then mapped to the same percentile of the normal distribution. Without the presence of ties, this essentially guarantees that the transformation leads to a uniform distribution. Values were standardized by fuel class upon normalization to have a mean of 0 and standard deviation of 1.  
+
+
+```{r transformation_qq_plot}
+# Subset palette to colors for 2017, 2021
+colors_year_subset <- c(colors_year[2], colors_year[4])
+
+input_dl %>%
+  filter(time %in% c("2017", "2021")) %>%
+  ggqqplot("si_value", 
+           palette = colors_year_subset,
+           color = "time") + 
+  facet_wrap(~fuel_class, scales = "free") + 
+  theme(legend.position = "top") +
+  geom_hline(yintercept = 0, linetype = "longdash", color = "gray30") +
+  labs(caption = "Values have been transformed and standardized by fuel class")
+
+
+```
+
+A Shapiro-Wilk's test showed that the transformed values for total and mean subsets were normally distributed, with the exception of Duff in 2021. 
+
+
+
 ------------------------------------------------------------------------
 
 ## Q1: Did total fuel load differ between years?
@@ -155,7 +400,7 @@ The following table summarizes the plot-level total amount of duff and litter fo
 input_total %>%
   group_by(year, units) %>%
   get_summary_stats(value, type = "mean_sd")  %>%
-  mutate(fuel_type = index_type,
+  mutate(fuel_type = index_dl,
          fuel_class = "All",) %>%
   select(fuel_type, 
          fuel_class, 
@@ -182,62 +427,15 @@ p_total <-
   theme(legend.position = "none", 
         axis.title.x = element_blank()) + 
   scale_x_discrete(labels = function(lab_year) str_wrap(lab_year, width = 20)) + 
-  labs(title = paste0(index_type, " (all)"), 
-       y = paste0(index_units_si, " (mean)"))
+  labs(title = paste0(index_dl, " (all)"), 
+       y = paste0(index_dl_si, " (mean)"))
 
 p_total
 
 ```
 
-### Check assumptions
 
-##### *Check for outliers*
 
-There was one extreme outlier in the data set. Specifically, the value for plot RxF03 in 2017 was 1.738.
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-input_total %>%
-  group_by(year) %>%
-  identify_outliers(value)  %>%
-  mutate(data_type = index_type,
-         fuel_class = "All") %>%
-  clean_names() %>%
-  select(data_type, fuel_class, year, plot_id, value, 
-         starts_with("is")) %>%
-  filter(is_extreme == TRUE) %>%
-  fxn_kable()
-
-```
-
-##### *Check for normality*
-
-Plot-level duff and litter load was normally distributed at each time point (p \> 0.01), except for year 2017, as assessed by Shapiro-Wilk's test.
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-input_total %>%
-  select(id = plot_id, 
-         time = year, 
-         score = value) %>%
-  group_by(time) %>%
-  shapiro_test(score)  %>%
-    clean_names() %>%
-  mutate(data_type = index_type,
-         fuel_class = "All", 
-         statistic = fxn_digit(statistic), 
-         is_normal = p>0.05) %>%
-  select(data_type, 
-         fuel_class, 
-         year = time, 
-         is_normal,
-         p, 
-         statistic) %>%
-  arrange(is_normal, year) %>%
-      filter(is_normal == FALSE) %>%
-  fxn_kable()
-
-```
-
-The QQ plot showed one point in 2017 that was distant from the reference line.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 ggqqplot(input_total, "value", 
@@ -255,7 +453,7 @@ Total duff and litter load differed between years. We found a significant main e
 # Effect of year (all fuel classes)
 input_total %>%
   fxn_aov_me() %>%
-  mutate(data_type = index_type,
+  mutate(data_type = index_dl,
          fuel_class = "All") %>%
   clean_names() %>%
   select(-p, 
@@ -298,7 +496,7 @@ p_total +
 input_total %>%
   fxn_pwc() %>%
   mutate(statistic = fxn_digit(statistic),
-         data_type = index_type,
+         data_type = index_dl,
          fuel_class = "All") %>%
   select(-p) %>%
   relocate(data_type, 
@@ -324,12 +522,12 @@ Here, the effect of year on fuel load was our focal variable of primary concern.
 
 The following table summarizes duff and litter by class for each time point.
 
-```{r, echo=FALSE}
+```{r class_summary}
 input_class %>%
   group_by(year, fuel_class, units) %>%
   get_summary_stats(value, type = "mean_sd")  %>%
   arrange(fuel_class, year) %>%
-  mutate(fuel_type = index_type) %>%
+  mutate(fuel_type = index_dl) %>%
   select(fuel_type, 
          fuel_class, 
          year,
@@ -356,7 +554,7 @@ A box plot of duff and litter by year showed differing post-fire trends. Althoug
 -- Litter depth returned to pre-fire levels 2-y after the fire (2019), then showed a second decrease in 2021 (4-y post-fire).\
 -- This post-fire increase and decrease in litter depth was similar to the temporal trend observed for duff and litter overall.
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r class_boxplot}
 p_class <- 
   input_class %>%
   bind_rows(input_total) %>%
@@ -373,63 +571,11 @@ p_class <-
                                     color = "gray91",
                                     size = 1.5)) + 
   # scale_x_discrete(labels = function(lab_year) str_wrap(lab_year, width = 20)) + 
-  labs(title = paste0(index_type), 
-       y = paste0(index_units_si, " (mean)")) + 
+  labs(title = paste0(index_dl), 
+       y = paste0(index_dl_si, " (mean)")) + 
   facet_wrap(~lab_fuel)
 
 p_class
-
-```
-
-### Check assumptions
-
-##### *Check for outliers*
-
-There were two extreme outliers in the data set. Specifically, the values for duff at plots RxF03 and RxF04 in 2021 were 0.112 and 0.500, respectively.
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-input_class %>%
-  group_by(year, fuel_class) %>%
-  identify_outliers(value)  %>%
-  mutate(data_type = index_type) %>%
-  clean_names() %>%
-  select(data_type, fuel_class, year, plot_id, value, 
-         starts_with("is")) %>%
-  filter(is_extreme == TRUE) %>%
-  fxn_kable()
-
-```
-
-##### *Check for normality*
-
-Plot-level litter and duff values were normally distributed at each time point (p \> 0.01), except for year duff in 2021 and litter in 2017, as assessed by Shapiro-Wilk's test.
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-input_class %>%
-  select(id = plot_id, 
-         time = year, 
-         score = value, 
-         treatment = fuel_class) %>%
-  group_by(time, treatment) %>%
-  shapiro_test(score)  %>%
-    clean_names() %>%
-  mutate(data_type = index_type,
-         statistic = fxn_digit(statistic), 
-         is_normal = p>0.05) %>%
-  select(data_type, 
-         fuel_class = treatment, 
-         year = time, 
-         is_normal,
-         p, 
-         statistic) %>%
-  arrange(is_normal, fuel_class, year) %>%
-    filter(is_normal == FALSE) %>%
-     fxn_kable()
-
-ggqqplot(input_class, "value", 
-         facet.by = "year", 
-         color = "fuel_class",
-         palette = colors_dl)
 
 ```
 
@@ -442,7 +588,7 @@ There was a statistically significant two-way interaction between duff and litte
 input_class %>%
   fxn_aov2_me() %>%
   fxn_signif_adj() %>%
-  # mutate(data_type = index_type) %>%
+  # mutate(data_type = index_dl) %>%
   relocate(data_type, 
            effect, 
            starts_with("p_adj"), 
@@ -472,8 +618,8 @@ input_class %>%
             fill = "lab_year_abbr", 
             palette = colors_year, 
             width = 0.6) +
-  labs(title = paste0(index_type), 
-       y = paste0(index_units_si, " (mean)"),
+  labs(title = paste0(index_dl), 
+       y = paste0(index_dl_si, " (mean)"),
        fill = "Year") +
   theme(axis.title.x = element_blank(), 
         legend.position = "right")  + 
@@ -549,8 +695,8 @@ input_class %>%
             palette = colors_dl, 
             width = 0.6) +
   scale_x_discrete(labels = function(lab_year) str_wrap(lab_year, width = 20)) + 
-  labs(title = paste0(index_type), 
-       y = paste0(index_units_si, " (mean)"),
+  labs(title = paste0(index_dl), 
+       y = paste0(index_dl_si, " (mean)"),
        fill = "Fuel class") +
   theme(axis.title.x = element_blank(), 
         legend.position = "right")  + 
@@ -559,7 +705,7 @@ input_class %>%
 
 # Create summary table  ----
 pwc_class %>%
-  mutate(data_type = index_type,
+  mutate(data_type = index_dl,
          statistic = fxn_digit(statistic), 
          method = "pwc") %>%
   clean_names() %>%
