@@ -29,16 +29,6 @@ path_fxn <- here(path_r, "functions")
 path_lookup <- here("input/lookup-tables")
 path_derived <- here("input/data_derived")
 
-# Define helpers 
-index_dl <- "Duff & litter"
-index_dl_si <- "Mean fuel depth (centimeters)"
-index_wd <- "Coarse woody debris"
-index_wd_si <- "Mean fuel load (metric tons per hectare)"
-
-# Define plot colors 
-colors_thin_bright <- c("#9d9596", "#069879")
-colors_thin_faded <- c("#bfbabb", "#75bca8")
-
 # Source functions ----
 source(file = here(path_fxn, "basic-functions.R"))
 source(file = here(path_fxn, "plot-themes.R"))

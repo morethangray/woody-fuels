@@ -18,11 +18,9 @@ library(here)   ## To manage directories
 library(janitor)   ## To clean data frames
 library(rstatix)  ## For repeated measure ANOVA
 library(broom)  ## To format output tables from statistical tests
-# library(lemon)  ## To manipulate faceted ggplots
 library(kableExtra)  ## For tables in rmarkdown
 library(ggpubr)  ## For qq plots
 library(bestNormalize)
-# library(patchwork)  ## To arrange faceted plots
 
 # Define file paths ----
 path_r <- here("R")
@@ -30,21 +28,8 @@ path_fxn <- here(path_r, "functions")
 path_lookup <- here("input/lookup-tables")
 path_derived <- here("input/data_derived")
 
-# Define helpers 
-index_dl <- "Duff & litter"
-index_dl_si <- "Mean fuel depth (centimeters)"
-index_dl_si_abbr <- "cm"
-index_wd <- "Coarse woody debris"
-index_wd_si <- "Mean fuel load (metric tons per hectare)"
-index_wd_si_abbr <- "MT/ha"
-
-# Define plot colors 
-colors_year <- c("gray70", "#C47E61", "#dbae84", "#e9d097")
-colors_dl <- c("#7da8b0", "#c4c4c4")
-# Subset palette to colors for 2017, 2021
-colors_year_subset <- c(colors_year[2], colors_year[4])
-
 # Source functions ----
+source(file = here(path_fxn, "helpers_woody-debris.R"))
 source(file = here(path_fxn, "basic-functions.R"))
 source(file = here(path_fxn, "plot-themes.R"))
 
@@ -372,8 +357,7 @@ dl_total %>%
 ```
 
 ### Visualization of the plot-level total amount of duff and litter by year
-
-A box plot of total duff and litter by year showed lower values in post-fire years. Specifically, we observed a decrease in the depth of all duff and litter immediately following the fire (2017; 0-y post-fire). The mean depth of duff and litter did not return to pre-fire levels in subsequent years.
+The visual inspection of a box plot of total duff and litter by year showed lower values in post-fire years. Specifically, we observed a decrease in the depth of all duff and litter immediately following the fire (2017; 0-y post-fire). The mean depth of duff and litter did not return to pre-fire levels in subsequent years.
 
 ```{r total_boxplot}
 dl_total %>%
