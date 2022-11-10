@@ -11,7 +11,7 @@ output:
 ```{r setup, include=FALSE, message = FALSE, warning=FALSE}
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 
-# Load libraries -----
+# Configure preferences -----
 rm(list = ls())
 library(tidyverse)   ## To manipulate data frames
 library(here)   ## To manage directories
@@ -22,12 +22,11 @@ library(kableExtra)  ## For tables in rmarkdown
 library(ggpubr)  ## For qq plots
 library(bestNormalize)
 
-# Define file paths ----
 path_r <- here("R")
 path_fxn <- here(path_r, "functions")
 path_lookup <- here("input/lookup-tables")
 path_derived <- here("input/data_derived")
-# Source functions ----
+
 source(file = here(path_fxn, "helpers_woody-debris.R"))
 source(file = here(path_fxn, "basic-functions.R"))
 source(file = here(path_fxn, "plot-themes.R"))
@@ -55,7 +54,6 @@ wd_total <-
 ------------------------------------------------------------------------
 
 ## Overview
-
 The aim of this research was to understand the impact of of the 2017 Tubbs fire on fuel loads. Our objective was to evaluate the impact of prescribed fire on fuel loads over time for five coarse woody debris fuel classes: 1-hr, 10-hr, 100-hr, 1000-hr rotten, and 1000-hr sound. To meet this objective, we compared the pre- and post-fire levels of these five lag-time fuel classes at nine long-term vegetation monitoring plots. Surveys were conducted at four time points: 2016 (1y pre-fire), 2017 (0y post-fire), 2019 (2y post-fire), and 2021 (4y post-fire). We conducted surveys along two transects per plot; each transect had one quadrat. Each time point had 18 data points: 9 plots x 2 transects x 1 quadrat.
 
 Using the coarse woody debris data set as input, we asked the following questions:
@@ -63,8 +61,7 @@ Using the coarse woody debris data set as input, we asked the following question
 1.  Did the total fuel load (all fuel classes combined) differ between years?
 2.  Did fuel load differ between years by fuel class? If so, which years were different?
 
-#### Coarse woody debris data
-
+#### Fuel measurements for coarse woody debris mass
 We answered these questions using a time series of plot-level data for (1) the total amount of coarse woody debris and (2) the mean amount of each of the five fuel classes. We defined "total (or all) coarse woody debris" as the combined total of the the five fuel classes within a plot: 1-hr, 10-hr, 100-hr, 1000-hr rotten, 1000-hr sound.
 
 We calculated the ***plot-level mean for each fuel class*** to account for replicate surveys within each plot. To calculated the the ***plot-level total*** at each time point, we summed the plot means for all fuel classes by fuel type.
@@ -75,17 +72,18 @@ Below is a table that shows the plot-level mean at each time point for coarse wo
 input_wd %>%
   arrange(plot_id, fuel_class, time) %>%
   select(fuel_class = lab_class, 
-         plot_id, 
-         time,
+         time, 
+         plot_id,
          si_value, 
          metric,
          units) %>%
   spread(time, si_value)  %>%
+  relocate(c(metric, units), .after = last_col())  %>%
   fxn_kable()
+
 ```
 
 #### Statistical methods
-
 Statistically significant differences were identified using repeated measures analysis of variance (ANOVA) and post hoc comparisons. P-values were adjusted using the Bonferroni multiple testing correction method.
 
 The repeated-measures ANOVA is used for analyzing data where same subjects are measured more than once. This test is also referred to as a within-subjects ANOVA or ANOVA with repeated measures. The "within-subjects" term means that the same individuals (here, individuals are plots) are measured on the same outcome variable under different time points. The main goal of a repeated measures ANOVA is to evaluate if there is a statistically significant interaction effect between within-subjects factors in explaining a continuous outcome variable. The repeated measures ANOVA makes the following assumptions about the data:
@@ -103,7 +101,6 @@ The assumption of sphericity was checked during the computation of the ANOVA tes
 #### Check assumptions
 
 ##### *Check for outliers*
-
 No extreme outliers were found for the total fuels subset.
 
 There were nine extreme outliers in the mean by fuel class data set. Most outliers (n = 6) were from the year 2021. The 1-hr and 100-hr classes each had 4 outliers. We found the following extreme outliers by fuel class:
@@ -202,9 +199,6 @@ input_wd %>%
   filter(is_normal == FALSE)  %>%
   fxn_kable()
 
-
-
-
 ```
 
 #### Identify the most appropriate transformation
@@ -300,6 +294,9 @@ wd_eval_outlier %>%
 ```
 
 The transformed values for CWD by fuel class were normally distributed for more of the fuel class x year combinations; but still had 5 that were not normally distributed, as assessed by Shapiro-Wilk's test.
+Total: arcsine, log, ordnorm
+No tranformation resulted in normal distribution for 10-hr (2017), 100-hr (2017, 2019, 2021)
+1000-hr sound: none for 2016; ordnorm, sqrt for 2017, 2019, 2021; arcsine for 2017, 2019
 
 ```{r transformation_normality}
 wd_eval_normal <- 
@@ -323,91 +320,72 @@ wd_eval_normal <-
   arrange(is_normal, fuel_class, method, time) %>%
   filter(is_normal == TRUE)
 
-# wd_eval_normal %>%
-#   mutate(method = str_remove_all(method, "value_")) %>%
-#   filter(fuel_class %nin% c("all", "hr0010"), 
-#          time %in% c("2016", "2017", "2021")) %>%
-#   select(fuel_class, time, plot_id, method, is_extreme) %>%
-#   spread(method, is_extreme)  %>%
-#   fxn_kable()
+wd_eval_normal %>%
+  mutate(method = str_remove_all(method, "value_")) %>%
+  filter(fuel_class %nin% "hr0001") %>%
+  select(fuel_class, time, method, is_normal) %>%
+  spread(method, is_normal)  %>%
+  fxn_kable()
 
+# Total: arcsine, log, ordnorm
 # all	2016	 
 # all	2017	 
 # all	2019	 
 
-# hr0010	2017 
+# No tranformation resulted in normal distribution for 10-hr, 100-hr
+# hr0010	2017: none
 
 # hr0100	2017	 
 # hr0100	2019	 
 # hr0100	2021	 
 
+# 1000-hr sound: none for 2016; ordnorm, sqrt for 2017, 2019, 2021; arcsine for 2017, 2019
 # hr1000s	2016 
-# hr1000s	2017	 
-# hr1000s	2019 
-# hr1000s	2021 
+# hr1000s	2017: ordnorm, sqrt	 
+# hr1000s	2019: ordnorm, sqrt, arcsine	 
+# hr1000s	2021: ordnorm, sqrt, arcsine	 
 
 ```
 
 ```{r, transformation_density_plot}
-# wd_eval %>%
-#   mutate(method = str_remove_all(method, "value_")) %>%
-#   # Subset to fuel classes and years with outliers 
-#   filter(time %in% c("2017", "2021"), 
-#          # fuel_class %in% c("all", "duff"),
-#          method %in% c("si_value",
-#                        # "std",
-#                        "arcsine",
-#                        "log",
-#                        "ordnorm")) %>%
-#                        # "sqrt")) %>%
-#   ggdensity(x = "number", 
-#             color = "time") +
-#   geom_vline(xintercept = 0, linetype = "dashed") +
-#   # facet_wrap(~fuel_class) + 
-#   facet_grid(fuel_class ~ method, scales = "free") +
-#   xlim(-5, 10)   +
-#   theme(legend.position = "right") +
-#   labs(x = "Mean fuel load",
-#        y = "Density")   
+wd_eval %>%
+  mutate(method = str_remove_all(method, "value_")) %>%
+  filter(fuel_class %nin% "hr0001",
+         method %in% c("si_value",
+                       # "std",
+                       "arcsine",
+                       "log",
+                       "ordnorm",
+                       "sqrt")) %>%
+  ggdensity(x = "number",
+            color = "method") +
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  # facet_wrap(~fuel_class, scales = "free") +
+  facet_grid(fuel_class ~ method, scales = "free") +
+  xlim(-5, 10)   +
+  theme(legend.position = "right") +
+  labs(x = "Mean fuel load",
+       y = "Density")
 
-# The following plot shows the raw (untransformed) values on the left and the transformed values on the right.
-# input_class_transform %>%
-#   rename(raw_values = value_raw, transformed_values = value) %>%
-#   gather(metric, value, raw_values:transformed_values) %>%
-#   ggdensity(x = "value", color = "fuel_class") +
-#   geom_vline(xintercept = 0, linetype = "dashed") +
-#   facet_grid(metric ~ fuel_class, scales = "free") +
-#   theme(legend.position = "right", 
-#         axis.text = element_text(size = 8),
-#         panel.spacing = unit(1, "lines"),
-#         legend.text=element_text(size=8),
-#         # strip.text = element_text(size = 8),
-#         strip.background = element_rect(fill = "gray91", color = "gray91"),
-#         panel.border = element_rect(fill = NA, color = "gray91", size = 2)) + 
-#   labs(title = "Distribution of values, by fuel class and transformation",
-#        caption = "Note: axis scales differ between plots",
-#        x = "Mean metric tons per hectare",
-#        y = "Density", 
-#        color = "Fuel class") + 
-#   xlim(-5, 10)
 ```
 
 ##### *Normalize and standardize data*
+We used the ordered quantile transformation for the following data subsets: total CWD; and the 1-hr, 100-hr, and 1000-hr sound fuel class subsets.
+We used the square root transformation for the 10-hr, 1000-hr rotten fuel class subsets. 
+
 We applied an arcsine transformation to normalize the plot-level values for total coarse woody debris, calculated as log(x + sqrt(x\^2 + 1)). The arcsine transformation (also called the arcsine square root transformation, or the angular transformation) was identified as the most suitable method using the R function bestNormalize() [bestNormalize package]. Values were standardized upon normalization to have a mean of 0 and standard deviation of 1. (The transformed values for total coarse woody debris were normally distributed at each time point (p \> 0.05), as assessed by Shapiro-Wilk's test. The two outliers (not extreme) detected in the untransformed data were absent after the transformation was applied.)
 
-We subset the plot-level values for coarse woody debris by fuel class, then applied an ordered quantile transformation to normalize the plot-level values for total coarse woody debris, calculated as:
+We subset the plot-level values for coarse woody debris by fuel class, then applied an ordered quantile transformation, calculated as:
 
 g(x) = psi\^-1 \* ((rank(x) - .5) / (length(x)))
 
 Where psi refers to the standard normal cumulative distribution function, rank(x) refers to each observation's rank, and length(x) refers to the number of observations. The ordered quantile transformation is a rank-based procedure by which the values of a vector are mapped to their percentile, which is then mapped to the same percentile of the normal distribution. Without the presence of ties, this essentially guarantees that the transformation leads to a uniform distribution. Values were standardized by fuel class upon normalization to have a mean of 0 and standard deviation of 1.
 
-The following table lists the transformation applied to each fuel class, as well as the mean and standard deviation (sd) for raw and transformed values. Note the untransformed mean for 1000-hr rotten is \>8, a much larger value compared to those of the other classes that range from 0.162 to 1.016.
-
 ------------------------------------------------------------------------
 
 ## Total fuel load
 
-### Summary statistics for the plot-level total fuel load by year
+### Summary statistics for total fuel load by year
 
 The following table summarizes the plot-level total amount of coarse woody debris for each time point.
 
@@ -424,6 +402,7 @@ wd_total %>%
 
 ```
 
+### Visualization of total fuel load by year
 The visual inspection of a box plot of total duff and litter by year showed lower values in post-fire years. Specifically, we observed a decrease in the depth of all duff and litter immediately following the fire (2017; 0-y post-fire). The mean depth of duff and litter did not return to pre-fire levels in subsequent years.
 
 A box plot of total coarse woody debris by year showed lower values in post-fire years. Specifically, we observed a decrease in the depth of all coarse woody debris immediately following the fire (2017; 0-y post-fire). Variance in 2017 was much greater than at any other time point. The mean depth of coarse woody debris did not return to pre-fire levels in subsequent years. However, the fuel load increased from 2017 levels by 2019, and showed little change between 2019 and 2021.
@@ -512,7 +491,7 @@ wd_total %>%
 
 ## Mean fuel load, by fuel class
 
-### Summary statistics for the plot-level mean fuel load by fuel class and year
+### Summary statistics for mean fuel load by fuel class and year
 The following table summarizes the plot-level mean values for the five fuel classes at each time point.
 
 ```{r class_summary}
@@ -532,7 +511,7 @@ wd_class %>%
 
 ```
 
-### Visualization of the plot-level mean fuel load by fuel class and year
+### Visualization of mean fuel load by fuel class and year
 A box plot of coarse woody debris by year and fuel class showed the post-fire trends differed among the five coarse woody debris fuel classes. [Note: The y-axis scale in the figure below differs by fuel class]
 
 ```{r class_boxplot}

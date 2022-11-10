@@ -51,4 +51,7 @@ input_all %>%
   spread(type_time, mean) %>%
   arrange(lab_fuel, 
           desc(metric)) %>%
-  write_csv(here(path_out, "mean_by-time.csv"))
+  write_csv(here(path_out, 
+                 paste0("mean_by-time_", 
+                        Sys.Date(), 
+                        ".csv")))

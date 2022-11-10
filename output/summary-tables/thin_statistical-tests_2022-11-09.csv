@@ -1,0 +1,21 @@
+fuel_type,fuel_class,metric,test,group1,group2,p_adj,p_adj_sig,df,statistic,ges,n,index_value,index_plot,method
+Coarse woody debris,All,total,main effect (time),,,0.11,n.s.,"1,4",4.205,0.313,,value_norm,thin,me
+Coarse woody debris,All,total,pwc between times,Pre-thin,Post-thin,0.11,n.s.,4,-2.051,,5,value_norm,thin,pwc
+Coarse woody debris,By class,mean,interaction (time:fuel class),,,0.249,n.s.,"4,16",2.512,0.141,,value_norm,thin,interaction
+Coarse woody debris,hr0001,mean,main effect (time),,,0.655,n.s.,"1,4",3.585,0.272,,value_norm,thin,me
+Coarse woody debris,hr0001,mean,pwc between times,Pre-thin,Post-thin,0.131,n.s.,4,-1.893,,5,value_norm,thin,pwc
+Coarse woody debris,hr0010,mean,main effect (time),,,0.04,*,"1,4",23.752,0.234,,value_norm,thin,me
+Coarse woody debris,hr0010,mean,pwc between times,Pre-thin,Post-thin,0.008,**,4,-4.874,,5,value_norm,thin,pwc
+Coarse woody debris,hr0100,mean,main effect (time),,,1,n.s.,"1,4",0.879,0.153,,value_norm,thin,me
+Coarse woody debris,hr0100,mean,pwc between times,Pre-thin,Post-thin,0.402,n.s.,4,-0.937,,5,value_norm,thin,pwc
+Coarse woody debris,hr1000r,mean,main effect (time),,,1,n.s.,"1,4",1,0.2,,value_norm,thin,me
+Coarse woody debris,hr1000r,mean,pwc between times,Pre-thin,Post-thin,0.374,n.s.,4,1,,5,value_norm,thin,pwc
+Coarse woody debris,hr1000s,mean,main effect (time),,,0.00229,**,"1,4",111.145,0.627,,value_norm,thin,me
+Coarse woody debris,hr1000s,mean,pwc between times,Pre-thin,Post-thin,4.58E-04,***,4,-10.543,,5,value_norm,thin,pwc
+Duff & litter,All,total,main effect (time),,,0.065,n.s.,"1,4",6.356,0.253,,value_norm,thin,me
+Duff & litter,All,total,pwc between times,Pre-thin,Post-thin,0.065,n.s.,4,2.521,,5,value_norm,thin,pwc
+Duff & litter,By class,mean,interaction (time:fuel class),,,0.018,*,"1,4",29.238,0.228,,value_norm,thin,interaction
+Duff & litter,duff,mean,main effect (time),,,0.264,n.s.,"1,4",3.575,0.06,,value_norm,thin,me
+Duff & litter,duff,mean,pwc between times,Pre-thin,Post-thin,0.132,n.s.,4,-1.891,,5,value_norm,thin,pwc
+Duff & litter,litter,mean,main effect (time),,,0.012,*,"1,4",27.395,0.473,,value_norm,thin,me
+Duff & litter,litter,mean,pwc between times,Pre-thin,Post-thin,0.006,**,4,5.234,,5,value_norm,thin,pwc

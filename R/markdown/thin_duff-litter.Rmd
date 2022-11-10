@@ -10,26 +10,23 @@ output:
 
 ```{r setup, include=FALSE, message = FALSE, warning=FALSE}
 knitr::opts_chunk$set(echo=FALSE, warning=FALSE, message=FALSE)
-
-# Load libraries -----
+# Configure preferences -----
 rm(list = ls())
 library(tidyverse)   ## To manipulate data frames
 library(here)   ## To manage directories
 library(janitor)   ## To clean data frames
 library(rstatix)  ## For repeated measure ANOVA
 library(broom)  ## To format output tables from statistical tests
-library(lemon)  ## To manipulate faceted ggplots
 library(kableExtra)  ## For tables in rmarkdown
 library(ggpubr)  ## For qq plots
-library(patchwork)  ## To arrange faceted plots
+library(bestNormalize)
 
-# Define file paths ----
 path_r <- here("R")
 path_fxn <- here(path_r, "functions")
 path_lookup <- here("input/lookup-tables")
 path_derived <- here("input/data_derived")
 
-# Source functions ----
+source(file = here(path_fxn, "helpers_woody-debris.R"))
 source(file = here(path_fxn, "basic-functions.R"))
 source(file = here(path_fxn, "plot-themes.R"))
 
@@ -39,7 +36,9 @@ input_dl <-
   read_csv(here(path_derived, "thin_derived-norm.csv")) %>%
   arrange(time, fuel_type, fuel_class) %>%
   mutate_if(is.character, as_factor)  %>%
-  mutate(si_value = fxn_digit(si_value)) %>%
+  mutate(time = as_factor(time), 
+         si_value = fxn_digit(si_value), 
+         units = ifelse(fuel_type %in% "dl", index_dl_si_abbr, index_wd_si_abbr)) %>%
   filter(fuel_type %in% "dl")  
 
 dl_class <-
@@ -49,13 +48,11 @@ dl_class <-
 dl_total <-
   input_dl %>%
   filter(metric %in% "total")  
-
 ```
 
 ------------------------------------------------------------------------
 
 ## Overview
-
 The aim of this research was to understand the impact of fuel load management (i.e., thinning) on ground fuels. Our objective was to evaluate the short-term impact of thinning on levels of duff and litter. To meet this objective, we used a "treatment and control" approach to compare fuel levels before (control, pre-thinning) and after (treatment, post-thinning) thinning was applied at five vegetation monitoring plots.
 
 The control and treatment data sets were collected at two time points in 2021. Control data were collected before thinning, between 6/9/21 and 7/7/21. Treatment data were collected after thinning on 10/18/21 and 10/19/21, with the exception of measurements for plot FOR10 which surveyed on 12/9/21. On average, 133.6 days elapsed between control and treatment surveys (range: 104 to 183, standard deviation = 27.2).
@@ -66,8 +63,7 @@ We used these data to answer the following questions:
 
 2.  Did fuel load for duff and/or litter differ between control and treatment surveys?
 
-#### Fuel data for duff/litter
-
+#### Fuel measurements for duff and litter depth
 We compared the plot-level values between control and treatment surveys (i.e., pre- and post-thinning). We defined "total (or all) duff and litter" as the combined total of the duff and litter fuel classes within a plot.
 
 Recall that surveys were conducted along three transects within each plot; each transect had two quadrats for duff and litter (n = 6 quadrats per plot). We calculated the ***plot-level mean for each fuel class*** to account for replicate surveys within each plot. To calculated the the ***plot-level total*** at each time point, we summed the plot means for all fuel classes by fuel type.
@@ -77,22 +73,21 @@ Below is a table that shows the plot-level mean at each time point for litter an
 ```{r raw_summary}
 input_dl %>%
   arrange(plot_id, fuel_class, time) %>%
-  select(fuel_type = lab_fuel, 
-         fuel_class = lab_class, 
+  select(fuel_class, 
          plot_id, 
          time,
          si_value, 
          metric,
-         si_units) %>%
+         units) %>%
   spread(time, si_value)  %>%
   rename("pre-thinning" = t1, 
          "post-thinning" = t2) %>%
-  relocate(c(metric, si_units), .after = last_col())  
+  relocate(c(metric, units), .after = last_col())  %>%
+  fxn_kable()
 
 ```
 
 #### Statistical methods
-
 Statistically significant differences were identified using repeated measures analysis of variance (ANOVA) and post hoc comparisons. P-values were adjusted using the Bonferroni multiple testing correction method.
 
 [NOTE: A repeated measures ANOVA is appropriate to use for a paired time series (before vs. after, treatment vs. control). For these data in particular, the approach accounts for elements that structure the data set in addition to time. For example, transects within each plot are more likely to be similar than transects between plots.]
@@ -112,7 +107,6 @@ The assumption of sphericity was checked during the computation of the ANOVA tes
 #### Check assumptions
 
 ##### *Check for outliers*
-
 There were no outliers in the data set for total duff and litter. There were two extreme outliers in the post-thinning survey for litter (FOR05, FOR10).
 
 ```{r raw_outliers}
@@ -120,16 +114,15 @@ input_dl %>%
   group_by(time, fuel_class) %>% 
   identify_outliers(si_value) %>%
   clean_names() %>%
-  select(fuel_type, 
+  select(fuel_class, 
          metric,
-         fuel_class, 
          time, 
          plot_id, 
          si_value, 
+         units,
          starts_with("is")) %>%
-  filter(is_extreme == TRUE)
-# No extreme outliers for total duff and litter 
-# Two extreme outliers for litter in post-thinning subset 
+  filter(is_extreme == TRUE)  %>%
+  fxn_kable()
 
 ```
 
@@ -148,8 +141,7 @@ ggqqplot(input_dl,
 
 
 ##### *Check for normality*
-
-Plot-level values for total and mean duff and litter were normally distributed, as assessed by Shapiro-Wilk's test.
+Plot-level values for total and mean duff and litter were normally distributed, as assessed by Shapiro-Wilk's test.  
 
 ```{r raw_normality}
 input_dl %>%
@@ -168,14 +160,12 @@ input_dl %>%
          p, 
          statistic) %>%
   arrange(is_normal, time)  %>%
-  filter(is_normal == FALSE)
-# Shapiro test results indicated total and mean duff and litter were normally distributed at each time point
-
+  filter(is_normal == FALSE)  %>%
+  fxn_kable()
 
 ```
 
 ##### *Normalize and standardize data*
-
 We transformed and standardized the plot-level values for total and mean duff and litter by time point. We took this step to enable subsequent comparisons with plot-level means (which did require transformation); total values did not violate any statistical assumptions.
 
 We subset the plot-level values for duff and litter by treatment (pre- and post-thinning), then applied an ordered quantile transformation to normalize the plot-level values for total duff and litter, calculated as:
@@ -219,7 +209,9 @@ input_dl %>%
          metric,
          p, 
          statistic) %>%
-  arrange(is_normal, metric, fuel_class, survey)
+  arrange(is_normal, metric, fuel_class, survey) %>%
+  filter(is_normal == FALSE) %>%
+  fxn_kable()
 
 ```
 
@@ -227,10 +219,10 @@ The following plot shows the raw values in pink (si_value) and the transformed v
 
 ```{r, transformation_density_plot}
 input_dl %>%
-  gather(value_subset, number, c(value_norm, si_value)) %>%
-  ggdensity(x = "number", color = "value_subset") +
+  gather(method, number, c(value_norm, si_value)) %>%
+  ggdensity(x = "number", color = "method") +
   geom_vline(xintercept = 0, linetype = "dashed") +
-  facet_wrap(~fuel_class) + 
+  facet_wrap(~fuel_class) +
   xlim(-5, 10)   +
   labs(title = "Distribution of values, by fuel class and transformation",
        x = "Mean fuel load",
@@ -241,26 +233,26 @@ input_dl %>%
 ------------------------------------------------------------------------
 
 ## Total fuel load 
-
 The first question we asked was whether there was a significant difference in total fuel load between surveys conduted before and after thinning treatment. We used a paired t-test to test for a significant difference between total fuel values from before and after thinning. 
 
-#### Summary statistics for the plot-level total fuel load by treatment
-
+### Summary statistics for the plot-level total fuel load by treatment
 The following table summarizes the plot-level total amount of duff and litter for each time point.
 
 ```{r total_summary}
 dl_total %>%
-  group_by(lab_time, si_units) %>%
+  group_by(lab_time, 
+           time, 
+           units) %>%
   get_summary_stats(si_value, type = "mean_sd")  %>%
   mutate(fuel_type = index_dl,
          fuel_class = "All") %>%
-  select(fuel_type, fuel_class, lab_time, si_units, mean, sd, n)  
+  select(fuel_class, lab_time, units, mean, sd, n) %>%
+  fxn_kable()
 
 ```
 
-#### Visualization of the plot-level total fuel load by treatment
-
-A boxplot of total duff and litter by treatment showed a post-thinning decrease in depth.
+### Visualization of the plot-level total fuel load by treatment
+Visual inspection of a box plot for total fuel by treatment showed a post-thinning decrease in depth.
 
 ```{r total_boxplot}
 dl_total %>%
@@ -280,7 +272,7 @@ dl_total %>%
 
 ```
 
-#### Main effect of treatment on total fuel load 
+### Main effect of treatment on total fuel load 
 We found no significant effect of treatment on total fuel load (litter and duff fuel classes combined), F(1, 4) = 6.356, p-adj. =  0.065, ges = 0.253. P-values were adjusted using the Bonferroni multiple testing correction method. 
 
 ```{r total_main_effect}
@@ -293,21 +285,21 @@ dl_total %>%
   adjust_pvalue(method = "bonferroni") %>%
   as_tibble() %>%
   clean_names() %>%
-  mutate(method = "main effect",
+  mutate(method = "me",
          fuel_type = index_dl,
          fuel_class = "All",
          index_value = "value_norm") %>% 
   rename(statistic = f) %>% 
   fxn_signif_adj()  %>%
-  select(fuel_type, 
-         fuel_class, 
+  select(fuel_class, 
          method, 
          effect, 
          starts_with("p_adj"), 
          statistic,
          starts_with("d"), 
          ges, 
-         starts_with("index"))
+         starts_with("index"))  %>%
+  fxn_kable()
 
 # # We found no significant difference in total fuels between pre-thin and post-thin surveys.
 # dl_total %>%
@@ -346,7 +338,7 @@ Next, we investigated whether there was a significant change in plot-level fuel 
 
 Here, the effect of treatment on fuel load was our focal variable of primary concern. However, the effect of treatment may differ between fuel classes, so fuel_class was considered a moderator variable.
 
-#### Summary statistics for duff and litter by treatment and fuel class
+### Summary statistics for mean fuel load by fuel class and treatment
 The following table shows the plot-level mean values for the two fuel classes (duff, litter) at each time point.
 
 ```{r class_summary}
@@ -362,19 +354,19 @@ dl_class %>%
          si_units, 
          mean,
          sd,
-         n)  
-
+         n) %>%
+  fxn_kable()
 ```
 
-#### Visualization of duff and litter fuel classes, by treatment 
-We observed a decrease in mean fuel load after thinning for both fuel classes, although litter depth showed the greatest decrease.
+### Visualization of mean fuel load by fuel class and treatment
+A visual inspection of box plots for mean fuel depth by treatment showed a decrease after thinning for both fuel classes, although litter depth showed the greatest decrease.
 
 ```{r class_boxplot}
 input_dl %>%
-  filter(metric %in% "mean") %>%
+  # filter(metric %in% "mean") %>%
   ggplot(aes(x = lab_time, 
              y = si_value,  
-             fill = lab_time))  +
+             fill = lab_time_abbr))  +
   geom_hline(yintercept = 0, 
              linetype = "longdash", 
              color = "gray50") +
@@ -384,12 +376,12 @@ input_dl %>%
   facet_wrap(~lab_class, nrow = 1) +
   guides(fill = guide_legend(byrow = TRUE)) +
   scale_fill_manual(values = colors_thin_faded) +
-  theme_fuels() 
+  theme_fuels_markdown() 
 
 
 ```
 
-#### Interaction between treatment and fuel class
+### Interaction between treatment and fuel class
 There was a statistically significant two-way interaction between fuel class and treatment, F(1, 4) = 29.238, p-adj. = 0.018, ges = 0.228. A significant two-way interaction indicates that the impact of fuel class on fuel load depends on treatment (and vice versa).
 
 ```{r class_interaction}
@@ -405,13 +397,9 @@ dl_class  %>%
          fuel_type = index_dl,
          fuel_class = "By class",
          index_value = "value_norm") %>% 
-         # index_plot = "thin", 
-         # index_metric = "mean") %>%
   rename(statistic = f) %>% 
   fxn_signif_adj()  %>%
-  select(fuel_type, 
-         fuel_class, 
-         method, 
+  select(method, 
          effect, 
          starts_with("p_adj"), 
          statistic,
@@ -419,15 +407,15 @@ dl_class  %>%
          ges, 
          starts_with("index")) %>%
   arrange(p_adj) %>%
-  filter(effect %in% "time:fuel_class")   
-# Significant interaction between time and fuel class (p-adj <0.05)
+  filter(effect %in% "time:fuel_class")    %>%
+  fxn_kable()
+
 ```
 
-#### Effect of treatment on each fuel class
+### Effect of treatment on each fuel class
 Because we found a significant interaction between fuel class and treatment, we conducted a main effect assessment for each fuel class. We found a significant main effect of treatment on fuel load for the litter fuel class (p-adj. = 0.012), but not for duff.
 
 ```{r class_main_effect}
-#   Main effect: time on fuel class ----
 dl_class %>%
   group_by(fuel_class) %>%
   anova_test(dv = value_norm, 
@@ -437,15 +425,12 @@ dl_class %>%
   adjust_pvalue(method = "bonferroni") %>%
   as_tibble() %>%
   clean_names() %>%
-  mutate(method = "main effect",
+  mutate(method = "me",
          fuel_type = index_dl,
          index_value = "value_norm") %>% 
-         # index_plot = "thin", 
-         # index_metric = "mean") %>%
   rename(statistic = f) %>% 
   fxn_signif_adj()  %>%
-  select(fuel_type, 
-         fuel_class, 
+  select(fuel_class, 
          method, 
          effect, 
          starts_with("p_adj"), 
@@ -453,12 +438,12 @@ dl_class %>%
          starts_with("d"), 
          ges, 
          starts_with("index")) %>%
-  arrange(p_adj)  
-
-# Significant effect of year on fuel class for litter (p-adj <0.05); n.s. for duff
+  arrange(p_adj)   %>%
+  fxn_kable()
 
 ```
 
+### Pairwise comparisons of mean fuel load between treatments, by fuel class
 A post hoc pairwise comparison showed a significant difference in fuel load between treatments for litter. No other comparisons were significant.
 
 ```{r class_pairwise_comparison}
@@ -469,27 +454,23 @@ dl_class %>%
     paired = TRUE,
     p.adjust.method = "bonferroni") %>%
   clean_names() %>%
-  mutate(method = "pairwise comparison", 
+  mutate(method = "pwc", 
          statistic = fxn_digit(statistic), 
          fuel_type = index_dl,
          index_value = "value_norm") %>%
   fxn_signif_adj() %>%
-  select(fuel_type, 
-         fuel_class, 
+  select(fuel_class, 
          method, 
          starts_with("group"),
          starts_with("p_adj"), 
          statistic,
          starts_with("d"), 
-         # starts_with("n"),
          starts_with("index"), 
          - p_adj_signif) %>%
-  arrange(p_adj)
+  # filter(p_adj < 0.05) %>%
+  arrange(fuel_class, p_adj)   %>%
+  fxn_kable()
 
-# Significant pairwise differences between pre-thin and post-thin:
-#   Duff (n.s.)
-#   Litter: p-adj <0.01
-# Significant difference in litter between pre- and post-thinning
 
 ```
 

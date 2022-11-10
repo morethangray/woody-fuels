@@ -485,3 +485,108 @@ input_class_transform %>%
        x = "Mean tons per acre",
        y = "Density") + 
   xlim(-5, 10)
+
+# ========================================================== -----
+
+# Configure preferences -----
+rm(list = ls())
+library(tidyverse)   ## To manipulate data frames
+library(here)   ## To manage directories
+library(janitor)   ## To clean data frames
+library(rstatix)  ## For repeated measure ANOVA
+library(broom)  ## To format output tables from statistical tests
+library(kableExtra)  ## For tables in rmarkdown
+library(ggpubr)  ## For qq plots
+library(bestNormalize)
+
+path_r <- here("R")
+path_fxn <- here(path_r, "functions")
+path_lookup <- here("input/lookup-tables")
+path_derived <- here("input/data_derived")
+
+source(file = here(path_fxn, "helpers_woody-debris.R"))
+source(file = here(path_fxn, "basic-functions.R"))
+source(file = here(path_fxn, "plot-themes.R"))
+# ========================================================== -----
+# Read input data: derived total and mean ----
+input_wd <-
+  read_csv(here(path_derived, "tubbs_derived-norm.csv")) %>%
+  arrange(time, fuel_type, fuel_class) %>%
+  mutate_if(is.character, as_factor)  %>%
+  mutate(time = as_factor(time), 
+         si_value = fxn_digit(si_value), 
+         units = ifelse(fuel_type %in% "wd", index_wd_si_abbr, index_wd_si_abbr)) %>%
+  filter(fuel_type %in% "wd")  
+
+wd_class <-
+  input_wd %>%
+  filter(metric %in% "mean")
+
+wd_total <-
+  input_wd %>%
+  filter(metric %in% "total")  
+
+wd_eval <- 
+  input_wd %>%
+  group_by(lab_class, fuel_class) %>%
+  mutate(value_std = as.vector(scale(si_value)), 
+         value_arcsine = arcsinh_x(si_value, standardize = TRUE)$x.t, 
+         value_log = log_x(si_value, standardize = TRUE)$x.t, 
+         value_ordnorm = orderNorm(si_value, standardize = TRUE)$x.t, 
+         value_sqrt = sqrt_x(si_value, standardize = TRUE)$x.t) %>%
+  ungroup() %>%
+  relocate(c(si_value, us_value, value_norm), .after = last_col()) %>%
+  gather(method, number, value_std:value_norm) %>%
+  select(fuel_class, lab_class, plot_id, time, lab_time_abbr, metric, method, number) 
+
+
+# Total ----
+wd_total %>%
+  mutate(time = lab_time_abbr) %>%
+  anova_test(dv = value_norm, 
+             wid = plot_id, 
+             within = time) %>%
+  get_anova_table() %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  as_tibble() %>%
+  clean_names() %>%
+  mutate(method = "me",
+         fuel_type = index_wd,
+         fuel_class = "All",
+         index_value = "value_norm") %>% 
+  rename(statistic = f) %>% 
+  fxn_signif_adj()  %>%
+  select(fuel_class, 
+         method, 
+         effect, 
+         starts_with("p_adj"), 
+         statistic,
+         starts_with("d"), 
+         ges, 
+         starts_with("index"))  %>%
+  fxn_kable()
+
+
+wd_total %>%
+  pairwise_t_test(
+    value_norm ~ time,
+    paired = TRUE,
+    p.adjust.method = "bonferroni") %>%
+  clean_names() %>%
+  mutate(method = "pwc",
+         statistic = fxn_digit(statistic),
+         fuel_type = index_wd,
+         fuel_class = "All",
+         index_value = "value_norm") %>%
+  fxn_signif_adj() %>%
+  select(fuel_class,
+         method,
+         starts_with("group"),
+         starts_with("p_adj"),
+         statistic,
+         starts_with("d"),
+         starts_with("index"),
+         - p_adj_signif) %>%
+  arrange(p_adj)  %>%
+  fxn_kable()
+# Mean ----

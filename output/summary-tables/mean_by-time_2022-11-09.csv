@@ -1,0 +1,10 @@
+lab_fuel,lab_class,metric,si_units,thin_t1,thin_t2,tubbs_2016,tubbs_2017,tubbs_2019,tubbs_2021
+Coarse woody debris,All,total,Metric tons per hectare,50.21372966,191.8536142,24.17188549,29.13898458,24.37805689,16.7042203
+Coarse woody debris,1-hr,mean,Metric tons per hectare,0.98884749,2.053239068,0.739357086,0.181074217,0.371255506,0.163895725
+Coarse woody debris,10-hr,mean,Metric tons per hectare,3.395029405,5.070803847,6.212311084,0.481865889,1.21642822,1.203229308
+Coarse woody debris,100-hr,mean,Metric tons per hectare,24.01115292,8.639645959,5.244969671,0.388965443,0.545846233,0.375490546
+Coarse woody debris,1000-hr rotten,mean,Metric tons per hectare,6.962298921,0,4.600192908,0,0,0
+Coarse woody debris,1000-hr sound,mean,Metric tons per hectare,14.85640092,176.0899253,7.375054745,28.08707903,22.24452693,14.96160473
+Duff & litter,All,total,Depth in centimeters,4.9,3.716666667,7.90575,1.852083333,4.727222222,2.353027778
+Duff & litter,Duff,mean,Depth in centimeters,0.7,0.983333333,3.986388889,1.11125,0.215194444,0.370416667
+Duff & litter,Litter,mean,Depth in centimeters,4.2,2.733333333,3.919361111,0.740833333,4.512027778,1.982611111

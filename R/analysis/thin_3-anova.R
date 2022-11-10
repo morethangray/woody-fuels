@@ -8,9 +8,6 @@ library(here)   ## To manage directories
 library(janitor)   ## To clean data frames
 library(rstatix)  ## For repeated measure ANOVA
 library(broom)  ## To format output tables from metrical tests
-library(ggpubr)  ## For preset plot templates
-library(patchwork)  ## To arrange multiple plots 
-# library(lemon)  ## To manipulate faceted ggplots
 
 # Define file paths 
 path_r <- here("R")
@@ -20,14 +17,10 @@ path_derived <- here("input/data_derived")
 path_out <- here("output/summary-tables")
 
 # Source functions 
+source(file = here(path_fxn, "helpers_woody-debris.R"))
 source(file = here(path_fxn, "basic-functions.R"))
-# source(file = here(path_fxn, "statistical-tests.R"))
 # ========================================================== -----
 # CREATE DATA FRAMES ----
-# Create helpers 
-index_dl <- "Duff & litter"
-index_wd <- "Coarse woody debris"
-
 thin_norm <- 
   read_csv(here(path_derived, "thin_derived-norm.csv")) %>%
   arrange(time) %>%
@@ -186,7 +179,7 @@ thin_dl_class_pwc <-
     paired = TRUE,
     p.adjust.method = "bonferroni") %>%
   clean_names() %>%
-  mutate(method = "pwc2", 
+  mutate(method = "pwc", 
          statistic = fxn_digit(statistic), 
          fuel_type = index_dl,
          index_value = "value_norm", 
@@ -358,7 +351,7 @@ thin_wd_class_pwc <-
     paired = TRUE,
     p.adjust.method = "bonferroni") %>%
   clean_names() %>%
-  mutate(method = "pwc2", 
+  mutate(method = "pwc", 
          statistic = fxn_digit(statistic), 
          fuel_type = index_wd,
          index_value = "value_norm", 
@@ -385,6 +378,10 @@ thin_wd_class_pwc <-
 # ========================================================== -----
 
 # BIND AND WRITE TO CSV ----
+lookup_method <- 
+  tibble(method = c("me", "pwc", "interaction"), 
+         test = c("main effect (time)", "pwc between times", "interaction (time:fuel class)"))
+
 thin_summary <- 
   bind_rows(thin_dl_total_me, 
             thin_dl_total_pwc, 
@@ -400,12 +397,13 @@ thin_summary <-
   unite(df_nd, c(d_fn, d_fd), sep = ",", na.rm = TRUE) %>%
   mutate(df = ifelse(is.na(df), df_nd, df)) %>%
   rename(n = n1) %>%
-  select(-df_nd, -n2) %>%
+  select(-df_nd, -n2, -effect) %>%
+  left_join(lookup_method, "method") %>%
   relocate(fuel_type, 
            fuel_class, 
-           method, 
+           metric = index_metric,
+           test, 
            starts_with("group"), 
-           effect, 
            starts_with("p_adj"), 
            df,
            statistic,
@@ -414,7 +412,10 @@ thin_summary <-
            starts_with("index"))
 
 thin_summary %>%
-  write_csv(here(path_out, "thin_statistical-tests.csv"), 
+  write_csv(here(path_out, 
+                 paste0("thin_statistical-tests_", 
+                        Sys.Date(),
+                        ".csv")), 
             na = "")
 # ========================================================== -----
 # [NOT RUN] -----
