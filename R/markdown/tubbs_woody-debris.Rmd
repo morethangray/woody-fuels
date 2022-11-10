@@ -54,6 +54,7 @@ wd_total <-
 ------------------------------------------------------------------------
 
 ## Overview
+
 The aim of this research was to understand the impact of of the 2017 Tubbs fire on fuel loads. Our objective was to evaluate the impact of prescribed fire on fuel loads over time for five coarse woody debris fuel classes: 1-hr, 10-hr, 100-hr, 1000-hr rotten, and 1000-hr sound. To meet this objective, we compared the pre- and post-fire levels of these five lag-time fuel classes at nine long-term vegetation monitoring plots. Surveys were conducted at four time points: 2016 (1y pre-fire), 2017 (0y post-fire), 2019 (2y post-fire), and 2021 (4y post-fire). We conducted surveys along two transects per plot; each transect had one quadrat. Each time point had 18 data points: 9 plots x 2 transects x 1 quadrat.
 
 Using the coarse woody debris data set as input, we asked the following questions:
@@ -62,6 +63,7 @@ Using the coarse woody debris data set as input, we asked the following question
 2.  Did fuel load differ between years by fuel class? If so, which years were different?
 
 #### Fuel measurements for coarse woody debris mass
+
 We answered these questions using a time series of plot-level data for (1) the total amount of coarse woody debris and (2) the mean amount of each of the five fuel classes. We defined "total (or all) coarse woody debris" as the combined total of the the five fuel classes within a plot: 1-hr, 10-hr, 100-hr, 1000-hr rotten, 1000-hr sound.
 
 We calculated the ***plot-level mean for each fuel class*** to account for replicate surveys within each plot. To calculated the the ***plot-level total*** at each time point, we summed the plot means for all fuel classes by fuel type.
@@ -84,6 +86,7 @@ input_wd %>%
 ```
 
 #### Statistical methods
+
 Statistically significant differences were identified using repeated measures analysis of variance (ANOVA) and post hoc comparisons. P-values were adjusted using the Bonferroni multiple testing correction method.
 
 The repeated-measures ANOVA is used for analyzing data where same subjects are measured more than once. This test is also referred to as a within-subjects ANOVA or ANOVA with repeated measures. The "within-subjects" term means that the same individuals (here, individuals are plots) are measured on the same outcome variable under different time points. The main goal of a repeated measures ANOVA is to evaluate if there is a statistically significant interaction effect between within-subjects factors in explaining a continuous outcome variable. The repeated measures ANOVA makes the following assumptions about the data:
@@ -101,6 +104,7 @@ The assumption of sphericity was checked during the computation of the ANOVA tes
 #### Check assumptions
 
 ##### *Check for outliers*
+
 No extreme outliers were found for the total fuels subset.
 
 There were nine extreme outliers in the mean by fuel class data set. Most outliers (n = 6) were from the year 2021. The 1-hr and 100-hr classes each had 4 outliers. We found the following extreme outliers by fuel class:
@@ -156,27 +160,20 @@ ggqqplot(input_wd,
 ```
 
 ##### *Check for normality*
+
 Plot-level values for total fuels were not normally distributed for three of the four time points (2016, 2017, 2019), as assessed by Shapiro-Wilk's test.
 
 The data for the 1000-hr rotten fuel class were excluded from the normality test; an abundance of zeros in this subset caused the Shapiro test to fail. However, the data for the 1000-hr rotten fuel class are shown in a QQ plot below.
 
 Half of the fuel class year combinations were not normally distributed, as assessed by Shapiro-Wilk's test (n = 8 of 16 combinations; hr1000r is excluded). Four combinations included the 1000-hr sound fuel class; three included year 2017.
 
-Distribution not normal for: 
-all	2016
-all	2017
-all	2019
+Distribution not normal for: all 2016 all 2017 all 2019
 
-hr0010	2017
+hr0010 2017
 
-hr0100	2017
-hr0100	2019
-hr0100	2021
+hr0100 2017 hr0100 2019 hr0100 2021
 
-hr1000s	2016
-hr1000s	2017
-hr1000s	2019
-hr1000s	2021
+hr1000s 2016 hr1000s 2017 hr1000s 2019 hr1000s 2021
 
 ```{r raw_normality}
 input_wd %>%
@@ -202,6 +199,7 @@ input_wd %>%
 ```
 
 #### Identify the most appropriate transformation
+
 We applied a series of transformations to each subset, then evaluated the resulting data for outliers and normality. To create the transformed subsets, we used scale() from base R and four normalization functions from the bestNormalize package: arcsinh_x, log_x, orderNorm, and sqrt_x.
 
 ```{r transformation_eval}
@@ -220,8 +218,7 @@ wd_eval <-
 
 ```
 
-All but one of the nine outliers detected in the untransformed data were absent after the transformation was applied (by fuel class).
-Only one outlier was improved by any transformation: 1-hr in 2021 at RxF08, ok with ordnorm.  
+All but one of the nine outliers detected in the untransformed data were absent after the transformation was applied (by fuel class). Only one outlier was improved by any transformation: 1-hr in 2021 at RxF08, ok with ordnorm.
 
 ```{r transformation_outliers}
 wd_eval_outlier <- 
@@ -294,8 +291,11 @@ wd_eval_outlier %>%
 ```
 
 The transformed values for CWD by fuel class were normally distributed for more of the fuel class x year combinations; but still had 5 that were not normally distributed, as assessed by Shapiro-Wilk's test.
+
 Total: arcsine, log, ordnorm
+
 No tranformation resulted in normal distribution for 10-hr (2017), 100-hr (2017, 2019, 2021)
+
 1000-hr sound: none for 2016; ordnorm, sqrt for 2017, 2019, 2021; arcsine for 2017, 2019
 
 ```{r transformation_normality}
@@ -370,16 +370,18 @@ wd_eval %>%
 ```
 
 ##### *Normalize and standardize data*
-We used the ordered quantile transformation for the following data subsets: total CWD; and the 1-hr, 100-hr, and 1000-hr sound fuel class subsets.
-We used the square root transformation for the 10-hr, 1000-hr rotten fuel class subsets. 
 
-We applied an arcsine transformation to normalize the plot-level values for total coarse woody debris, calculated as log(x + sqrt(x\^2 + 1)). The arcsine transformation (also called the arcsine square root transformation, or the angular transformation) was identified as the most suitable method using the R function bestNormalize() [bestNormalize package]. Values were standardized upon normalization to have a mean of 0 and standard deviation of 1. (The transformed values for total coarse woody debris were normally distributed at each time point (p \> 0.05), as assessed by Shapiro-Wilk's test. The two outliers (not extreme) detected in the untransformed data were absent after the transformation was applied.)
+**SECTION IN PROGRESS**
 
-We subset the plot-level values for coarse woody debris by fuel class, then applied an ordered quantile transformation, calculated as:
+We applied an arcsine transformation to normalize the plot-level mean values for the 1000-hr rotten fuel class, calculated as log(x + sqrt(x\^2 + 1)). The arcsine transformation (also called the arcsine square root transformation, or the angular transformation) was identified as the most suitable method using the R function bestNormalize() [bestNormalize package].
+
+We applied an ordered quantile transformation the remaining subsets (total, and mean by fuel class for the 1-hr, 10-hr, 100-hr, and 1000-hr sound  classes), calculated as:
 
 g(x) = psi\^-1 \* ((rank(x) - .5) / (length(x)))
 
-Where psi refers to the standard normal cumulative distribution function, rank(x) refers to each observation's rank, and length(x) refers to the number of observations. The ordered quantile transformation is a rank-based procedure by which the values of a vector are mapped to their percentile, which is then mapped to the same percentile of the normal distribution. Without the presence of ties, this essentially guarantees that the transformation leads to a uniform distribution. Values were standardized by fuel class upon normalization to have a mean of 0 and standard deviation of 1.
+Where psi refers to the standard normal cumulative distribution function, rank(x) refers to each observation's rank, and length(x) refers to the number of observations. The ordered quantile transformation is a rank-based procedure by which the values of a vector are mapped to their percentile, which is then mapped to the same percentile of the normal distribution. Without the presence of ties, this essentially guarantees that the transformation leads to a uniform distribution. 
+
+All values were standardized upon normalization to have a mean of 0 and standard deviation of 1.  
 
 ------------------------------------------------------------------------
 
@@ -403,11 +405,12 @@ wd_total %>%
 ```
 
 ### Visualization of total fuel load by year
-The visual inspection of a box plot of total duff and litter by year showed lower values in post-fire years. Specifically, we observed a decrease in the depth of all duff and litter immediately following the fire (2017; 0-y post-fire). The mean depth of duff and litter did not return to pre-fire levels in subsequent years.
-
-A box plot of total coarse woody debris by year showed lower values in post-fire years. Specifically, we observed a decrease in the depth of all coarse woody debris immediately following the fire (2017; 0-y post-fire). Variance in 2017 was much greater than at any other time point. The mean depth of coarse woody debris did not return to pre-fire levels in subsequent years. However, the fuel load increased from 2017 levels by 2019, and showed little change between 2019 and 2021.
 
 ```{r total_boxplot}
+# The visual inspection of a box plot of total duff and litter by year showed lower values in post-fire years. Specifically, we observed a decrease in the depth of all duff and litter immediately following the fire (2017; 0-y post-fire). The mean depth of duff and litter did not return to pre-fire levels in subsequent years.
+# 
+# A box plot of total coarse woody debris by year showed lower values in post-fire years. Specifically, we observed a decrease in the depth of all coarse woody debris immediately following the fire (2017; 0-y post-fire). Variance in 2017 was much greater than at any other time point. The mean depth of coarse woody debris did not return to pre-fire levels in subsequent years. However, the fuel load increased from 2017 levels by 2019, and showed little change between 2019 and 2021.
+
 wd_total %>%
   ggboxplot(x = "lab_time", 
             y = "si_value", 
@@ -426,11 +429,12 @@ wd_total %>%
 ```
 
 ### Main effect of year on total fuel load
+
 We conducted a one-way repeated measures ANOVA to test for a main effect of year on fuel load (i.e., whether total fuel load was significantly different between the four time points).
 
-We found no significant main effect of year on the plot-level total for coarse woody debris (p-adj. = 0.435).
-
 ```{r total_main_effect}
+# We found no significant main effect of year on the plot-level total for coarse woody debris (p-adj. = 0.435).
+
 wd_total %>%
   mutate(time = lab_time_abbr) %>%
   anova_test(dv = value_norm, 
@@ -459,9 +463,10 @@ wd_total %>%
 ```
 
 ### Pairwise comparison of total fuel load between years
-The result of a post hoc paired comparison between years showed no significant difference in fuel load between years at a significance level of \< 0.05. This finding is consistent with the lack of main effect found for year.
 
 ```{r total_pairwise_comparison}
+# The result of a post hoc paired comparison between years showed no significant difference in fuel load between years at a significance level of \< 0.05. This finding is consistent with the lack of main effect found for year.
+
 wd_total %>%
   pairwise_t_test(
     value_norm ~ time,
@@ -492,6 +497,7 @@ wd_total %>%
 ## Mean fuel load, by fuel class
 
 ### Summary statistics for mean fuel load by fuel class and year
+
 The following table summarizes the plot-level mean values for the five fuel classes at each time point.
 
 ```{r class_summary}
@@ -512,6 +518,7 @@ wd_class %>%
 ```
 
 ### Visualization of mean fuel load by fuel class and year
+
 A box plot of coarse woody debris by year and fuel class showed the post-fire trends differed among the five coarse woody debris fuel classes. [Note: The y-axis scale in the figure below differs by fuel class]
 
 ```{r class_boxplot}
@@ -569,9 +576,9 @@ input_wd %>%
 
 We investigated whether there was a significant change in the plot-level fuel load over time when accounting for fuel class. A two-way repeated measures ANOVA was used to determine whether there was a significant interaction between year and fuel class on mean fuel load.
 
-There was a statistically significant two-way interaction between coarse woody debris class and year, F(12, 96) = 5.302, p-adj. = 2.6e-06, ges = 0.242. A significant two-way interaction indicates that the impact of fuel class on fuel load depends on year (and vice versa).
-
 ```{r class_interaction}
+# There was a statistically significant two-way interaction between coarse woody debris class and year, F(12, 96) = 5.302, p-adj. = 2.6e-06, ges = 0.242. A significant two-way interaction indicates that the impact of fuel class on fuel load depends on year (and vice versa).
+
 wd_class  %>%
  anova_test(dv = value_norm, 
              wid = plot_id, 
@@ -602,11 +609,11 @@ wd_class  %>%
 
 #### Effect of treatment on each fuel class
 
-Because we found a significant interaction between fuel class and year, we conducted a main effect assessment for each fuel class.
-
-We found a significant main effect of year on fuel load for 1-hr, 10-hr (p \< 0.001), 100-hr (p \< 0.01), and 1000-hr sound (p \< 0.05) fuel classes. No significant effect of year on fuel load was found for the 1000-hr sound class. One thing the pairwise comparison by fuel class had in common: For the classes with a significant main effect of year on fuel load, the fuel load in 2016 was significantly different from that in 2021.
-
 ```{r class_main_effect}
+# Because we found a significant interaction between fuel class and year, we conducted a main effect assessment for each fuel class.
+# 
+# We found a significant main effect of year on fuel load for 1-hr, 10-hr (p \< 0.001), 100-hr (p \< 0.01), and 1000-hr sound (p \< 0.05) fuel classes. No significant effect of year on fuel load was found for the 1000-hr sound class. One thing the pairwise comparison by fuel class had in common: For the classes with a significant main effect of year on fuel load, the fuel load in 2016 was significantly different from that in 2021.
+
 wd_class %>%
   group_by(fuel_class) %>%
   anova_test(dv = value_norm, 
@@ -635,11 +642,12 @@ wd_class %>%
 
 ### Pairwise comparisons of mean fuel load between years, by fuel class
 
-We observed a decrease in fuel load immediately after the fire (2017; 0-y post-fire) for all classes of coarse woody debris except 1000-hr sound. Specifically, the fuel load in 2017 for 1-hr, 10-hr, 100-hr, and 1000-hr rotten classes was much lower than pre-fire values; variance was unsurprising. Further, mean values for these four classes remained lower than 2016 values for all post-fire years.
-
-The mean for 1000-hr sound fuels increased immediately after the fire and remained greater than 2016 values for all post-fire years. Variance for this fuel class was elevated in 2017. The temporal trend for all coarse woody debris was more similar to that for the 1000-hr sound fuel class, and showed less similarity to those for other classes. These results suggest that 1000-hr sound fuel was an influential driver of the post-fire patterns observed for all coarse woody debris.
-
 ```{r class_pairwise_comparison}
+# We observed a decrease in fuel load immediately after the fire (2017; 0-y post-fire) for all classes of coarse woody debris except 1000-hr sound. Specifically, the fuel load in 2017 for 1-hr, 10-hr, 100-hr, and 1000-hr rotten classes was much lower than pre-fire values; variance was unsurprising. Further, mean values for these four classes remained lower than 2016 values for all post-fire years.
+# 
+# The mean for 1000-hr sound fuels increased immediately after the fire and remained greater than 2016 values for all post-fire years. Variance for this fuel class was elevated in 2017. The temporal trend for all coarse woody debris was more similar to that for the 1000-hr sound fuel class, and showed less similarity to those for other classes. These results suggest that 1000-hr sound fuel was an influential driver of the post-fire patterns observed for all coarse woody debris.
+
+
 wd_class %>%
   group_by(fuel_class) %>%
   pairwise_t_test(
@@ -667,20 +675,20 @@ wd_class %>%
 
 **1-hour**
 
-A post hoc pairwise comparison showed a significant difference in 1-hr fuel load between 2016-2017, 2016-2021, and 2017-2019 (p \< 0.01); as well as 2019-2021 (p \< 0.05). No other comparisons were significant.
+~~A post hoc pairwise comparison showed a significant difference in 1-hr fuel load between 2016-2017, 2016-2021, and 2017-2019 (p \< 0.01); as well as 2019-2021 (p \< 0.05). No other comparisons were significant.~~
 
 **10-hour**
 
-A post hoc pairwise comparison showed a significant difference in 10-hr fuel load between 2016-2017 (p \< 0.001), 2016-2021 (p \< 0.01), and 2016-2019 (p \< 0.05). No other comparisons were significant.
+~~A post hoc pairwise comparison showed a significant difference in 10-hr fuel load between 2016-2017 (p \< 0.001), 2016-2021 (p \< 0.01), and 2016-2019 (p \< 0.05). No other comparisons were significant.~~
 
 **100-hour**
 
-A post hoc pairwise comparison showed no significant difference in 100-hr fuel load between years 2016-2021 at a significance level of \< 0.05.
+~~A post hoc pairwise comparison showed no significant difference in 100-hr fuel load between years 2016-2021 at a significance level of \< 0.05.~~
 
 **1000-hour rotten**
 
-Post hoc comparisons showed no significant difference in 1000-hr rotten fuel load between years at a significance level of \< 0.05.
+~~Post hoc comparisons showed no significant difference in 1000-hr rotten fuel load between years at a significance level of \< 0.05.~~
 
 **1000-hour sound**
 
-Post hoc comparisons showed no significant difference in 1000-hr sound fuel load between years at a significance level of \< 0.05.
+~~Post hoc comparisons showed no significant difference in 1000-hr sound fuel load between years at a significance level of \< 0.05.~~

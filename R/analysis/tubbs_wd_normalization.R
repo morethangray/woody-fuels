@@ -518,14 +518,6 @@ input_wd <-
          units = ifelse(fuel_type %in% "wd", index_wd_si_abbr, index_wd_si_abbr)) %>%
   filter(fuel_type %in% "wd")  
 
-wd_class <-
-  input_wd %>%
-  filter(metric %in% "mean")
-
-wd_total <-
-  input_wd %>%
-  filter(metric %in% "total")  
-
 wd_eval <- 
   input_wd %>%
   group_by(lab_class, fuel_class) %>%
@@ -535,14 +527,25 @@ wd_eval <-
          value_ordnorm = orderNorm(si_value, standardize = TRUE)$x.t, 
          value_sqrt = sqrt_x(si_value, standardize = TRUE)$x.t) %>%
   ungroup() %>%
-  relocate(c(si_value, us_value, value_norm), .after = last_col()) %>%
-  gather(method, number, value_std:value_norm) %>%
-  select(fuel_class, lab_class, plot_id, time, lab_time_abbr, metric, method, number) 
+  # relocate(c(si_value, us_value, value_norm), .after = last_col()) %>%
+  # gather(method, number, value_std:value_norm) %>%
+  select(fuel_class,
+         plot_id,
+         time, 
+         metric, 
+         starts_with("value"))
+
+wd_class <-
+  wd_eval %>%
+  filter(metric %in% "mean")
+
+wd_total <-
+  wd_eval %>%
+  filter(metric %in% "total")
 
 
-# Total ----
+# Total, main effect  ----
 wd_total %>%
-  mutate(time = lab_time_abbr) %>%
   anova_test(dv = value_norm, 
              wid = plot_id, 
              within = time) %>%
@@ -551,42 +554,171 @@ wd_total %>%
   as_tibble() %>%
   clean_names() %>%
   mutate(method = "me",
-         fuel_type = index_wd,
          fuel_class = "All",
          index_value = "value_norm") %>% 
   rename(statistic = f) %>% 
-  fxn_signif_adj()  %>%
-  select(fuel_class, 
-         method, 
-         effect, 
-         starts_with("p_adj"), 
-         statistic,
-         starts_with("d"), 
-         ges, 
-         starts_with("index"))  %>%
-  fxn_kable()
-
+  fxn_signif_adj()  
 
 wd_total %>%
+  anova_test(dv = value_arcsine, 
+             wid = plot_id, 
+             within = time) %>%
+  get_anova_table() %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  as_tibble() %>%
+  clean_names() %>%
+  mutate(method = "me",
+         fuel_class = "All",
+         index_value = "value_arcsine") %>% 
+  rename(statistic = f) %>% 
+  fxn_signif_adj()  
+
+wd_total %>%
+  anova_test(dv = value_arcsine, 
+             wid = plot_id, 
+             within = time) %>%
+  get_anova_table() %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  as_tibble() %>%
+  clean_names() %>%
+  mutate(method = "me",
+         fuel_class = "All",
+         index_value = "value_arcsine") %>% 
+  rename(statistic = f) %>% 
+  fxn_signif_adj()  
+
+# Mean, interaction  ----
+wd_class  %>%
+  anova_test(dv = value_norm, 
+             wid = plot_id, 
+             within = c(time, fuel_class)) %>%
+  get_anova_table() %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  as_tibble() %>%
+  clean_names() %>%
+  filter(effect %in% "time:fuel_class")    %>%
+  mutate(index_value = "value_norm") %>% 
+  rename(statistic = f) %>% 
+  fxn_signif_adj() 
+
+wd_class  %>%
+  anova_test(dv = value_arcsine, 
+             wid = plot_id, 
+             within = c(time, fuel_class)) %>%
+  get_anova_table() %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  as_tibble() %>%
+  clean_names() %>%
+  filter(effect %in% "time:fuel_class")    %>%
+  mutate(index_value = "value_arcsine") %>% 
+  rename(statistic = f) %>% 
+  fxn_signif_adj() 
+
+wd_class  %>%
+  anova_test(dv = value_sqrt, 
+             wid = plot_id, 
+             within = c(time, fuel_class)) %>%
+  get_anova_table() %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  as_tibble() %>%
+  clean_names() %>%
+  filter(effect %in% "time:fuel_class")    %>%
+  mutate(index_value = "value_sqrt") %>% 
+  rename(statistic = f) %>% 
+  fxn_signif_adj() 
+
+# Mean, main effect  ----
+wd_class %>%
+  group_by(fuel_class) %>%
+  anova_test(dv = value_norm, 
+             wid = plot_id, 
+             within = time) %>%
+  get_anova_table() %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  as_tibble() %>%
+  clean_names() %>%
+  mutate(index_value = "value_norm") %>% 
+  rename(statistic = f) %>% 
+  fxn_signif_adj()  %>%
+  arrange(p_adj) 
+
+wd_class %>%
+  group_by(fuel_class) %>%
+  anova_test(dv = value_arcsine, 
+             wid = plot_id, 
+             within = time) %>%
+  get_anova_table() %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  as_tibble() %>%
+  clean_names() %>%
+  mutate(index_value = "value_arcsine") %>% 
+  rename(statistic = f) %>% 
+  fxn_signif_adj()  %>%
+  arrange(p_adj) 
+
+wd_class %>%
+  group_by(fuel_class) %>%
+  anova_test(dv = value_sqrt, 
+             wid = plot_id, 
+             within = time) %>%
+  get_anova_table() %>%
+  adjust_pvalue(method = "bonferroni") %>%
+  as_tibble() %>%
+  clean_names() %>%
+  mutate(index_value = "value_sqrt") %>% 
+  rename(statistic = f) %>% 
+  fxn_signif_adj()  %>%
+  arrange(p_adj) 
+
+
+wd_eval %>%
+  filter(fuel_class %in% "hr0010") %>%
+  select(-value_norm) %>%
+  gather(method, number, value_std:value_sqrt) %>%
+  ggdensity(x = "number",
+            color = "method") +
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  facet_grid(time ~ method, scales = "free") +
+  xlim(-5, 10)   +
+  theme(legend.position = "right") +
+  labs(x = "Mean fuel load",
+       y = "Density")
+
+wd_eval %>%
+  filter(fuel_class %in% "hr1000r") %>%
+  select(-value_norm) %>%
+  gather(method, number, value_std:value_sqrt) %>%
+  ggdensity(x = "number",
+            color = "method") +
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  facet_grid(time ~ method, scales = "free") +
+  xlim(-5, 10)   +
+  theme(legend.position = "right") +
+  labs(x = "Mean fuel load",
+       y = "Density")
+
+
+
+wd_class %>%
+  group_by(fuel_class) %>%
   pairwise_t_test(
-    value_norm ~ time,
+    value_norm ~ time, 
     paired = TRUE,
     p.adjust.method = "bonferroni") %>%
   clean_names() %>%
-  mutate(method = "pwc",
-         statistic = fxn_digit(statistic),
+  mutate(method = "pwc", 
+         statistic = fxn_digit(statistic), 
          fuel_type = index_wd,
-         fuel_class = "All",
          index_value = "value_norm") %>%
   fxn_signif_adj() %>%
-  select(fuel_class,
-         method,
+  select(fuel_class, 
+         method, 
          starts_with("group"),
-         starts_with("p_adj"),
+         starts_with("p_adj"), 
          statistic,
-         starts_with("d"),
-         starts_with("index"),
+         starts_with("d"), 
+         starts_with("index"), 
          - p_adj_signif) %>%
-  arrange(p_adj)  %>%
+  filter(p_adj < 0.05) %>%
+  arrange(fuel_class, p_adj)   %>%
   fxn_kable()
-# Mean ----
