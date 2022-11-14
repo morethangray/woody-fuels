@@ -102,47 +102,11 @@ fxn_summary_all_plots(index_df = input_all,
 fxn_summary_all_plots(index_df = input_all, 
                       index_units = "us")
 
-# By plot -----
-#   SI units ----
-si_summary_long <- 
-  input_all %>%
-  unite(proj_time, c(plot_type, time)) %>%
-  unite(type_class, c(fuel_type, fuel_class)) %>%
-  group_by(proj_time, 
-           type_class, 
-           lab_fuel, 
-           lab_class,
-           metric, 
-           si_units) %>%
-  summarize(a_mean = mean(si_value, na.rm = TRUE), 
-            b_min = min(si_value, na.rm = TRUE), 
-            c_max = max(si_value, na.rm = TRUE)) %>%
-  ungroup() %>%
-  gather(statistic, value, a_mean:c_max)
-
-# Calculate percent change in mean values for pre- and post-thinning data 
-si_thin_chg <- 
-  si_summary_long %>%
-  filter(statistic %in% "a_mean") %>%
-  spread(proj_time, value) %>%
-  mutate(thin_chg = (thin_t2 - thin_t1) / thin_t1) %>%
-  select(type_class, thin_chg)
-
-si_summary_wide <- 
-  si_summary_long  %>%
-  unite(proj_time_stat, c(proj_time, statistic)) %>%
-  spread(proj_time_stat, value) %>%
-  left_join(si_thin_chg, "type_class") %>%
-  relocate(lab_fuel, 
-           lab_class, 
-           metric,
-           si_units, 
-           starts_with("tubbs"), 
-           starts_with("thin")) %>%
-  arrange(lab_fuel, desc(metric), lab_class)
-
-si_summary_wide %>%
-  write_csv(here(path_out,
-                 paste0("summary-table_by-time_si_",
-                        Sys.Date(),
-                        ".csv")))
+# Plot-level range ----
+input_all %>%
+  filter(plot_type %in% "tubbs", 
+         fuel_type %in% "wd", 
+         fuel_class %in% "all", 
+         time %nin% "2016") %>%
+  summarize(min = min(si_value, na.rm = TRUE) ,
+            max = max(si_value, na.rm = TRUE))
