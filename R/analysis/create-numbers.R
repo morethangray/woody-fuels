@@ -41,7 +41,69 @@ input_all <-
          starts_with("lab"))
 # ========================================================== -----
 # CALCULATE SUMMARY STATISTICS -----
-# SI units ----
+# All plots -----
+index_units <- "si"
+index_df <- input_all
+# Write function -----
+fxn_summary_all_plots <- function(index_df, index_units){
+  
+  name_units <- paste0(index_units, "_units")
+  name_value <- paste0(index_units, "_value")
+  
+ summary_long <- 
+    index_df %>%
+    unite(proj_time, c(plot_type, time)) %>%
+    unite(type_class, c(fuel_type, fuel_class)) %>%
+    rename(units = all_of(name_units), 
+           value = all_of(name_value)) %>%
+    group_by(proj_time, 
+             type_class, 
+             lab_fuel, 
+             lab_class,
+             metric, 
+             units) %>%
+    summarize(a_mean = mean(value, na.rm = TRUE), 
+              b_min = min(value, na.rm = TRUE), 
+              c_max = max(value, na.rm = TRUE)) %>%
+    ungroup() %>%
+    gather(statistic, value, a_mean:c_max)
+  
+  # Calculate percent change in mean values for pre- and post-thinning data 
+  thin_chg <- 
+    summary_long %>%
+    filter(statistic %in% "a_mean") %>%
+    spread(proj_time, value) %>%
+    mutate(thin_chg = (thin_t2 - thin_t1) / thin_t1) %>%
+    select(type_class, thin_chg)
+  
+  summary_long  %>%
+    unite(proj_time_stat, c(proj_time, statistic)) %>%
+    spread(proj_time_stat, value) %>%
+    # Join column for percent change
+    left_join(thin_chg, "type_class") %>%
+    relocate(lab_fuel, 
+             lab_class, 
+             metric,
+             units, 
+             starts_with("tubbs"), 
+             starts_with("thin")) %>%
+    arrange(lab_fuel, desc(metric), lab_class) %>%
+    write_csv(here(path_out,
+                   paste0("summary-table_by-time_all-plots_",
+                          index_units, 
+                          "_",
+                          Sys.Date(),
+                          ".csv")))
+  
+}
+# Summarize by unit type (SI, US) ----
+fxn_summary_all_plots(index_df = input_all, 
+                      index_units = "si")
+fxn_summary_all_plots(index_df = input_all, 
+                      index_units = "us")
+
+# By plot -----
+#   SI units ----
 si_summary_long <- 
   input_all %>%
   unite(proj_time, c(plot_type, time)) %>%
@@ -82,49 +144,5 @@ si_summary_wide <-
 si_summary_wide %>%
   write_csv(here(path_out,
                  paste0("summary-table_by-time_si_",
-                        Sys.Date(),
-                        ".csv")))
-
-# US units ----
-us_summary_long <- 
-  input_all %>%
-  unite(proj_time, c(plot_type, time)) %>%
-  unite(type_class, c(fuel_type, fuel_class)) %>%
-  group_by(proj_time, 
-           type_class, 
-           lab_fuel, 
-           lab_class,
-           metric, 
-           us_units) %>%
-  summarize(a_mean = mean(us_value, na.rm = TRUE), 
-            b_min = min(us_value, na.rm = TRUE), 
-            c_max = max(us_value, na.rm = TRUE)) %>%
-  ungroup() %>%
-  gather(statistic, value, a_mean:c_max)
-
-# Calculate percent change in mean values for pre- and post-thinning data 
-us_thin_chg <- 
-  us_summary_long %>%
-  filter(statistic %in% "a_mean") %>%
-  spread(proj_time, value) %>%
-  mutate(thin_chg = (thin_t2 - thin_t1) / thin_t1) %>%
-  select(type_class, thin_chg)
-
-us_summary_wide <- 
-  us_summary_long  %>%
-  unite(proj_time_stat, c(proj_time, statistic)) %>%
-  spread(proj_time_stat, value) %>%
-  left_join(us_thin_chg, "type_class") %>%
-  relocate(lab_fuel, 
-           lab_class, 
-           metric,
-           us_units, 
-           starts_with("tubbs"), 
-           starts_with("thin")) %>%
-  arrange(lab_fuel, desc(metric), lab_class)
-
-us_summary_wide %>%
-  write_csv(here(path_out,
-                 paste0("summary-table_by-time_us_",
                         Sys.Date(),
                         ".csv")))
