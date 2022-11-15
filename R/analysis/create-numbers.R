@@ -42,10 +42,10 @@ input_all <-
 # ========================================================== -----
 # CALCULATE SUMMARY STATISTICS -----
 # All plots -----
-index_units <- "si"
-index_df <- input_all
+# index_units <- "si"
+# index_df <- input_all
 # Write function -----
-fxn_summary_all_plots <- function(index_df, index_units){
+fxn_summary_all_plots <- function(index_df, index_units, index_write){
   
   name_units <- paste0(index_units, "_units")
   name_value <- paste0(index_units, "_value")
@@ -76,7 +76,8 @@ fxn_summary_all_plots <- function(index_df, index_units){
     mutate(thin_chg = (thin_t2 - thin_t1) / thin_t1) %>%
     select(type_class, thin_chg)
   
-  summary_long  %>%
+  summary_wide <- 
+    summary_long  %>%
     unite(proj_time_stat, c(proj_time, statistic)) %>%
     spread(proj_time_stat, value) %>%
     # Join column for percent change
@@ -87,20 +88,50 @@ fxn_summary_all_plots <- function(index_df, index_units){
              units, 
              starts_with("tubbs"), 
              starts_with("thin")) %>%
-    arrange(lab_fuel, desc(metric), lab_class) %>%
-    write_csv(here(path_out,
-                   paste0("summary-table_by-time_all-plots_",
-                          index_units, 
-                          "_",
-                          Sys.Date(),
-                          ".csv")))
+    arrange(lab_fuel, desc(metric), lab_class) 
+  
+  if(index_write == TRUE){
+    
+    summary_wide %>%
+      write_csv(here(path_out,
+                     paste0("summary-table_by-time_all-plots_",
+                            index_units, 
+                            "_",
+                            Sys.Date(),
+                            ".csv")))
+  }
+  
+  summary_wide
+  
   
 }
 # Summarize by unit type (SI, US) ----
 fxn_summary_all_plots(index_df = input_all, 
-                      index_units = "si")
+                      index_units = "si", 
+                      index_write = TRUE)
 fxn_summary_all_plots(index_df = input_all, 
-                      index_units = "us")
+                      index_units = "us", 
+                      index_write = TRUE)
+
+si_wide <- 
+  fxn_summary_all_plots(index_df = input_all, 
+                      index_units = "si", 
+                      index_write = FALSE)
+
+si_wide
+
+# Pre- and post-fire ----
+input_all %>%
+  filter(plot_type %in% "tubbs") %>%
+  mutate(is_prefire = ifelse(time %in% "2016", TRUE, FALSE)) %>%
+  group_by(fuel_type, fuel_class, is_prefire) %>%
+ 
+         # fuel_type %in% "wd", 
+         # fuel_class %in% "all", 
+         # time %nin% "2016") 
+  summarize(mean = mean(si_value, na.rm = TRUE),
+            min = min(si_value, na.rm = TRUE),
+            max = max(si_value, na.rm = TRUE))
 
 # Plot-level range ----
 input_all %>%
